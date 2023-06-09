@@ -19,10 +19,6 @@
   <ItemGroup>
     <Folder Include="Services\Implementations\Area\" />
     <Folder Include="Services\Implementations\User\" />
-    <Folder Include="HelperService\Implementations\" />
-    <Folder Include="HelperService\Interfaces\" />
-    <Folder Include="Helper\" />
-    <Folder Include="CustomExceptions\" />
     <Folder Include="Dtos\Area\" />
     <Folder Include="Dtos\User\" />
     <Folder Include="Services\Interfaces\Area\" />

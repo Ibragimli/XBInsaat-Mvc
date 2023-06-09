@@ -31,6 +31,8 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+app.AddExceptionHandlerService();
+
 app.UseRouting();
 
 app.UseAuthentication();
