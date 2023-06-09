@@ -1,7 +1,22 @@
+using XBInsaat.Data.Datacontext;
+using System.Configuration;
+using XBInsaat.Mvc.ServiceExtentions;
+using Microsoft.EntityFrameworkCore;
+using FluentValidation.AspNetCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+
+
+//builder.Services.AddControllers().AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<PosterCreateDto>());
+
+builder.Services.AddDbContext<DataContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
+
+builder.Services.AddIdentityServiceExtention();
+builder.Services.AddServiceScopeExtention();
 
 var app = builder.Build();
 
@@ -18,6 +33,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
