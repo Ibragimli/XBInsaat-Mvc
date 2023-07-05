@@ -1,0 +1,39 @@
+.camModal {
+
+    .modal-dialog {
+        .modal-content {
+
+            .modal-body {
+                section {
+                    .container {
+                        .row {
+
+                            .camBox {
+                                padding-right: 28px;
+                                margin-bottom: 25px;
+
+                                a {
+                                    img {
+                                        transition: all 0.4s;
+                                        transform: scale(1);
+                                    }
+                                }
+
+                            }
+
+                            .camBox:hover {
+                                a {
+                                    img {
+                                        transform: translateY(-10px);
+
+
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

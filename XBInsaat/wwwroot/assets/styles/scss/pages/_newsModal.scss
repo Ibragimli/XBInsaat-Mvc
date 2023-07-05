@@ -1,0 +1,87 @@
+#newsModalScrollable {
+
+    .modal-dialog {
+        .modal-content {
+
+            .modal-body {
+                padding-bottom: 20px !important;
+
+                section {
+                    .container {
+                        .row {
+
+                            // justify-content: center;
+
+                            .newsBoxs {
+                                margin-right: 30px;
+                                padding-bottom: 20px;
+
+                                .newsBoxTitle {
+                                    color: #1e2e50d7;
+                                    font-size: 23px;
+
+                                }
+
+                                .newsBoxTitle:hover {
+                                    color: #090e18;
+
+                                }
+
+                                a {
+                                    img {
+                                        width: 100%;
+                                        transition: transform 0.3s;
+                                        transform: scale(1);
+                                    }
+                                }
+
+                                a:hover {
+                                    img {
+                                        transform: translateY(-10px);
+                                    }
+                                }
+
+                                .postReadText {
+                                    color: #2083fe !important;
+                                    transition: all 0.4s;
+                                }
+
+                                .postReadText:hover {
+                                    color: #015ed1;
+                                }
+
+                            }
+                        }
+
+                        .newsBackBtn {
+                            color: #2083fe;
+                            // background-color: #c1dcff; 
+                            background-color: #e4f0ff;
+                            transform: scale(1);
+                            transition: transform 0.4s;
+                            text-transform: uppercase !important;
+                            font-weight: 400 !important;
+                            letter-spacing: 2px !important;
+                            font-size: 16px ;
+                            padding: 0.4rem 1.1rem;
+                            line-height: 1.5;
+                            margin-bottom: 17px;
+
+                            i {
+                                margin-right: 7px;
+                                font-size: .875em;
+                            }
+                        }
+
+                        .newsBackBtn:hover {
+                            transform: translateY(-6px);
+                            background-color: #c1dcff;
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

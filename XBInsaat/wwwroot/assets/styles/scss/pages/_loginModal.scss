@@ -1,0 +1,140 @@
+#loginModalScrollable {
+    .modal-dialog {
+        .modal-content {
+            .modal-body {
+                form {
+                    justify-content: center;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 100%;
+
+                    .loginLogoImage {
+                        a {
+                            img {}
+                        }
+                    }
+
+                    .loginEmail {
+                        padding: 0 0 15px 0;
+                        margin: 0 0 5px 0;
+
+                        label {
+                            margin-bottom: 0.5rem;
+                            vertical-align: middle;
+                            cursor: pointer;
+                        }
+
+                        input {
+                            margin: 0 0 3px 0;
+                            zoom: 1;
+                            min-width: 10px;
+                            max-width: 100%;
+                            width: 100%;
+                            padding: 8px;
+                            height: auto;
+                            line-height: 1.5;
+                            font-size: 1em;
+                            border: 1px solid #e3e3e3;
+                        }
+
+                        input:focus {
+                            outline: none !important;
+                            border-color: #719ECE;
+                            box-shadow: 0 0 10px #719ECE;
+                        }
+                    }
+
+                    .loginPassword {
+                        padding: 0 0 15px 0;
+                        margin: 0 0 5px 0;
+
+                        label {
+                            margin-bottom: 0.5rem;
+                            vertical-align: middle;
+                            cursor: pointer;
+                        }
+
+                        input {
+                            margin: 0 0 3px 0;
+                            zoom: 1;
+                            min-width: 10px;
+                            max-width: 100%;
+                            width: 100%;
+                            padding: 8px;
+                            height: auto;
+                            line-height: 1.5;
+                            font-size: 1em;
+                            border: 1px solid #e3e3e3;
+                        }
+
+                        input:focus {
+                            outline: none !important;
+                            border-color: #719ECE;
+                            box-shadow: 0 0 10px #719ECE;
+                        }
+                    }
+
+                    .loginRememberMe {
+                        padding: 0 0 15px 0;
+                        margin: 0 0 5px 0;
+
+                        input {}
+
+                        span {
+                            position: relative;
+                            vertical-align: middle;
+                            padding-left: 8px;
+                            float: none;
+                            margin: 0;
+                            background-size: cover;
+                            cursor: pointer;
+                            max-width: 100%;
+                        }
+                    }
+
+                    .loginButton {
+                        margin: 10px 0;
+
+                        button {
+                            transition: transform .4s ease-in-out, background-color .4s ease-in-out, border-color .4s ease-in-out, color .4s ease-in-out, -webkit-transform .4s ease-in-out;
+                            padding: 8px 12px;
+                            background: #fff;
+                            border: 1px solid #ccc;
+                            color: #333;
+                            border-radius: 4px;
+                            -webkit-box-shadow: none;
+                            box-shadow: none;
+                            display: block;
+                            margin: 0;
+                            cursor: pointer;
+                            line-height: 1.5;
+                            width: 100%;
+                            max-width: 100%;
+
+                            .spanText {}
+
+                            span {
+                                i {
+                                    margin-left: 10px;
+                                }
+                            }
+                        }
+
+                        button:hover {
+                            background-color: #e6e6e6;
+                            border-color: #adadad;
+                            color: #333;
+                        }
+                    }
+
+                    .loginRequired {
+                        color: #cc0101;
+                        margin: 0 0 0 5px;
+                        font-size: 90%;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}

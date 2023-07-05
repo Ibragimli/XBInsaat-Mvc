@@ -1,0 +1,30 @@
+.prev-btn,
+.next-btn {
+    background-color: transparent;
+    color: #00a7c6;
+    font-size: 46px;
+    text-decoration: none;
+    padding: 10px 20px;
+    /* Kalınlığı buradan ayarlayabilirsiniz */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: opacity 0.3s;
+    /* Geçiş süresini buradan ayarlayabilirsiniz */
+}
+
+.prev-btn {
+    left: 6px;
+}
+
+.next-btn {
+    right: 6px;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+    transition: opacity 0.3s;
+    opacity: 0.7;
+    color: #66c4d4bd;
+    /* İstenilen opaklık değerini buradan ayarlayabilirsiniz */
+}

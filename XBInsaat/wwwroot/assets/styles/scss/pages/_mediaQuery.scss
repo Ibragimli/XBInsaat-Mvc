@@ -1,0 +1,811 @@
+@media (min-width: 800px) {
+
+    .mobile-owl {
+        .item {
+            a {
+                img {
+                    height: 80px !important;
+                    max-height: 80px !important;
+                }
+            }
+        }
+    }
+
+}
+
+@media (max-height: 700px) {
+    #sliderBoxs {
+        .sliderRangeBox {
+            .revolutionSliderclass {
+                .kutus {
+                    .kutu {
+                        a {
+                            .kutuFeature {
+                                width: 200px !important;
+                                height: 200px !important;
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-height: 800px) {
+    #sliderBoxs {
+        .sliderRangeBox {
+            top: 38px !important;
+        }
+    }
+}
+
+// 992-den yuxari
+@media (min-width: 992px) {
+
+    .modal,
+    .fade {
+        background-color: transparent !important;
+
+        .modal-dialog {
+            transform: translate(0, -25px) !important;
+            display: flex !important;
+            align-items: center !important;
+            height: 100vh !important;
+
+            .modal-content {
+
+
+                .modal-body {
+
+                    padding: 1rem 2.1rem 2rem 2rem !important;
+                }
+
+                .modal-footer {
+                    padding: 1rem 2rem 2rem 2rem !important;
+
+                }
+            }
+        }
+    }
+
+    #projectsModalScrollable {
+        .modal-dialog {
+            .modal-content {
+                .modal-body {
+                    section {
+                        .container {
+                            .row {
+                                display: flex;
+                                align-items: center;
+
+                                .col-lg-4 {
+                                    width: 30%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #newsModalScrollable {
+        .modal-dialog {
+            .modal-content {
+                .modal-body {
+                    section {
+                        .container {
+                            .row {
+                                display: flex;
+                                align-items: center;
+
+                                .col-lg-4 {
+                                    width: 30%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .modal-lg,
+    .modal-xl {
+        max-width: 1146px !important;
+    }
+
+    // servisModal
+    #servicesModalScrollable {
+        .modal-dialog {
+            .modal-content {
+                .modal-body {
+                    padding-bottom: 120px !important;
+
+                    .row {
+
+                        .iceri {
+                            padding-left: 2em;
+                            padding-right: 2em;
+                        }
+
+                        .leftP {
+                            padding-left: 2.5em;
+
+                        }
+
+                        .rightP {
+                            padding-right: 2.5em;
+
+                        }
+
+                        .boxPadding {
+                            border-right: 1px solid;
+                            // border-left: 1px solid;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    #contactModalScrollable {
+        .modal-dialog {
+            .modal-content {
+                .modal-body {
+                    .containerContact {
+                        .row {
+                            .contactMap {
+                                padding-right: 30px;
+
+                                border-right: 1px solid;
+                            }
+
+                            .contactInfo {
+                                padding-left: 30px;
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    .modal-xl {
+        max-width: 1290px !important;
+
+    }
+
+    .camModal {
+
+        .modal-body {
+            section {
+                .container {
+                    .row {
+                        .col-lg-4 {
+                            width: 30%;
+
+                        }
+
+                        .camBox {
+                            margin-left: 32px;
+
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media (min-width: 1700px) {
+    #sliderBoxs {
+        .sliderRangeBox {
+            .revolutionSliderclass {
+                .kutus {
+                    .kutu {
+                        a {
+                            .kutuFeature {
+                                width: 250px !important;
+                                height: 250px !important;
+                                padding: 0px 0px 15px 15px !important;
+
+                                span {
+                                    font-weight: bold;
+                                    font-size: 24px !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// asagi
+@media only screen and (max-width: 1346px) {
+
+    #sliderBoxs {
+
+        .sliderRangeBox {
+            left: calc((100vw - 100vw * 0.670)) !important;
+
+            .revolutionSliderclass {
+                .kutus {
+                    .kutu {
+                        a {
+
+                            .kutuFeature {
+
+                                transition: all 0.4s;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    #boxDesctipions {
+        left: calc((100vw - 100vw * 0.845));
+
+        .row {
+            .boxDesc {
+
+                h2 {
+                    font-size: 59px;
+                }
+
+                p {
+                    font-size: 16px;
+                }
+
+                .boxDescButton {
+                    a {
+                        padding: 10px 16px 10px 16px;
+                        font-size: 17px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1200px) {}
+
+@media only screen and (max-width: 1180px) {
+
+    #sliderBoxs {
+        .sliderRangeBox {
+            left: calc((100vw - 100vw * 0.715)) !important;
+
+            .revolutionSliderclass {
+                .kutus {
+                    .kutu {
+                        a {
+
+                            .kutuFeature {
+                                width: 201px !important;
+                                height: 201px !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    #boxDesctipions {
+
+        .row {
+            .boxDesc {
+
+                h2 {
+                    font-size: 56px;
+                }
+
+                p {
+                    font-size: 16px;
+                }
+
+                .boxDescButton {
+                    z-index: 7;
+                    margin-top: 30px;
+
+                    a {
+                        padding: 10px 16px 10px 16px;
+                        font-size: 17px;
+                    }
+
+
+                }
+
+            }
+        }
+    }
+}
+
+// 992-den asagi
+@media only screen and (max-width: 992px) {
+
+    .prev-btn,
+    .next-btn {
+        font-size: 39px !important;
+        padding: 10px 20px;
+    }
+
+    .prev-btn {
+        left: 3px !important;
+    }
+
+    .next-btn {
+        right: 3px !important;
+    }
+
+    .modal,
+    .fade {
+        .modal-dialog {
+            .modal-content {
+                .modal-header {
+                    padding: 1rem 2rem 1rem !important;
+
+                    h2 {
+                        font-size: calc(1.325rem + .9vw) !important;
+
+                    }
+
+                    button {
+                        font-size: 1.2rem;
+                    }
+
+                }
+
+                .modal-body {
+                    padding: 1rem 1.4rem 2rem 1rem !important;
+                    font-size: 1.1rem;
+                }
+
+                .modal-footer {
+                    padding: 1rem 2rem 2rem 2rem !important;
+
+
+                }
+            }
+        }
+    }
+
+    .xbinsaat-web {
+        display: none;
+    }
+
+    .xbinsaat-mobile {
+        display: block !important;
+
+        .kutu {
+            a {
+                .kutuFeature {
+                    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+                }
+            }
+        }
+    }
+
+    // servicesModal
+    #servicesModalScrollable {
+        .modal-dialog {
+            .modal-content {
+                .modal-body {
+                    .row {
+                        .servicesBox {
+                            position: relative;
+                            margin-bottom: 70px;
+
+                            .servicesModalImage {
+
+                                img {
+                                    top: 98% !important;
+                                }
+                            }
+                        }
+
+                        .leftP {
+                            border-top: 1px solid #000;
+                            padding: 20px 0px;
+
+                        }
+
+                        // .iceri {
+                        //     padding: 20px 0px;
+                        //     border-top: 1px solid #000;
+                        // }
+
+                        .rightP {
+                            padding-bottom: 10px;
+                        }
+
+                    }
+                }
+            }
+        }
+
+    }
+
+    //projectsModal
+    #projectsModalScrollable {
+        .modal-dialog {
+            .modal-content {
+                .modal-body {
+                    section {
+                        .container {
+                            .row {
+                                .projectBoxs {
+                                    .projectBoxTitle {
+                                        font-size: 1.25rem !important;
+                                        font-weight: 500;
+                                    }
+
+                                    .postReadText {
+                                        color: #2083fe !important;
+                                        transition: all 0.4s;
+                                    }
+                                }
+                            }
+
+                            .projectBackBtn {
+                                font-size: 14px !important;
+                                padding: 0.4rem 0.7rem;
+                                margin-bottom: 12px !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    //projectModal
+    .projectModal {
+        .modal-dialog {
+            .modal-content {
+                .modal-body {
+                    padding: 1rem 1rem 2rem 1rem !important;
+
+                    section {
+                        .container {
+                            .row {
+                                .projectShops {
+
+                                    h2 {}
+
+                                    .projectShopBoxs {
+                                        padding-right: 10px;
+                                        display: none;
+
+                                        a {
+                                            img {
+                                                width: 100%;
+                                                transition: all 0.4s;
+                                                transform: scale(1);
+                                            }
+                                        }
+
+                                        .projectBoxTitle {
+                                            transition: all 0.4s;
+                                            color: #000;
+
+                                        }
+
+
+                                    }
+
+                                    .mobile-owl {
+                                        display: block !important;
+                                    }
+                                }
+
+                                .projectBackBtn {
+                                    color: #2083fe;
+                                    // background-color: #c1dcff; 
+                                    background-color: #e4f0ff;
+                                    transform: scale(1);
+                                    transition: transform 0.4s;
+                                    text-transform: uppercase !important;
+                                    font-weight: 400 !important;
+                                    letter-spacing: 2px !important;
+                                    font-size: 24ox !important;
+                                    padding: 0.4rem 1.1rem;
+                                    line-height: 1.5;
+                                    margin-bottom: 17px;
+
+                                    i {
+                                        margin-right: 7px;
+                                        font-size: .875em;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #sliderMobileBoxs {
+        .kutus {
+            .col-md-5 {
+                .kutu {
+                    a {
+                        .kutuFeature {
+                            width: 200px;
+                            height: 200px;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+    .projectInfoModal {
+        .modal-dialog {
+            .modal-content {
+                .modal-body {
+                    h1 {
+                        padding: 0px 15px;
+
+                    }
+
+                    p {
+                        padding: 0px 15px;
+                    }
+                }
+            }
+        }
+
+    }
+
+    #newsModalScrollable {
+        .modal-dialog {
+            .modal-content {
+                .modal-body {
+                    section {
+                        .container {
+                            .row {
+                                .newsBoxs {
+                                    .newsBoxTitle {
+                                        font-size: 1.25rem !important;
+
+                                    }
+                                }
+                            }
+
+                            .newsBackBtn {
+                                font-size: 14px !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    #contactModalScrollable {
+        .modal-dialog {
+            .modal-content {
+                .modal-body {
+                    .containerContact {
+                        padding: 0px 20px 25px 20px !important;
+
+                        .row {
+                            .contactMap {
+                                padding-bottom: 30px;
+                                border-bottom: 1px solid;
+                            }
+
+                            .contactInfo {
+                                padding-top: 30px;
+
+
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+
+    #loginModalScrollable {
+        .modal-dialog {
+            .modal-content {
+                .modal-body {
+                    margin-bottom: 30px;
+
+                    form {
+
+                        .loginLogoImage {
+                            a {
+                                img {
+                                    margin: 20px 0px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #camsModalScrollable {
+        .modal-dialog {
+            .modal-content {
+
+
+                .modal-body {
+                    section {
+                        .container {
+                            .row {
+                                justify-content: center;
+                                align-items: center;
+
+                                .camBox {
+                                    padding-right: 0px !important;
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+
+    .camModal {
+        .modal-body {
+            section {
+                .container {
+                    .row {
+                        justify-content: center;
+
+                        .camBox {
+                            padding-right: 5px !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #userModal {
+        .modal-dialog {
+            .modal-content {
+                .modal-body {
+                    padding-top: 4px !important;
+                    padding-bottom: 8px !important;
+
+                    .row {
+                        margin-top: 10px !important;
+
+                        .nav {
+                            padding-left: 3px !important;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .mobile-owl {
+        .item {
+            a {
+                img {
+                    height: 150px !important;
+                    max-height: 150px !important;
+                    object-fit: fill !important;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    #sliderMobileBoxs {
+        .kutus {
+
+            .kutu {
+                a {
+                    .kutuFeature {
+                        width: 156px !important;
+                        height: 156px !important;
+
+                        span {
+                            font-size: 19px !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    header {
+
+        #headerSection {
+
+            .row {
+
+                .headLogo {
+
+                    .headImageBox {
+                        width: 192px !important;
+                        height: 56px !important;
+                    }
+                }
+
+                .headRight {
+
+                    top: 24px !important;
+                    z-index: 30 !important;
+                    right: calc((100vw - 100vw * 1.89)) !important;
+
+                    .headLoginLangueage {
+
+                        .headLanguage {
+
+                            .dropdown {
+
+                                width: 50px;
+                                box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                                padding: 7px 0px 7px 7px;
+                                font-size: 18px;
+
+                                .arrow-down {
+                                    position: absolute;
+                                    top: 50%;
+                                    right: 8px;
+                                    width: 8px;
+                                    height: 8px;
+                                }
+
+
+
+                                .dropdown-content {
+                                    width: 50px;
+                                }
+                            }
+
+                        }
+
+                        .headLogin {
+
+                            height: 42px !important;
+                            width: 42px !important;
+                        }
+
+
+                    }
+                }
+            }
+        }
+
+    }
+}

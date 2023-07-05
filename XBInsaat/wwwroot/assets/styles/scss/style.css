@@ -1,0 +1,1377 @@
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Merriweather:400,300italic,300,400italic,700,700italic);
+body main {
+  position: relative; }
+
+header {
+  position: relative; }
+  header #headerSection {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 20; }
+    header #headerSection .row .headLogo {
+      position: absolute;
+      display: block;
+      pointer-events: auto;
+      left: calc((100vw - 100vw * 0.96));
+      top: 26px;
+      z-index: 19; }
+      header #headerSection .row .headLogo .headImageBox {
+        z-index: 8;
+        cursor: pointer;
+        color: white;
+        width: 218px;
+        height: 63px;
+        min-height: 0px;
+        min-width: 0px;
+        max-height: none;
+        max-width: none;
+        backdrop-filter: none;
+        filter: brightness(100%);
+        transform-origin: 50% 50%;
+        opacity: 1;
+        transform: translate(0px, 0px);
+        visibility: visible;
+        border-width: 0px; }
+        header #headerSection .row .headLogo .headImageBox a img {
+          position: relative;
+          height: 100%;
+          width: 100%; }
+    header #headerSection .row .headRight {
+      position: absolute;
+      display: block;
+      pointer-events: auto;
+      right: calc((100vw - 100vw * 1.93));
+      top: 26px;
+      z-index: 19; }
+      header #headerSection .row .headRight .headLoginLangueage {
+        display: flex;
+        flex-direction: column;
+        align-items: center; }
+        header #headerSection .row .headRight .headLoginLangueage .headLanguage .dropdown {
+          z-index: 24;
+          visibility: visible;
+          perspective: 601px;
+          display: inline-block;
+          background-color: #f9f9f9;
+          width: 54px;
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+          padding: 8px 0px 8px 8px;
+          z-index: 21;
+          border-radius: 9px;
+          cursor: pointer;
+          color: #8e8e93;
+          text-decoration: none;
+          white-space: nowrap;
+          line-height: 25px;
+          letter-spacing: 0px;
+          font-weight: 400;
+          font-size: 20px;
+          opacity: 1;
+          transform: translate(0px, 0px);
+          visibility: visible;
+          border-width: 0px; }
+          header #headerSection .row .headRight .headLoginLangueage .headLanguage .dropdown .arrow-down {
+            position: absolute;
+            top: 50%;
+            right: 7px;
+            transform: translateY(-50%) rotate(135deg);
+            width: 10px;
+            height: 10px;
+            border-left: 3px solid rgba(142, 142, 147, 0.671);
+            border-bottom: 3px solid rgba(142, 142, 147, 0.671);
+            color: #8e8e93; }
+          header #headerSection .row .headRight .headLoginLangueage .headLanguage .dropdown a {
+            color: #8e8e93;
+            text-decoration: none; }
+          header #headerSection .row .headRight .headLoginLangueage .headLanguage .dropdown .dropdown-content {
+            color: #8e8e93;
+            border-radius: 7px;
+            border-top-left-radius: 2px;
+            border-top-right-radius: 2px;
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            width: 54px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            padding: 8px 0;
+            top: 30px;
+            left: 0px; }
+            header #headerSection .row .headRight .headLoginLangueage .headLanguage .dropdown .dropdown-content ul {
+              list-style: none;
+              padding: 0;
+              margin: 0; }
+              header #headerSection .row .headRight .headLoginLangueage .headLanguage .dropdown .dropdown-content ul li {
+                padding: 5px 10px;
+                cursor: pointer;
+                transition: background-color 0.3s ease; }
+                header #headerSection .row .headRight .headLoginLangueage .headLanguage .dropdown .dropdown-content ul li a {
+                  color: #8e8e93;
+                  cursor: pointer;
+                  transition: background-color 0.3s ease; }
+              header #headerSection .row .headRight .headLoginLangueage .headLanguage .dropdown .dropdown-content ul li:hover {
+                background-color: #e9e9e9; }
+        header #headerSection .row .headRight .headLoginLangueage .headLanguage .active .dropdown-content {
+          display: block; }
+        header #headerSection .row .headRight .headLoginLangueage .headLanguage .active .arrow-down {
+          transform: translateY(-50%) rotate(-45deg); }
+        header #headerSection .row .headRight .headLoginLangueage .headLogin {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          z-index: 19;
+          background-color: white;
+          cursor: pointer;
+          height: 47px;
+          width: 47px;
+          color: white;
+          text-decoration: none;
+          border-radius: 30px;
+          opacity: 1;
+          transform: translate(0px, 0px);
+          visibility: visible;
+          border-color: white;
+          padding: 4px;
+          transition: all 0.4s; }
+          header #headerSection .row .headRight .headLoginLangueage .headLogin a {
+            transition: all 0.4s; }
+            header #headerSection .row .headRight .headLoginLangueage .headLogin a .userWhiteImage {
+              display: none;
+              transition: all 0.4s; }
+            header #headerSection .row .headRight .headLoginLangueage .headLogin a img {
+              width: 100% !important;
+              border-radius: 50%;
+              transition: all 0.4s; }
+            header #headerSection .row .headRight .headLoginLangueage .headLogin a .userImage {
+              transition: all 0.4s; }
+        header #headerSection .row .headRight .headLoginLangueage .headLogin:hover {
+          background-color: #00a7c6; }
+          header #headerSection .row .headRight .headLoginLangueage .headLogin:hover a .userImage {
+            display: none;
+            transition: all 0.4s; }
+          header #headerSection .row .headRight .headLoginLangueage .headLogin:hover a .userWhiteImage {
+            display: block;
+            transition: all 0.4s; }
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol,
+ul {
+  list-style: none; }
+
+blockquote,
+q {
+  quotes: none; }
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* url(../fonts/SpartanMB-Medium.ttf) format("truetype"), url(../fonts/SpartanMB-Medium.woff) format("woff"), url(../fonts/SpartanMB-Medium.woff2) format("woff2") */
+@font-face {
+  font-family: SpartanMB;
+  src: url(../fonts/SpartanMB-Medium.eot);
+  src: url(../fonts/SpartanMB-Medium%EF%B9%96.eot#iefix) format("embedded-opentype"), url(../fonts/SpartanMB-Medium.svg#SpartanMB-Medium) format("svg");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap; }
+@font-face {
+  font-family: SpartanMB;
+  src: url(../fonts/SpartanMB-SemiBold.eot);
+  src: url(../fonts/SpartanMB-SemiBold%EF%B9%96.eot#iefix) format("embedded-opentype"), url(../fonts/SpartanMB-SemiBold.svg#SpartanMB-SemiBold) format("svg"), url(../fonts/SpartanMB-SemiBold.ttf) format("truetype"), url(../fonts/SpartanMB-SemiBold.woff) format("woff"), url(../fonts/SpartanMB-SemiBold.woff2) format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap; }
+@font-face {
+  font-family: SpartanMB;
+  src: url(../fonts/SpartanMB-Bold.eot);
+  src: url(../fonts/SpartanMB-Bold%EF%B9%96.eot#iefix) format("embedded-opentype"), url(../fonts/SpartanMB-Bold.svg#SpartanMB-Bold) format("svg"), url(../fonts/SpartanMB-Bold.ttf) format("truetype"), url(../fonts/SpartanMB-Bold.woff) format("woff"), url(../fonts/SpartanMB-Bold.woff2) format("woff2");
+  font-weight: 600;
+  font-style: normal; }
+* {
+  box-sizing: border-box; }
+  * h1,
+  * h2,
+  * h3,
+  * h4,
+  * h5,
+  * h6,
+  * a,
+  * p,
+  * span,
+  * li {
+    font-family: SpartanMB, sans-serif;
+    color: #111111; }
+
+body {
+  background-color: #eeecec; }
+  body .xbinsaat-mobile {
+    display: none; }
+  body .row {
+    --bs-gutter-x: 0rem; }
+  body ul {
+    padding: 0px;
+    margin-bottom: 0px; }
+  body a {
+    text-decoration: none; }
+
+@media (min-width: 800px) {
+  .mobile-owl .item a img {
+    height: 80px !important;
+    max-height: 80px !important; } }
+@media (max-height: 700px) {
+  #sliderBoxs .sliderRangeBox .revolutionSliderclass .kutus .kutu a .kutuFeature {
+    width: 200px !important;
+    height: 200px !important; } }
+@media (min-height: 800px) {
+  #sliderBoxs .sliderRangeBox {
+    top: 38px !important; } }
+@media (min-width: 992px) {
+  .modal,
+  .fade {
+    background-color: transparent !important; }
+    .modal .modal-dialog,
+    .fade .modal-dialog {
+      transform: translate(0, -25px) !important;
+      display: flex !important;
+      align-items: center !important;
+      height: 100vh !important; }
+      .modal .modal-dialog .modal-content .modal-body,
+      .fade .modal-dialog .modal-content .modal-body {
+        padding: 1rem 2.1rem 2rem 2rem !important; }
+      .modal .modal-dialog .modal-content .modal-footer,
+      .fade .modal-dialog .modal-content .modal-footer {
+        padding: 1rem 2rem 2rem 2rem !important; }
+
+  #projectsModalScrollable .modal-dialog .modal-content .modal-body section .container .row {
+    display: flex;
+    align-items: center; }
+    #projectsModalScrollable .modal-dialog .modal-content .modal-body section .container .row .col-lg-4 {
+      width: 30%; }
+
+  #newsModalScrollable .modal-dialog .modal-content .modal-body section .container .row {
+    display: flex;
+    align-items: center; }
+    #newsModalScrollable .modal-dialog .modal-content .modal-body section .container .row .col-lg-4 {
+      width: 30%; }
+
+  .modal-lg,
+  .modal-xl {
+    max-width: 1146px !important; }
+
+  #servicesModalScrollable .modal-dialog .modal-content .modal-body {
+    padding-bottom: 120px !important; }
+    #servicesModalScrollable .modal-dialog .modal-content .modal-body .row .iceri {
+      padding-left: 2em;
+      padding-right: 2em; }
+    #servicesModalScrollable .modal-dialog .modal-content .modal-body .row .leftP {
+      padding-left: 2.5em; }
+    #servicesModalScrollable .modal-dialog .modal-content .modal-body .row .rightP {
+      padding-right: 2.5em; }
+    #servicesModalScrollable .modal-dialog .modal-content .modal-body .row .boxPadding {
+      border-right: 1px solid; }
+
+  #contactModalScrollable .modal-dialog .modal-content .modal-body .containerContact .row .contactMap {
+    padding-right: 30px;
+    border-right: 1px solid; }
+  #contactModalScrollable .modal-dialog .modal-content .modal-body .containerContact .row .contactInfo {
+    padding-left: 30px; } }
+@media (min-width: 1200px) {
+  .modal-xl {
+    max-width: 1290px !important; }
+
+  .camModal .modal-body section .container .row .col-lg-4 {
+    width: 30%; }
+  .camModal .modal-body section .container .row .camBox {
+    margin-left: 32px; } }
+@media (min-width: 1700px) {
+  #sliderBoxs .sliderRangeBox .revolutionSliderclass .kutus .kutu a .kutuFeature {
+    width: 250px !important;
+    height: 250px !important;
+    padding: 0px 0px 15px 15px !important; }
+    #sliderBoxs .sliderRangeBox .revolutionSliderclass .kutus .kutu a .kutuFeature span {
+      font-weight: bold;
+      font-size: 24px !important; } }
+@media only screen and (max-width: 1346px) {
+  #sliderBoxs .sliderRangeBox {
+    left: calc((100vw - 100vw * 0.670)) !important; }
+    #sliderBoxs .sliderRangeBox .revolutionSliderclass .kutus .kutu a .kutuFeature {
+      transition: all 0.4s; }
+
+  #boxDesctipions {
+    left: calc((100vw - 100vw * 0.845)); }
+    #boxDesctipions .row .boxDesc h2 {
+      font-size: 59px; }
+    #boxDesctipions .row .boxDesc p {
+      font-size: 16px; }
+    #boxDesctipions .row .boxDesc .boxDescButton a {
+      padding: 10px 16px 10px 16px;
+      font-size: 17px; } }
+@media only screen and (max-width: 1180px) {
+  #sliderBoxs .sliderRangeBox {
+    left: calc((100vw - 100vw * 0.715)) !important; }
+    #sliderBoxs .sliderRangeBox .revolutionSliderclass .kutus .kutu a .kutuFeature {
+      width: 201px !important;
+      height: 201px !important; }
+
+  #boxDesctipions .row .boxDesc h2 {
+    font-size: 56px; }
+  #boxDesctipions .row .boxDesc p {
+    font-size: 16px; }
+  #boxDesctipions .row .boxDesc .boxDescButton {
+    z-index: 7;
+    margin-top: 30px; }
+    #boxDesctipions .row .boxDesc .boxDescButton a {
+      padding: 10px 16px 10px 16px;
+      font-size: 17px; } }
+@media only screen and (max-width: 992px) {
+  .prev-btn,
+  .next-btn {
+    font-size: 39px !important;
+    padding: 10px 20px; }
+
+  .prev-btn {
+    left: 3px !important; }
+
+  .next-btn {
+    right: 3px !important; }
+
+  .modal .modal-dialog .modal-content .modal-header,
+  .fade .modal-dialog .modal-content .modal-header {
+    padding: 1rem 2rem 1rem !important; }
+    .modal .modal-dialog .modal-content .modal-header h2,
+    .fade .modal-dialog .modal-content .modal-header h2 {
+      font-size: calc(1.325rem + .9vw) !important; }
+    .modal .modal-dialog .modal-content .modal-header button,
+    .fade .modal-dialog .modal-content .modal-header button {
+      font-size: 1.2rem; }
+  .modal .modal-dialog .modal-content .modal-body,
+  .fade .modal-dialog .modal-content .modal-body {
+    padding: 1rem 1.4rem 2rem 1rem !important;
+    font-size: 1.1rem; }
+  .modal .modal-dialog .modal-content .modal-footer,
+  .fade .modal-dialog .modal-content .modal-footer {
+    padding: 1rem 2rem 2rem 2rem !important; }
+
+  .xbinsaat-web {
+    display: none; }
+
+  .xbinsaat-mobile {
+    display: block !important; }
+    .xbinsaat-mobile .kutu a .kutuFeature {
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px; }
+
+  #servicesModalScrollable .modal-dialog .modal-content .modal-body .row .servicesBox {
+    position: relative;
+    margin-bottom: 70px; }
+    #servicesModalScrollable .modal-dialog .modal-content .modal-body .row .servicesBox .servicesModalImage img {
+      top: 98% !important; }
+  #servicesModalScrollable .modal-dialog .modal-content .modal-body .row .leftP {
+    border-top: 1px solid #000;
+    padding: 20px 0px; }
+  #servicesModalScrollable .modal-dialog .modal-content .modal-body .row .rightP {
+    padding-bottom: 10px; }
+
+  #projectsModalScrollable .modal-dialog .modal-content .modal-body section .container .row .projectBoxs .projectBoxTitle {
+    font-size: 1.25rem !important;
+    font-weight: 500; }
+  #projectsModalScrollable .modal-dialog .modal-content .modal-body section .container .row .projectBoxs .postReadText {
+    color: #2083fe !important;
+    transition: all 0.4s; }
+  #projectsModalScrollable .modal-dialog .modal-content .modal-body section .container .projectBackBtn {
+    font-size: 14px !important;
+    padding: 0.4rem 0.7rem;
+    margin-bottom: 12px !important; }
+
+  .projectModal .modal-dialog .modal-content .modal-body {
+    padding: 1rem 1rem 2rem 1rem !important; }
+    .projectModal .modal-dialog .modal-content .modal-body section .container .row .projectShops .projectShopBoxs {
+      padding-right: 10px;
+      display: none; }
+      .projectModal .modal-dialog .modal-content .modal-body section .container .row .projectShops .projectShopBoxs a img {
+        width: 100%;
+        transition: all 0.4s;
+        transform: scale(1); }
+      .projectModal .modal-dialog .modal-content .modal-body section .container .row .projectShops .projectShopBoxs .projectBoxTitle {
+        transition: all 0.4s;
+        color: #000; }
+    .projectModal .modal-dialog .modal-content .modal-body section .container .row .projectShops .mobile-owl {
+      display: block !important; }
+    .projectModal .modal-dialog .modal-content .modal-body section .container .row .projectBackBtn {
+      color: #2083fe;
+      background-color: #e4f0ff;
+      transform: scale(1);
+      transition: transform 0.4s;
+      text-transform: uppercase !important;
+      font-weight: 400 !important;
+      letter-spacing: 2px !important;
+      font-size: 24ox !important;
+      padding: 0.4rem 1.1rem;
+      line-height: 1.5;
+      margin-bottom: 17px; }
+      .projectModal .modal-dialog .modal-content .modal-body section .container .row .projectBackBtn i {
+        margin-right: 7px;
+        font-size: .875em; }
+
+  #sliderMobileBoxs .kutus .col-md-5 .kutu a .kutuFeature {
+    width: 200px;
+    height: 200px; }
+
+  .projectInfoModal .modal-dialog .modal-content .modal-body h1 {
+    padding: 0px 15px; }
+  .projectInfoModal .modal-dialog .modal-content .modal-body p {
+    padding: 0px 15px; }
+
+  #newsModalScrollable .modal-dialog .modal-content .modal-body section .container .row .newsBoxs .newsBoxTitle {
+    font-size: 1.25rem !important; }
+  #newsModalScrollable .modal-dialog .modal-content .modal-body section .container .newsBackBtn {
+    font-size: 14px !important; }
+
+  #contactModalScrollable .modal-dialog .modal-content .modal-body .containerContact {
+    padding: 0px 20px 25px 20px !important; }
+    #contactModalScrollable .modal-dialog .modal-content .modal-body .containerContact .row .contactMap {
+      padding-bottom: 30px;
+      border-bottom: 1px solid; }
+    #contactModalScrollable .modal-dialog .modal-content .modal-body .containerContact .row .contactInfo {
+      padding-top: 30px; }
+
+  #loginModalScrollable .modal-dialog .modal-content .modal-body {
+    margin-bottom: 30px; }
+    #loginModalScrollable .modal-dialog .modal-content .modal-body form .loginLogoImage a img {
+      margin: 20px 0px; }
+
+  #camsModalScrollable .modal-dialog .modal-content .modal-body section .container .row {
+    justify-content: center;
+    align-items: center; }
+    #camsModalScrollable .modal-dialog .modal-content .modal-body section .container .row .camBox {
+      padding-right: 0px !important; }
+
+  .camModal .modal-body section .container .row {
+    justify-content: center; }
+    .camModal .modal-body section .container .row .camBox {
+      padding-right: 5px !important; }
+
+  #userModal .modal-dialog .modal-content .modal-body {
+    padding-top: 4px !important;
+    padding-bottom: 8px !important; }
+    #userModal .modal-dialog .modal-content .modal-body .row {
+      margin-top: 10px !important; }
+      #userModal .modal-dialog .modal-content .modal-body .row .nav {
+        padding-left: 3px !important; } }
+@media only screen and (max-width: 800px) {
+  .mobile-owl .item a img {
+    height: 150px !important;
+    max-height: 150px !important;
+    object-fit: fill !important; } }
+@media only screen and (max-width: 576px) {
+  #sliderMobileBoxs .kutus .kutu a .kutuFeature {
+    width: 156px !important;
+    height: 156px !important; }
+    #sliderMobileBoxs .kutus .kutu a .kutuFeature span {
+      font-size: 19px !important; } }
+@media only screen and (max-width: 450px) {
+  header #headerSection .row .headLogo .headImageBox {
+    width: 192px !important;
+    height: 56px !important; }
+  header #headerSection .row .headRight {
+    top: 24px !important;
+    z-index: 30 !important;
+    right: calc((100vw - 100vw * 1.89)) !important; }
+    header #headerSection .row .headRight .headLoginLangueage .headLanguage .dropdown {
+      width: 50px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      padding: 7px 0px 7px 7px;
+      font-size: 18px; }
+      header #headerSection .row .headRight .headLoginLangueage .headLanguage .dropdown .arrow-down {
+        position: absolute;
+        top: 50%;
+        right: 8px;
+        width: 8px;
+        height: 8px; }
+      header #headerSection .row .headRight .headLoginLangueage .headLanguage .dropdown .dropdown-content {
+        width: 50px; }
+    header #headerSection .row .headRight .headLoginLangueage .headLogin {
+      height: 42px !important;
+      width: 42px !important; } }
+.slider {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transition: all 0.8s; }
+  .slider .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all 0.8s; }
+    .slider .slide.revoActive {
+      transition: all 0.8s;
+      opacity: 1; }
+    .slider .slide img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover;
+      pointer-events: none; }
+
+.modal,
+.fade {
+  background-color: transparent !important; }
+  .modal .modal-dialog .modal-content,
+  .fade .modal-dialog .modal-content {
+    border: 0px solid rgba(0, 0, 0, 0.2) !important;
+    border-radius: 1.5rem !important;
+    box-shadow: 0 1rem 3rem rgba(35, 38, 45, 0.275); }
+    .modal .modal-dialog .modal-content .modal-header,
+    .fade .modal-dialog .modal-content .modal-header {
+      padding: 1rem 2rem 1rem !important;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      border-bottom: 1px solid #dee2e6;
+      border-top-left-radius: calc(0.3rem - 1px);
+      border-top-right-radius: calc(0.3rem - 1px); }
+      .modal .modal-dialog .modal-content .modal-header h2,
+      .fade .modal-dialog .modal-content .modal-header h2 {
+        color: #00a7c6;
+        margin-bottom: 0;
+        line-height: 1.5;
+        font-size: 2.5rem;
+        font-weight: 500; }
+      .modal .modal-dialog .modal-content .modal-header button,
+      .fade .modal-dialog .modal-content .modal-header button {
+        padding: 1rem 1rem;
+        margin: -1rem -1rem -1rem auto;
+        float: right;
+        font-weight: 700;
+        line-height: 1;
+        color: #000000c0;
+        opacity: .5;
+        background-color: transparent;
+        border: none;
+        font-size: 1.2rem; }
+      .modal .modal-dialog .modal-content .modal-header button:hover,
+      .fade .modal-dialog .modal-content .modal-header button:hover {
+        color: #000 !important; }
+    .modal .modal-dialog .modal-content .modal-body,
+    .fade .modal-dialog .modal-content .modal-body {
+      font-size: 1.1rem;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #212529;
+      text-align: left; }
+    .modal .modal-dialog .modal-content .modal-footer,
+    .fade .modal-dialog .modal-content .modal-footer {
+      padding: 1rem 2rem 2rem 2rem !important; }
+
+.show {
+  display: block !important; }
+
+.modal-body::-webkit-scrollbar {
+  width: 6px;
+  border-radius: 10px;
+  /* Kaydırma çubuğu genişliği */ }
+
+.modal-body::-webkit-scrollbar-thumb {
+  background-color: #00a8c6c9;
+  /* Kaydırma çubuğu rengi */ }
+
+.modal-body::-webkit-scrollbar-track {
+  background-color: #ffffff;
+  /* Kaydırma çubuğu arka plan rengi */ }
+
+/* İçerik kaydırma çubuğu stilleri (Firefox) */
+.modal-body {
+  scrollbar-width: thin;
+  scrollbar-color: #00a8c6c9 #ffffff; }
+
+.modal-body::-moz-scrollbar {
+  width: 6px;
+  border-radius: 10px; }
+
+.modal-body::-moz-scrollbar-thumb {
+  background-color: #00a8c6c9; }
+
+.modal-body::-moz-scrollbar-track {
+  background-color: #ffffff; }
+
+#servicesModalScrollable .modal-dialog .modal-content .modal-body .row .servicesBox {
+  position: relative; }
+  #servicesModalScrollable .modal-dialog .modal-content .modal-body .row .servicesBox .servicesModalImage img {
+    position: absolute;
+    top: 96%;
+    left: 45%; }
+
+#loginModalScrollable .modal-dialog .modal-content .modal-body form {
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; }
+  #loginModalScrollable .modal-dialog .modal-content .modal-body form .loginEmail {
+    padding: 0 0 15px 0;
+    margin: 0 0 5px 0; }
+    #loginModalScrollable .modal-dialog .modal-content .modal-body form .loginEmail label {
+      margin-bottom: 0.5rem;
+      vertical-align: middle;
+      cursor: pointer; }
+    #loginModalScrollable .modal-dialog .modal-content .modal-body form .loginEmail input {
+      margin: 0 0 3px 0;
+      zoom: 1;
+      min-width: 10px;
+      max-width: 100%;
+      width: 100%;
+      padding: 8px;
+      height: auto;
+      line-height: 1.5;
+      font-size: 1em;
+      border: 1px solid #e3e3e3; }
+    #loginModalScrollable .modal-dialog .modal-content .modal-body form .loginEmail input:focus {
+      outline: none !important;
+      border-color: #719ECE;
+      box-shadow: 0 0 10px #719ECE; }
+  #loginModalScrollable .modal-dialog .modal-content .modal-body form .loginPassword {
+    padding: 0 0 15px 0;
+    margin: 0 0 5px 0; }
+    #loginModalScrollable .modal-dialog .modal-content .modal-body form .loginPassword label {
+      margin-bottom: 0.5rem;
+      vertical-align: middle;
+      cursor: pointer; }
+    #loginModalScrollable .modal-dialog .modal-content .modal-body form .loginPassword input {
+      margin: 0 0 3px 0;
+      zoom: 1;
+      min-width: 10px;
+      max-width: 100%;
+      width: 100%;
+      padding: 8px;
+      height: auto;
+      line-height: 1.5;
+      font-size: 1em;
+      border: 1px solid #e3e3e3; }
+    #loginModalScrollable .modal-dialog .modal-content .modal-body form .loginPassword input:focus {
+      outline: none !important;
+      border-color: #719ECE;
+      box-shadow: 0 0 10px #719ECE; }
+  #loginModalScrollable .modal-dialog .modal-content .modal-body form .loginRememberMe {
+    padding: 0 0 15px 0;
+    margin: 0 0 5px 0; }
+    #loginModalScrollable .modal-dialog .modal-content .modal-body form .loginRememberMe span {
+      position: relative;
+      vertical-align: middle;
+      padding-left: 8px;
+      float: none;
+      margin: 0;
+      background-size: cover;
+      cursor: pointer;
+      max-width: 100%; }
+  #loginModalScrollable .modal-dialog .modal-content .modal-body form .loginButton {
+    margin: 10px 0; }
+    #loginModalScrollable .modal-dialog .modal-content .modal-body form .loginButton button {
+      transition: transform .4s ease-in-out, background-color .4s ease-in-out, border-color .4s ease-in-out, color .4s ease-in-out, -webkit-transform .4s ease-in-out;
+      padding: 8px 12px;
+      background: #fff;
+      border: 1px solid #ccc;
+      color: #333;
+      border-radius: 4px;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      display: block;
+      margin: 0;
+      cursor: pointer;
+      line-height: 1.5;
+      width: 100%;
+      max-width: 100%; }
+      #loginModalScrollable .modal-dialog .modal-content .modal-body form .loginButton button span i {
+        margin-left: 10px; }
+    #loginModalScrollable .modal-dialog .modal-content .modal-body form .loginButton button:hover {
+      background-color: #e6e6e6;
+      border-color: #adadad;
+      color: #333; }
+  #loginModalScrollable .modal-dialog .modal-content .modal-body form .loginRequired {
+    color: #cc0101;
+    margin: 0 0 0 5px;
+    font-size: 90%;
+    cursor: pointer; }
+
+#projectsModalScrollable .modal-dialog .modal-content .modal-body {
+  padding-bottom: 20px !important; }
+  #projectsModalScrollable .modal-dialog .modal-content .modal-body section .container .row .projectBoxs {
+    margin-right: 30px;
+    padding-bottom: 20px; }
+    #projectsModalScrollable .modal-dialog .modal-content .modal-body section .container .row .projectBoxs .projectBoxTitle {
+      color: #1e2e50d7;
+      font-size: 23px; }
+    #projectsModalScrollable .modal-dialog .modal-content .modal-body section .container .row .projectBoxs .projectBoxTitle:hover {
+      color: #090e18; }
+    #projectsModalScrollable .modal-dialog .modal-content .modal-body section .container .row .projectBoxs a img {
+      width: 100%;
+      transition: transform 0.3s;
+      transform: scale(1);
+      max-height: 132px; }
+    #projectsModalScrollable .modal-dialog .modal-content .modal-body section .container .row .projectBoxs a:hover img {
+      transform: translateY(-10px); }
+    #projectsModalScrollable .modal-dialog .modal-content .modal-body section .container .row .projectBoxs .postReadText {
+      color: #2083fe !important;
+      transition: all 0.4s; }
+    #projectsModalScrollable .modal-dialog .modal-content .modal-body section .container .row .projectBoxs .postReadText:hover {
+      color: #015ed1; }
+  #projectsModalScrollable .modal-dialog .modal-content .modal-body section .container .projectBackBtn {
+    color: #2083fe;
+    background-color: #e4f0ff;
+    transform: scale(1);
+    transition: transform 0.4s;
+    text-transform: uppercase !important;
+    font-weight: 400 !important;
+    letter-spacing: 2px !important;
+    font-size: 16px;
+    padding: 0.4rem 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 17px; }
+    #projectsModalScrollable .modal-dialog .modal-content .modal-body section .container .projectBackBtn i {
+      margin-right: 7px;
+      font-size: .875em; }
+  #projectsModalScrollable .modal-dialog .modal-content .modal-body section .container .projectBackBtn:hover {
+    transform: translateY(-6px);
+    background-color: #c1dcff; }
+
+#contactModalScrollable .modal-dialog .modal-content .modal-body .containerContact {
+  padding: 0px 30px 25px 30px; }
+  #contactModalScrollable .modal-dialog .modal-content .modal-body .containerContact .row .contactMap h4 {
+    font-weight: 500;
+    font-style: 1.5rem; }
+  #contactModalScrollable .modal-dialog .modal-content .modal-body .containerContact .row .contactInfo p {
+    font-weight: normal; }
+
+.camModal .modal-dialog .modal-content .modal-body section .container .row .camBox {
+  padding-right: 28px;
+  margin-bottom: 25px; }
+  .camModal .modal-dialog .modal-content .modal-body section .container .row .camBox a img {
+    transition: all 0.4s;
+    transform: scale(1); }
+.camModal .modal-dialog .modal-content .modal-body section .container .row .camBox:hover a img {
+  transform: translateY(-10px); }
+
+#camsModalScrollable .modal-dialog .modal-content .modal-body section .container .row .camBox {
+  padding-right: 28px;
+  margin-bottom: 25px; }
+  #camsModalScrollable .modal-dialog .modal-content .modal-body section .container .row .camBox a img {
+    transition: all 0.4s;
+    transform: scale(1); }
+#camsModalScrollable .modal-dialog .modal-content .modal-body section .container .row .camBox:hover a img {
+  transform: translateY(-10px); }
+
+.projectModal .modal-dialog .modal-content .modal-body section .container .row .projectSliders {
+  position: relative;
+  width: 100%;
+  overflow: hidden; }
+  .projectModal .modal-dialog .modal-content .modal-body section .container .row .projectSliders .projectSlide {
+    width: 100%;
+    height: auto;
+    display: none; }
+    .projectModal .modal-dialog .modal-content .modal-body section .container .row .projectSliders .projectSlide .image-container {
+      width: 100%;
+      height: 0;
+      padding-bottom: calc(100% / (16 / 9));
+      /* Ya da resmin oranına göre ayarlayın */
+      position: relative; }
+      .projectModal .modal-dialog .modal-content .modal-body section .container .row .projectSliders .projectSlide .image-container a img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        position: absolute;
+        top: 0;
+        left: 0; }
+.projectModal .modal-dialog .modal-content .modal-body section .container .row .projectShops .projectShopBoxs {
+  padding-right: 10px;
+  transition: all 0.4s; }
+  .projectModal .modal-dialog .modal-content .modal-body section .container .row .projectShops .projectShopBoxs a img {
+    width: 100%;
+    transition: all 0.4s;
+    transform: scale(1); }
+  .projectModal .modal-dialog .modal-content .modal-body section .container .row .projectShops .projectShopBoxs a:hover img {
+    transform: translateY(-10px); }
+  .projectModal .modal-dialog .modal-content .modal-body section .container .row .projectShops .projectShopBoxs .projectBoxTitle {
+    transition: all 0.4s;
+    color: #000; }
+  .projectModal .modal-dialog .modal-content .modal-body section .container .row .projectShops .projectShopBoxs .projectBoxTitle:hover {
+    color: #00a7c6; }
+.projectModal .modal-dialog .modal-content .modal-body section .container .row .projectShops .mobile-owl {
+  transition: all 0.4s;
+  display: none; }
+.projectModal .modal-dialog .modal-content .modal-body section .container .row .projectBackBtn {
+  color: #2083fe;
+  background-color: #e4f0ff;
+  transform: scale(1);
+  transition: transform 0.4s;
+  text-transform: uppercase !important;
+  font-weight: 400 !important;
+  letter-spacing: 2px !important;
+  font-size: 24ox !important;
+  padding: 0.4rem 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 17px; }
+  .projectModal .modal-dialog .modal-content .modal-body section .container .row .projectBackBtn i {
+    margin-right: 7px;
+    font-size: .875em; }
+.projectModal .modal-dialog .modal-content .modal-body section .container .row .projectBackBtn:hover {
+  transform: translateY(-6px);
+  background-color: #c1dcff; }
+
+.projectInfoModal .modal-dialog .modal-content .modal-body section .container .row .projectInfoSliders {
+  position: relative;
+  width: 100%;
+  overflow: hidden; }
+  .projectInfoModal .modal-dialog .modal-content .modal-body section .container .row .projectInfoSliders .projectInfoSlide {
+    width: 100%;
+    height: auto;
+    display: none; }
+    .projectInfoModal .modal-dialog .modal-content .modal-body section .container .row .projectInfoSliders .projectInfoSlide .image-container {
+      width: 100%;
+      height: 0;
+      padding-bottom: calc(100% / (16 / 9));
+      /* Ya da resmin oranına göre ayarlayın */
+      position: relative; }
+      .projectInfoModal .modal-dialog .modal-content .modal-body section .container .row .projectInfoSliders .projectInfoSlide .image-container a img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        position: absolute;
+        top: 0;
+        left: 0; }
+
+#newsModalScrollable .modal-dialog .modal-content .modal-body {
+  padding-bottom: 20px !important; }
+  #newsModalScrollable .modal-dialog .modal-content .modal-body section .container .row .newsBoxs {
+    margin-right: 30px;
+    padding-bottom: 20px; }
+    #newsModalScrollable .modal-dialog .modal-content .modal-body section .container .row .newsBoxs .newsBoxTitle {
+      color: #1e2e50d7;
+      font-size: 23px; }
+    #newsModalScrollable .modal-dialog .modal-content .modal-body section .container .row .newsBoxs .newsBoxTitle:hover {
+      color: #090e18; }
+    #newsModalScrollable .modal-dialog .modal-content .modal-body section .container .row .newsBoxs a img {
+      width: 100%;
+      transition: transform 0.3s;
+      transform: scale(1); }
+    #newsModalScrollable .modal-dialog .modal-content .modal-body section .container .row .newsBoxs a:hover img {
+      transform: translateY(-10px); }
+    #newsModalScrollable .modal-dialog .modal-content .modal-body section .container .row .newsBoxs .postReadText {
+      color: #2083fe !important;
+      transition: all 0.4s; }
+    #newsModalScrollable .modal-dialog .modal-content .modal-body section .container .row .newsBoxs .postReadText:hover {
+      color: #015ed1; }
+  #newsModalScrollable .modal-dialog .modal-content .modal-body section .container .newsBackBtn {
+    color: #2083fe;
+    background-color: #e4f0ff;
+    transform: scale(1);
+    transition: transform 0.4s;
+    text-transform: uppercase !important;
+    font-weight: 400 !important;
+    letter-spacing: 2px !important;
+    font-size: 16px;
+    padding: 0.4rem 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 17px; }
+    #newsModalScrollable .modal-dialog .modal-content .modal-body section .container .newsBackBtn i {
+      margin-right: 7px;
+      font-size: .875em; }
+  #newsModalScrollable .modal-dialog .modal-content .modal-body section .container .newsBackBtn:hover {
+    transform: translateY(-6px);
+    background-color: #c1dcff; }
+
+.newModal .modal-dialog .modal-content .modal-body section .container .row .newSliders {
+  position: relative;
+  width: 100%;
+  overflow: hidden; }
+  .newModal .modal-dialog .modal-content .modal-body section .container .row .newSliders .newSlide {
+    width: 100%;
+    height: auto;
+    display: none; }
+    .newModal .modal-dialog .modal-content .modal-body section .container .row .newSliders .newSlide .image-container {
+      width: 100%;
+      height: 0;
+      padding-bottom: calc(100% / (16 / 9));
+      /* Ya da resmin oranına göre ayarlayın */
+      position: relative; }
+      .newModal .modal-dialog .modal-content .modal-body section .container .row .newSliders .newSlide .image-container a img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        position: absolute;
+        top: 0;
+        left: 0; }
+
+.prev-btn,
+.next-btn {
+  background-color: transparent;
+  color: #00a7c6;
+  font-size: 46px;
+  text-decoration: none;
+  padding: 10px 20px;
+  /* Kalınlığı buradan ayarlayabilirsiniz */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: opacity 0.3s;
+  /* Geçiş süresini buradan ayarlayabilirsiniz */ }
+
+.prev-btn {
+  left: 6px; }
+
+.next-btn {
+  right: 6px; }
+
+.prev-btn:hover,
+.next-btn:hover {
+  transition: opacity 0.3s;
+  opacity: 0.7;
+  color: #66c4d4bd;
+  /* İstenilen opaklık değerini buradan ayarlayabilirsiniz */ }
+
+.contactUsBtnBox {
+  position: fixed;
+  bottom: 5.4%;
+  right: 35px;
+  z-index: 20;
+  /* don't forget to set a duration! */ }
+  .contactUsBtnBox a {
+    padding: 18px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: white;
+    border-radius: 46% 46%;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .contactUsBtnBox a i {
+      color: #00A7C6;
+      font-size: 24px; }
+
+@keyframes shake {
+  0% {
+    transform: translateX(0); }
+  10% {
+    transform: translateX(-6px) rotate(-5deg); }
+  20% {
+    transform: translateX(6px) rotate(5deg); }
+  30% {
+    transform: translateX(-6px) rotate(-5deg); }
+  40% {
+    transform: translateX(6px) rotate(5deg); }
+  50% {
+    transform: translateX(-6px) rotate(-5deg); }
+  60% {
+    transform: translateX(6px) rotate(5deg); }
+  70% {
+    transform: translateX(-6px) rotate(-5deg); }
+  80% {
+    transform: translateX(6px) rotate(5deg); }
+  90% {
+    transform: translateX(-6px) rotate(-5deg); }
+  100% {
+    transform: translateX(0) rotate(0); } }
+#hereket {
+  animation: hareket 1.4s infinite; }
+
+#hereket {
+  animation: shake 2s infinite; }
+
+#contactUsModal .modal-dialog .modal-content .modal-body form {
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; }
+  #contactUsModal .modal-dialog .modal-content .modal-body form .contactLogoImage a img {
+    margin: 20px 0px; }
+  #contactUsModal .modal-dialog .modal-content .modal-body form .contactUsInputsBox {
+    padding: 0 0 15px 0;
+    margin: 0 0 5px 0; }
+    #contactUsModal .modal-dialog .modal-content .modal-body form .contactUsInputsBox label {
+      margin-bottom: 0.5rem;
+      vertical-align: middle;
+      cursor: pointer; }
+    #contactUsModal .modal-dialog .modal-content .modal-body form .contactUsInputsBox input {
+      width: 100%;
+      margin: 0 0 3px 0;
+      zoom: 1;
+      min-width: 10px;
+      max-width: 100%;
+      padding: 8px;
+      height: auto;
+      line-height: 1.5;
+      font-size: 1em;
+      border: 1px solid #e3e3e3; }
+    #contactUsModal .modal-dialog .modal-content .modal-body form .contactUsInputsBox textarea {
+      max-height: 300px;
+      margin: 0 0 3px 0;
+      zoom: 1;
+      min-width: 10px;
+      max-width: 100%;
+      width: 100%;
+      padding: 8px;
+      height: auto;
+      line-height: 1.5;
+      font-size: 1em;
+      border: 1px solid #e3e3e3; }
+    #contactUsModal .modal-dialog .modal-content .modal-body form .contactUsInputsBox input:focus {
+      outline: none !important;
+      border-color: #719ECE;
+      box-shadow: 0 0 10px #719ECE; }
+    #contactUsModal .modal-dialog .modal-content .modal-body form .contactUsInputsBox textarea:focus {
+      outline: none !important;
+      border-color: #719ECE;
+      box-shadow: 0 0 10px #719ECE; }
+  #contactUsModal .modal-dialog .modal-content .modal-body form .contactButton {
+    margin: 10px 0; }
+    #contactUsModal .modal-dialog .modal-content .modal-body form .contactButton button {
+      transition: transform .4s ease-in-out, background-color .4s ease-in-out, border-color .4s ease-in-out, color .4s ease-in-out, -webkit-transform .4s ease-in-out;
+      padding: 8px 12px;
+      background: #fff;
+      border: 1px solid #ccc;
+      color: #333;
+      border-radius: 4px;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      display: block;
+      margin: 0;
+      cursor: pointer;
+      line-height: 1.5;
+      width: 100%;
+      max-width: 100%; }
+      #contactUsModal .modal-dialog .modal-content .modal-body form .contactButton button span i {
+        margin-left: 10px; }
+    #contactUsModal .modal-dialog .modal-content .modal-body form .contactButton button:hover {
+      background-color: #e6e6e6;
+      border-color: #adadad;
+      color: #333; }
+  #contactUsModal .modal-dialog .modal-content .modal-body form .contactRequired {
+    color: #cc0101;
+    margin: 0 0 0 5px;
+    font-size: 90%;
+    cursor: pointer; }
+  #contactUsModal .modal-dialog .modal-content .modal-body form .error-message {
+    color: red;
+    margin: 0;
+    background-color: #f2dede;
+    color: #b94a48;
+    border-left: 5px solid #c73412;
+    max-width: 100%;
+    font-family: SpartanMB, sans-serif;
+    font-size: 1rem; }
+
+.liveCameraModal .modal-dialog .modal-content .modal-body section .container .row .camera-container {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .liveCameraModal .modal-dialog .modal-content .modal-body section .container .row .camera-container .camera-feed {
+    border: 1px solid #333;
+    padding: 20px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    height: 400px;
+    width: 100%; }
+  .liveCameraModal .modal-dialog .modal-content .modal-body section .container .row .camera-container .camera-controls {
+    display: flex; }
+    .liveCameraModal .modal-dialog .modal-content .modal-body section .container .row .camera-container .camera-controls button {
+      margin-bottom: 10px;
+      padding: 10px; }
+
+#userModal .modal-dialog .modal-content .modal-body {
+  padding-top: 6px !important;
+  padding-bottom: 10px !important;
+  padding-left: 20px !important; }
+  #userModal .modal-dialog .modal-content .modal-body .row {
+    margin-top: 24px; }
+    #userModal .modal-dialog .modal-content .modal-body .row .nav {
+      padding-left: 1rem; }
+      #userModal .modal-dialog .modal-content .modal-body .row .nav h6 {
+        color: #7184ad;
+        line-height: 1.2;
+        font-size: .85rem;
+        text-transform: uppercase;
+        font-weight: 500;
+        letter-spacing: 2px;
+        font-size: .85rem; }
+      #userModal .modal-dialog .modal-content .modal-body .row .nav button {
+        display: flex;
+        justify-content: start;
+        margin-bottom: 0.6rem;
+        color: #1f2c73;
+        border: none;
+        border-radius: 0px;
+        padding-left: 25px;
+        padding-bottom: 0px;
+        padding-top: 0px;
+        font-family: SpartanMB, sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        transition: all 0.2s; }
+      #userModal .modal-dialog .modal-content .modal-body .row .nav .active {
+        border-left: 2px solid #6672e8; }
+    #userModal .modal-dialog .modal-content .modal-body .row .tab-content {
+      box-shadow: 0 0.125rem 0.25rem rgba(35, 38, 45, 0.09);
+      min-width: 0;
+      word-wrap: break-word;
+      background-color: #fff;
+      background-clip: border-box;
+      border: 0px solid rgba(30, 46, 80, 0.09);
+      border-radius: 0.25rem; }
+      #userModal .modal-dialog .modal-content .modal-body .row .tab-content .card-header {
+        border-bottom: 1px solid rgba(30, 46, 80, 0.09);
+        background-color: #fff !important;
+        padding-top: 1.5rem !important;
+        padding-bottom: 1.5rem !important;
+        border-radius: 0.25rem 0.25rem 0 0;
+        padding: 0.75rem 1.75rem; }
+        #userModal .modal-dialog .modal-content .modal-body .row .tab-content .card-header h5 {
+          color: #1f2c73;
+          font-size: 1.25rem;
+          font-weight: 500;
+          line-height: 1.2; }
+      #userModal .modal-dialog .modal-content .modal-body .row .tab-content .tab-pane .card-body {
+        min-height: 1px;
+        padding: 1.75rem;
+        border-color: #e9ecef;
+        padding-bottom: 1.5rem;
+        margin-bottom: 1.5rem; }
+      #userModal .modal-dialog .modal-content .modal-body .row .tab-content .tab-pane #collapseOne .card-body {
+        border-bottom: 1px solid #dee2e6; }
+        #userModal .modal-dialog .modal-content .modal-body .row .tab-content .tab-pane #collapseOne .card-body .avatar {
+          width: 4.15rem;
+          height: 4.15rem;
+          font-size: 1.35rem;
+          display: inline-block; }
+          #userModal .modal-dialog .modal-content .modal-body .row .tab-content .tab-pane #collapseOne .card-body .avatar img {
+            width: 100%;
+            height: 100%;
+            -o-object-fit: cover;
+            object-fit: cover;
+            border-radius: 50%;
+            vertical-align: middle;
+            border-style: none; }
+        #userModal .modal-dialog .modal-content .modal-body .row .tab-content .tab-pane #collapseOne .card-body .avatarText {
+          padding-left: 0.5rem;
+          margin-left: 1.5rem;
+          float: left; }
+          #userModal .modal-dialog .modal-content .modal-body .row .tab-content .tab-pane #collapseOne .card-body .avatarText h6 {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            line-height: 1.2;
+            color: #1f2c73;
+            font-size: 1rem; }
+          #userModal .modal-dialog .modal-content .modal-body .row .tab-content .tab-pane #collapseOne .card-body .avatarText span {
+            font-size: .85rem;
+            color: #7184ad; }
+      #userModal .modal-dialog .modal-content .modal-body .row .tab-content .tab-pane #collapseTwo .card-body {
+        border-bottom: 0px !important; }
+        #userModal .modal-dialog .modal-content .modal-body .row .tab-content .tab-pane #collapseTwo .card-body p {
+          font-size: 1rem; }
+        #userModal .modal-dialog .modal-content .modal-body .row .tab-content .tab-pane #collapseTwo .card-body a {
+          font-size: 1rem;
+          color: #2083fe;
+          text-decoration: none;
+          background-color: transparent; }
+        #userModal .modal-dialog .modal-content .modal-body .row .tab-content .tab-pane #collapseTwo .card-body a:hover {
+          color: #015ed1;
+          text-decoration: underline; }
+
+#sliderMobileBoxs .kutus {
+  position: absolute;
+  top: calc((100vh - 100vh * 0.800));
+  left: calc((100vw - 100vw * 0.857)); }
+  #sliderMobileBoxs .kutus .kutu {
+    transition: all 0.4s; }
+    #sliderMobileBoxs .kutus .kutu a {
+      transition: all 0.4s; }
+      #sliderMobileBoxs .kutus .kutu a .kutuFeature {
+        width: 200px;
+        height: 200px;
+        display: flex;
+        align-items: end;
+        padding: 0px 0px 18px 12px;
+        line-height: 21px;
+        transition: all 0.4s; }
+        #sliderMobileBoxs .kutus .kutu a .kutuFeature span {
+          font-weight: bold;
+          font-size: 21px; }
+  #sliderMobileBoxs .kutus .kutu:hover .slide {
+    opacity: 1; }
+
+#sliderBoxs .sliderRangeBox {
+  position: absolute;
+  top: 0;
+  left: calc((100vw - 100vw * 0.600));
+  transition: all 0.4s; }
+  #sliderBoxs .sliderRangeBox .revolutionSliderclass .kutus .kutu a .kutuFeature {
+    width: 218px;
+    height: 218px;
+    display: flex;
+    align-items: end;
+    padding: 0px 0px 12px 12px;
+    line-height: 21px;
+    transition: all 0.4s; }
+    #sliderBoxs .sliderRangeBox .revolutionSliderclass .kutus .kutu a .kutuFeature span {
+      font-weight: bold;
+      font-size: 21px; }
+  #sliderBoxs .sliderRangeBox .revolutionSliderclass .kutus .kutu:hover .slide {
+    opacity: 1; }
+
+#boxDesctipions {
+  z-index: 20;
+  position: absolute;
+  top: 290px;
+  left: calc((100vw - 100vw * 0.745));
+  transition: all 0.4s; }
+  #boxDesctipions .row .boxDesc {
+    width: 200px !important;
+    display: none; }
+    #boxDesctipions .row .boxDesc h2 {
+      z-index: 5;
+      text-decoration: none;
+      white-space: nowrap;
+      line-height: 70px;
+      letter-spacing: 2px;
+      font-weight: 550;
+      font-size: 63px; }
+    #boxDesctipions .row .boxDesc p {
+      z-index: 6;
+      text-decoration: none;
+      white-space: nowrap;
+      line-height: 21px;
+      letter-spacing: 0px;
+      font-weight: 400;
+      font-size: 17px;
+      transform: translate(0px, 0px); }
+    #boxDesctipions .row .boxDesc .boxDescButton {
+      z-index: 7;
+      margin-top: 30px; }
+      #boxDesctipions .row .boxDesc .boxDescButton a {
+        padding: 12px 18px 12px 18px;
+        color: white;
+        text-align: left;
+        line-height: 24px;
+        letter-spacing: 0px;
+        font-weight: 700;
+        font-size: 17px;
+        transition: all 0.4s; }
+      #boxDesctipions .row .boxDesc .boxDescButton a:hover {
+        padding: 11px 15px 11px 15px;
+        opacity: 0.9; }
+  #boxDesctipions .row .active {
+    display: block; }
+
+/*# sourceMappingURL=style.css.map */

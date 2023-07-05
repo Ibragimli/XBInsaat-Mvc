@@ -1,0 +1,113 @@
+.modal,
+.fade {
+    background-color: transparent !important;
+
+    .modal-dialog {
+
+
+        .modal-content {
+            border: 0px solid rgba(0, 0, 0, .2) !important;
+            border-radius: 1.5rem !important;
+            box-shadow: 0 1rem 3rem rgba(35, 38, 45, .275);
+
+
+            .modal-header {
+                padding: 1rem 2rem 1rem !important;
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                border-bottom: 1px solid #dee2e6;
+                border-top-left-radius: calc(0.3rem - 1px);
+                border-top-right-radius: calc(0.3rem - 1px);
+
+                h2 {
+                    color: #00a7c6;
+                    margin-bottom: 0;
+                    line-height: 1.5;
+                    font-size: 2.5rem;
+                    font-weight: 500;
+                }
+
+                button {
+                    padding: 1rem 1rem;
+                    margin: -1rem -1rem -1rem auto;
+                    float: right;
+                    font-weight: 700;
+                    line-height: 1;
+                    color: #000000c0;
+                    opacity: .5;
+                    background-color: transparent;
+                    border: none;
+                    font-size: 1.2rem;
+                }
+
+                button:hover {
+                    color: #000 !important;
+
+                }
+            }
+
+            .modal-body {
+
+                font-size: 1.1rem;
+                font-weight: 400;
+                line-height: 1.5;
+                color: #212529;
+                text-align: left;
+            }
+
+            .modal-footer {
+                padding: 1rem 2rem 2rem 2rem !important;
+
+                button {}
+            }
+        }
+    }
+}
+
+.show {
+    display: block !important;
+}
+
+
+// .modal-backdrop.fade.show {
+//     display: none;
+// }
+
+
+
+.modal-body::-webkit-scrollbar {
+    width: 6px;
+    border-radius: 10px;
+    /* Kaydırma çubuğu genişliği */
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+    background-color: #00a8c6c9;
+    /* Kaydırma çubuğu rengi */
+}
+
+.modal-body::-webkit-scrollbar-track {
+    background-color: #ffffff;
+    /* Kaydırma çubuğu arka plan rengi */
+}
+
+/* İçerik kaydırma çubuğu stilleri (Firefox) */
+.modal-body {
+    scrollbar-width: thin;
+    scrollbar-color: #00a8c6c9 #ffffff;
+}
+
+.modal-body::-moz-scrollbar {
+    width: 6px;
+    border-radius: 10px;
+}
+
+.modal-body::-moz-scrollbar-thumb {
+    background-color: #00a8c6c9;
+}
+
+.modal-body::-moz-scrollbar-track {
+    background-color: #ffffff;
+}
+

@@ -1,0 +1,224 @@
+header {
+    position: relative;
+
+    #headerSection {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 20;
+
+        .row {
+
+            .headLogo {
+                position: absolute;
+                display: block;
+                pointer-events: auto;
+                // left: 86px;
+                left: calc((100vw - 100vw * 0.96));
+
+                top: 26px;
+                z-index: 19;
+
+                .headImageBox {
+                    z-index: 8;
+                    cursor: pointer;
+                    color: rgb(255, 255, 255);
+                    width: 218px;
+                    height: 63px;
+                    min-height: 0px;
+                    min-width: 0px;
+                    max-height: none;
+                    max-width: none;
+                    backdrop-filter: none;
+                    filter: brightness(100%);
+                    transform-origin: 50% 50%;
+                    opacity: 1;
+                    transform: translate(0px, 0px);
+                    visibility: visible;
+                    border-width: 0px;
+
+                    a {
+                        img {
+
+                            position: relative;
+                            height: 100%;
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+
+            .headRight {
+                position: absolute;
+                display: block;
+                pointer-events: auto;
+                right: calc((100vw - 100vw * 1.93));
+                //  right: calc(50% - (100vw - 1800px) / 2);
+                // left: 1500px;
+                top: 26px;
+                z-index: 19;
+
+                .headLoginLangueage {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    .headLanguage {
+
+                        .dropdown {
+
+                            z-index: 24;
+                            visibility: visible;
+                            perspective: 601px;
+                            display: inline-block;
+                            background-color: #f9f9f9;
+                            width: 54px;
+                            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                            padding: 8px 0px 8px 8px;
+                            z-index: 21;
+                            border-radius: 9px;
+                            cursor: pointer;
+                            color: rgb(142, 142, 147);
+                            text-decoration: none;
+                            white-space: nowrap;
+                            line-height: 25px;
+                            letter-spacing: 0px;
+                            font-weight: 400;
+                            font-size: 20px;
+                            opacity: 1;
+                            transform: translate(0px, 0px);
+                            visibility: visible;
+                            border-width: 0px;
+
+                            .arrow-down {
+                                position: absolute;
+                                top: 50%;
+                                right: 7px;
+                                transform: translateY(-50%) rotate(135deg);
+                                width: 10px;
+                                height: 10px;
+                                border-left: 3px solid rgba(142, 142, 147, 0.671);
+                                border-bottom: 3px solid rgba(142, 142, 147, 0.671);
+                                color: rgb(142, 142, 147);
+                            }
+
+                            a {
+                                color: rgb(142, 142, 147);
+                                text-decoration: none;
+                            }
+
+                            .dropdown-content {
+                                color: rgb(142, 142, 147);
+                                border-radius: 7px;
+                                border-top-left-radius: 2px;
+                                border-top-right-radius: 2px;
+                                display: none;
+                                position: absolute;
+                                background-color: #f9f9f9;
+                                width: 54px;
+                                box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                                z-index: 1;
+                                padding: 8px 0;
+                                top: 30px;
+                                left: 0px;
+
+                                ul {
+                                    list-style: none;
+                                    padding: 0;
+                                    margin: 0;
+
+                                    li {
+                                        padding: 5px 10px;
+                                        cursor: pointer;
+                                        transition: background-color 0.3s ease;
+
+                                        a {
+                                            color: rgb(142, 142, 147);
+                                            cursor: pointer;
+                                            transition: background-color 0.3s ease;
+                                        }
+                                    }
+
+                                    li:hover {
+                                        background-color: #e9e9e9;
+                                    }
+
+                                }
+                            }
+                        }
+
+                        .active {
+                            .dropdown-content {
+                                display: block;
+                            }
+
+                            .arrow-down {
+                                transform: translateY(-50%) rotate(-45deg);
+                            }
+
+                        }
+
+                    }
+
+                    .headLogin {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        z-index: 19;
+                        background-color: white;
+                        cursor: pointer;
+                        height: 47px;
+                        width: 47px;
+                        color: rgb(255, 255, 255);
+                        text-decoration: none;
+                        border-radius: 30px;
+                        opacity: 1;
+                        transform: translate(0px, 0px);
+                        visibility: visible;
+                        border-color: rgb(255, 255, 255);
+                        padding: 4px;
+                        transition: all 0.4s;
+
+                        a {
+                            transition: all 0.4s;
+
+                            .userWhiteImage {
+                                display: none;
+                                transition: all 0.4s;
+                            }
+
+                            img {
+                                width: 100% !important;
+                                border-radius: 50%;
+                                transition: all 0.4s;
+
+                            }
+                            .userImage {
+                                transition: all 0.4s;
+                            }
+                        }
+
+                    }
+
+                    .headLogin:hover {
+                        background-color: rgb(0, 167, 198);
+
+                        a {
+                            .userImage {
+                                display: none;
+                                transition: all 0.4s;
+                            }
+                            .userWhiteImage {
+                                display: block;
+                                transition: all 0.4s;
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+
+}

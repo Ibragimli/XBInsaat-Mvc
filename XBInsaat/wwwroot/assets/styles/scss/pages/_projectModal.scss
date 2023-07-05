@@ -1,0 +1,127 @@
+.projectModal {
+    .modal-dialog {
+        .modal-content {
+            .modal-body {
+                section {
+                    .container {
+                        .row {
+                            .projectSliders {
+                                position: relative;
+                                width: 100%;
+                                overflow: hidden;
+
+                                .projectSlide {
+                                    width: 100%;
+                                    height: auto;
+                                    display: none;
+
+                                    .image-container {
+                                        width: 100%;
+                                        height: 0;
+                                        padding-bottom: calc(100% / (16 / 9));
+                                        /* Ya da resmin oranına göre ayarlayın */
+                                        position: relative;
+
+                                        a {
+                                            img {
+                                                width: 100%;
+                                                height: 100%;
+                                                object-fit: cover;
+                                                object-position: center;
+                                                position: absolute;
+                                                top: 0;
+                                                left: 0;
+                                            }
+                                        }
+                                    }
+                                }
+
+
+
+                            }
+
+                            .projectShops {
+
+                                h2 {}
+
+                                .projectShopBoxs {
+                                    padding-right: 10px;
+                                    transition: all 0.4s;
+
+                                    a {
+                                        img {
+                                            width: 100%;
+                                            transition: all 0.4s;
+                                            transform: scale(1);
+                                        }
+                                    }
+
+                                    a:hover {
+
+                                        img {
+                                            transform: translateY(-10px);
+                                        }
+                                    }
+
+                                    .projectBoxTitle {
+                                        transition: all 0.4s;
+                                        color: #000;
+
+                                    }
+
+                                    .projectBoxTitle:hover {
+                                        color: #00a7c6;
+
+                                    }
+
+
+
+                                }
+
+                                .mobile-owl {
+                                    transition: all 0.4s;
+                                    display: none;
+
+                                    .item {
+                                        a {
+                                            img {}
+                                        }
+                                    }
+                                }
+                            }
+
+                            .projectBackBtn {
+                                color: #2083fe;
+                                // background-color: #c1dcff; 
+                                background-color: #e4f0ff;
+                                transform: scale(1);
+                                transition: transform 0.4s;
+                                text-transform: uppercase !important;
+                                font-weight: 400 !important;
+                                letter-spacing: 2px !important;
+                                font-size: 24ox !important;
+                                padding: 0.4rem 1.1rem;
+                                line-height: 1.5;
+                                margin-bottom: 17px;
+
+                                i {
+                                    margin-right: 7px;
+                                    font-size: .875em;
+                                }
+                            }
+
+                            .projectBackBtn:hover {
+                                transform: translateY(-6px);
+                                background-color: #c1dcff;
+
+                            }
+                        }
+
+
+                    }
+                }
+            }
+        }
+    }
+
+}

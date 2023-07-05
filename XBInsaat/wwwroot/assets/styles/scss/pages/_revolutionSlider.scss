@@ -1,0 +1,33 @@
+
+.slider {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transition: all 0.8s;
+
+  .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all 0.8s;
+
+    &.revoActive {
+      transition: all 0.8s;
+      opacity: 1;
+    }
+
+    img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover;
+      pointer-events: none;
+    }
+  }
+}
+
+
+
+

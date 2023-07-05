@@ -1,0 +1,45 @@
+#contactModalScrollable {
+
+    .modal-dialog {
+        .modal-content {
+            .modal-header {
+                h2 {}
+
+                button {
+                    i {}
+                }
+            }
+
+            .modal-body {
+                .containerContact {
+                    padding: 0px 30px 25px 30px;
+
+                    .row {
+                        .contactMap {
+
+                            h4 {
+                                font-weight: 500;
+                                font-style: 1.5rem;
+                            }
+
+                            iframe {}
+
+                        }
+
+                        .contactInfo {
+
+                            h4 {}
+
+                            p {
+                                font-weight: normal;
+
+                                i {}
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}

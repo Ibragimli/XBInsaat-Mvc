@@ -1,0 +1,40 @@
+
+.liveCameraModal {
+
+    .modal-dialog {
+        .modal-content {
+            .modal-body {
+                section {
+                    .container {
+                        .row {
+                            .camera-container {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+
+                                .camera-feed {
+                                    border: 1px solid #333;
+                                    padding: 20px;
+                                    margin-right: 20px;
+                                    margin-bottom: 10px;
+                                    height: 400px;
+                                    width: 100%;
+                                }
+
+                                .camera-controls {
+                                    display: flex;
+
+                                    button {
+                                        margin-bottom: 10px;
+                                        padding: 10px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}

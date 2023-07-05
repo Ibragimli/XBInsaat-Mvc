@@ -1,0 +1,101 @@
+@import url(https://fonts.googleapis.com/css?family=Merriweather:400,300italic,300,400italic,700,700italic);
+
+/* url(../fonts/SpartanMB-Medium.ttf) format("truetype"), url(../fonts/SpartanMB-Medium.woff) format("woff"), url(../fonts/SpartanMB-Medium.woff2) format("woff2") */
+@font-face {
+    font-family: SpartanMB;
+    src: url(../fonts/SpartanMB-Medium.eot);
+    src: url(../fonts/SpartanMB-Medium%EF%B9%96.eot#iefix) format("embedded-opentype"), url(../fonts/SpartanMB-Medium.svg#SpartanMB-Medium) format("svg");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family: SpartanMB;
+    src: url(../fonts/SpartanMB-SemiBold.eot);
+    src: url(../fonts/SpartanMB-SemiBold%EF%B9%96.eot#iefix) format("embedded-opentype"), url(../fonts/SpartanMB-SemiBold.svg#SpartanMB-SemiBold) format("svg"), url(../fonts/SpartanMB-SemiBold.ttf) format("truetype"), url(../fonts/SpartanMB-SemiBold.woff) format("woff"), url(../fonts/SpartanMB-SemiBold.woff2) format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family: SpartanMB;
+    src: url(../fonts/SpartanMB-Bold.eot);
+    src: url(../fonts/SpartanMB-Bold%EF%B9%96.eot#iefix) format("embedded-opentype"), url(../fonts/SpartanMB-Bold.svg#SpartanMB-Bold) format("svg"), url(../fonts/SpartanMB-Bold.ttf) format("truetype"), url(../fonts/SpartanMB-Bold.woff) format("woff"), url(../fonts/SpartanMB-Bold.woff2) format("woff2");
+    font-weight: 600;
+    font-style: normal
+}
+
+* {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    a,
+    p,
+    span,
+    li {
+        font-family: SpartanMB, sans-serif;
+        color: #111111;
+    }
+
+    box-sizing: border-box;
+
+}
+
+body {
+
+    .xbinsaat-mobile {
+        display: none;
+    }
+    background-color: #eeecec;
+
+
+
+
+
+    .row {
+        --bs-gutter-x: 0rem;
+    }
+
+    ul {
+        padding: 0px;
+        margin-bottom: 0px;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+
+
+}
+
+// @font-face {
+//     font-family: Bitter;
+//     src: url(../fonts/Bitter-Light.ttf);
+// }
+
+// @font-face {
+//     font-family: BitterRegular;
+//     src: url(../fonts/Bitter-Regular.ttf);
+// }
+
+// @font-face {
+//     font-family: BitterBold;
+//     src: url(../fonts/Bitter-Bold.ttf);
+// }
+
+// @font-face {
+//     font-family: BitterItalic;
+//     src: url(../fonts/Bitter-Italic.ttf);
+// }
+
+// @font-face {
+//     font-family: BitterBlack;
+//     src: url(../fonts/Bitter-Black.ttf);
+// }

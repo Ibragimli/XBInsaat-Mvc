@@ -1,0 +1,48 @@
+#sliderBoxs {
+
+    .sliderRangeBox {
+      position: absolute;
+      top: 0;
+      left: calc((100vw - 100vw * 0.600));
+      transition: all 0.4s;
+  
+      .revolutionSliderclass {
+        .kutus {
+          .kutu {
+            a {
+  
+              .kutuFeature {
+                width: 218px;
+                height: 218px;
+                display: flex;
+                align-items: end;
+                padding: 0px 0px 12px 12px;
+                line-height: 21px;
+                transition: all 0.4s;
+  
+                span {
+                  font-weight: bold;
+                  font-size: 21px;
+                }
+              }
+            }
+          }
+  
+          // .generalKutu{
+          //   position: absolute;
+          //   top: 0;
+          //   // left: 635px;
+          //   left: calc((100vw - 100vw * 0.603));
+  
+          // }
+  
+          .kutu:hover .slide {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  
+  }
+  
+  
