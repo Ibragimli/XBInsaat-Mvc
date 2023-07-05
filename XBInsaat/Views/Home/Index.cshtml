@@ -2,6 +2,10 @@
     ViewData["Title"] = "Home Page";
 }
 
+<form asp-action="change" method="post"> 
+    <input type="text" class="form-control" />
+    <button type="submit" class="btn btn-primary">Gonder</button>
+</form>
 <!-- Contact Us Button -->
 <div class="contactUsBtnBox " id="hereket">
     <a href="#" data-bs-toggle="modal" data-bs-target="#contactUsModal" id="ctnBtn">
@@ -104,6 +108,7 @@
             <div class="boxDesc active col-lg-3">
                 <h2 style="color: #000;">General</h2>
                 <p style="color: #000;">
+
                     Müasir dövürdə rəqabət mühitinə
                     <br>
                     tab gətirmək üçün şirkətlər öz brend
@@ -319,23 +324,8 @@
                 </button>
             </div>
             <div class="modal-body">
-                “Xarıbülbül İnşaat” MMC Azərbaycanda yüksək keyfiyyətli tikinti layihələrinin ölkə
-                ərazisində həyata keçirilməsini təmin edən aparıcı tikinti şirkətidir. Şirkətimiz böyük və
-                mürəkkəb
-                layihələri həyata keçirməklə, innovasiyaları təştiq etməklə, müasir texnologiyaları
-                mənimsəməklə, müştərilərilərimiz üçün fərq yaratmaqla tanınıb. “Xarıbülbül İnşaat”-da yüksək
-                keyfiyyətli materiallardan istifadə edərək, ixtisaslı mühəndis kadrları cəlb etməklə istənilən
-                çətinlik səviyyəsində layihələndirmə, tədqiqat, tikinti, quraşdırma və təmir-tikinti işlərinini
-                təqdim
-                edir. “Xarıbülbül İnşaat”-da biz yaşayış binalarından ticarət komplekslərinə, zavodlara,
-                fabriklərə
-                və infrastruktur inkişaflarına qədər müxtəlif layihələrin tikintisində ixtisaslaşmışıq.
-                Təcrübəli
-                peşəkarlardan ibarət komandamız müxtəlif layihələri həyata keçirməyə imkan verən qlobal
-                standardlara uyğun və zəngin təcrübəyə malikdir.
-
+                @Html.Raw(_localization.Getkey("GeneralText").Value)
             </div>
-
         </div>
     </div>
 </div>
@@ -355,79 +345,33 @@
                 <div class="row justify-content-center">
                     <!-- <div class="col-lg-4 col-md-11 servicesBox rightP ">
                         <h2>Memarlıq</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed suscipit sollicitudin
-                            ipsum a consectetur. Suspendisse potenti. Donec in mauris ullamcorper, semper est
-                            non, tristique nisi. Curabitur placerat eros felis, a porta ipsum sodales interdum.
-                            Aliquam ac orci nibh. Aenean sit amet interdum enim. Aenean ornare libero ante, sed
-                            sollicitudin tellus placerat vel. Integer auctor lacus pulvinar velit tincidunt
-                            tempus. Morbi aliquam malesuada quam. Proin quis magna et nunc pulvinar commodo.</p>
+                    <p>
+                        @*@Html.Raw(_localization.Getkey("GeneralText").Value)*@
+                    </p>
                         <div class="servicesModalImage">
                             <img style="width: 32px; height: 66px;" src="./assets/Images/icon1.png" alt="">
                         </div>
                     </div> -->
                     <div class="col-lg-6  col-md-11 servicesBox boxPadding iceri">
-                        <h2>Layihələndirmə</h2>
+                        <h2>
+                            @Html.Raw(_localization.Getkey("Services-Title-Projecting").Value)
+                        </h2>
                         <p>
-                            Tikinti işlərinin layihələndirilməsi hər bir tikinti prosesinin vacib hissəsidir.
-                            Bu, işin həcmini,
-                            tələb olunan resurslarını, ümumi layihə müddətinin planlaşdırılmasını,
-                            layihələndirilməsini və
-                            qiymətləndirilməsini təşkil edir. Layihənin uğurlu icrasını təmin etmək və riskləri
-                            aşağı endirmək
-                            üçün layihənin düzgün planlaşdırılması mühüm əhəmiyyət kəsb edir, beləliklə,
-                            “Xarıbülbül
-                            İnşaat”-da komandamız işin düzgün və real həyata keçirilməsi prosesini davam
-                            etdirir.
-                            Layihələndirmənin ilk addımı - layihənin başlanmasıdır. Bu, istər yeni bina, istər
-                            infrastrukturun
-                            inkişafı və ya təmiri olsun, tikinti layihəsinə ehtiyacın müəyyən edilməsini əhatə
-                            edir. Layihə
-                            təsdiq edildikdən sonra əhatə dairəsini müəyyənləşdirməyə davam edirik. Layihənin
-                            tələblərini,
-                            məqsədlərini və məhdudiyyətlərini başa düşməklə heyata keçiririk. Konseptual dizayn
-                            təsdiq
-                            edildikdən sonra ətraflı dizayn işləri ilə davam edirik. Bu, konsepsiyanın
-                            hərtərəfli tikinti
-                            çertyojlarına və spesifikasiyalara çevrilməsini nəzərdə tutur. Memarlar, struktur
-                            mühəndisləri,
-                            elektrik mühəndisləri və digər mütəxəssislər hesablamalar, elektrik və santexnika
-                            sistemləri,
-                            HVAC və digər vacib elementlər daxil olmaqla birlikdə işləyirlər.
+                            @Html.Raw(_localization.Getkey("Services-Projecting").Value)
                         </p>
                         <div class="servicesModalImage">
-                            <img style="width: 53px; height: 46px;" src="./assets/Images/icon2.png" alt="">
+                            <img class="mt-2" style="width: 53px; height: 46px;" src="./assets/Images/icon2.png" alt="">
                         </div>
                     </div>
                     <div class="col-lg-6  col-md-11 servicesBox leftP ">
-                        <h2>İnşaat</h2>
+                        <h2>
+                            @Html.Raw(_localization.Getkey("Services-Title-Construction").Value)
+                        </h2>
                         <p>
-                            “Xarıbülbül İnşaat” MMC . ticarət mərkəzləri və kommersiya binalarının tikintisində
-                            ixtisaslaşan tanınmış tikinti şirkətidir . Bu sektorda zəngin biliklərə və təcrübəyə
-                            malik olan
-                            şirkətimiz yüksək keyfiyyətli və səmərəli tikinti həlləri axtaran müştərilər üçün
-                            etibarlı tərəfdaş
-                            kimi özünü təsdiq etmişdir. Peşəkar mütəxəssislərdən ibarət olan komandamız
-                            vətəndaşların
-                            axınını optimallaşdıran, geniş pərakəndə satış sahəsini təmin edən və cəlbedici
-                            estetikanı
-                            özündə birləşdirən ticarət mərkəzlərinin layihələndirilməsi, tikintisi üçün
-                            müştərilər və memarlarla
-                            sıx əməkdaşlıq edir. “Xarıbülbül İnşaat”MMC xidmətləri ticarət mərkəzinin
-                            tikintisinin bütün
-                            sahələrini əhatə edir. Komandamız ilkin planlaşdırma və dizayn mərhələsindən
-                            interyerin son
-                            toxunuşlarına qədər layihənin təfərrüatlarına ciddi diqqət yetirməklə fərqlənir.
-                            “Xarıbülbül İnşaat”
-                            MMC müxtəlif tipli kommersiya binalarının, o cümlədən ofis komplekslərinin,
-                            fabriklərin və
-                            qarışıq tipli binaların tikintisinə üstünlük verir. Biz hər bir kommersiya
-                            layihəsinin fərqli tələblərini
-                            nəzərə alıb, büdcə məhdudiyyətlərinə uyğunlaşıb vaxt qrafiklərinə riayət etməklə,
-                            onların
-                            baxışlarının həyata keçirilməsini təmin edirik.
+                            @Html.Raw(_localization.Getkey("Services-Construction").Value)
                         </p>
                         <div class="servicesModalImage ">
-                            <img style="width: 70px; height: 35px;" src="./assets/Images/icon3.png" alt="">
+                            <img class="mt-2" style="width: 70px; height: 35px;" src="./assets/Images/icon3.png" alt="">
                         </div>
                     </div>
                 </div>

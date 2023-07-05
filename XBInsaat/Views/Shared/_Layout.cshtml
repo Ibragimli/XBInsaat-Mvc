@@ -34,8 +34,6 @@
 <body>
 
 
-
-
     <header>
         <section id="headerSection">
             <div class="row">
@@ -57,16 +55,27 @@
                         </div>
                         <div class="headLanguage mt-4">
                             <div class="dropdown">
-                                <a href="#" onclick="toggleDropdown()">AZ</a>
+                                <a href="#" onclick="toggleDropdown()">
+                                    @Html.Raw(_localization.Getkey("Language").Value)
+                                </a>
                                 <div class="dropdown-content">
                                     <ul>
                                         <li onclick="selectLanguage('az')">
-                                            <a href="#">Az</a>
+                                            <a asp-controller="Home"
+                                               asp-action="ChangeLanguage"
+                                               asp-route-culture="az-Latn-AZ">Az</a>
                                         </li>
                                         <li onclick="selectLanguage('en')">
-                                            <a href="#">En</a>
+                                            <a asp-controller="Home"
+                                               asp-action="ChangeLanguage"
+                                               asp-route-culture="en-US">En</a>
                                         </li>
-                                        <li onclick="selectLanguage('ru')"><a href="#">Ru</a></li>
+                                        <li onclick="selectLanguage('ru')">
+                                            <a asp-controller="Home"
+                                               asp-action="ChangeLanguage"
+                                               asp-route-culture="ru-RU">Ru</a>
+                                        </li>
+
                                     </ul>
                                 </div>
                                 <div class="arrow-down"></div>

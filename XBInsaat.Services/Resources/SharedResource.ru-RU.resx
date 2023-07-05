@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="GeneralText" xml:space="preserve">
+    <value>"Kharibulbul Construction" — ведущая строительная компания в Азербайджане,
+занимающаяся реализацией высококачественных строительных проектов. Наша компания
+реализует крупные и сложные проекты, продвигает инновации, внедряет современные
+технологии и помогает своим клиентам. "Kharibulbul Construction" — осуществляет полный
+комплекс проектных, изыскательских, строительно-монтажных и ремонтно-строительных
+работ любой сложности с использованием качественных материалов и привлечением
+квалифицированного инженерно-технического персонала. Строительная компания
+"Kharibulbul Construction” специализируется на строительстве различных объектов, от
+жилых домов до коммерческих комплексов, фабрик, заводов и объектов инфраструктуры.
+Наша команда опытных профессионалов обладает обширными знаниями и богатым
+опытом работ, что позволяет заниматься реализацией проектов различного масштаба и
+сложностей соответствуя мировым стандартам.</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Ru</value>
+  </data>
+  <data name="Services-Construction" xml:space="preserve">
+    <value>«Kharibulbul Construction» - известная строительная компания, специализирующаяся
+на строительстве торговых центров и коммерческих зданий. Обладая богатым опытом и
+знаниями в данном секторе, компания утвердила свой статус , как надёжный партнер для
+клиентов, которым нужны качественные и эффективные строительные решения. Наша
+команда экспертов тесно сотрудничает с клиентами и архитекторами, чтобы
+спроектировать и построить торговые центры, которые оптимизируют поток посетителей,
+предоставляют достаточно торговых площадей и обладают привлекательной эстетикой.
+Услуги компании «Kharibulbul Construction» охватывают все аспекты строительства
+торгового центра. От начального этапа планирования и проектирования до последних
+штрихов внутренней отделки наша преданная команда управляет проектом с
+пристальным вниманием к деталям. «Kharibulbul Construction» занимается строительством
+различных типов коммерческих зданий, включая офисные комплексы, фабрики и
+многофункциональные другие комплексы. Мы понимаем особые требования каждого
+коммерческого проекта и тесно сотрудничаем с клиентами, чтобы воплотить их видение в
+жизнь, соблюдая бюджетные ограничения и сроки.</value>
+  </data>
+  <data name="Services-Projecting" xml:space="preserve">
+    <value>Проектирование строительных работ – неотъемлемая часть любого строительного
+процесса, которая включает в себя планирование и оценку объема работ, необходимых
+ресурсов, а также общий график проекта. Надлежащее планирование проекта имеет
+решающее значение для обеспечения успешного выполнения проекта и минимизации
+рисков, поэтому команда компании &amp;quot;Kharibulbul Construction&amp;quot; осуществляет последующий
+процесс реализации работ. Первым шагом в проектировании строительных работ
+является инициация проекта, которая включает в себя определение потребности в
+строительном проекте, будь то новое здание, развитие инфраструктуры или
+реконструкция. После утверждения проекта мы приступаем к определению объёма работ.
+Это включает в себя понимание требований проекта, целей и ограничений. После
+утверждения концептуального проекта мы приступаем к детальному проектированию. Это
+включает в себя преобразование концепции в подробные строительные чертежи и
+спецификации. Архитекторы, инженеры-строители, инженеры-электрики и другие
+специалисты совместно разрабатывают подробные планы, включая структурные расчеты,
+электрические и водопроводные системы, ОВКВ и другие необходимые элементы.</value>
+  </data>
+  <data name="Services-Title-Construction" xml:space="preserve">
+    <value>Строительство</value>
+  </data>
+  <data name="Services-Title-Projecting" xml:space="preserve">
+    <value>Проектирование</value>
+  </data>
+</root>
