@@ -9,13 +9,15 @@ using XBInsaat.Data.Datacontext;
 
 namespace XBInsaat.Data.Repositories
 {
-    public class ProjectImageRepository : Repository<ProjectImage>, IProjectImageRepository
+
+    public class MidProjectRepository : Repository<MidProject>, IMidProjectRepository
     {
         private readonly DataContext _context;
 
-        public ProjectImageRepository(DataContext context) : base(context)
+        public MidProjectRepository(DataContext context) : base(context)
         {
             _context = context;
         }
+
     }
 }

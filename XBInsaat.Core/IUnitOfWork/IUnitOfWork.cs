@@ -9,13 +9,18 @@ namespace XBInsaat.Core.IUnitOfWork
 {
     public interface IUnitOfWork
     {
-        IProjectRepository ProjectRepository { get; }
+        IHighProjectRepository HighProjectRepository { get; }
+        IMidProjectRepository MidProjectRepository { get; }
+        ILowProjectRepository LowProjectRepository { get; }
         ISettingRepository SettingRepository { get; }
         IImageSettingRepository ImageSettingRepository { get; }
         IXBServiceRepository XBServiceRepository { get; }
-        IProjectImageRepository ProjectImageRepository { get; }
+        IHighProjectImageRepository HighProjectImageRepository { get; }
         IAppUserRepository AppUserRepository { get; }
         ICameraRepository CameraRepository { get; }
+        INewsRepository NewsRepository { get; }
+        IMidProjectImageRepository MidProjectImageRepository { get; }
+        INewsImageRepository NewsImageRepository { get; }
         Task<int> CommitAsync();
 
     }

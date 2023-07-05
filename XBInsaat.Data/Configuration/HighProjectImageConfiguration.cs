@@ -9,9 +9,9 @@ using XBInsaat.Core.Entites;
 
 namespace XBInsaat.Data.Configuration
 {
-    public class ProjectImageConfiguration : IEntityTypeConfiguration<ProjectImage>
+    public class NewsImageConfiguration : IEntityTypeConfiguration<NewsImage>
     {
-        public void Configure(EntityTypeBuilder<ProjectImage> builder)
+        public void Configure(EntityTypeBuilder<NewsImage> builder)
         {
             builder.Property(x => x.Image).HasMaxLength(120).IsRequired(true);
         }

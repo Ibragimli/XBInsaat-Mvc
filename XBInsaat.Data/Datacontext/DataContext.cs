@@ -19,15 +19,19 @@ namespace XBInsaat.Data.Datacontext
         public DbSet<ImageSetting> ImageSettings { get; set; }
         public DbSet<Setting> Settings { get; set; }
         public DbSet<XBService> XBServices { get; set; }
-        public DbSet<ProjectImage> ProjectImages { get; set; }
-        public DbSet<Project> Projects { get; set; }
+        public DbSet<HighProjectImage> HighProjectImages { get; set; }
+        public DbSet<HighProject> HighProjects { get; set; }
         public DbSet<Camera> Cameras { get; set; }
+        public DbSet<MidProject> MidProjects { get; set; }
+        public DbSet<HighProjectMidProjectId> HighMidProjectIds { get; set; }
+        public DbSet<News> News { get; set; }
+        public DbSet<MidProjectImage> MidProjectImages { get; set; }
+        public DbSet<NewsImage> NewsImages { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-
-            builder.ApplyConfigurationsFromAssembly(typeof(ProjectConfiguration).Assembly);
+            builder.ApplyConfigurationsFromAssembly(typeof(LowProjectConfiguration).Assembly);
             base.OnModelCreating(builder);
         }
     }

@@ -13,26 +13,44 @@ namespace XBInsaat.Data.UnitOfWork
     public class UnitOfWork : IUnitOfWork
     {
         private readonly DataContext _context;
-        private IProjectRepository _projectRepository;
+        private IHighProjectRepository _highProjectRepository;
         private IImageSettingRepository _imageSettingRepository;
-        private IProjectImageRepository _projectImageRepository;
+        private IHighProjectImageRepository _highProjectImageRepository;
         private ISettingRepository _settingRepository;
         private IAppUserRepository _userRepository;
         private IXBServiceRepository _xBServiceRepository;
         private ICameraRepository _cameraRepository;
+        private IMidProjectRepository _midProjectRepository;
+        private ILowProjectRepository _lowProjectRepository;
+        private INewsRepository _newsRepository;
+        private INewsImageRepository _newsImageRepository;
+        private IMidProjectImageRepository _midProjectImageRepository;
+
 
         public UnitOfWork(DataContext context)
         {
             _context = context;
         }
 
-        public IProjectRepository ProjectRepository => _projectRepository = _projectRepository ?? new ProjectRepository(_context);
         public IImageSettingRepository ImageSettingRepository => _imageSettingRepository = _imageSettingRepository ?? new ImageSettingRepository(_context);
-        public IProjectImageRepository ProjectImageRepository => _projectImageRepository = _projectImageRepository ?? new ProjectImageRepository(_context);
+        public IHighProjectImageRepository HighProjectImageRepository => _highProjectImageRepository = _highProjectImageRepository ?? new HighProjectImageRepository(_context);
         public ISettingRepository SettingRepository => _settingRepository = _settingRepository ?? new SettingRepository(_context);
         public IXBServiceRepository XBServiceRepository => _xBServiceRepository = _xBServiceRepository ?? new XBServiceRepository(_context);
         public IAppUserRepository AppUserRepository => _userRepository = _userRepository ?? new AppUserRepository(_context);
         public ICameraRepository CameraRepository => _cameraRepository = _cameraRepository ?? new CameraRepository(_context);
+
+        public IHighProjectRepository HighProjectRepository => _highProjectRepository = _highProjectRepository ?? new HighProjectRepository(_context);
+
+        public IMidProjectRepository MidProjectRepository => _midProjectRepository = _midProjectRepository ?? new MidProjectRepository(_context);
+
+        public ILowProjectRepository LowProjectRepository => _lowProjectRepository = _lowProjectRepository ?? new LowProjectRepository(_context);
+
+        public INewsRepository NewsRepository => _newsRepository = _newsRepository ?? new NewsRepository(_context);
+
+        public IMidProjectImageRepository MidProjectImageRepository => _midProjectImageRepository = _midProjectImageRepository ?? new MidProjectImageRepository(_context);
+
+        public INewsImageRepository NewsImageRepository => _newsImageRepository = _newsImageRepository ?? new NewsImageRepository(_context);
+
         public async Task<int> CommitAsync()
         {
             return await _context.SaveChangesAsync();

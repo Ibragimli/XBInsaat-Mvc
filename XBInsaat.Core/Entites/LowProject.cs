@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 
 namespace XBInsaat.Core.Entites
 {
-    public class Project:BaseEntity
+    public class LowProject : BaseEntity
     {
         public string Name { get; set; }
-        public string Describe { get; set; }
-        public ICollection<ProjectImage> ProjectImages { get; set; }
+        public string DescribeAz { get; set; }
+        public string DescribeEn { get; set; }
+        public string DescribeRu { get; set; }
+        public ICollection<HighProjectImage> ProjectImages { get; set; }
         [NotMapped]
         public List<IFormFile> ImageFiles { get; set; }
         [NotMapped]
         public IFormFile ProjectImageFile { get; set; }
         [NotMapped]
         public List<int> ProjectImagesIds { get; set; }
-
-
     }
 }

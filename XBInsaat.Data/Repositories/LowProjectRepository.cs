@@ -9,11 +9,12 @@ using XBInsaat.Data.Datacontext;
 
 namespace XBInsaat.Data.Repositories
 {
-    public class ProjectRepository : Repository<Project>, IProjectRepository
+
+    public class LowProjectRepository : Repository<LowProject>, ILowProjectRepository
     {
         private readonly DataContext _context;
 
-        public ProjectRepository(DataContext context) : base(context)
+        public LowProjectRepository(DataContext context) : base(context)
         {
             _context = context;
         }

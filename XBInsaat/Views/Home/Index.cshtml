@@ -1,11 +1,39 @@
-﻿@{
+﻿@model List<HighProject>
+@{
     ViewData["Title"] = "Home Page";
 }
+@*
+@foreach (Project item in Model)
+{
+    var e = _localization.Getkey("Language").Value;
+    @if (e == "Az")
+    {
+        <p style="color:red; font-style:20px;">
+            @item.DescribeAz
+        </p>
 
-<form asp-action="change" method="post"> 
+    }
+    else if (e == "En")
+    {
+        <p style="color:red; font-style:20px;">
+            @item.DescribeEn
+        </p>
+
+    }
+    else
+    {
+        <p style="color:red; font-style:20px;">
+            @item.DescribeRu
+        </p>
+
+    }
+}*@
+
+@*<form asp-action="change" method="post">
     <input type="text" class="form-control" />
     <button type="submit" class="btn btn-primary">Gonder</button>
-</form>
+</form>*@
+
 <!-- Contact Us Button -->
 <div class="contactUsBtnBox " id="hereket">
     <a href="#" data-bs-toggle="modal" data-bs-target="#contactUsModal" id="ctnBtn">
@@ -16,22 +44,22 @@
 <!-- Revo Slider -->
 <div class="slider">
     <div class="slide active">
-        <img src="./assets/Images/slide-susa.gif" alt="Resim 1">
+        <img src="~/assets/Images/slide-susa.gif" alt="Resim 1">
     </div>
     <div class="slide">
-        <img src="./assets/Images/slide-service3-scaled.gif" alt="Resim 2">
+        <img src="~/assets/Images/slide-service3-scaled.gif" alt="Resim 2">
     </div>
     <div class="slide">
-        <img src="./assets/Images/slide-projec-yujk-scaled.gif" alt="Resim 3">
+        <img src="~/assets/Images/slide-projec-yujk-scaled.gif" alt="Resim 3">
     </div>
     <div class="slide">
-        <img src="./assets/Images/home_architect2_slider2-1568x653.jpg" alt="Resim 4">
+        <img src="~/assets/Images/home_architect2_slider2-1568x653.jpg" alt="Resim 4">
     </div>
     <div class="slide">
-        <img src="./assets/Images/cam.png" alt="Resim 5">
+        <img src="~/assets/Images/cam.png" alt="Resim 5">
     </div>
     <div class="slide">
-        <img src="./assets/Images/home_architect2_slider3-1568x653.jpg" alt="Resim 6">
+        <img src="~/assets/Images/home_architect2_slider3-1568x653.jpg" alt="Resim 6">
     </div>
 </div>
 
@@ -346,10 +374,10 @@
                     <!-- <div class="col-lg-4 col-md-11 servicesBox rightP ">
                         <h2>Memarlıq</h2>
                     <p>
-                        @*@Html.Raw(_localization.Getkey("GeneralText").Value)*@
+                    @*@Html.Raw(_localization.Getkey("GeneralText").Value)*@
                     </p>
                         <div class="servicesModalImage">
-                            <img style="width: 32px; height: 66px;" src="./assets/Images/icon1.png" alt="">
+                            <img style="width: 32px; height: 66px;" src="~/assets/Images/icon1.png" alt="">
                         </div>
                     </div> -->
                     <div class="col-lg-6  col-md-11 servicesBox boxPadding iceri">
@@ -360,7 +388,7 @@
                             @Html.Raw(_localization.Getkey("Services-Projecting").Value)
                         </p>
                         <div class="servicesModalImage">
-                            <img class="mt-2" style="width: 53px; height: 46px;" src="./assets/Images/icon2.png" alt="">
+                            <img class="mt-2" style="width: 53px; height: 46px;" src="~/assets/Images/icon2.png" alt="">
                         </div>
                     </div>
                     <div class="col-lg-6  col-md-11 servicesBox leftP ">
@@ -371,7 +399,7 @@
                             @Html.Raw(_localization.Getkey("Services-Construction").Value)
                         </p>
                         <div class="servicesModalImage ">
-                            <img class="mt-2" style="width: 70px; height: 35px;" src="./assets/Images/icon3.png" alt="">
+                            <img class="mt-2" style="width: 70px; height: 35px;" src="~/assets/Images/icon3.png" alt="">
                         </div>
                     </div>
                 </div>
@@ -403,7 +431,7 @@
                                 <!-- Featured image -->
                                 <a href="#!" id="openModal2" data-bs-toggle="modal"
                                    data-bs-target="#project-test">
-                                    <img src="./assets/Images/home_architect2_slider2-1568x653.jpg"
+                                    <img src="~/assets/Images/home_architect2_slider2-1568x653.jpg"
                                          class="img-fluid rounded hover-lift-light" alt="">
                                 </a>
 
@@ -426,7 +454,7 @@
                                 <!-- Featured image -->
                                 <a href="#!" id="openModal2" data-bs-toggle="modal"
                                    data-bs-target="#project-test">
-                                    <img src="./assets/Images/home_architect2_slider3-1568x653.jpg"
+                                    <img src="~/assets/Images/home_architect2_slider3-1568x653.jpg"
                                          class="img-fluid rounded hover-lift-light" alt="">
                                 </a>
 
@@ -449,7 +477,7 @@
                                 <!-- Featured image -->
                                 <a href="#!" id="openModal2" data-bs-toggle="modal"
                                    data-bs-target="#project-test">
-                                    <img src="./assets/Images/home_architect2_slider2-1568x653.jpg"
+                                    <img src="~/assets/Images/home_architect2_slider2-1568x653.jpg"
                                          class="img-fluid rounded hover-lift-light" alt="">
                                 </a>
 
@@ -472,7 +500,7 @@
                                 <!-- Featured image -->
                                 <a href="#!" id="openModal2" data-bs-toggle="modal"
                                    data-bs-target="#project-test">
-                                    <img src="./assets/Images/home_architect2_slider3-1568x653.jpg"
+                                    <img src="~/assets/Images/home_architect2_slider3-1568x653.jpg"
                                          class="img-fluid rounded hover-lift-light" alt="">
                                 </a>
 
@@ -495,7 +523,7 @@
                                 <!-- Featured image -->
                                 <a href="#!" id="openModal2" data-bs-toggle="modal"
                                    data-bs-target="#project-test">
-                                    <img src="./assets/Images/home_architect2_slider2-1568x653.jpg"
+                                    <img src="~/assets/Images/home_architect2_slider2-1568x653.jpg"
                                          class="img-fluid rounded hover-lift-light" alt="">
                                 </a>
 
@@ -518,7 +546,7 @@
                                 <!-- Featured image -->
                                 <a href="#!" id="openModal2" data-bs-toggle="modal"
                                    data-bs-target="#project-test">
-                                    <img src="./assets/Images/home_architect2_slider3-1568x653.jpg"
+                                    <img src="~/assets/Images/home_architect2_slider3-1568x653.jpg"
                                          class="img-fluid rounded hover-lift-light" alt="">
                                 </a>
 
@@ -576,7 +604,7 @@
                                     <div class="projectSlide">
                                         <div class="image-container">
                                             <a href="#!">
-                                                <img src="./assets/Images/home_architect2_slider1-1568x653.jpg"
+                                                <img src="~/assets/Images/home_architect2_slider1-1568x653.jpg"
                                                      class="img-fluid rounded hover-lift-light" alt="">
                                             </a>
 
@@ -585,7 +613,7 @@
                                     <div class="projectSlide">
                                         <div class="image-container">
                                             <a href="#!">
-                                                <img src="./assets/Images/slide-susa.gif"
+                                                <img src="~/assets/Images/slide-susa.gif"
                                                      class="img-fluid rounded hover-lift-light" alt="">
                                             </a>
 
@@ -594,7 +622,7 @@
                                     <div class="projectSlide">
                                         <div class="image-container">
                                             <a href="#!">
-                                                <img src="./assets/Images/home_architect2_slider3-1568x653.jpg"
+                                                <img src="~/assets/Images/home_architect2_slider3-1568x653.jpg"
                                                      class="img-fluid rounded hover-lift-light" alt="">
                                             </a>>
                                         </div>
@@ -637,7 +665,7 @@
                                     <div class="col-lg-3  col-md-7 mb-2 projectShopBoxs">
                                         <!-- Featured image -->
                                         <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info">
-                                            <img src="./assets/Images/home_architect2_slider1-1568x653.jpg"
+                                            <img src="~/assets/Images/home_architect2_slider1-1568x653.jpg"
                                                  class="img-fluid rounded hover-lift-light" alt="">
                                         </a>
                                         <!-- Title -->
@@ -649,7 +677,7 @@
                                     <div class="col-lg-3  col-md-7 mb-2 projectShopBoxs">
                                         <!-- Featured image -->
                                         <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info">
-                                            <img src="./assets/Images/home_architect2_slider2-1568x653.jpg"
+                                            <img src="~/assets/Images/home_architect2_slider2-1568x653.jpg"
                                                  class="img-fluid rounded hover-lift-light" alt="">
                                         </a>
                                         <!-- Title -->
@@ -661,7 +689,7 @@
                                     <div class="col-lg-3  col-md-7 mb-2 projectShopBoxs">
                                         <!-- Featured image -->
                                         <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info">
-                                            <img src="./assets/Images/home_architect2_slider3-1568x653.jpg"
+                                            <img src="~/assets/Images/home_architect2_slider3-1568x653.jpg"
                                                  class="img-fluid rounded hover-lift-light" alt="">
                                         </a>
                                         <!-- Title -->
@@ -673,7 +701,7 @@
                                     <div class="col-lg-3  col-md-7 mb-2 projectShopBoxs">
                                         <!-- Featured image -->
                                         <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info">
-                                            <img src="./assets/Images/home_architect2_slider1-1568x653.jpg"
+                                            <img src="~/assets/Images/home_architect2_slider1-1568x653.jpg"
                                                  class="img-fluid rounded hover-lift-light" alt="">
                                         </a>
                                         <!-- Title -->
@@ -685,7 +713,7 @@
                                     <div class="col-lg-3  col-md-7 mb-2 projectShopBoxs">
                                         <!-- Featured image -->
                                         <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info">
-                                            <img src="./assets/Images/home_architect2_slider1-1568x653.jpg"
+                                            <img src="~/assets/Images/home_architect2_slider1-1568x653.jpg"
                                                  class="img-fluid rounded hover-lift-light" alt="">
                                         </a>
                                         <!-- Title -->
@@ -701,7 +729,7 @@
                                         <a href="#" data-bs-toggle="modal" data-bs-target="#project-info"
                                            class="projectBoxTitle d-block  text-decoration-none mt-3">
                                             <img style=" border-radius: 5px;"
-                                                 src="./assets/Images/home_architect2_slider2-1568x653.jpg"
+                                                 src="~/assets/Images/home_architect2_slider2-1568x653.jpg"
                                                  alt="" width="100% ">
                                         </a>
                                         <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info"
@@ -714,7 +742,7 @@
                                         <a href="#" data-bs-toggle="modal" data-bs-target="#project-info"
                                            class="projectBoxTitle d-block  text-decoration-none mt-3">
                                             <img style=" border-radius: 5px;"
-                                                 src="./assets/Images/slide-susa.gif" alt="" width="100% ">
+                                                 src="~/assets/Images/slide-susa.gif" alt="" width="100% ">
                                         </a>
                                         <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info"
                                            class="projectBoxTitle d-block  text-decoration-none mt-3"
@@ -725,7 +753,7 @@
                                     <div class="item me-2">
                                         <a href="#" data-bs-toggle="modal" data-bs-target="#project-info"
                                            class="projectBoxTitle d-block  text-decoration-none mt-3">
-                                            <img style=" border-radius: 5px;" src="./assets/Images/cam.png"
+                                            <img style=" border-radius: 5px;" src="~/assets/Images/cam.png"
                                                  alt="" width="100% ">
                                         </a>
                                         <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info"
@@ -738,7 +766,7 @@
                                         <a href="#" data-bs-toggle="modal" data-bs-target="#project-info"
                                            class="projectBoxTitle d-block  text-decoration-none mt-3">
                                             <img style=" border-radius: 5px;"
-                                                 src="./assets/Images/slide-service3-scaled.gif" alt=""
+                                                 src="~/assets/Images/slide-service3-scaled.gif" alt=""
                                                  width="100% ">
                                         </a>
                                         <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info"
@@ -751,7 +779,7 @@
                                         <a href="#" data-bs-toggle="modal" data-bs-target="#project-info"
                                            class="projectBoxTitle d-block  text-decoration-none mt-3">
                                             <img style=" border-radius: 5px;"
-                                                 src="./assets/Images/slide-projec-yujk-scaled.gif" alt=""
+                                                 src="~/assets/Images/slide-projec-yujk-scaled.gif" alt=""
                                                  width="100% ">
                                         </a>
                                         <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info"
@@ -764,7 +792,7 @@
                                         <a href="#" data-bs-toggle="modal" data-bs-target="#project-info"
                                            class="projectBoxTitle d-block  text-decoration-none mt-3">
                                             <img style=" border-radius: 5px;"
-                                                 src="./assets/Images/slide-susa.gif" alt="" width="100% ">
+                                                 src="~/assets/Images/slide-susa.gif" alt="" width="100% ">
                                         </a>
                                         <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info"
                                            class="projectBoxTitle d-block  text-decoration-none mt-3"
@@ -815,7 +843,7 @@
                                     <div class="projectInfoSlide">
                                         <div class="image-container">
                                             <a href="#!">
-                                                <img src="./assets/Images/home_architect2_slider1-1568x653.jpg"
+                                                <img src="~/assets/Images/home_architect2_slider1-1568x653.jpg"
                                                      class="img-fluid rounded hover-lift-light" alt="">
                                             </a>
 
@@ -824,7 +852,7 @@
                                     <div class="projectInfoSlide">
                                         <div class="image-container">
                                             <a href="#!">
-                                                <img src="./assets/Images/slide-susa.gif"
+                                                <img src="~/assets/Images/slide-susa.gif"
                                                      class="img-fluid rounded hover-lift-light" alt="">
                                             </a>
 
@@ -833,7 +861,7 @@
                                     <div class="projectInfoSlide">
                                         <div class="image-container">
                                             <a href="#!">
-                                                <img src="./assets/Images/home_architect2_slider3-1568x653.jpg"
+                                                <img src="~/assets/Images/home_architect2_slider3-1568x653.jpg"
                                                      class="img-fluid rounded hover-lift-light" alt="">
                                             </a>>
                                         </div>
@@ -901,7 +929,7 @@
                             <div class="col-lg-4  col-md-12 mb-2 newsBoxs">
                                 <!-- Featured image -->
                                 <a href="#!" data-bs-toggle="modal" data-bs-target="#new-test">
-                                    <img src="./assets/Images/home_architect2_slider1-1568x653.jpg"
+                                    <img src="~/assets/Images/home_architect2_slider1-1568x653.jpg"
                                          class="img-fluid rounded hover-lift-light" alt="">
                                 </a>
 
@@ -921,7 +949,7 @@
                             <div class="col-lg-4  col-md-12 mb-2 newsBoxs">
                                 <!-- Featured image -->
                                 <a href="#!" data-bs-toggle="modal" data-bs-target="#new-test">
-                                    <img src="./assets/Images/home_architect2_slider1-1568x653.jpg"
+                                    <img src="~/assets/Images/home_architect2_slider1-1568x653.jpg"
                                          class="img-fluid rounded hover-lift-light" alt="">
                                 </a>
 
@@ -941,7 +969,7 @@
                             <div class="col-lg-4  col-md-12 mb-2 newsBoxs">
                                 <!-- Featured image -->
                                 <a href="#!" data-bs-toggle="modal" data-bs-target="#new-test">
-                                    <img src="./assets/Images/home_architect2_slider1-1568x653.jpg"
+                                    <img src="~/assets/Images/home_architect2_slider1-1568x653.jpg"
                                          class="img-fluid rounded hover-lift-light" alt="">
                                 </a>
 
@@ -961,7 +989,7 @@
                             <div class="col-lg-4  col-md-12 mb-2 newsBoxs">
                                 <!-- Featured image -->
                                 <a href="#!" data-bs-toggle="modal" data-bs-target="#new-test">
-                                    <img src="./assets/Images/home_architect2_slider1-1568x653.jpg"
+                                    <img src="~/assets/Images/home_architect2_slider1-1568x653.jpg"
                                          class="img-fluid rounded hover-lift-light" alt="">
                                 </a>
 
@@ -1016,7 +1044,7 @@
                                     <div class="newSlide">
                                         <div class="image-container">
                                             <a href="#!">
-                                                <img src="./assets/Images/home_architect2_slider1-1568x653.jpg"
+                                                <img src="~/assets/Images/home_architect2_slider1-1568x653.jpg"
                                                      class="img-fluid rounded hover-lift-light" alt="">
                                             </a>
 
@@ -1025,7 +1053,7 @@
                                     <div class="newSlide">
                                         <div class="image-container">
                                             <a href="#!">
-                                                <img src="./assets/Images/slide-susa.gif"
+                                                <img src="~/assets/Images/slide-susa.gif"
                                                      class="img-fluid rounded hover-lift-light" alt="">
                                             </a>
 
@@ -1034,7 +1062,7 @@
                                     <div class="newSlide">
                                         <div class="image-container">
                                             <a href="#!">
-                                                <img src="./assets/Images/home_architect2_slider3-1568x653.jpg"
+                                                <img src="~/assets/Images/home_architect2_slider3-1568x653.jpg"
                                                      class="img-fluid rounded hover-lift-light" alt="">
                                             </a>>
                                         </div>
@@ -1093,7 +1121,7 @@
                             <div class="col-lg-4 col-md-10 camBox">
                                 <!-- Featured image -->
                                 <a href="#!" data-bs-toggle="modal" data-bs-target="#camModal-test">
-                                    <img src="./assets/Images/Asset-1-1.png"
+                                    <img src="~/assets/Images/Asset-1-1.png"
                                          class="img-fluid rounded hover-lift-light" alt="">
                                 </a>
 
@@ -1107,7 +1135,7 @@
                             <div class="col-lg-4 col-md-10 camBox">
                                 <!-- Featured image -->
                                 <a href="#!" data-bs-toggle="modal" data-bs-target="#camModal-test">
-                                    <img src="./assets/Images/Asset-1-1.png"
+                                    <img src="~/assets/Images/Asset-1-1.png"
                                          class="img-fluid rounded hover-lift-light" alt="">
                                 </a>
 
@@ -1121,7 +1149,7 @@
                             <div class="col-lg-4 col-md-10 camBox">
                                 <!-- Featured image -->
                                 <a href="#!" data-bs-toggle="modal" data-bs-target="#camModal-test">
-                                    <img src="./assets/Images/Asset-1-1.png"
+                                    <img src="~/assets/Images/Asset-1-1.png"
                                          class="img-fluid rounded hover-lift-light" alt="">
                                 </a>
 
@@ -1134,7 +1162,7 @@
                             <div class="col-lg-4 col-md-10 camBox">
                                 <!-- Featured image -->
                                 <a href="#!" data-bs-toggle="modal" data-bs-target="#camModal-test">
-                                    <img src="./assets/Images/Asset-1-1.png"
+                                    <img src="~/assets/Images/Asset-1-1.png"
                                          class="img-fluid rounded hover-lift-light" alt="">
                                 </a>
 
@@ -1175,7 +1203,7 @@
                             <div class="col-lg-4 col-md-10 camBox">
                                 <!-- Featured image -->
                                 <a href="#!" data-bs-toggle="modal" data-bs-target="#liveModal-test">
-                                    <img src="./assets/Images/Asset-1-1.png"
+                                    <img src="~/assets/Images/Asset-1-1.png"
                                          class="img-fluid rounded hover-lift-light" alt="">
                                 </a>
 
@@ -1303,7 +1331,7 @@
                 <form class="row  " action="#" method="post" enctype="multipart/form-data">
                     <div class="loginLogoImage d-flex justify-content-center">
                         <a href="#">
-                            <img decoding="async" src="./assets/Images/xaribulbulgroup-logo.png" alt="">
+                            <img decoding="async" src="~/assets/Images/xaribulbulgroup-logo.png" alt="">
                         </a>
                     </div>
                     <div class="loginEmail col-lg-6">
@@ -1362,7 +1390,7 @@
                 <form class="row  " action="#" method="post" enctype="multipart/form-data">
                     <div class="contactLogoImage d-flex justify-content-center">
                         <a href="#">
-                            <img decoding="async" src="./assets/Images/xaribulbulgroup-logo.png" alt="">
+                            <img decoding="async" src="~/assets/Images/xaribulbulgroup-logo.png" alt="">
                         </a>
                     </div>
 
@@ -1518,7 +1546,7 @@
                                                     sustainable VHS.
                                                 </p>
 
-                                                <a href="./assets/pdf/screen-1.pdf" target="_blank">
+                                                <a href="~/assets/pdf/screen-1.pdf" target="_blank">
                                                     Download
                                                     File
                                                 </a>

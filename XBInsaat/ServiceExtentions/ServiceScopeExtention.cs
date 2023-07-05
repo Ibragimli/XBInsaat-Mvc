@@ -11,9 +11,9 @@ namespace XBInsaat.Mvc.ServiceExtentions
         {
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-            services.AddScoped<IProjectRepository, ProjectRepository>();
+            services.AddScoped<IHighProjectRepository, HighProjectRepository>();
             services.AddScoped<IImageSettingRepository, ImageSettingRepository>();
-            services.AddScoped<IProjectImageRepository, ProjectImageRepository>();
+            services.AddScoped<IHighProjectImageRepository, HighProjectImageRepository>();
             services.AddScoped<ISettingRepository, SettingRepository>();
             //services.AddScoped<IEmailServices, EmailServices>();
             //services.AddScoped<IProjectCreateServices, ProjectCreateServices>();

@@ -1,0 +1,23 @@
+﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using XBInsaat.Core.Entites;
+
+namespace XBInsaat.Data.Configuration
+{
+  public class NewsConfiguration : IEntityTypeConfiguration<News>
+    {
+        public void Configure(EntityTypeBuilder<News> builder)
+        {
+            builder.Property(x => x.Title).HasMaxLength(100).IsRequired(true);
+            builder.Property(x => x.TextAz).HasMaxLength(3000).IsRequired(true);
+            builder.Property(x => x.TextEn).HasMaxLength(3000).IsRequired(true);
+            builder.Property(x => x.TextRu).HasMaxLength(3000).IsRequired(true);
+
+        }
+    }
+}

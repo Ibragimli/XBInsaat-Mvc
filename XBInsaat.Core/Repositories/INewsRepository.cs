@@ -7,7 +7,7 @@ using XBInsaat.Core.Entites;
 
 namespace XBInsaat.Core.Repositories
 {
-    public interface IProjectImageRepository : IRepository<ProjectImage>
+    public interface INewsRepository : IRepository<News>
     {
     }
 }

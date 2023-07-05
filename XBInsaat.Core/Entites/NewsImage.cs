@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace XBInsaat.Core.Entites
 {
-    public class ProjectImage:BaseEntity
+    public class NewsImage : BaseEntity
     {
         public string Image { get; set; }
-        public int ProjectId { get; set; }
+        public int NewsId { get; set; }
         public bool IsPoster { get; set; }
-        public Project Project { get; set; }
+        public News News { get; set; }
     }
 }

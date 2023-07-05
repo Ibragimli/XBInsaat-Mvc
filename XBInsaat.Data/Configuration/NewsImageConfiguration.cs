@@ -9,13 +9,11 @@ using XBInsaat.Core.Entites;
 
 namespace XBInsaat.Data.Configuration
 {
-  public class ProjectConfiguration : IEntityTypeConfiguration<Project>
+    public class HighProjectImageConfiguration : IEntityTypeConfiguration<HighProjectImage>
     {
-        public void Configure(EntityTypeBuilder<Project> builder)
+        public void Configure(EntityTypeBuilder<HighProjectImage> builder)
         {
-            builder.Property(x => x.Name).HasMaxLength(100).IsRequired(true);
-            builder.Property(x => x.Describe).HasMaxLength(3000).IsRequired(true);
-
+            builder.Property(x => x.Image).HasMaxLength(120).IsRequired(true);
         }
     }
 }
