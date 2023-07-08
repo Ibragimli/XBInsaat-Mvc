@@ -7,5 +7,7 @@ namespace XBInsaat.Mvc.Areas.manage.ViewModels
     {
         public MidProject MidProject { get; set; }
         public IEnumerable<MidProjectImage> MidProjectImages { get; set; }
+        public IEnumerable<HighProject> HighProjects { get; set; }
+        public int MidHighProjectId { get; set; }
     }
 }

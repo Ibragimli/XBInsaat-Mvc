@@ -33,8 +33,6 @@ namespace XBInsaat.Services.Services.Implementations.Area
             var midProject = _mapper.Map<MidProject>(MidProjectCreateDto);
             await _unitOfWork.MidProjectRepository.InsertAsync(midProject);
             await _unitOfWork.CommitAsync();
-
-            await CreateMidHighProjectId(MidProjectCreateDto.HighProjectId, midProject.Id);
             return midProject;
         }
 
@@ -73,17 +71,6 @@ namespace XBInsaat.Services.Services.Implementations.Area
             return highProjects;
         }
 
-        private async Task CreateMidHighProjectId(int highId, int midId)
-        {
-            HighProjectMidProjectId highProjectMidProjectId = new HighProjectMidProjectId
-            {
-                HighProjectId = highId,
-                MidProjectId = midId
-
-            };
-            await _unitOfWork.HighProjectMidProjectIdRepository.InsertAsync(highProjectMidProjectId);
-            await _unitOfWork.CommitAsync();
-        }
 
     }
 }

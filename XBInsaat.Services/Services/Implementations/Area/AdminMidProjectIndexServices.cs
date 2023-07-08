@@ -21,7 +21,7 @@ namespace XBInsaat.Services.Services.Implementations.Area
         }
         public IQueryable<MidProject> GetPoster(string name)
         {
-            var poster = _unitOfWork.MidProjectRepository.asQueryable("MidProjectImages");
+            var poster = _unitOfWork.MidProjectRepository.asQueryable("MidProjectImages","HighProject");
             poster = poster.Where(x => !x.IsDelete);
 
             if (name != null)

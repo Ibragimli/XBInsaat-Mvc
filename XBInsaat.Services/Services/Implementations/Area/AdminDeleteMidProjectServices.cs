@@ -28,11 +28,7 @@ namespace XBInsaat.Services.Services.Implementations.Area
             if (project == null)
                 throw new ItemNotFoundException("404");
             var images = await _unitOfWork.MidProjectImageRepository.GetAllAsync(x => x.MidProjectId == project.Id && !x.IsDelete);
-           
-            //var midProject = _unitOfWork.HighProjectMidProjectIdRepository.GetAllAsync(x => x.MidProjectId == id);
-            //if (midProject != null)
-            //    throw new ItemUseException("Layihə mağazalarda istifadə olunduğu üçün silinmədi.");
-            
+
             if (images != null)
             {
                 foreach (var image in images)
@@ -47,7 +43,6 @@ namespace XBInsaat.Services.Services.Implementations.Area
                 _unitOfWork.MidProjectRepository.Remove(project);
                 await _unitOfWork.CommitAsync();
             }
-
         }
     }
 }

@@ -21,7 +21,6 @@ namespace XBInsaat.Core.IUnitOfWork
         INewsRepository NewsRepository { get; }
         IMidProjectImageRepository MidProjectImageRepository { get; }
         INewsImageRepository NewsImageRepository { get; }
-        IHighProjectMidProjectIdRepository HighProjectMidProjectIdRepository { get; }
         Task<int> CommitAsync();
 
     }

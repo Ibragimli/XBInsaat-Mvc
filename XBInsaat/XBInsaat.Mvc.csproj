@@ -7,8 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="wwwroot\uploads\highprojects\" />
     <Folder Include="wwwroot\uploads\midprojects\" />
   </ItemGroup>
 

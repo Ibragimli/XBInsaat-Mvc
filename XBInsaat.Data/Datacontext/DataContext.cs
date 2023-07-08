@@ -23,7 +23,6 @@ namespace XBInsaat.Data.Datacontext
         public DbSet<HighProject> HighProjects { get; set; }
         public DbSet<Camera> Cameras { get; set; }
         public DbSet<MidProject> MidProjects { get; set; }
-        public DbSet<HighProjectMidProjectId> HighMidProjectIds { get; set; }
         public DbSet<News> News { get; set; }
         public DbSet<MidProjectImage> MidProjectImages { get; set; }
         public DbSet<NewsImage> NewsImages { get; set; }

@@ -10,6 +10,7 @@ using XBInsaat.Core.Entites;
 using XBInsaat.Core.IUnitOfWork;
 using XBInsaat.Service.CustomExceptions;
 using XBInsaat.Service.HelperService.Interfaces;
+using XBInsaat.Services.Dtos.Area;
 using XBInsaat.Services.Services.Interfaces.Area;
 
 namespace XBInsaat.Services.Services.Implementations.Area
@@ -35,7 +36,7 @@ namespace XBInsaat.Services.Services.Implementations.Area
             if (oldMidProject == null)
                 throw new ItemNullException("Layihə tapılmadı!");
 
-
+            
             Check(MidProject);
             if (MidProject.ProjectImageFile != null)
                 _manageImageHelper.PosterCheck(MidProject.ProjectImageFile);
@@ -56,6 +57,12 @@ namespace XBInsaat.Services.Services.Implementations.Area
             if (oldMidProject.Name != MidProject.Name)
             {
                 oldMidProject.Name = MidProject.Name;
+                checkBool = true;
+
+            }
+            if (oldMidProject.HighProjectId != MidProject.HighProjectId)
+            {
+                oldMidProject.HighProjectId = MidProject.HighProjectId;
                 checkBool = true;
 
             }
@@ -82,13 +89,14 @@ namespace XBInsaat.Services.Services.Implementations.Area
             if (checkBool)
                 await _unitOfWork.CommitAsync();
         }
-
+      
+     
         public async Task<MidProject> GetMidProject(int id)
         {
             var MidProject = await _unitOfWork.MidProjectRepository.GetAsync(x => x.Id == id, "MidProjectImages");
             return MidProject;
         }
-
+       
         public async Task<IEnumerable<MidProjectImage>> GetImages(int id)
         {
             var images = await _unitOfWork.MidProjectImageRepository.GetAllAsync(x => x.MidProjectId == id);
@@ -133,7 +141,7 @@ namespace XBInsaat.Services.Services.Implementations.Area
                             {
                                 IsPoster = false,
                                 MidProjectId = posterId,
-                                Image = _manageImageHelper.FileSave(image, "Midprojects"),
+                                Image = _manageImageHelper.FileSave(image, "midprojects"),
                             };
                             await _unitOfWork.MidProjectImageRepository.InsertAsync(Posterimage);
                             i--;
@@ -144,41 +152,6 @@ namespace XBInsaat.Services.Services.Implementations.Area
             }
             return 0;
         }
-
-
-
-        //private int DeleteImages(MidProject poster, MidProject posterExist)
-        //{
-        //    int i = 0;
-        //    ICollection<MidProjectImage> posterImages = posterExist.MidProjectImages;
-
-        //    if (poster.ProjectImagesIds != null)
-        //    {
-        //        foreach (var image in posterImages.ToList().Where(x => x.IsDelete == false && !x.IsPoster && !poster.ProjectImagesIds.Contains(x.Id)))
-        //        {
-        //            _manageImageHelper.DeleteFile(image.Image, "Midprojects");
-        //            posterExist.MidProjectImages.Remove(image);
-        //            i++;
-        //        }
-        //        posterImages.ToList().RemoveAll(x => !poster.ProjectImagesIds.Contains(x.Id));
-        //        return i;
-        //    }
-        //    else if (poster.ImageFiles != null && poster.ImageFiles.Count() > 0)
-        //    {
-        //        foreach (var item in posterImages.ToList().Where(x => !x.IsDelete && !x.IsPoster))
-        //        {
-        //            _manageImageHelper.DeleteFile(item.Image, "Midprojects");
-        //            posterExist.MidProjectImages.Remove(item);
-        //            i++;
-        //        }
-        //        return i;
-        //    }
-        //    else
-        //    {
-        //        throw new ImageCountException("Axırıncı şəkil silinə bilməz!");
-        //    }
-        //}
-
         private int DeleteImages(MidProject poster, MidProject posterExist)
         {
             int i = 0;
@@ -187,7 +160,7 @@ namespace XBInsaat.Services.Services.Implementations.Area
             {
                 foreach (var image in posterImages.ToList().Where(x => x.IsDelete == false && !x.IsPoster && !poster.ProjectImagesIds.Contains(x.Id)))
                 {
-                    _manageImageHelper.DeleteFile(image.Image, "Midprojects");
+                    _manageImageHelper.DeleteFile(image.Image, "midprojects");
                     posterExist.MidProjectImages.Remove(image);
                     i++;
                 }
@@ -202,7 +175,7 @@ namespace XBInsaat.Services.Services.Implementations.Area
                 {
                     foreach (var item in posterImages.ToList().Where(x => !x.IsDelete && !x.IsPoster))
                     {
-                        _manageImageHelper.DeleteFile(item.Image, "Midprojects");
+                        _manageImageHelper.DeleteFile(item.Image, "midprojects");
                         posterExist.MidProjectImages.Remove(item);
                         i++;
                     }

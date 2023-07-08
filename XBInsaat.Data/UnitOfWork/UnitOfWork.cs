@@ -25,7 +25,6 @@ namespace XBInsaat.Data.UnitOfWork
         private INewsRepository _newsRepository;
         private INewsImageRepository _newsImageRepository;
         private IMidProjectImageRepository _midProjectImageRepository;
-        private IHighProjectMidProjectIdRepository _highProjectMidProjectIdRepository;
 
 
         public UnitOfWork(DataContext context)
@@ -52,7 +51,6 @@ namespace XBInsaat.Data.UnitOfWork
 
         public INewsImageRepository NewsImageRepository => _newsImageRepository = _newsImageRepository ?? new NewsImageRepository(_context);
 
-        public IHighProjectMidProjectIdRepository HighProjectMidProjectIdRepository => _highProjectMidProjectIdRepository = _highProjectMidProjectIdRepository ?? new HighProjectMidProjectIdRepository(_context);
 
         public async Task<int> CommitAsync()
         {

@@ -135,19 +135,23 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
                 {
                     MidProject = await _adminMidProjectEditServices.GetMidProject(id),
                     MidProjectImages = await _adminMidProjectEditServices.GetImages(id),
+                    HighProjects = await _adminMidProjectCreateServices.GetAllHighProjects(),
                 };
 
             }
             catch (NotFoundException)
             {
-
                 return RedirectToAction("Index", "notfound");
             }
             catch (ItemNullException ex)
             {
                 ModelState.AddModelError("", ex.Message);
                 return View("Index", MidProjectEditVM);
-
+            }
+            catch (ItemNotFoundException ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+                return View("Index", MidProjectEditVM);
             }
             catch (Exception)
             {
@@ -185,6 +189,12 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
                 return View("Edit", MidProjectEditVM);
 
             }
+            catch (ItemNotFoundException ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+                return View("Edit", MidProjectEditVM);
+
+            }
             catch (ImageNullException ex)
             {
                 ModelState.AddModelError("", ex.Message);
@@ -215,8 +225,6 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
             }
             TempData["Success"] = ("Proses uğurlu oldu");
             return RedirectToAction("Index", "MidProject");
-
-
         }
 
         public async Task<IActionResult> Delete(int id)

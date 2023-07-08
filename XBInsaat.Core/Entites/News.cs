@@ -8,13 +8,15 @@ using System.Threading.Tasks;
 
 namespace XBInsaat.Core.Entites
 {
-      
+
     public class News : BaseEntity
     {
         public string Title { get; set; }
         public string TextAz { get; set; }
         public string TextEn { get; set; }
         public string TextRu { get; set; }
+        public string InstagramUrl { get; set; }
+        public string WebsiteUrl { get; set; }
         public ICollection<NewsImage> NewsImages { get; set; }
         [NotMapped]
         public List<IFormFile> ImageFiles { get; set; }

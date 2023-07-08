@@ -17,6 +17,8 @@ namespace XBInsaat.Data.Configuration
             builder.Property(x => x.TextAz).HasMaxLength(5000).IsRequired(true);
             builder.Property(x => x.TextEn).HasMaxLength(5000).IsRequired(true);
             builder.Property(x => x.TextRu).HasMaxLength(5000).IsRequired(true);
+            builder.Property(x => x.WebsiteUrl).HasMaxLength(200).IsRequired(false);
+            builder.Property(x => x.InstagramUrl).HasMaxLength(200).IsRequired(false);
 
         }
     }
