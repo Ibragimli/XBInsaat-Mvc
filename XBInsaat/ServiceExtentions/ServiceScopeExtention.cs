@@ -39,6 +39,13 @@ namespace XBInsaat.Mvc.ServiceExtentions
             services.AddScoped<IAdminDeleteMidProjectServices, AdminDeleteMidProjectServices>();
             services.AddScoped<IAdminMidProjectCreateServices, AdminMidProjectCreateServices>();
             services.AddScoped<IAdminMidProjectIndexServices, AdminMidProjectIndexServices>();
+            services.AddScoped<ISettingIndexServices, SettingIndexServices>();
+            services.AddScoped<ISettingEditServices, SettingEditServices>();
+
+            services.AddScoped<IAdminNewsEditServices, AdminNewsEditServices>();
+            services.AddScoped<IAdminDeleteNewsServices, AdminDeleteNewsServices>();
+            services.AddScoped<IAdminNewsCreateServices, AdminNewsCreateServices>();
+            services.AddScoped<IAdminNewsIndexServices, AdminNewsIndexServices>();
 
             //services.AddScoped<ILayoutServices, LayoutServices>();
             //services.AddScoped<IAnaSehifeIndexServices, AnaSehifeIndexServices>();

@@ -8,6 +8,8 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\uploads\midprojects\" />
+    <Folder Include="wwwroot\uploads\news\" />
+    <Folder Include="wwwroot\uploads\setting\" />
   </ItemGroup>
 
   <ItemGroup>

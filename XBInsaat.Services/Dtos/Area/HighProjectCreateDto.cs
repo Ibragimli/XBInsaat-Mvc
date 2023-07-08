@@ -14,7 +14,6 @@ namespace XBInsaat.Services.Dtos.Area
         public string DescribeAz { get; set; }
         public string DescribeEn { get; set; }
         public string DescribeRu { get; set; }
-        public List<string> ImageFilesStr { get; set; }
         public List<IFormFile> ImageFiles { get; set; }
 
     }
