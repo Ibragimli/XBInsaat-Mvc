@@ -17,10 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Services\Implementations\Area\" />
-    <Folder Include="Dtos\Area\" />
     <Folder Include="Dtos\User\" />
-    <Folder Include="Services\Interfaces\Area\" />
     <Folder Include="Services\Interfaces\User\" />
   </ItemGroup>
 

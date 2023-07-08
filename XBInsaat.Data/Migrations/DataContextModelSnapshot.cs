@@ -49,6 +49,115 @@ namespace XBInsaat.Data.Migrations
                     b.ToTable("Cameras");
                 });
 
+            modelBuilder.Entity("XBInsaat.Core.Entites.HighProject", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DescribeAz")
+                        .IsRequired()
+                        .HasMaxLength(5000)
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescribeEn")
+                        .IsRequired()
+                        .HasMaxLength(5000)
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescribeRu")
+                        .IsRequired()
+                        .HasMaxLength(5000)
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDelete")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("HighProjects");
+                });
+
+            modelBuilder.Entity("XBInsaat.Core.Entites.HighProjectImage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("HighProjectId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasMaxLength(120)
+                        .HasColumnType("nvarchar(120)");
+
+                    b.Property<bool>("IsDelete")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsPoster")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("HighProjectId");
+
+                    b.ToTable("HighProjectImages");
+                });
+
+            modelBuilder.Entity("XBInsaat.Core.Entites.HighProjectMidProjectId", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("HighProjectId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsDelete")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("MidProjectId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("HighProjectId");
+
+                    b.HasIndex("MidProjectId");
+
+                    b.ToTable("HighMidProjectIds");
+                });
+
             modelBuilder.Entity("XBInsaat.Core.Entites.XBService", b =>
                 {
                     b.Property<int>("Id")
@@ -62,8 +171,8 @@ namespace XBInsaat.Data.Migrations
 
                     b.Property<string>("Describe")
                         .IsRequired()
-                        .HasMaxLength(3000)
-                        .HasColumnType("nvarchar(3000)");
+                        .HasMaxLength(5000)
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDelete")
                         .HasColumnType("bit");
@@ -113,7 +222,7 @@ namespace XBInsaat.Data.Migrations
                     b.ToTable("ImageSettings");
                 });
 
-            modelBuilder.Entity("XBInsaat.Core.Entites.Project", b =>
+            modelBuilder.Entity("XBInsaat.Core.Entites.LowProject", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -126,18 +235,18 @@ namespace XBInsaat.Data.Migrations
 
                     b.Property<string>("DescribeAz")
                         .IsRequired()
-                        .HasMaxLength(3000)
-                        .HasColumnType("nvarchar(3000)");
+                        .HasMaxLength(5000)
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("DescribeEn")
                         .IsRequired()
-                        .HasMaxLength(3000)
-                        .HasColumnType("nvarchar(3000)");
+                        .HasMaxLength(5000)
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("DescribeRu")
                         .IsRequired()
-                        .HasMaxLength(3000)
-                        .HasColumnType("nvarchar(3000)");
+                        .HasMaxLength(5000)
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDelete")
                         .HasColumnType("bit");
@@ -152,10 +261,129 @@ namespace XBInsaat.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Projects");
+                    b.ToTable("LowProject");
                 });
 
-            modelBuilder.Entity("XBInsaat.Core.Entites.ProjectImage", b =>
+            modelBuilder.Entity("XBInsaat.Core.Entites.MidProject", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DescribeAz")
+                        .IsRequired()
+                        .HasMaxLength(5000)
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescribeEn")
+                        .IsRequired()
+                        .HasMaxLength(5000)
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescribeRu")
+                        .IsRequired()
+                        .HasMaxLength(5000)
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDelete")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MidProjects");
+                });
+
+            modelBuilder.Entity("XBInsaat.Core.Entites.MidProjectImage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasMaxLength(120)
+                        .HasColumnType("nvarchar(120)");
+
+                    b.Property<bool>("IsDelete")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsPoster")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("MidProjectId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MidProjectId");
+
+                    b.ToTable("MidProjectImages");
+                });
+
+            modelBuilder.Entity("XBInsaat.Core.Entites.News", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDelete")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("TextAz")
+                        .IsRequired()
+                        .HasMaxLength(5000)
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TextEn")
+                        .IsRequired()
+                        .HasMaxLength(5000)
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TextRu")
+                        .IsRequired()
+                        .HasMaxLength(5000)
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("News");
+                });
+
+            modelBuilder.Entity("XBInsaat.Core.Entites.NewsImage", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -180,14 +408,14 @@ namespace XBInsaat.Data.Migrations
                     b.Property<DateTime>("ModifiedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("ProjectId")
+                    b.Property<int>("NewsId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProjectId");
+                    b.HasIndex("NewsId");
 
-                    b.ToTable("ProjectImages");
+                    b.ToTable("NewsImages");
                 });
 
             modelBuilder.Entity("XBInsaat.Core.Entites.Setting", b =>
@@ -214,8 +442,8 @@ namespace XBInsaat.Data.Migrations
 
                     b.Property<string>("Value")
                         .IsRequired()
-                        .HasMaxLength(3000)
-                        .HasColumnType("nvarchar(3000)");
+                        .HasMaxLength(5000)
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -440,15 +668,56 @@ namespace XBInsaat.Data.Migrations
                     b.HasDiscriminator().HasValue("AppUser");
                 });
 
-            modelBuilder.Entity("XBInsaat.Core.Entites.ProjectImage", b =>
+            modelBuilder.Entity("XBInsaat.Core.Entites.HighProjectImage", b =>
                 {
-                    b.HasOne("XBInsaat.Core.Entites.Project", "Project")
-                        .WithMany("ProjectImages")
-                        .HasForeignKey("ProjectId")
+                    b.HasOne("XBInsaat.Core.Entites.HighProject", "HighProject")
+                        .WithMany("HighProjectImages")
+                        .HasForeignKey("HighProjectId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Project");
+                    b.Navigation("HighProject");
+                });
+
+            modelBuilder.Entity("XBInsaat.Core.Entites.HighProjectMidProjectId", b =>
+                {
+                    b.HasOne("XBInsaat.Core.Entites.HighProject", "HighProject")
+                        .WithMany()
+                        .HasForeignKey("HighProjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("XBInsaat.Core.Entites.MidProject", "MidProject")
+                        .WithMany()
+                        .HasForeignKey("MidProjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("HighProject");
+
+                    b.Navigation("MidProject");
+                });
+
+            modelBuilder.Entity("XBInsaat.Core.Entites.MidProjectImage", b =>
+                {
+                    b.HasOne("XBInsaat.Core.Entites.MidProject", "MidProject")
+                        .WithMany("MidProjectImages")
+                        .HasForeignKey("MidProjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("MidProject");
+                });
+
+            modelBuilder.Entity("XBInsaat.Core.Entites.NewsImage", b =>
+                {
+                    b.HasOne("XBInsaat.Core.Entites.News", "News")
+                        .WithMany("NewsImages")
+                        .HasForeignKey("NewsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("News");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -502,9 +771,19 @@ namespace XBInsaat.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("XBInsaat.Core.Entites.Project", b =>
+            modelBuilder.Entity("XBInsaat.Core.Entites.HighProject", b =>
                 {
-                    b.Navigation("ProjectImages");
+                    b.Navigation("HighProjectImages");
+                });
+
+            modelBuilder.Entity("XBInsaat.Core.Entites.MidProject", b =>
+                {
+                    b.Navigation("MidProjectImages");
+                });
+
+            modelBuilder.Entity("XBInsaat.Core.Entites.News", b =>
+                {
+                    b.Navigation("NewsImages");
                 });
 #pragma warning restore 612, 618
         }

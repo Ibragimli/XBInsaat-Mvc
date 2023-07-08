@@ -1,0 +1,240 @@
+﻿@{
+    ViewData["Title"] = "Create";
+}
+@model MidProjectEditViewModel
+
+@{
+    DateTime now = DateTime.UtcNow;
+}
+
+<div class="content-wrapper">
+    <!-- Content -->
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Project /</span> Yaratmaq</h4>
+        <div class="card">
+            <div class="card-body">
+                <!-- Admin Project  Create Start -->
+                <section style="margin-top: 10px;" id="createPoster">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class=" formBox  col-lg-8 col-md-12 col-sm-12 ">
+
+                                <form class="form-control" asp-action="edit" asp-controller="Midproject" method="post" enctype="multipart/form-data">
+                                    <input type="hidden" value="@Model.MidProject.Id" asp-for="MidProject.Id" />
+                                    <!-- Project Name  Start -->
+                                    <div class="mb-3 posterName">
+                                        <label asp-for="MidProject.Name" class="form-label">Layihə adı*</label>
+                                        <input asp-for="MidProject.Name" maxlength="100" type="text" class="form-control">
+                                        <span asp-validation-for="MidProject.Name" class="text-danger"></span>
+                                    </div>
+                                    <!-- Layihə Name   End -->
+                                    <!-- Layihə DescribeAz  Start -->
+                                    <div class="mb-3 posterName">
+                                        <label asp-for="MidProject.DescribeAz" class="form-label">Layihə Təsviri (Azərbaycan) *</label>
+                                        <textarea asp-for="MidProject.DescribeAz" maxlength="5000" style="max-height:300px" rows="8" type="text" class="form-control"></textarea>
+                                        <span asp-validation-for="MidProject.DescribeAz" class="text-danger"></span>
+                                    </div>
+                                    <!-- Layihə DescribeAz   End -->
+                                    <!-- Layihə DescribeEn  Start -->
+                                    <div class="mb-3 posterName">
+                                        <label asp-for="MidProject.DescribeEn" class="form-label">Layihə Təsviri (İngilis) *</label>
+                                        <textarea asp-for="MidProject.DescribeEn" maxlength="5000" style="max-height:300px" rows="8" type="text" class="form-control"></textarea>
+                                        <span asp-validation-for="MidProject.DescribeEn" class="text-danger"></span>
+                                    </div>
+                                    <!-- Layihə DescribeEn   End -->
+                                    <!-- Layihə DescribeRu  Start -->
+                                    <div class="mb-3 posterName">
+                                        <label asp-for="MidProject.DescribeRu" class="form-label">Layihə Təsviri (Rus) *</label>
+                                        <textarea asp-for="MidProject.DescribeRu" maxlength="5000" style="max-height:300px" rows="8" type="text" class="form-control"></textarea>
+                                        <span asp-validation-for="MidProject.DescribeRu" class="text-danger"></span>
+                                    </div>
+                                    <!-- Layihə DescribeRu   End -->
+
+                                     <div id="posterimage-box" class="posterimage-box row mb-3">
+                                        <label asp-for="MidProject.ProjectImageFile" class="form-label">Layihənin Poster şəkli*</label>
+                                        <!-- Şəkil əlavə et -->
+                                        <input asp-for="MidProject.ProjectImageFile" id="imagePosterInput" type="file" accept="image/png,  image/jpeg"
+                                               class="form-control" multiple="">
+                                            @foreach (var image in Model.MidProjectImages.Where(x => !x.IsDelete && x.IsPoster))
+                                            {
+
+                                                @if (Model.MidProjectImages.FirstOrDefault(x => !x.IsDelete) != null)
+
+                                                {
+                                                    <div class="col-3">
+                                                        <div style="position:relative;" class="image-box">
+                                                            <input type="hidden" value="@image.Id" />
+                                                            <img style="width:200px; height:160px;" src="~/uploads/Midprojects/@image.Image" />
+                                                        </div>
+                                                    </div>
+                                                }
+                                            }
+                                      </div>
+                                 
+                                    <!-- Poster Image  Start -->
+                                    <div class="mb-3 posterImages">
+                                        <label asp-for="MidProject.ImageFiles" class="form-label">Layihənin Şəkilləri*</label>
+                                        <!-- Şəkil əlavə et -->
+                                        <input asp-for="MidProject.ImageFiles" id="imageInput" type="file" accept="image/png,  image/jpeg"
+                                               class="form-control" multiple="">
+                                        <div>
+                                            <p id="imageErrorMessage" class="fw-bold "></p>
+                                            <span asp-validation-for="MidProject.ImageFiles" class="text-danger"></span>
+                                        </div>
+                                        <div class="row" id="temperoryImages"></div>
+                                    </div>
+                                    <!-- Poster Image End -->
+                                     <div id="poster-image-box" class="poster-image-box row mb-3">
+                                        @foreach (var image in Model.MidProjectImages.Where(x => !x.IsDelete && !x.IsPoster ))
+                                        {
+
+                                            @if (Model.MidProjectImages.FirstOrDefault(x => !x.IsDelete) != null)
+
+                                            {
+                                               <div class="col-lg-4 col-md-4 col-sm-5">
+                                                    <div style="position:relative; border: 1px dotted #80808078;" class="image-box">
+                                                        <input type="hidden" name="MidProject.ProjectImagesIds[]" value="@image.Id" />
+                                                        <img style="width:200px; height:160px;     " src="~/uploads/Midprojects/@image.Image" />
+                                                        <i id="${i}" style="   cursor: pointer; color: red; font-size: 20px; position:absolute; top:10px; right:20px;" onclick="removeFile(${i})" class="fa-solid fa-trash deleteImage"></i>
+                                                    </div>
+                                               </div>
+                                            }
+                                        }
+                                    </div>
+                                    <!-- Button  Start -->
+                                    <div class="row d-flex justify-content-end mb-3">
+                                        <div class="col mb-1">
+                                            <a style=" height: 100%; width: 100%; display: flex; justify-content: center; align-items: center; " asp-action="index" asp-controller="MidProject" class="btn  btn-dark">Geri dön</a>
+                                        </div>
+                                        <div class="col mb-1 posterButton ms-2 ">
+                                            <button style=" height: 100%; width: 100%; display: flex; justify-content: center; align-items: center; " type="submit" class="btn  btn-primary">Yaratmaq</button>
+                                        </div>
+                                    </div>
+                                    <!-- Button  Start -->
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--  Admin Project  Create  End -->
+
+            </div>
+        </div>
+    </div>
+    <!-- / Content -->
+</div>
+
+
+<script>
+    const p = document.getElementById("imageErrorMessage");
+    const fileInput = document.getElementById('imageInput');
+    const previewImages = document.getElementById('temperoryImages');
+    const selectedFiles = [];
+    const dt = new DataTransfer();
+
+    fileInput.onchange = (e) => {
+        const files = Array.from(e.target.files);
+
+        if (files.length > 8) {
+            p.innerHTML = "*Maksimum 8 şəkil əlavə edə bilərsiz!";
+        } else {
+            if (selectedFiles.length + files.length > 8) {
+                p.innerHTML = "*Maksimum 8 şəkil əlavə edə bilərsiz!";
+            } else {
+                files.forEach(file => {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        const src = e.target.result;
+                        dt.items.add(file);
+                        selectedFiles.push({
+                            file: file,
+                            src: src,
+                            degree: 0,
+                        });
+                        if (selectedFiles.length <= 8) {
+                            setImages();
+                        }
+                    };
+                    reader.readAsDataURL(file);
+                });
+                fileInput.value = null; // Input değerini sıfırla
+            }
+        }
+    };
+
+    const setImages = () => {
+        let html = '';
+
+        selectedFiles.forEach((file, i) => {
+            if (i < 8) {
+                html += `<div class="imageBox">
+                                          <p id="${i}" onclick="removeFile(${i})"><i class="fa-solid fa-trash"></i></p>
+                                          <img data-image-id="${i}" class="temperorayImage" src="${file.src}" alt="">
+                                      </div>`;
+            }
+        });
+
+        previewImages.innerHTML = html;
+        updateInputFiles();
+    };
+
+    const updateInputFiles = () => {
+        dt.items.clear();
+        selectedFiles.forEach(file => {
+            dt.items.add(file.file);
+        });
+        fileInput.files = dt.files;
+    };
+
+    const removeFile = (index) => {
+        dt.items.remove(index);
+        selectedFiles.splice(index, 1);
+        setImages();
+    };
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    ﻿$(function () {
+
+    $(document).ready(function () {
+        $(document).on("click", ".deleteImage", function () {
+            $(this).parent().remove();
+        })
+    })
+
+    })
+
+    let posterInput = document.getElementById("posterInput")
+    let posterBox = document.getElementById("poster-image-box")
+</script>
+
+<script>
+
+    const imagePosterInput = document.getElementById('imagePosterInput');
+const posterImageBox = document.getElementById('posterimage-box');
+
+imagePosterInput.addEventListener('change', function (e) {
+  const file = e.target.files[0];
+  const reader = new FileReader();
+
+  reader.onload = function (e) {
+    const imageBox = posterImageBox.querySelector('.image-box');
+    const image = imageBox.querySelector('img');
+
+    image.src = e.target.result;
+  };
+
+  if (file) {
+    reader.readAsDataURL(file);
+  }
+});
+
+
+</script>
+
+
+@section Scripts{
+
+}
+

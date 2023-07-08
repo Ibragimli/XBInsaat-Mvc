@@ -14,7 +14,7 @@ namespace XBInsaat.Data.Configuration
         public void Configure(EntityTypeBuilder<Setting> builder)
         {
             builder.Property(x => x.Key).HasMaxLength(50).IsRequired(true);
-            builder.Property(x => x.Value).HasMaxLength(3000).IsRequired(true);
+            builder.Property(x => x.Value).HasMaxLength(5000).IsRequired(true);
         }
     }
 }

@@ -15,7 +15,7 @@ namespace XBInsaat.Core.Entites
         public string TextAz { get; set; }
         public string TextEn { get; set; }
         public string TextRu { get; set; }
-        public ICollection<HighProjectImage> ProjectImages { get; set; }
+        public ICollection<NewsImage> NewsImages { get; set; }
         [NotMapped]
         public List<IFormFile> ImageFiles { get; set; }
         [NotMapped]

@@ -50,6 +50,10 @@ kutular.forEach(function (kutu, index) {
     kutu.addEventListener('mouseout', function () {
         slideInterval = setInterval(nextSlide, 5000);
     });
+        //kutu.addEventListener('click', function () {
+        //    clearInterval(slideInterval);
+        //    showSlide(index);
+        //});
 });
 
 function showSlide(index) {

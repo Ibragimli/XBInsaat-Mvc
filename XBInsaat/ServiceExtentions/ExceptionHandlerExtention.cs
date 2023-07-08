@@ -45,6 +45,8 @@ namespace XBInsaat.Mvc.ServiceExtentions
 
                         if (contextFeature.Error is ItemUseException)
                             code = 500;
+                        if (contextFeature.Error is ValueFormatExpception)
+                            code = 400;
 
                     }
 

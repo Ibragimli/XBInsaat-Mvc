@@ -8,6 +8,43 @@
 
   <ItemGroup>
     <Folder Include="Models\" />
+    <Folder Include="wwwroot\uploads\highprojects\" />
+    <Folder Include="wwwroot\uploads\midprojects\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\assets\styles\scss\fonts\SpartanMB-Bold.svg" />
+    <None Include="wwwroot\assets\styles\scss\fonts\SpartanMB-Bold.woff2" />
+    <None Include="wwwroot\assets\styles\scss\fonts\SpartanMB-Medium.svg" />
+    <None Include="wwwroot\assets\styles\scss\fonts\SpartanMB-Medium.woff2" />
+    <None Include="wwwroot\assets\styles\scss\fonts\SpartanMB-SemiBold.svg" />
+    <None Include="wwwroot\assets\styles\scss\fonts\SpartanMB-SemiBold.woff2" />
+    <None Include="wwwroot\assets\styles\scss\pages\_body.scss" />
+    <None Include="wwwroot\assets\styles\scss\pages\_camModal.scss" />
+    <None Include="wwwroot\assets\styles\scss\pages\_camsModal.scss" />
+    <None Include="wwwroot\assets\styles\scss\pages\_contactModal.scss" />
+    <None Include="wwwroot\assets\styles\scss\pages\_contactUsBtn.scss" />
+    <None Include="wwwroot\assets\styles\scss\pages\_descBox.scss" />
+    <None Include="wwwroot\assets\styles\scss\pages\_header.scss" />
+    <None Include="wwwroot\assets\styles\scss\pages\_liveCamera.scss" />
+    <None Include="wwwroot\assets\styles\scss\pages\_loginModal.scss" />
+    <None Include="wwwroot\assets\styles\scss\pages\_main.scss" />
+    <None Include="wwwroot\assets\styles\scss\pages\_mediaQuery.scss" />
+    <None Include="wwwroot\assets\styles\scss\pages\_modal.scss" />
+    <None Include="wwwroot\assets\styles\scss\pages\_modalSliderBtn.scss" />
+    <None Include="wwwroot\assets\styles\scss\pages\_newModal.scss" />
+    <None Include="wwwroot\assets\styles\scss\pages\_newsModal.scss" />
+    <None Include="wwwroot\assets\styles\scss\pages\_project-info.scss" />
+    <None Include="wwwroot\assets\styles\scss\pages\_projectModal.scss" />
+    <None Include="wwwroot\assets\styles\scss\pages\_projectsModal.scss" />
+    <None Include="wwwroot\assets\styles\scss\pages\_reset.scss" />
+    <None Include="wwwroot\assets\styles\scss\pages\_revolutionSlider.scss" />
+    <None Include="wwwroot\assets\styles\scss\pages\_servicesModal.scss" />
+    <None Include="wwwroot\assets\styles\scss\pages\_sliderBoxs.scss" />
+    <None Include="wwwroot\assets\styles\scss\pages\_sliderMobileBoxs.scss" />
+    <None Include="wwwroot\assets\styles\scss\pages\_userModal.scss" />
+    <None Include="wwwroot\assets\styles\scss\style.css.map" />
+    <None Include="wwwroot\assets\styles\scss\style.scss" />
   </ItemGroup>
 
   <ItemGroup>
@@ -15,7 +52,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.13" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.14" />
   </ItemGroup>
 
   <ItemGroup>

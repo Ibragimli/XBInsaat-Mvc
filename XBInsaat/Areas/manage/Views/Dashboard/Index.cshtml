@@ -1,0 +1,93 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+@*@model DashboardViewModel*@
+<!-- Content -->
+
+<div class="container-xxl flex-grow-1 container-p-y">
+    <div class="row">
+
+        <div class="col-lg-6 col-md-4 order-1">
+            <div class="row">
+              @*  <div class="col-lg-4 col-md-6 col-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-title d-flex align-items-start justify-content-between">
+                                <div class="avatar flex-shrink-0">
+                                    <i style="font-size:30px; color:forestgreen;" class="fa-solid fa-money-bill-1-wave"></i>
+                                </div>
+
+                            </div>
+                            <span class="fw-semibold d-block mb-1">Ümümi qazanc</span>
+                            <h3 style="color: forestgreen;" class="card-title mb-2"> </h3>
+                            <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +72.80%</small>
+                        </div>
+                    </div>
+                </div>*@
+            
+
+            </div>
+        </div>
+
+        <div class="col-lg-6 order-3 order-md-2">
+            <div class="row">
+             @*   <div class="col-lg-4 col-md-5 col-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-title d-flex align-items-start justify-content-between">
+                                <div class="avatar flex-shrink-0">
+                                    <i style="color: orangered; font-size:30px;" class="fa-brands fa-sketch"></i>
+                                </div>
+
+                            </div>
+                            <span>Vip Elan sayı</span>
+                            <h3 class="card-title text-nowrap mb-1"></h3>
+                            <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +28.42%</small>
+                        </div>
+                    </div>
+                </div>
+               
+*@
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <!-- Transactions -->
+    @*    <div class="col-md-6 col-lg-4 order-2 mb-4">
+            <div class="card h-100">
+                <div class="card-header d-flex align-items-center justify-content-between">
+                    <h5 class="card-title m-0 me-2">Ödənişlər</h5>
+
+                </div>
+                <div class="card-body">
+                    <ul class="p-0 m-0">
+
+                        @foreach (var payment in Model.Payments)
+                        {
+                            <li class="d-flex mb-4 pb-1">
+                                <div class="avatar flex-shrink-0 me-3">
+                                    <i style="font-size:30px; color:forestgreen;" class="  @(payment.Service == PaymentService.PosterPayment ?"fa-regular fa-credit-card" :"fa-solid fa-sack-dollar" ) "></i>
+                                </div>
+                                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                    <div class="me-2">
+                                        <small class="text-muted d-block mb-1">Wallet</small>
+                                        <h6 class="mb-0">@(payment.Service == PaymentService.PosterPayment ? "Elan ödənişi" : "Balans artımı")</h6>
+                                    </div>
+                                    <div class="user-progress d-flex align-items-center gap-1">
+                                        <h6 class="mb-0">+@payment.Amount</h6>
+                                        <span class="text-muted">AZN</span>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>*@
+        <!--/ Transactions -->
+    </div>
+</div>
+<!-- / Content -->
+@section Scripts{
+}
