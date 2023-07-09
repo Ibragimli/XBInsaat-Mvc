@@ -33,7 +33,7 @@ namespace XBInsaat.Services.Services.Implementations.Area
 
             var oldNews = await GetNews(News.Id);
             if (oldNews == null)
-                throw new ItemNullException("Layihə tapılmadı!");
+                throw new ItemNullException("Xəbər tapılmadı!");
 
 
             Check(News);
@@ -186,20 +186,20 @@ namespace XBInsaat.Services.Services.Implementations.Area
         {
             if (News.Title.Length < 3)
             {
-                throw new ValueFormatExpception("Layihə adının uzunluğu minimum 3 ola bilər");
+                throw new ValueFormatExpception("Xəbər adının uzunluğu minimum 3 ola bilər");
             }
             if (News.Title.Length > 100)
             {
-                throw new ValueFormatExpception("Layihə adının uzunluğu maksimum 100 ola bilər");
+                throw new ValueFormatExpception("Xəbər adının uzunluğu maksimum 100 ola bilər");
             }
             if (News.TextAz.Length > 5000 || News.TextRu.Length > 5000 || News.TextEn.Length > 5000)
             {
-                throw new ValueFormatExpception("Layihə təsvirinin uzunluğu maksimum 5000 ola bilər");
+                throw new ValueFormatExpception("Xəbər mətninin uzunluğu maksimum 5000 ola bilər");
 
             }
             if (News.TextAz.Length < 3 || News.TextRu.Length < 3 || News.TextEn.Length < 3)
             {
-                throw new ValueFormatExpception("Layihə təsvirinin uzunluğu minimum 3 ola bilər");
+                throw new ValueFormatExpception("Xəbər mətninin uzunluğu minimum 3 ola bilər");
             }
         }
 

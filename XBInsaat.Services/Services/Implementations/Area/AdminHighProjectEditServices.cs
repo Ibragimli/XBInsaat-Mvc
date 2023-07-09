@@ -18,13 +18,11 @@ namespace XBInsaat.Services.Services.Implementations.Area
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IManageImageHelper _manageImageHelper;
-        private readonly IMapper _mapper;
 
-        public AdminHighProjectEditServices(IUnitOfWork unitOfWork, IManageImageHelper manageImageHelper, IMapper mapper)
+        public AdminHighProjectEditServices(IUnitOfWork unitOfWork, IManageImageHelper manageImageHelper)
         {
             _unitOfWork = unitOfWork;
             _manageImageHelper = manageImageHelper;
-            _mapper = mapper;
         }
 
         public async Task EditHighProject(HighProject highProject)
@@ -145,40 +143,6 @@ namespace XBInsaat.Services.Services.Implementations.Area
             return 0;
         }
 
-
-
-        //private int DeleteImages(HighProject poster, HighProject posterExist)
-        //{
-        //    int i = 0;
-        //    ICollection<HighProjectImage> posterImages = posterExist.HighProjectImages;
-
-        //    if (poster.ProjectImagesIds != null)
-        //    {
-        //        foreach (var image in posterImages.ToList().Where(x => x.IsDelete == false && !x.IsPoster && !poster.ProjectImagesIds.Contains(x.Id)))
-        //        {
-        //            _manageImageHelper.DeleteFile(image.Image, "highprojects");
-        //            posterExist.HighProjectImages.Remove(image);
-        //            i++;
-        //        }
-        //        posterImages.ToList().RemoveAll(x => !poster.ProjectImagesIds.Contains(x.Id));
-        //        return i;
-        //    }
-        //    else if (poster.ImageFiles != null && poster.ImageFiles.Count() > 0)
-        //    {
-        //        foreach (var item in posterImages.ToList().Where(x => !x.IsDelete && !x.IsPoster))
-        //        {
-        //            _manageImageHelper.DeleteFile(item.Image, "highprojects");
-        //            posterExist.HighProjectImages.Remove(item);
-        //            i++;
-        //        }
-        //        return i;
-        //    }
-        //    else
-        //    {
-        //        throw new ImageCountException("Axırıncı şəkil silinə bilməz!");
-        //    }
-        //}
-
         private int DeleteImages(HighProject poster, HighProject posterExist)
         {
             int i = 0;
@@ -228,7 +192,7 @@ namespace XBInsaat.Services.Services.Implementations.Area
                 throw new ValueFormatExpception("Layihə təsvirinin uzunluğu maksimum 5000 ola bilər");
 
             }
-            if (highProject.Name.Length < 3 || highProject.DescribeAz.Length < 3 || highProject.DescribeRu.Length < 3 || highProject.DescribeEn.Length < 3)
+            if (highProject.DescribeAz.Length < 3 || highProject.DescribeRu.Length < 3 || highProject.DescribeEn.Length < 3)
             {
                 throw new ValueFormatExpception("Layihə təsvirinin uzunluğu minimum 3 ola bilər");
             }

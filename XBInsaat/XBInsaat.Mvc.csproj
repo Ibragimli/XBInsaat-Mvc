@@ -59,4 +59,24 @@
     <ProjectReference Include="..\XBInsaat.Services\XBInsaat.Services.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Areas\manage\Views\XBService\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Areas\manage\Views\XBService\Create.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Areas\manage\Views\XBService\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\manage\Views\XBService\Edit.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Areas\manage\Views\XBService\Edit.cshtml" />
+  </ItemGroup>
+
 </Project>

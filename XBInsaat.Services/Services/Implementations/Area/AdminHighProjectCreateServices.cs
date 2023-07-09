@@ -61,13 +61,5 @@ namespace XBInsaat.Services.Services.Implementations.Area
             }
             await _unitOfWork.CommitAsync();
         }
-
-
-        //public Task ValuesCheck(HighProjectCreateDto highProjectCreateDto)
-        //{
-        //    if (highProjectCreateDto.DescribeRu.Length > 5000)
-        //    {
-        //    }
-        //}
     }
 }

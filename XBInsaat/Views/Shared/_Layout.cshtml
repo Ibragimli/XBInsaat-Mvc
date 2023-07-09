@@ -107,13 +107,30 @@
 
 
     <script>
-        $('#openModal2').click(function (e) {
-            $('#projectsModalScrollable').addClass("show");
-            e.preventDefault();
+
+        var modal = document.getElementById("myModal");
+        var modalContent = modal.querySelector(".modal-content");
+
+        modalContent.addEventListener("click", function (event) {
+            event.stopPropagation();
         });
-        $("#close-first").click(function () {
-            $('#projectsModalScrollable').removeClass("show");
-        })</script>
+
+
+
+
+        //$('#openModal2').click(function (e) {
+        //    setTimeout(() => {
+        //        $('#projectsModalScrollable').addClass("show");
+
+        //        e.stopPropagation();
+        //    }1000)
+
+
+        //});
+        //$("#close-first").click(function () {
+        //    $('#projectsModalScrollable').removeClass("show");
+        //})
+        </script>
 
 
     <script>

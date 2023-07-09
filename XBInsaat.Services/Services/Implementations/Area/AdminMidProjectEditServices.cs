@@ -19,13 +19,11 @@ namespace XBInsaat.Services.Services.Implementations.Area
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IManageImageHelper _manageImageHelper;
-        private readonly IMapper _mapper;
 
-        public AdminMidProjectEditServices(IUnitOfWork unitOfWork, IManageImageHelper manageImageHelper, IMapper mapper)
+        public AdminMidProjectEditServices(IUnitOfWork unitOfWork, IManageImageHelper manageImageHelper)
         {
             _unitOfWork = unitOfWork;
             _manageImageHelper = manageImageHelper;
-            _mapper = mapper;
         }
 
         public async Task EditMidProject(MidProject MidProject)
@@ -36,7 +34,7 @@ namespace XBInsaat.Services.Services.Implementations.Area
             if (oldMidProject == null)
                 throw new ItemNullException("Layihə tapılmadı!");
 
-            
+
             Check(MidProject);
             if (MidProject.ProjectImageFile != null)
                 _manageImageHelper.PosterCheck(MidProject.ProjectImageFile);
@@ -89,14 +87,14 @@ namespace XBInsaat.Services.Services.Implementations.Area
             if (checkBool)
                 await _unitOfWork.CommitAsync();
         }
-      
-     
+
+
         public async Task<MidProject> GetMidProject(int id)
         {
             var MidProject = await _unitOfWork.MidProjectRepository.GetAsync(x => x.Id == id, "MidProjectImages");
             return MidProject;
         }
-       
+
         public async Task<IEnumerable<MidProjectImage>> GetImages(int id)
         {
             var images = await _unitOfWork.MidProjectImageRepository.GetAllAsync(x => x.MidProjectId == id);
@@ -201,7 +199,7 @@ namespace XBInsaat.Services.Services.Implementations.Area
                 throw new ValueFormatExpception("Layihə təsvirinin uzunluğu maksimum 5000 ola bilər");
 
             }
-            if (MidProject.Name.Length < 3 || MidProject.DescribeAz.Length < 3 || MidProject.DescribeRu.Length < 3 || MidProject.DescribeEn.Length < 3)
+            if (MidProject.DescribeAz.Length < 3 || MidProject.DescribeRu.Length < 3 || MidProject.DescribeEn.Length < 3)
             {
                 throw new ValueFormatExpception("Layihə təsvirinin uzunluğu minimum 3 ola bilər");
             }

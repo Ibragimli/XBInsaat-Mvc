@@ -124,7 +124,6 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
             {
                 ModelState.AddModelError("", ex.Message);
                 return View("Index", NewsEditVM);
-
             }
             catch (Exception)
             {
@@ -156,6 +155,11 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
 
                 return RedirectToAction("Index", "notfound");
             }
+            catch (ValueFormatExpception ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+                return View("Edit", NewsEditVM);
+            }
             catch (ItemNullException ex)
             {
                 ModelState.AddModelError("", ex.Message);
@@ -184,7 +188,6 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
             {
                 ModelState.AddModelError("", ex.Message);
                 return View("Edit", NewsEditVM);
-
             }
             catch (Exception)
             {

@@ -8,7 +8,11 @@ namespace XBInsaat.Core.Entites
 {
     public class XBService:BaseEntity
     {
-        public string Name { get; set; }
-        public string Describe { get; set; }
+        public string NameAz { get; set; }
+        public string NameEn { get; set; }
+        public string NameRu { get; set; }
+        public string DescribeAz { get; set; }
+        public string DescribeEn { get; set; }
+        public string DescribeRu { get; set; }
     }
 }

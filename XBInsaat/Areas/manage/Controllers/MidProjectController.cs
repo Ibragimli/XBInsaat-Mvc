@@ -187,7 +187,11 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
             {
                 ModelState.AddModelError("", ex.Message);
                 return View("Edit", MidProjectEditVM);
-
+            }
+            catch (ValueFormatExpception ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+                return View("Edit", MidProjectEditVM);
             }
             catch (ItemNotFoundException ex)
             {

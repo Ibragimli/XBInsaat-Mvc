@@ -7,6 +7,7 @@ using XBInsaat.Service.Helper;
 using System.Data;
 using XBInsaat.Services.Dtos.Area;
 using XBInsaat.Services.Services.Interfaces.Area;
+using XBInsaat.Service.CustomExceptions;
 
 namespace XBInsaat.Mvc.Areas.manage.Controllers
 {
@@ -61,6 +62,18 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
             try
             {
                 await _SettingEditServices.SettingEdit(SettingEdit);
+            }
+            catch (ValueFormatExpception ex)
+            {
+
+                ModelState.AddModelError("", ex.Message);
+                return View(SettingEdit);
+            }
+            catch (ItemNotFoundException ex)
+            {
+
+                ModelState.AddModelError("", ex.Message);
+                return View(SettingEdit);
             }
             catch (Exception ex)
             {

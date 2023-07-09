@@ -16,6 +16,7 @@ namespace XBInsaat.Services.Profiles
             CreateMap<HighProjectCreateDto, HighProject>();
             CreateMap<MidProjectCreateDto, MidProject>();
             CreateMap<NewsCreateDto, News>();
+            CreateMap<XBServiceCreateDto, XBService>();
 
         }
     }
