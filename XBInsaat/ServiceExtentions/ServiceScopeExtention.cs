@@ -10,7 +10,9 @@ using XBInsaat.Service.HelperService.Interfaces;
 using XBInsaat.Services.Dtos.Area;
 using XBInsaat.Services.Profiles;
 using XBInsaat.Services.Services.Implementations.Area;
+using XBInsaat.Services.Services.Implementations.User;
 using XBInsaat.Services.Services.Interfaces.Area;
+using XBInsaat.Services.Services.Interfaces.User;
 
 namespace XBInsaat.Mvc.ServiceExtentions
 {
@@ -52,7 +54,17 @@ namespace XBInsaat.Mvc.ServiceExtentions
             services.AddScoped<IAdminXBServiceCreateServices, AdminXBServiceCreateServices>();
             services.AddScoped<IAdminXBServiceIndexServices, AdminXBServiceIndexServices>();
 
-            //services.AddScoped<ILayoutServices, LayoutServices>();
+
+            services.AddScoped<IRevolutionSliderIndexServices, RevolutionSliderIndexServices>();
+            services.AddScoped<IRevolutionSliderEditServices, RevolutionSliderEditServices>();
+
+            services.AddScoped<IContactUsRepository, ContactUsRepository>();
+            services.AddScoped<IContactUsCreateServices, ContactUsCreateServices>();
+
+            services.AddScoped<IHomeIndexServices, HomeIndexServices>();
+
+
+            services.AddScoped<ILayoutServices, LayoutServices>();
             //services.AddScoped<IAnaSehifeIndexServices, AnaSehifeIndexServices>();
             //services.AddScoped<IProjectCreateIndexServices, ProjectCreateIndexServices>();
         }

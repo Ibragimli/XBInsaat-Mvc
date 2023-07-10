@@ -17,11 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Dtos\User\" />
-    <Folder Include="Services\Interfaces\User\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Update="Resources\SharedResource.ru-RU.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

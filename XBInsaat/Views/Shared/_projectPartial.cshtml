@@ -1,0 +1,247 @@
+﻿@model HighProject
+@{
+    var language = _localization.Getkey("Language").Value;
+
+}
+<!-- Modal Project -->
+<div class="modal fade  projectModal" id="project-@Model.Name.Substring(0,3)-@Model.Id" tabindex="-1" role="dialog"
+     aria-labelledby="project-testTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 style="color:#00a7c6;" class="modal-title" id="project-testTitle">
+                    Qala Shopping Village
+                </h2>
+                <button type="button" class="" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <!-- Older posts -->
+                <section class="mt-2 fx-fade-up">
+                    <div class="container">
+                        <div class="row mt-4 justify-content-center ">
+                            <!-- Post -->
+                            <!-- Featured image -->
+                            <div class="col-md-9 col-sm-11 mb-2 ">
+                                <div class="projectSliders">
+                                    <div class="projectSlide">
+                                        <div class="image-container">
+                                            <a href="#!">
+                                                <img src="~/assets/Images/home_architect2_slider1-1568x653.jpg"
+                                                     class="img-fluid rounded hover-lift-light" alt="">
+                                            </a>
+
+                                        </div>
+                                    </div>
+                                    <div class="projectSlide">
+                                        <div class="image-container">
+                                            <a href="#!">
+                                                <img src="~/assets/Images/slide-susa.gif"
+                                                     class="img-fluid rounded hover-lift-light" alt="">
+                                            </a>
+
+                                        </div>
+                                    </div>
+                                    <div class="projectSlide">
+                                        <div class="image-container">
+                                            <a href="#!">
+                                                <img src="~/assets/Images/home_architect2_slider3-1568x653.jpg"
+                                                     class="img-fluid rounded hover-lift-light" alt="">
+                                            </a>>
+                                        </div>
+                                    </div>
+                                    <a class="prev-project-btn prev-btn" href="#">&lt;</a>
+                                    <a class="next-project-btn next-btn " href="#">&gt;</a>
+                                </div>
+                            </div>
+                            <!-- Title -->
+
+                            <div class="col-md-9 mb-2">
+                                <h1 class="h5 d-block text-dark text-decoration-none mt-4">
+                                    Gravida ullamcorper
+                                </h1>
+                            </div>
+                            <!-- Read more -->
+                            <div class="col-md-9 mb-2">
+                                <p class="d-inline-block  mt-2 ">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit aspernatur
+                                    dolorem, eos at iste mollitia dolore labore odio? Dolorum temporibus vel
+                                    architecto animi? Blanditiis, unde! Aspernatur ipsa laboriosam aut deserunt!
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit aspernatur
+                                    dolorem, eos at iste mollitia dolore labore odio? Dolorum temporibus vel
+                                    architecto animi? Blanditiis, unde! Aspernatur ipsa laboriosam aut deserunt!
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit aspernatur
+                                    dolorem, eos at iste mollitia dolore labore odio? Dolorum temporibus vel
+                                    architecto animi? Blanditiis, unde! Aspernatur ipsa laboriosam aut deserunt!
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit aspernatur
+                                    dolorem, eos at iste mollitia dolore labore odio? Dolorum temporibus vel
+                                    architecto animi? Blanditiis, unde! Aspernatur ipsa laboriosam aut deserunt!
+
+                                </p>
+                            </div>
+
+                            <!-- Shops -->
+                            <div class="col-md-9 mb-2 projectShops">
+                                <h2 class="mb-3 mt-2">Mağazalar</h2>
+                                <div class="row">
+                                    <!-- Web slider -->
+                                    <div class="col-lg-3  col-md-7 mb-2 projectShopBoxs">
+                                        <!-- Featured image -->
+                                        <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info">
+                                            <img src="~/assets/Images/home_architect2_slider1-1568x653.jpg"
+                                                 class="img-fluid rounded hover-lift-light" alt="">
+                                        </a>
+                                        <!-- Title -->
+                                        <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info"
+                                           class="projectBoxTitle d-block  text-decoration-none mt-3">
+                                            Gravida ullamcorper
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-3  col-md-7 mb-2 projectShopBoxs">
+                                        <!-- Featured image -->
+                                        <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info">
+                                            <img src="~/assets/Images/home_architect2_slider2-1568x653.jpg"
+                                                 class="img-fluid rounded hover-lift-light" alt="">
+                                        </a>
+                                        <!-- Title -->
+                                        <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info"
+                                           class="projectBoxTitle d-block  text-decoration-none mt-3">
+                                            Gravida ullamcorper
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-3  col-md-7 mb-2 projectShopBoxs">
+                                        <!-- Featured image -->
+                                        <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info">
+                                            <img src="~/assets/Images/home_architect2_slider3-1568x653.jpg"
+                                                 class="img-fluid rounded hover-lift-light" alt="">
+                                        </a>
+                                        <!-- Title -->
+                                        <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info"
+                                           class="projectBoxTitle d-block  text-decoration-none mt-3">
+                                            Gravida ullamcorper
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-3  col-md-7 mb-2 projectShopBoxs">
+                                        <!-- Featured image -->
+                                        <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info">
+                                            <img src="~/assets/Images/home_architect2_slider1-1568x653.jpg"
+                                                 class="img-fluid rounded hover-lift-light" alt="">
+                                        </a>
+                                        <!-- Title -->
+                                        <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info"
+                                           class="projectBoxTitle d-block  text-decoration-none mt-3">
+                                            Gravida ullamcorper
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-3  col-md-7 mb-2 projectShopBoxs">
+                                        <!-- Featured image -->
+                                        <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info">
+                                            <img src="~/assets/Images/home_architect2_slider1-1568x653.jpg"
+                                                 class="img-fluid rounded hover-lift-light" alt="">
+                                        </a>
+                                        <!-- Title -->
+                                        <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info"
+                                           class="projectBoxTitle d-block  text-decoration-none mt-3">
+                                            Gravida ullamcorper
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Mobile Slider -->
+                                <div class="owl-carousel owl-carousel-slider owl-theme mobile-owl  p-0 m-0">
+                                    <div class="item me-2">
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#project-info"
+                                           class="projectBoxTitle d-block  text-decoration-none mt-3">
+                                            <img style=" border-radius: 5px;"
+                                                 src="~/assets/Images/home_architect2_slider2-1568x653.jpg"
+                                                 alt="" width="100% ">
+                                        </a>
+                                        <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info"
+                                           class="projectBoxTitle d-block  text-decoration-none mt-3"
+                                           style="color: #000;">
+                                            Gravida ullamcorper
+                                        </a>
+                                    </div>
+                                    <div class="item me-2">
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#project-info"
+                                           class="projectBoxTitle d-block  text-decoration-none mt-3">
+                                            <img style=" border-radius: 5px;"
+                                                 src="~/assets/Images/slide-susa.gif" alt="" width="100% ">
+                                        </a>
+                                        <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info"
+                                           class="projectBoxTitle d-block  text-decoration-none mt-3"
+                                           style="color: #000;">
+                                            Gravida ullamcorper
+                                        </a>
+                                    </div>
+                                    <div class="item me-2">
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#project-info"
+                                           class="projectBoxTitle d-block  text-decoration-none mt-3">
+                                            <img style=" border-radius: 5px;" src="~/assets/Images/cam.png"
+                                                 alt="" width="100% ">
+                                        </a>
+                                        <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info"
+                                           class="projectBoxTitle d-block  text-decoration-none mt-3"
+                                           style="color: #000;">
+                                            Gravida ullamcorper
+                                        </a>
+                                    </div>
+                                    <div class="item me-2">
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#project-info"
+                                           class="projectBoxTitle d-block  text-decoration-none mt-3">
+                                            <img style=" border-radius: 5px;"
+                                                 src="~/assets/Images/slide-service3-scaled.gif" alt=""
+                                                 width="100% ">
+                                        </a>
+                                        <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info"
+                                           class="projectBoxTitle d-block  text-decoration-none mt-3"
+                                           style="color: #000;">
+                                            Gravida ullamcorper
+                                        </a>
+                                    </div>
+                                    <div class="item me-2">
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#project-info"
+                                           class="projectBoxTitle d-block  text-decoration-none mt-3">
+                                            <img style=" border-radius: 5px;"
+                                                 src="~/assets/Images/slide-projec-yujk-scaled.gif" alt=""
+                                                 width="100% ">
+                                        </a>
+                                        <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info"
+                                           class="projectBoxTitle d-block  text-decoration-none mt-3"
+                                           style="color: #000;">
+                                            Gravida ullamcorper
+                                        </a>
+                                    </div>
+                                    <div class="item me-2">
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#project-info"
+                                           class="projectBoxTitle d-block  text-decoration-none mt-3">
+                                            <img style=" border-radius: 5px;"
+                                                 src="~/assets/Images/slide-susa.gif" alt="" width="100% ">
+                                        </a>
+                                        <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info"
+                                           class="projectBoxTitle d-block  text-decoration-none mt-3"
+                                           style="color: #000;">
+                                            Gravida ullamcorper
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Go to previous posts -->
+                            <div class="col-md-9 mb-2 text-end">
+                                <!-- Go to previous posts -->
+                                <a href="#" data-bs-dismiss="modal" aria-label="Close"
+                                   class="projectBackBtn btn btn-pastel-primary hover-lift-light text-uppercase-bold-sm mt-4">
+                                    <i class="fas fa-chevron-left fa-sm mr-2"></i>
+                                    @*@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalBackBtnText" + language)?.Value)*@
+
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+</div>

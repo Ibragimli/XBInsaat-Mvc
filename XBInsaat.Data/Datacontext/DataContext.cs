@@ -18,6 +18,7 @@ namespace XBInsaat.Data.Datacontext
         public DbSet<AppUser> AppUsers { get; set; }
         public DbSet<ImageSetting> ImageSettings { get; set; }
         public DbSet<Setting> Settings { get; set; }
+        public DbSet<ContactUs> ContactUss { get; set; }
         public DbSet<XBService> XBServices { get; set; }
         public DbSet<HighProjectImage> HighProjectImages { get; set; }
         public DbSet<HighProject> HighProjects { get; set; }
@@ -26,6 +27,8 @@ namespace XBInsaat.Data.Datacontext
         public DbSet<News> News { get; set; }
         public DbSet<MidProjectImage> MidProjectImages { get; set; }
         public DbSet<NewsImage> NewsImages { get; set; }
+        public DbSet<RevolutionSlider> RevolutionSliders { get; set; }
+
 
 
         protected override void OnModelCreating(ModelBuilder builder)

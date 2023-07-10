@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using XBInsaat.Core.Entites;
 using XBInsaat.Services.Dtos.Area;
+using XBInsaat.Services.Dtos.User;
 
 namespace XBInsaat.Services.Profiles
 {
@@ -17,6 +18,7 @@ namespace XBInsaat.Services.Profiles
             CreateMap<MidProjectCreateDto, MidProject>();
             CreateMap<NewsCreateDto, News>();
             CreateMap<XBServiceCreateDto, XBService>();
+            CreateMap<ContactUsCreateDto, ContactUs>();
 
         }
     }

@@ -1,6 +1,8 @@
-﻿@model List<HighProject>
+﻿@model HomeViewModel
 @{
     ViewData["Title"] = "Home Page";
+    var language = _localization.Getkey("Language").Value;
+
 }
 @*
 @foreach (Project item in Model)
@@ -73,14 +75,16 @@
                     <div class="kutu generalKutu">
                         <a href="#" data-bs-toggle="modal" data-bs-target="#generalModalScrollable">
                             <div class="kutuFeature" style="background-color: #000;" onmouseover="showSlide(0)">
-                                <span style="color: white;">General</span>
+                                <span style="color: white;">
+                                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxGeneralTitle" + language)?.Value)
+                                </span>
                             </div>
                         </a>
                     </div>
                     <div class="kutu servicesKutu">
                         <a href="#" data-bs-toggle="modal" data-bs-target="#servicesModalScrollable">
                             <div class="kutuFeature" style="background-color: #fff;" onmouseover="showSlide(1)">
-                                <span style="color: black;">Services</span>
+                                <span style="color: black;">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxServicesTitle" + language)?.Value)</span>
                             </div>
                         </a>
                     </div>
@@ -88,7 +92,7 @@
                         <a href="#" data-bs-toggle="modal" data-bs-target="#projectsModalScrollable">
                             <div class="kutuFeature" style="background-color: #00A7C6;"
                                  onmouseover="showSlide(2)">
-                                <span style="color: white;">Projects</span>
+                                <span style="color: white;">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxProjectsTitle" + language)?.Value)</span>
                             </div>
                         </a>
                     </div>
@@ -102,14 +106,14 @@
                         <a href="#" data-bs-toggle="modal" data-bs-target="#newsModalScrollable">
                             <div class="kutuFeature" style="background-color: #576676;"
                                  onmouseover="showSlide(3)">
-                                <span style="color: white;">News</span>
+                                <span style="color: white;">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxNewsTitle" + language)?.Value)</span>
                             </div>
                         </a>
                     </div>
                     <div class="kutu camKutu">
                         <a href="#" data-bs-toggle="modal" data-bs-target="#camsModalScrollable">
                             <div class="kutuFeature" style="background-color: #fff;" onmouseover="showSlide(4)">
-                                <span style="color: black;">CAM</span>
+                                <span style="color: black;">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxCAMTitle" + language)?.Value)</span>
                             </div>
                         </a>
                     </div>
@@ -120,7 +124,7 @@
                     <div class="kutu contactusKutu">
                         <a href="#" data-bs-toggle="modal" data-bs-target="#contactModalScrollable">
                             <div class="kutuFeature" style="background-color: #000;" onmouseover="showSlide(5)">
-                                <span style="color: white;">Contact us</span>
+                                <span style="color: white;">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxContactUsTitle" + language)?.Value)</span>
                             </div>
                         </a>
                     </div>
@@ -134,146 +138,98 @@
     <section id="boxDesctipions">
         <div class="row">
             <div class="boxDesc active col-lg-3">
-                <h2 style="color: #000;">General</h2>
+                <h2 style="color: #000;">
+                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxGeneralTitle" + language)?.Value)
+                </h2>
                 <p style="color: #000;">
-                    “Xarıbülbül İnşaat” MMC Azərbaycanda
-                    <br>
-                    yüksək  keyfiyyətli tikinti layihələrinin ölkə
-                    <br>
-                    ərazisində həyata keçirilməsini təmin  edən
-                    <br>
-                    aparıcı tikinti şirkətidir. Şirkətimiz böyük və mürəkkəb
-                    <br>
-                    layihələri həyata keçirməklə,    innovasiyaları təştiq
-                    <br>
-                    etməklə,   müasir texnologiyaları mənimsəməklə,
-                    <br>
-                    müştərilərilərimiz üçün fərq yaratmaqla tanınıb.
+                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "DescText" + language)?.Value)
                 </p>
 
                 <div class="boxDescButton">
                     <a data-bs-toggle="modal" data-bs-target="#generalModalScrollable"
-                       style="background-color: #000;" href="#">Daxil ol</a>
+                       style="background-color: #000;" href="#">
+                        @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxBtn" + language)?.Value)
+                    </a>
                 </div>
             </div>
             <div class="boxDesc col-lg-3">
-                <h2 style="color: rgb(148, 83, 84);">Services</h2>
+                <h2 style="color: rgb(148, 83, 84);">
+                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxServicesTitle" + language)?.Value)
+
+                </h2>
                 <p style="color: rgb(148, 83, 84);">
-                    “Xarıbülbül İnşaat” MMC Azərbaycanda
-                    <br>
-                    yüksək  keyfiyyətli tikinti layihələrinin ölkə
-                    <br>
-                    ərazisində həyata keçirilməsini təmin  edən
-                    <br>
-                    aparıcı tikinti şirkətidir. Şirkətimiz böyük və mürəkkəb
-                    <br>
-                    layihələri həyata keçirməklə,    innovasiyaları təştiq
-                    <br>
-                    etməklə,   müasir texnologiyaları mənimsəməklə,
-                    <br>
-                    müştərilərilərimiz üçün fərq yaratmaqla tanınıb.
+                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "DescText" + language)?.Value)
+
                 </p>
 
                 <div class="boxDescButton">
 
                     <a data-bs-toggle="modal" data-bs-target="#servicesModalScrollable"
-                       style="background-color: rgb(148, 83, 84);" href="#">Daxil ol</a>
+                       style="background-color: rgb(148, 83, 84);" href="#">
+                        @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxBtn" + language)?.Value)
+
+                    </a>
 
                 </div>
             </div>
             <div class="boxDesc col-lg-3">
-                <h2 style="color: rgb(96, 141, 155);">Projects</h2>
+                <h2 style="color: rgb(96, 141, 155);">
+                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxProjectsTitle" + language)?.Value)
+                </h2>
                 <p style="color: rgb(96, 141, 155);">
-                    “Xarıbülbül İnşaat” MMC Azərbaycanda
-                    <br>
-                    yüksək  keyfiyyətli tikinti layihələrinin ölkə
-                    <br>
-                    ərazisində həyata keçirilməsini təmin  edən
-                    <br>
-                    aparıcı tikinti şirkətidir. Şirkətimiz böyük və mürəkkəb
-                    <br>
-                    layihələri həyata keçirməklə,    innovasiyaları təştiq
-                    <br>
-                    etməklə,   müasir texnologiyaları mənimsəməklə,
-                    <br>
-                    müştərilərilərimiz üçün fərq yaratmaqla tanınıb.
+                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "DescText" + language)?.Value)
+
                 </p>
 
                 <div class="boxDescButton">
                     <a data-bs-toggle="modal" data-bs-target="#projectsModalScrollable"
-                       style="background-color:rgb(87, 102, 118);" href="#">Daxil ol</a>
+                       style="background-color:rgb(87, 102, 118);" href="#">
+                        @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxBtn" + language)?.Value)
+                    </a>
                 </div>
             </div>
             <div class="boxDesc col-lg-3">
-                <h2 style="color: rgb(87, 102, 118);">News</h2>
+                <h2 style="color: rgb(87, 102, 118);">
+                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxNewsTitle" + language)?.Value)
+                </h2>
                 <p style="color: rgb(87, 102, 118);">
-                    “Xarıbülbül İnşaat” MMC Azərbaycanda
-                    <br>
-                    yüksək  keyfiyyətli tikinti layihələrinin ölkə
-                    <br>
-                    ərazisində həyata keçirilməsini təmin  edən
-                    <br>
-                    aparıcı tikinti şirkətidir. Şirkətimiz böyük və mürəkkəb
-                    <br>
-                    layihələri həyata keçirməklə,    innovasiyaları təştiq
-                    <br>
-                    etməklə,   müasir texnologiyaları mənimsəməklə,
-                    <br>
-                    müştərilərilərimiz üçün fərq yaratmaqla tanınıb.
+                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "DescText" + language)?.Value)
                 </p>
 
                 <div class="boxDescButton">
                     <a data-bs-toggle="modal" data-bs-target="#newsModalScrollable"
-                       style="background-color:    rgb(87, 102, 118);" href="#">Daxil ol</a>
-
+                       style="background-color:    rgb(87, 102, 118);" href="#">
+                        @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxBtn" + language)?.Value)
+                    </a>
                 </div>
             </div>
             <div class="boxDesc col-lg-3">
-                <h2 style="color: #86988E;">CAM</h2>
+                <h2 style="color: #86988E;">
+                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxCAMTitle" + language)?.Value)
+                </h2>
                 <p style="color: #86988E;">
-                    “Xarıbülbül İnşaat” MMC Azərbaycanda
-                    <br>
-                    yüksək  keyfiyyətli tikinti layihələrinin ölkə
-                    <br>
-                    ərazisində həyata keçirilməsini təmin  edən
-                    <br>
-                    aparıcı tikinti şirkətidir. Şirkətimiz böyük və mürəkkəb
-                    <br>
-                    layihələri həyata keçirməklə,    innovasiyaları təştiq
-                    <br>
-                    etməklə,   müasir texnologiyaları mənimsəməklə,
-                    <br>
-                    müştərilərilərimiz üçün fərq yaratmaqla tanınıb.
+                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "DescText" + language)?.Value)
                 </p>
 
                 <div class="boxDescButton">
-
                     <a data-bs-toggle="modal" data-bs-target="#camsModalScrollable"
-                       style="background-color: #86988E;" href="#">Daxil ol</a>
-
+                       style="background-color: #86988E;" href="#">
+                        @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxBtn" + language)?.Value)
+                    </a>
                 </div>
             </div>
             <div class="boxDesc col-lg-3">
-                <h2 style="color: #BFB256;">Contact Us</h2>
+                <h2 style="color: #BFB256;">
+                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxCAMTitle" + language)?.Value)
+                </h2>
                 <p style="color: #BFB256;">
-                    “Xarıbülbül İnşaat” MMC Azərbaycanda
-                    <br>
-                    yüksək  keyfiyyətli tikinti layihələrinin ölkə
-                    <br>
-                    ərazisində həyata keçirilməsini təmin  edən
-                    <br>
-                    aparıcı tikinti şirkətidir. Şirkətimiz böyük və mürəkkəb
-                    <br>
-                    layihələri həyata keçirməklə,    innovasiyaları təştiq
-                    <br>
-                    etməklə,   müasir texnologiyaları mənimsəməklə,
-                    <br>
-                    müştərilərilərimiz üçün fərq yaratmaqla tanınıb.
+                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "DescText" + language)?.Value)
                 </p>
-
                 <div class="boxDescButton">
                     <a data-bs-toggle="modal" data-bs-target="#contactModalScrollable"
-                       style="background-color: #BFB256;" href="#">Daxil ol</a>
+                       style="background-color: #BFB256;" href="#">
+                        @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxBtn" + language)?.Value)
+                    </a>
 
                 </div>
             </div>
@@ -345,23 +301,9 @@
     </section>
 </div>
 
-<!-- General Modal -->
-<div class="modal fade" id="generalModalScrollable" tabindex="-1" aria-labelledby="generalModalScrollable"
-     aria-hidden="true">
-    <div class="modal-dialog modal-lg  modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title" id="generalModalScrollableLabel">General</h2>
-                <button type="button" class="" data-bs-dismiss="modal" aria-label="Close">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                @Html.Raw(_localization.Getkey("GeneralText").Value)
-            </div>
-        </div>
-    </div>
-</div>
+
+@await Html.PartialAsync("_generalPartial", Model.Settings)
+
 
 <!-- Services Modal -->
 <div class="modal fade" id="servicesModalScrollable" tabindex="-1" aria-labelledby="servicesModalScrollable"
@@ -369,7 +311,9 @@
     <div class="modal-dialog modal-lg  modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title" id="servicesModalScrollableLabel">Services</h2>
+                <h2 class="modal-title" id="servicesModalScrollableLabel">
+                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxServicesTitle" + language)?.Value)
+                </h2>
                 <button type="button" class="" data-bs-dismiss="modal" aria-label="Close">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
@@ -413,326 +357,12 @@
     </div>
 </div>
 
-<!-- Modal Projects -->
-<div class="modal fade" id="projectsModalScrollable" tabindex="-1" role="dialog"
-     aria-labelledby="projectsModalScrollableTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 style="color:#00a7c6;" class="modal-title" id="projectsModalScrollableTitle">
-                    All Projects
-                </h2>
-                <button type="button" id="close-first" class="" data-bs-dismiss="modal" aria-label="Close">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <!-- Older posts -->
-                <section class="mt-2 fx-fade-up">
-                    <div class="container">
-                        <div class="row mt-4">
-                            <!-- Post -->
-                            <div class="col-lg-4  col-md-10 mb-2 projectBoxs">
-                                <!-- Featured image -->
-                                <a href="#!" id="openModal2" data-bs-toggle="modal"
-                                   data-bs-target="#project-test">
-                                    <img src="~/assets/Images/home_architect2_slider2-1568x653.jpg"
-                                         class="img-fluid rounded hover-lift-light" alt="">
-                                </a>
+@await Html.PartialAsync("_projectsPartial", Model.HomeIndexProjectsViewModel)
+@*@await Html.PartialAsync("_projectPartial", Model.HomeIndexProjectsViewModel)*@
+@*@await Html.PartialAsync("_projectPartial", Model.)*@
 
-                                <!-- Title -->
-                                <a href="#!" id="openModal2" data-bs-toggle="modal"
-                                   data-bs-target="#project-test"
-                                   class="projectBoxTitle d-block text-dark text-decoration-none mt-4">
-                                    Qala Shopping Village
-                                </a>
-
-                                <!-- Read more -->
-                                <a href="#!" id="openModal2" data-bs-toggle="modal"
-                                   data-bs-target="#project-test"
-                                   class="postReadText d-inline-block border-bottom border-primary text-decoration-none mt-2 pb-1">
-                                    Read post
-                                </a>
-                            </div>
-                            <!-- Post -->
-                            <div class="col-lg-4  col-md-10 mb-2 projectBoxs">
-                                <!-- Featured image -->
-                                <a href="#!" id="openModal2" data-bs-toggle="modal"
-                                   data-bs-target="#project-test">
-                                    <img src="~/assets/Images/home_architect2_slider3-1568x653.jpg"
-                                         class="img-fluid rounded hover-lift-light" alt="">
-                                </a>
-
-                                <!-- Title -->
-                                <a href="#!" id="openModal2" data-bs-toggle="modal"
-                                   data-bs-target="#project-test"
-                                   class="projectBoxTitle d-block text-dark text-decoration-none mt-4">
-                                    Grand Mall
-                                </a>
-
-                                <!-- Read more -->
-                                <a href="#!" id="openModal2" data-bs-toggle="modal"
-                                   data-bs-target="#project-test"
-                                   class="postReadText d-inline-block border-bottom border-primary text-decoration-none mt-2 pb-1">
-                                    Read post
-                                </a>
-                            </div>
-                        </div>
-                        <!-- Go to previous posts -->
-                        <a href="#" id="close-first" data-bs-dismiss="modal" aria-label="Close"
-                           class="projectBackBtn btn btn-pastel-primary hover-lift-light text-uppercase-bold-sm mt-4">
-                            <i class="fas fa-chevron-left fa-sm mr-2"></i>
-                            Ana səhİfəyə qayıt
-                        </a>
-                    </div>
-                </section>
-            </div>
-        </div>
-    </div>
-</div>
 
 <!-- Modal Project -->
-<div class="modal fade  projectModal" id="project-test" tabindex="-1" role="dialog"
-     aria-labelledby="project-testTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 style="color:#00a7c6;" class="modal-title" id="project-testTitle">
-                    Qala Shopping Village
-                </h2>
-                <button type="button" class="" data-bs-dismiss="modal" aria-label="Close">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-
-                <!-- Older posts -->
-                <section class="mt-2 fx-fade-up">
-                    <div class="container">
-                        <div class="row mt-4 justify-content-center ">
-                            <!-- Post -->
-                            <!-- Featured image -->
-                            <div class="col-md-9 col-sm-11 mb-2 ">
-                                <div class="projectSliders">
-                                    <div class="projectSlide">
-                                        <div class="image-container">
-                                            <a href="#!">
-                                                <img src="~/assets/Images/home_architect2_slider1-1568x653.jpg"
-                                                     class="img-fluid rounded hover-lift-light" alt="">
-                                            </a>
-
-                                        </div>
-                                    </div>
-                                    <div class="projectSlide">
-                                        <div class="image-container">
-                                            <a href="#!">
-                                                <img src="~/assets/Images/slide-susa.gif"
-                                                     class="img-fluid rounded hover-lift-light" alt="">
-                                            </a>
-
-                                        </div>
-                                    </div>
-                                    <div class="projectSlide">
-                                        <div class="image-container">
-                                            <a href="#!">
-                                                <img src="~/assets/Images/home_architect2_slider3-1568x653.jpg"
-                                                     class="img-fluid rounded hover-lift-light" alt="">
-                                            </a>>
-                                        </div>
-                                    </div>
-                                    <a class="prev-project-btn prev-btn" href="#">&lt;</a>
-                                    <a class="next-project-btn next-btn " href="#">&gt;</a>
-                                </div>
-                            </div>
-                            <!-- Title -->
-
-                            <div class="col-md-9 mb-2">
-                                <h1 class="h5 d-block text-dark text-decoration-none mt-4">
-                                    Gravida ullamcorper
-                                </h1>
-                            </div>
-                            <!-- Read more -->
-                            <div class="col-md-9 mb-2">
-                                <p class="d-inline-block  mt-2 ">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit aspernatur
-                                    dolorem, eos at iste mollitia dolore labore odio? Dolorum temporibus vel
-                                    architecto animi? Blanditiis, unde! Aspernatur ipsa laboriosam aut deserunt!
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit aspernatur
-                                    dolorem, eos at iste mollitia dolore labore odio? Dolorum temporibus vel
-                                    architecto animi? Blanditiis, unde! Aspernatur ipsa laboriosam aut deserunt!
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit aspernatur
-                                    dolorem, eos at iste mollitia dolore labore odio? Dolorum temporibus vel
-                                    architecto animi? Blanditiis, unde! Aspernatur ipsa laboriosam aut deserunt!
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit aspernatur
-                                    dolorem, eos at iste mollitia dolore labore odio? Dolorum temporibus vel
-                                    architecto animi? Blanditiis, unde! Aspernatur ipsa laboriosam aut deserunt!
-
-                                </p>
-                            </div>
-
-                            <!-- Shops -->
-                            <div class="col-md-9 mb-2 projectShops">
-                                <h2 class="mb-3 mt-2">Mağazalar</h2>
-                                <div class="row">
-                                    <!-- Web slider -->
-                                    <div class="col-lg-3  col-md-7 mb-2 projectShopBoxs">
-                                        <!-- Featured image -->
-                                        <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info">
-                                            <img src="~/assets/Images/home_architect2_slider1-1568x653.jpg"
-                                                 class="img-fluid rounded hover-lift-light" alt="">
-                                        </a>
-                                        <!-- Title -->
-                                        <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info"
-                                           class="projectBoxTitle d-block  text-decoration-none mt-3">
-                                            Gravida ullamcorper
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-3  col-md-7 mb-2 projectShopBoxs">
-                                        <!-- Featured image -->
-                                        <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info">
-                                            <img src="~/assets/Images/home_architect2_slider2-1568x653.jpg"
-                                                 class="img-fluid rounded hover-lift-light" alt="">
-                                        </a>
-                                        <!-- Title -->
-                                        <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info"
-                                           class="projectBoxTitle d-block  text-decoration-none mt-3">
-                                            Gravida ullamcorper
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-3  col-md-7 mb-2 projectShopBoxs">
-                                        <!-- Featured image -->
-                                        <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info">
-                                            <img src="~/assets/Images/home_architect2_slider3-1568x653.jpg"
-                                                 class="img-fluid rounded hover-lift-light" alt="">
-                                        </a>
-                                        <!-- Title -->
-                                        <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info"
-                                           class="projectBoxTitle d-block  text-decoration-none mt-3">
-                                            Gravida ullamcorper
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-3  col-md-7 mb-2 projectShopBoxs">
-                                        <!-- Featured image -->
-                                        <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info">
-                                            <img src="~/assets/Images/home_architect2_slider1-1568x653.jpg"
-                                                 class="img-fluid rounded hover-lift-light" alt="">
-                                        </a>
-                                        <!-- Title -->
-                                        <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info"
-                                           class="projectBoxTitle d-block  text-decoration-none mt-3">
-                                            Gravida ullamcorper
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-3  col-md-7 mb-2 projectShopBoxs">
-                                        <!-- Featured image -->
-                                        <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info">
-                                            <img src="~/assets/Images/home_architect2_slider1-1568x653.jpg"
-                                                 class="img-fluid rounded hover-lift-light" alt="">
-                                        </a>
-                                        <!-- Title -->
-                                        <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info"
-                                           class="projectBoxTitle d-block  text-decoration-none mt-3">
-                                            Gravida ullamcorper
-                                        </a>
-                                    </div>
-                                </div>
-                                <!-- Mobile Slider -->
-                                <div class="owl-carousel owl-carousel-slider owl-theme mobile-owl  p-0 m-0">
-                                    <div class="item me-2">
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#project-info"
-                                           class="projectBoxTitle d-block  text-decoration-none mt-3">
-                                            <img style=" border-radius: 5px;"
-                                                 src="~/assets/Images/home_architect2_slider2-1568x653.jpg"
-                                                 alt="" width="100% ">
-                                        </a>
-                                        <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info"
-                                           class="projectBoxTitle d-block  text-decoration-none mt-3"
-                                           style="color: #000;">
-                                            Gravida ullamcorper
-                                        </a>
-                                    </div>
-                                    <div class="item me-2">
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#project-info"
-                                           class="projectBoxTitle d-block  text-decoration-none mt-3">
-                                            <img style=" border-radius: 5px;"
-                                                 src="~/assets/Images/slide-susa.gif" alt="" width="100% ">
-                                        </a>
-                                        <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info"
-                                           class="projectBoxTitle d-block  text-decoration-none mt-3"
-                                           style="color: #000;">
-                                            Gravida ullamcorper
-                                        </a>
-                                    </div>
-                                    <div class="item me-2">
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#project-info"
-                                           class="projectBoxTitle d-block  text-decoration-none mt-3">
-                                            <img style=" border-radius: 5px;" src="~/assets/Images/cam.png"
-                                                 alt="" width="100% ">
-                                        </a>
-                                        <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info"
-                                           class="projectBoxTitle d-block  text-decoration-none mt-3"
-                                           style="color: #000;">
-                                            Gravida ullamcorper
-                                        </a>
-                                    </div>
-                                    <div class="item me-2">
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#project-info"
-                                           class="projectBoxTitle d-block  text-decoration-none mt-3">
-                                            <img style=" border-radius: 5px;"
-                                                 src="~/assets/Images/slide-service3-scaled.gif" alt=""
-                                                 width="100% ">
-                                        </a>
-                                        <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info"
-                                           class="projectBoxTitle d-block  text-decoration-none mt-3"
-                                           style="color: #000;">
-                                            Gravida ullamcorper
-                                        </a>
-                                    </div>
-                                    <div class="item me-2">
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#project-info"
-                                           class="projectBoxTitle d-block  text-decoration-none mt-3">
-                                            <img style=" border-radius: 5px;"
-                                                 src="~/assets/Images/slide-projec-yujk-scaled.gif" alt=""
-                                                 width="100% ">
-                                        </a>
-                                        <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info"
-                                           class="projectBoxTitle d-block  text-decoration-none mt-3"
-                                           style="color: #000;">
-                                            Gravida ullamcorper
-                                        </a>
-                                    </div>
-                                    <div class="item me-2">
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#project-info"
-                                           class="projectBoxTitle d-block  text-decoration-none mt-3">
-                                            <img style=" border-radius: 5px;"
-                                                 src="~/assets/Images/slide-susa.gif" alt="" width="100% ">
-                                        </a>
-                                        <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info"
-                                           class="projectBoxTitle d-block  text-decoration-none mt-3"
-                                           style="color: #000;">
-                                            Gravida ullamcorper
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Go to previous posts -->
-                            <div class="col-md-9 mb-2 text-end">
-                                <!-- Go to previous posts -->
-                                <a href="#" data-bs-dismiss="modal" aria-label="Close"
-                                   class="projectBackBtn btn btn-pastel-primary hover-lift-light text-uppercase-bold-sm mt-4">
-                                    <i class="fas fa-chevron-left fa-sm mr-2"></i>
-                                    Geriyə qayıt
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-            </div>
-        </div>
-    </div>
-</div>
-
 <!-- Modal Info Project -->
 <div class="modal fade projectInfoModal" id="project-info" tabindex="-1" role="dialog"
      aria-labelledby="project-testTitle" aria-hidden="true">
@@ -827,7 +457,9 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h2 style="color:#00a7c6;" class="modal-title" id="newsModalScrollableTitle">
-                    All News
+
+                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalNewsTitle" + language)?.Value)
+
                 </h2>
                 <button type="button" id="close-first" class="" data-bs-dismiss="modal" aria-label="Close">
                     <i class="fa-solid fa-xmark"></i>
@@ -855,7 +487,8 @@
                                 <!-- Read more -->
                                 <a href="#!" data-bs-toggle="modal" data-bs-target="#new-test"
                                    class="postReadText d-inline-block border-bottom border-primary text-decoration-none mt-2 pb-1">
-                                    Read post
+                                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ReadPostText" + language)?.Value)
+
                                 </a>
                             </div>
                             <!-- Post -->
@@ -875,7 +508,8 @@
                                 <!-- Read more -->
                                 <a href="#!" data-bs-toggle="modal" data-bs-target="#new-test"
                                    class="postReadText d-inline-block border-bottom border-primary text-decoration-none mt-2 pb-1">
-                                    Read post
+                                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ReadPostText" + language)?.Value)
+
                                 </a>
                             </div>
                             <!-- Post -->
@@ -895,7 +529,8 @@
                                 <!-- Read more -->
                                 <a href="#!" data-bs-toggle="modal" data-bs-target="#new-test"
                                    class="postReadText d-inline-block border-bottom border-primary text-decoration-none mt-2 pb-1">
-                                    Read post
+                                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ReadPostText" + language)?.Value)
+
                                 </a>
                             </div>
                             <!-- Post -->
@@ -915,7 +550,8 @@
                                 <!-- Read more -->
                                 <a href="#!" data-bs-toggle="modal" data-bs-target="#new-test"
                                    class="postReadText d-inline-block border-bottom border-primary text-decoration-none mt-2 pb-1">
-                                    Read post
+                                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ReadPostText" + language)?.Value)
+
                                 </a>
                             </div>
 
@@ -924,7 +560,7 @@
                         <a href="#" type="button" data-bs-dismiss="modal" aria-label="Close"
                            class="newsBackBtn btn btn-pastel-primary hover-lift-light text-uppercase-bold-sm mt-4">
                             <i class="fas fa-chevron-left fa-sm mr-2"></i>
-                            Ana səhİfəyə qayıt
+                            @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalHomeBackBtnText" + language)?.Value)
                         </a>
                     </div>
                 </section>
@@ -1158,7 +794,9 @@
         <div class="modal-content ">
             <div class="modal-header">
                 <h2 style="color:#00a7c6;" class="modal-title" id="contactModalScrollableTitle">
-                    Bizimlə Əlaqə
+
+                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxContactUsTitle" + language)?.Value)
+
                 </h2>
                 <button type="button" class="" data-bs-dismiss="modal" aria-label="Close">
                     <i class="fa-solid fa-xmark"></i>
@@ -1168,22 +806,34 @@
                 <div class="containerContact">
                     <div class="row">
                         <div class="col-lg-6 contactMap">
-                            <h4 style="color: #8a8a8a;"><i class="far fa-map"></i> Xəritə</h4>
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.1685180209893!2d49.869250415107715!3d40.38295756561722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d4d1e056aef%3A0xaf4d0c1f7aad60b7!2sDemirchi%20Tower!5e0!3m2!1sen!2s!4v1618769297270!5m2!1sen!2s"
+                            <h4 style="color: #8a8a8a;">
+                                <i class="far fa-map"></i>
+
+                                @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ContactMapText" + language)?.Value)
+
+                            </h4>
+                            <iframe src="@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "MapUrl")?.Value)"
                                     width="100%" height="250" style="border:0;" allowfullscreen=""
                                     loading="lazy"></iframe>
                         </div>
                         <div class="col-lg-6 contactInfo">
                             <h4 style="color: #8a8a8a;">
-                                <i class="fas fa-chevron-right"></i> Əlaqə vasitələri
+                                <i class="fas fa-chevron-right"></i>
+
+                                @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalContactText" + language)?.Value)
+
                             </h4>
                             <p style="color: #8a8a8a;">
-                                Bakı şəh., Yasamal ray., Tbilisi pr. 1054
+                                @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ContactAdress")?.Value)
+
                                 <br>
                                 <br>
-                                <i class="fas fa-phone-volume"> </i> +99412 310 57 02
+                                <i class="fas fa-phone-volume"> </i>
+                                @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ContactNumber")?.Value)
+
                                 <br>
-                                <i class="far fa-envelope-open"> </i> office@xbinsaat.az
+                                <i class="far fa-envelope-open"> </i>
+                                @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ContactEmail")?.Value)
                             </p>
                         </div>
                     </div>
@@ -1206,7 +856,8 @@
         <div class="modal-content ">
             <div class="modal-header">
                 <h2 style="color:#00a7c6;" class="modal-title" id="loginModalScrollableTitle">
-                    İstifadəçi kabineti
+                    @*İstifadəçi kabineti*@
+                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "LoginTitle" + language)?.Value)
                 </h2>
                 <button type="button" id="close-first" class="" data-bs-dismiss="modal" aria-label="Close">
                     <i class="fa-solid fa-xmark"></i>
@@ -1222,29 +873,32 @@
                     </div>
                     <div class="loginEmail col-lg-6">
                         <label class="quform-label-text" for="loginEmailInput">
-                            İstifadəçi adı<span class="loginRequired">*</span>
+                            @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalLoginText" + language)?.Value)
+                            <span class="loginRequired">*</span>
                         </label>
                         <input id="loginEmailInput" class="" type="text" aria-label="default input example">
 
                     </div>
                     <div class="loginPassword col-lg-6">
                         <label class="quform-label-text" for="inputPassword5">
-                            Şifrə<span class="loginRequired">*</span>
+                            @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalPasswordText" + language)?.Value)
+                            <span class="loginRequired">*</span>
                         </label>
                         <input type="password" id="inputPassword5" class="" aria-labelledby="passwordHelpBlock">
                     </div>
 
-                    <div class="col-lg-6 loginRememberMe">
-                        <input type="checkbox" class="" value="Məni unutma">
-                        <span class="quform-option-text">
-                            Məni unutma
-                        </span>
-                    </div>
+                    @* <div class="col-lg-6 loginRememberMe">
+                    <input type="checkbox" class="" value="Məni unutma">
+                    <span class="quform-option-text">
+                    Məni unutma
+                    </span>
+                    </div>*@
                     <div class="col-lg-6 loginButton">
                         <button name="quform_submit" type="submit" class="btn" value="submit">
                             <span class="spanText quform-button-text quform-button-submit-text">
-                                DAXİL
-                                OL
+
+                                @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalBtnText" + language)?.Value)
+
                             </span>
                             <span class="quform-button-icon quform-button-submit-icon">
                                 <i class="fa fa-chevron-right"></i>
@@ -1260,75 +914,7 @@
     </div>
 </div>
 
-<!-- Contact Us Modal -->
-<div class="modal fade" id="contactUsModal" role="dialog" tabindex="-1" aria-labelledby="contactUsModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable " role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title" id="contactUsModalLabel">Contact Us</h2>
-                <button type="button" id="close-first" class="" data-bs-dismiss="modal" aria-label="Close">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-
-                <form class="row  " action="#" method="post" enctype="multipart/form-data">
-                    <div class="contactLogoImage d-flex justify-content-center">
-                        <a href="#">
-                            <img decoding="async" src="~/assets/Images/xaribulbulgroup-logo.png" alt="">
-                        </a>
-                    </div>
-
-
-                    <!-- AdSoyad -->
-                    <div class="contactUsInputsBox col-lg-6  col-md-8 col-sm-9">
-                        <label class="quform-label-text" for="contactNameInput">
-                            Adınız Soyadınız<span class="contactRequired">*</span>
-                        </label>
-                        <input id="contactNameInput" class="" type="text" aria-label="default input example">
-                    </div>
-                    <!-- Nomre -->
-                    <div class="contactUsInputsBox col-lg-6 col-md-8 col-sm-9">
-                        <label class="quform-label-text" for="contactNumberInput">
-                            Əlaqə nömrəniz<span class="contactRequired">*</span>
-                        </label>
-                        <input id="contactNumberInput" class="" type="tel" aria-label="default input example">
-                        <div id="numberError" class="error-message"></div>
-                    </div>
-                    <!-- Email -->
-                    <div class="contactUsInputsBox col-lg-6 col-md-8 col-sm-9">
-                        <label class=" quform-label-text" for="contactEmailInput">
-                            Emailiniz<span class="contactRequired">*</span>
-                        </label>
-                        <input id="contactEmailInput" class="" type="email" aria-label="default input example">
-                        <div id="emailError" class="error-message"></div>
-                    </div>
-
-                    <!-- Desc -->
-                    <div class="contactUsInputsBox col-lg-6 col-md-8 col-sm-9">
-                        <label class="quform-label-text" for="contactDescInput">
-                            Məktub<span class="contactRequired">*</span>
-                        </label>
-                        <textarea maxlength="1000" name="" id="" rows="6"></textarea>
-                    </div>
-                    <!-- btn -->
-                    <div class="col-lg-6 col-md-8 col-sm-9 contactButton">
-                        <button name="quform_submit" type="submit" class="btn" value="submit">
-                            <span class="spanText quform-button-text quform-button-submit-text">
-                                GÖNDƏR
-                            </span>
-                            <span class="quform-button-icon quform-button-submit-icon">
-                                <i class="fa fa-chevron-right"></i>
-                            </span>
-                        </button>
-                    </div>
-                </form>
-
-            </div>
-        </div>
-    </div>
-</div>
+@await Html.PartialAsync("_contactUsPartial", Model.HomeIndexContactUsViewModel)
 
 <!-- User Modal -->
 <div class="modal fade" id="userModal" role="dialog" tabindex="-1" aria-labelledby="userModalLabel"

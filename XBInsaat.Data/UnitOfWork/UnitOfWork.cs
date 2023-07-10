@@ -25,6 +25,8 @@ namespace XBInsaat.Data.UnitOfWork
         private INewsRepository _newsRepository;
         private INewsImageRepository _newsImageRepository;
         private IMidProjectImageRepository _midProjectImageRepository;
+        private IRevolutionSliderRepository _revolutionSliderRepository;
+        private IContactUsRepository _contactUsRepository;
 
 
         public UnitOfWork(DataContext context)
@@ -51,6 +53,9 @@ namespace XBInsaat.Data.UnitOfWork
 
         public INewsImageRepository NewsImageRepository => _newsImageRepository = _newsImageRepository ?? new NewsImageRepository(_context);
 
+        public IRevolutionSliderRepository RevolutionSliderRepository => _revolutionSliderRepository = _revolutionSliderRepository ?? new RevolutionSliderRepository(_context);
+
+        public IContactUsRepository ContactUsRepository => _contactUsRepository = _contactUsRepository ?? new ContactUsRepository(_context);
 
         public async Task<int> CommitAsync()
         {

@@ -68,8 +68,8 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th>Elanın adı</th>
-                                <th>Təsvir</th>
+                                <th>Servisin adı</th>
+                                <th>ervisin təsviri</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -80,7 +80,7 @@
                                 @*@await Html.PartialAsync("_deleteItemModalPartiral", new XBServiceDeleteModal { Action = "delete", Controller = "XBService", Text = "Elanı silmək istəyirsinizmi?", Id = XBService.Id })*@
                                 @*Delete Modal*@
                                 <tr>
-                                   
+
                                     <td class="text-center"><a target="_blank">@XBService.NameAz</a></td>
                                     <td class="text-center"><a target="_blank">@(XBService.DescribeAz.Length < 30 ? (XBService.DescribeAz) : (XBService.DescribeAz.Substring(0, 30) + "...."))</a></td>
 

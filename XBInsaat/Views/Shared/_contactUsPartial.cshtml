@@ -1,0 +1,91 @@
+﻿@model HomeIndexContactUsViewModel
+@{
+    var language = _localization.Getkey("Language").Value;
+
+}
+<!-- Contact Us Modal -->
+<div class="modal fade" id="contactUsModal" role="dialog" tabindex="-1" aria-labelledby="contactUsModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable " role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="contactUsModalLabel">Contact Us</h2>
+                <button type="button" id="close-first" class="" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <form class="row" asp-action="contactus" asp-controller="home" method="post" enctype="multipart/form-data">
+                    <div class="contactLogoImage d-flex justify-content-center">
+                        <a href="#">
+                            <img decoding="async" src="~/assets/Images/xaribulbulgroup-logo.png" alt="">
+                        </a>
+                    </div>
+
+                    <!-- AdSoyad -->
+                    <div class="contactUsInputsBox col-lg-6  col-md-8 col-sm-9">
+                        <label asp-for="ContactUsCreateDto.Fullname" class="quform-label-text" for="contactNameInput">
+                            @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalContactUsInputFullname" + language)?.Value)
+
+                            <span class="contactRequired">*</span>
+                        </label>
+                        <input asp-for="ContactUsCreateDto.Fullname" id="contactNameInput" class="" type="text" aria-label="default input example">
+                        <span class="text-danger" asp-validation-for="ContactUsCreateDto.Fullname"></span>
+                    </div>
+
+                    <!-- Nomre -->
+                    <div class="contactUsInputsBox col-lg-6 col-md-8 col-sm-9">
+                        <label asp-for="ContactUsCreateDto.PhoneNumber" class="quform-label-text" for="contactNumberInput">
+                            @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalContactUsInputNumber" + language)?.Value)
+
+                            <span class="contactRequired">*</span>
+                        </label>
+                        <input asp-for="ContactUsCreateDto.PhoneNumber" id="contactNumberInput" class="" type="tel" aria-label="default input example">
+                        <span class="text-danger" asp-validation-for="ContactUsCreateDto.PhoneNumber"></span>
+                        <div id="numberError" class="error-message"></div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="contactUsInputsBox col-lg-6 col-md-8 col-sm-9">
+                        <label asp-for="ContactUsCreateDto.Email" class=" quform-label-text" for="contactEmailInput">
+                            @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalContactUsInputEmail" + language)?.Value)
+
+                            <span class="contactRequired">*</span>
+                        </label>
+                        <input asp-for="ContactUsCreateDto.Email" id="contactEmailInput" class="" type="email" aria-label="default input example">
+                        <span class="text-danger" asp-validation-for="ContactUsCreateDto.Email"></span>
+
+                        <div id="emailError" class="error-message"></div>
+                    </div>
+
+                    <!-- Desc -->
+                    <div class="contactUsInputsBox col-lg-6 col-md-8 col-sm-9">
+                        <label asp-for="ContactUsCreateDto.Message" class="quform-label-text" for="contactDescInput">
+                            @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalContactUsInputMessage" + language)?.Value)
+
+                            <span class="contactRequired">*</span>
+                        </label>
+                        <span class="text-danger" asp-validation-for="ContactUsCreateDto.Message"></span>
+
+                        <textarea asp-for="ContactUsCreateDto.Message" maxlength="1000" rows="6"></textarea>
+                    </div>
+
+                    <!-- btn -->
+                    <div class="col-lg-6 col-md-8 col-sm-9 contactButton">
+                        <button type="submit" class="btn">
+                            <span class="spanText quform-button-text quform-button-submit-text">
+                                @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalContactUsInputBtn" + language)?.Value)
+                            </span>
+                            <span class="quform-button-icon quform-button-submit-icon">
+                                <i class="fa fa-chevron-right"></i>
+                            </span>
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

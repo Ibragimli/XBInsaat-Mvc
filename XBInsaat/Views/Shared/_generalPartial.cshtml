@@ -1,0 +1,25 @@
+﻿@model List<Setting>
+@{
+    var language = _localization.Getkey("Language").Value;
+
+}
+<!-- General Modal -->
+<div class="modal fade" id="generalModalScrollable" tabindex="-1" aria-labelledby="generalModalScrollable"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg  modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="generalModalScrollableLabel">
+                    @Model.FirstOrDefault(x => x.Key == "BoxGeneralTitle" + language)?.Value
+                </h2>
+                <button type="button" class="" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                @Model.FirstOrDefault(x => x.Key == "GeneralText" + language)?.Value
+            </div>
+        </div>
+    </div>
+</div>
