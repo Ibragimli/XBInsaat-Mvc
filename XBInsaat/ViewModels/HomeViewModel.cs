@@ -10,15 +10,40 @@ namespace XBInsaat.Mvc.ViewModels
         public IEnumerable<News> News { get; set; }
         public IEnumerable<XBService> XBServices { get; set; }
         public IEnumerable<Setting> Settings { get; set; }
+        public IEnumerable<RevolutionSlider> RevolutionSliders { get; set; }
         public ContactUsCreateDto ContactUsCreateDto { get; set; }
         public HomeIndexProjectsViewModel HomeIndexProjectsViewModel { get; set; }
         public HomeIndexContactUsViewModel HomeIndexContactUsViewModel { get; set; }
+        public HomeIndexProjectViewModel HomeIndexProjectViewModel { get; set; }
+        public HomeIndexNewsViewModel HomeIndexNewsViewModel { get; set; }
+        public HomeIndexNewViewModel HomeIndexNewViewModel { get; set; }
     }
     public class HomeIndexProjectsViewModel
     {
         public IEnumerable<HighProject> HighProjects { get; set; }
         public IEnumerable<Setting> Settings { get; set; }
 
+    }
+    public class HomeIndexNewsViewModel
+    {
+        public IEnumerable<News> News { get; set; }
+        public IEnumerable<Setting> Settings { get; set; }
+    }
+    public class HomeIndexNewViewModel
+    {
+        public IEnumerable<News> News { get; set; }
+        public News New { get; set; }
+        public IEnumerable<Setting> Settings { get; set; }
+        public IEnumerable<NewsImage> NewsImages { get; set; }
+
+    }
+    public class HomeIndexProjectViewModel
+    {
+        public IEnumerable<HighProject> HighProjects { get; set; }
+        public IEnumerable<MidProject> MidProjects { get; set; }
+        public IEnumerable<Setting> Settings { get; set; }
+        public IEnumerable<HighProjectImage> HighProjectImages { get; set; }
+        public IEnumerable<MidProjectImage> MidProjectImages { get; set; }
     }
     public class HomeIndexContactUsViewModel
     {

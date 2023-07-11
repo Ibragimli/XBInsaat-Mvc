@@ -2,7 +2,7 @@
 @{
     ViewData["Title"] = "Home Page";
     var language = _localization.Getkey("Language").Value;
-
+    var count = 0;
 }
 @*
 @foreach (Project item in Model)
@@ -45,24 +45,15 @@
 
 <!-- Revo Slider -->
 <div class="slider">
-    <div class="slide active">
-        <img src="~/assets/Images/slide-susa.gif" alt="Resim 1">
-    </div>
-    <div class="slide">
-        <img src="~/assets/Images/slide-service3-scaled.gif" alt="Resim 2">
-    </div>
-    <div class="slide">
-        <img src="~/assets/Images/slide-projec-yujk-scaled.gif" alt="Resim 3">
-    </div>
-    <div class="slide">
-        <img src="~/assets/Images/home_architect2_slider2-1568x653.jpg" alt="Resim 4">
-    </div>
-    <div class="slide">
-        <img src="~/assets/Images/cam.png" alt="Resim 5">
-    </div>
-    <div class="slide">
-        <img src="~/assets/Images/home_architect2_slider3-1568x653.jpg" alt="Resim 6">
-    </div>
+    @foreach (var item in Model.RevolutionSliders)
+    {
+        <div class="slide @(count == 0?"active":"")">
+            <img src="~/uploads/revolutionSlider/@(item?.Image) " alt="Resim 1">
+        </div>
+        @(count++)
+    }
+
+
 </div>
 
 <!-- XBInsaat Web Size -->
@@ -247,7 +238,9 @@
                 <div class="kutu generalKutu d-flex justify-content-end">
                     <a href="#" data-bs-toggle="modal" data-bs-target="#generalModalScrollable">
                         <div class="kutuFeature" style="background-color: #000;" onmouseover="showSlide(0)">
-                            <span style="color: white;">General</span>
+                            <span style="color: white;">
+                                @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxGeneralTitle" + language)?.Value)
+                            </span>
                         </div>
                     </a>
                 </div>
@@ -256,7 +249,7 @@
                 <div class="kutu servicesKutu">
                     <a href="#" data-bs-toggle="modal" data-bs-target="#servicesModalScrollable">
                         <div class="kutuFeature" style="background-color: #fff;" onmouseover="showSlide(1)">
-                            <span style="color: black;">Services</span>
+                            <span style="color: black;">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxServicesTitle" + language)?.Value)</span>
                         </div>
                     </a>
                 </div>
@@ -265,7 +258,8 @@
                 <div class="kutu newsKutu d-flex justify-content-end ">
                     <a href="#" data-bs-toggle="modal" data-bs-target="#newsModalScrollable">
                         <div class="kutuFeature" style="background-color: #575575;" onmouseover="showSlide(3)">
-                            <span style="color: white;">News</span>
+                            <span style="color: white;">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxNewsTitle" + language)?.Value)</span>
+
                         </div>
                     </a>
                 </div>
@@ -274,7 +268,8 @@
                 <div class="kutu projectsKutu ">
                     <a href="#" data-bs-toggle="modal" data-bs-target="#projectsModalScrollable">
                         <div class="kutuFeature" style="background-color: #00A7C5;" onmouseover="showSlide(2)">
-                            <span style="color: white;">Projects</span>
+                            <span style="color: white;">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxProjectsTitle" + language)?.Value)</span>
+
                         </div>
                     </a>
                 </div>
@@ -283,7 +278,8 @@
                 <div class="kutu camKutu d-flex justify-content-end">
                     <a href="#" data-bs-toggle="modal" data-bs-target="#camsModalScrollable">
                         <div class="kutuFeature" style="background-color: #fff;" onmouseover="showSlide(4)">
-                            <span style="color: black;">CAM</span>
+                            <span style="color: black;">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxCAMTitle" + language)?.Value)</span>
+
                         </div>
                     </a>
                 </div>
@@ -292,7 +288,7 @@
                 <div class="kutu contactusKutu">
                     <a href="#" data-bs-toggle="modal" data-bs-target="#contactModalScrollable">
                         <div class="kutuFeature" style="background-color: #000;" onmouseover="showSlide(5)">
-                            <span style="color: white;">Contact us</span>
+                            <span style="color: white;">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxContactUsTitle" + language)?.Value)</span>
                         </div>
                     </a>
                 </div>
@@ -311,9 +307,9 @@
     <div class="modal-dialog modal-lg  modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title" id="servicesModalScrollableLabel">
+                <h1 class="modal-title" id="servicesModalScrollableLabel">
                     @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxServicesTitle" + language)?.Value)
-                </h2>
+                </h1>
                 <button type="button" class="" data-bs-dismiss="modal" aria-label="Close">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
@@ -357,9 +353,11 @@
     </div>
 </div>
 
+<!-- Modal Projects -->
 @await Html.PartialAsync("_projectsPartial", Model.HomeIndexProjectsViewModel)
-@*@await Html.PartialAsync("_projectPartial", Model.HomeIndexProjectsViewModel)*@
-@*@await Html.PartialAsync("_projectPartial", Model.)*@
+
+<!-- Modal Project -->
+@await Html.PartialAsync("_projectPartial", Model.HomeIndexProjectViewModel)
 
 
 <!-- Modal Project -->
@@ -369,7 +367,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 style="color:#00a7c6;" class="modal-title" id="project-testTitle"> Gravida ullamcorper</h2>
+                <h1 style="color:#00a7c6;" class="modal-title" id="project-testTitle"> Gravida ullamcorper</h1>
                 <button type="button" class="" data-bs-dismiss="modal" aria-label="Close">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
@@ -450,205 +448,12 @@
     </div>
 </div>
 
+
 <!-- Modal News -->
-<div class="modal fade" id="newsModalScrollable" tabindex="-1" role="dialog"
-     aria-labelledby="newsModalScrollableTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 style="color:#00a7c6;" class="modal-title" id="newsModalScrollableTitle">
-
-                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalNewsTitle" + language)?.Value)
-
-                </h2>
-                <button type="button" id="close-first" class="" data-bs-dismiss="modal" aria-label="Close">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <!-- Older posts -->
-                <section class="mt-2 fx-fade-up">
-                    <div class="container">
-                        <div class="row mt-4">
-                            <!-- Post -->
-                            <div class="col-lg-4  col-md-12 mb-2 newsBoxs">
-                                <!-- Featured image -->
-                                <a href="#!" data-bs-toggle="modal" data-bs-target="#new-test">
-                                    <img src="~/assets/Images/home_architect2_slider1-1568x653.jpg"
-                                         class="img-fluid rounded hover-lift-light" alt="">
-                                </a>
-
-                                <!-- Title -->
-                                <a href="#!" data-bs-toggle="modal" data-bs-target="#new-test"
-                                   class="newsBoxTitle d-block text-dark text-decoration-none mt-4">
-                                    Gravida ullamcorper
-                                </a>
-
-                                <!-- Read more -->
-                                <a href="#!" data-bs-toggle="modal" data-bs-target="#new-test"
-                                   class="postReadText d-inline-block border-bottom border-primary text-decoration-none mt-2 pb-1">
-                                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ReadPostText" + language)?.Value)
-
-                                </a>
-                            </div>
-                            <!-- Post -->
-                            <div class="col-lg-4  col-md-12 mb-2 newsBoxs">
-                                <!-- Featured image -->
-                                <a href="#!" data-bs-toggle="modal" data-bs-target="#new-test">
-                                    <img src="~/assets/Images/home_architect2_slider1-1568x653.jpg"
-                                         class="img-fluid rounded hover-lift-light" alt="">
-                                </a>
-
-                                <!-- Title -->
-                                <a href="#!" data-bs-toggle="modal" data-bs-target="#new-test"
-                                   class="newsBoxTitle d-block text-dark text-decoration-none mt-4">
-                                    Gravida ullamcorper
-                                </a>
-
-                                <!-- Read more -->
-                                <a href="#!" data-bs-toggle="modal" data-bs-target="#new-test"
-                                   class="postReadText d-inline-block border-bottom border-primary text-decoration-none mt-2 pb-1">
-                                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ReadPostText" + language)?.Value)
-
-                                </a>
-                            </div>
-                            <!-- Post -->
-                            <div class="col-lg-4  col-md-12 mb-2 newsBoxs">
-                                <!-- Featured image -->
-                                <a href="#!" data-bs-toggle="modal" data-bs-target="#new-test">
-                                    <img src="~/assets/Images/home_architect2_slider1-1568x653.jpg"
-                                         class="img-fluid rounded hover-lift-light" alt="">
-                                </a>
-
-                                <!-- Title -->
-                                <a href="#!" data-bs-toggle="modal" data-bs-target="#new-test"
-                                   class="newsBoxTitle d-block text-dark text-decoration-none mt-4">
-                                    Gravida ullamcorper
-                                </a>
-
-                                <!-- Read more -->
-                                <a href="#!" data-bs-toggle="modal" data-bs-target="#new-test"
-                                   class="postReadText d-inline-block border-bottom border-primary text-decoration-none mt-2 pb-1">
-                                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ReadPostText" + language)?.Value)
-
-                                </a>
-                            </div>
-                            <!-- Post -->
-                            <div class="col-lg-4  col-md-12 mb-2 newsBoxs">
-                                <!-- Featured image -->
-                                <a href="#!" data-bs-toggle="modal" data-bs-target="#new-test">
-                                    <img src="~/assets/Images/home_architect2_slider1-1568x653.jpg"
-                                         class="img-fluid rounded hover-lift-light" alt="">
-                                </a>
-
-                                <!-- Title -->
-                                <a href="#!" data-bs-toggle="modal" data-bs-target="#new-test"
-                                   class="newsBoxTitle d-block text-dark text-decoration-none mt-4">
-                                    Gravida ullamcorper
-                                </a>
-
-                                <!-- Read more -->
-                                <a href="#!" data-bs-toggle="modal" data-bs-target="#new-test"
-                                   class="postReadText d-inline-block border-bottom border-primary text-decoration-none mt-2 pb-1">
-                                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ReadPostText" + language)?.Value)
-
-                                </a>
-                            </div>
-
-                        </div>
-                        <!-- Go to previous posts -->
-                        <a href="#" type="button" data-bs-dismiss="modal" aria-label="Close"
-                           class="newsBackBtn btn btn-pastel-primary hover-lift-light text-uppercase-bold-sm mt-4">
-                            <i class="fas fa-chevron-left fa-sm mr-2"></i>
-                            @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalHomeBackBtnText" + language)?.Value)
-                        </a>
-                    </div>
-                </section>
-            </div>
-        </div>
-    </div>
-</div>
-
+@await Html.PartialAsync("_newsPartial", Model.HomeIndexNewsViewModel)
 <!-- Modal New -->
-<div class="modal fade  newModal" id="new-test" tabindex="-1" role="dialog" aria-labelledby="new-testTitle"
-     aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 style="color:#00a7c6;" class="modal-title" id="new-testTitle"> Gravida ullamcorper</h2>
-                <button type="button" class="" data-bs-dismiss="modal" aria-label="Close">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-            <div class="modal-body">
+@await Html.PartialAsync("_newPartial", Model.HomeIndexNewViewModel)
 
-                <!-- Older posts -->
-                <section class="mt-2 fx-fade-up">
-                    <div class="container">
-                        <div class="row mt-4 justify-content-center ">
-                            <!-- Post -->
-                            <!-- Featured image -->
-                            <div class="col-md-9 col-sm-11 mb-2 ">
-                                <div class="newSliders">
-                                    <div class="newSlide">
-                                        <div class="image-container">
-                                            <a href="#!">
-                                                <img src="~/assets/Images/home_architect2_slider1-1568x653.jpg"
-                                                     class="img-fluid rounded hover-lift-light" alt="">
-                                            </a>
-
-                                        </div>
-                                    </div>
-                                    <div class="newSlide">
-                                        <div class="image-container">
-                                            <a href="#!">
-                                                <img src="~/assets/Images/slide-susa.gif"
-                                                     class="img-fluid rounded hover-lift-light" alt="">
-                                            </a>
-
-                                        </div>
-                                    </div>
-                                    <div class="newSlide">
-                                        <div class="image-container">
-                                            <a href="#!">
-                                                <img src="~/assets/Images/home_architect2_slider3-1568x653.jpg"
-                                                     class="img-fluid rounded hover-lift-light" alt="">
-                                            </a>>
-                                        </div>
-                                    </div>
-                                    <a class="prev-new-btn prev-btn" href="#">&lt;</a>
-                                    <a class="next-new-btn next-btn" href="#">&gt;</a>
-                                </div>
-                            </div>
-
-                            <!-- Title -->
-                            <div class="col-md-9 mb-2">
-                                <h1 class="h5 d-block text-dark text-decoration-none mt-4">
-                                    Gravida ullamcorper
-                                </h1>
-                            </div>
-                            <!-- Read more -->
-                            <div class="col-md-9 mb-2">
-                                <p class="d-inline-block  mt-2 ">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur dolor,
-
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur dolor,
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur dolor,
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur dolor,
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur dolor,
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur dolor,
-
-
-                                </p>
-                            </div>
-
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </div>
-    </div>
-</div>
 
 <!-- Modal Cams -->
 <div class="modal fade" id="camsModalScrollable" tabindex="-1" role="dialog"
@@ -656,7 +461,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable" role="document">
         <div class="modal-content ">
             <div class="modal-header">
-                <h2 style="color:#00a7c6;" class="modal-title" id="camModalScrollableTitle">Online CAMs</h2>
+                <h1 style="color:#00a7c6;" class="modal-title" id="camModalScrollableTitle">Online CAMs</h1>
                 <button type="button" id="close-first" class="" data-bs-dismiss="modal" aria-label="Close">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
@@ -709,10 +514,10 @@
     <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable" role="document">
         <div class="modal-content shadow-lg">
             <div class="modal-header">
-                <h2 style="color:#00a7c6;" class="modal-title" id="camModal-testTitle">
+                <h1 style="color:#00a7c6;" class="modal-title" id="camModal-testTitle">
                     Port Baku Residence Online
                     CAMs
-                </h2>
+                </h1>
                 <button type="button" id="close-first" class="" data-bs-dismiss="modal" aria-label="Close">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
@@ -751,10 +556,10 @@
     <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable" role="document">
         <div class="modal-content shadow-lg">
             <div class="modal-header">
-                <h2 style="color:#00a7c6;" class="modal-title" id="camModal-testTitle">
+                <h1 style="color:#00a7c6;" class="modal-title" id="camModal-testTitle">
                     Port Baku Residence Online
                     CAM - 1
-                </h2>
+                </h1>
                 <button type="button" id="close-first" class="" data-bs-dismiss="modal" aria-label="Close">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
@@ -793,11 +598,11 @@
     <div class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable" role="document">
         <div class="modal-content ">
             <div class="modal-header">
-                <h2 style="color:#00a7c6;" class="modal-title" id="contactModalScrollableTitle">
+                <h1 style="color:#00a7c6;" class="modal-title" id="contactModalScrollableTitle">
 
                     @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxContactUsTitle" + language)?.Value)
 
-                </h2>
+                </h1>
                 <button type="button" class="" data-bs-dismiss="modal" aria-label="Close">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
@@ -855,10 +660,10 @@
     <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable" role="document">
         <div class="modal-content ">
             <div class="modal-header">
-                <h2 style="color:#00a7c6;" class="modal-title" id="loginModalScrollableTitle">
+                <h1 style="color:#00a7c6;" class="modal-title" id="loginModalScrollableTitle">
                     @*İstifadəçi kabineti*@
                     @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "LoginTitle" + language)?.Value)
-                </h2>
+                </h1>
                 <button type="button" id="close-first" class="" data-bs-dismiss="modal" aria-label="Close">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
@@ -922,7 +727,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable " role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title" id="userModalLabel">İstifadəçi kabineti</h2>
+                <h1 class="modal-title" id="userModalLabel">İstifadəçi kabineti</h1>
                 <button type="button" id="close-first" class="" data-bs-dismiss="modal" aria-label="Close">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
@@ -1055,3 +860,4 @@
         </div>
     </div>
 </div>
+

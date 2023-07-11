@@ -9,7 +9,7 @@
 <div class="content-wrapper">
     <!-- Content -->
     <div class="container-xxl flex-grow-1 container-p-y">
-        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Project /</span> Yaratmaq</h4>
+        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Xəbər /</span> Yaratmaq</h4>
         <div class="card">
             <div class="card-body">
                 <!-- Admin Project  Create Start -->
@@ -21,38 +21,46 @@
                                 <form class="form-control" asp-action="create" asp-controller="News" method="post" enctype="multipart/form-data">
                                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-                                    <!-- Project Title  Start -->
+                                    <!-- Xəbər Title  Start -->
                                     <div class="mb-3 posterTitle">
-                                        <label asp-for="Title" class="form-label">Layihə adı*</label>
+                                        <label asp-for="Title" class="form-label">Xəbər adı*</label>
                                         <input asp-for="Title" maxlength="100" type="text" class="form-control">
                                         <span asp-validation-for="Title" class="text-danger"></span>
                                     </div>
-                                    <!-- Layihə Title   End -->
-                                    <!-- Layihə TextAz  Start -->
+                                    <!-- Xəbər Title   End -->
+                                    
+                                    <!-- Xəbər Title  Start -->
                                     <div class="mb-3 posterTitle">
-                                        <label asp-for="TextAz" class="form-label">Layihə Təsviri (Azərbaycan) *</label>
+                                        <label asp-for="InstagramUrl" class="form-label">Instagram Url*</label>
+                                        <input asp-for="InstagramUrl" maxlength="200" type="text" class="form-control">
+                                        <span asp-validation-for="InstagramUrl" class="text-danger"></span>
+                                    </div>
+                                    <!-- Xəbər Title   End -->
+                                    <!-- Xəbər TextAz  Start -->
+                                    <div class="mb-3 posterTitle">
+                                        <label asp-for="TextAz" class="form-label">Xəbər Təsviri (Azərbaycan) *</label>
                                         <textarea asp-for="TextAz" maxlength="5000" style="max-height:300px" rows="8" type="text" class="form-control"></textarea>
                                         <span asp-validation-for="TextAz" class="text-danger"></span>
                                     </div>
-                                    <!-- Layihə TextAz   End -->
-                                    <!-- Layihə TextEn  Start -->
+                                    <!-- Xəbər TextAz   End -->
+                                    <!-- Xəbər TextEn  Start -->
                                     <div class="mb-3 posterTitle">
-                                        <label asp-for="TextEn" class="form-label">Layihə Təsviri (İngilis) *</label>
+                                        <label asp-for="TextEn" class="form-label">Xəbər Təsviri (İngilis) *</label>
                                         <textarea asp-for="TextEn" maxlength="5000" style="max-height:300px" rows="8" type="text" class="form-control"></textarea>
                                         <span asp-validation-for="TextEn" class="text-danger"></span>
                                     </div>
-                                    <!-- Layihə TextEn   End -->
-                                    <!-- Layihə TextRu  Start -->
+                                    <!-- Xəbər TextEn   End -->
+                                    <!-- Xəbər TextRu  Start -->
                                     <div class="mb-3 posterTitle">
-                                        <label asp-for="TextRu" class="form-label">Layihə Təsviri (Rus) *</label>
+                                        <label asp-for="TextRu" class="form-label">Xəbər Təsviri (Rus) *</label>
                                         <textarea asp-for="TextRu" maxlength="5000" style="max-height:300px" rows="8" type="text" class="form-control"></textarea>
                                         <span asp-validation-for="TextRu" class="text-danger"></span>
                                     </div>
-                                    <!-- Layihə TextRu   End -->
+                                    <!-- Xəbər TextRu   End -->
 
                                     <!-- Poster Image  Start -->
                                     <div class="mb-3 posterImages">
-                                        <label asp-for="ImageFiles" class="form-label">Layihənin Şəkilləri*</label>
+                                        <label asp-for="ImageFiles" class="form-label">Xəbərin Şəkilləri*</label>
                                         <!-- Şəkil əlavə et -->
                                         <input asp-for="ImageFiles" id="imageInput" type="file" accept="image/png,  image/jpeg"
                                                class="form-control" multiple="">

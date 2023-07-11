@@ -1,0 +1,90 @@
+﻿@model HomeIndexNewsViewModel
+@{
+    var language = _localization.Getkey("Language").Value;
+
+}
+
+<!-- Modal News -->
+<div class="modal fade" id="newsModalScrollable" tabindex="-1" role="dialog"
+     aria-labelledby="newsModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 style="color:#00a7c6;" class="modal-title" id="newsModalScrollableTitle">
+
+                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalNewsTitle" + language)?.Value)
+
+                </h1>
+                <button type="button" id="close-first" class="" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Older posts -->
+                <section class="mt-2 fx-fade-up">
+                    <div class="container">
+                        <div class="row mt-4">
+                            <!-- Post -->
+                            @foreach (var newItem in Model.News)
+                            {
+                                <div class="col-lg-4  col-md-12 mb-2 newsBoxs">
+                                    <!-- Featured image -->
+                                    <a class="newModalLink" data-value="@newItem.Id" href="#!">
+                                        <img src="~/uploads/news/@newItem.NewsImages.FirstOrDefault(x=>x.NewsId == newItem.Id)?.Image"
+                                             class="img-fluid rounded hover-lift-light" alt="">
+                                    </a>
+
+                                    <!-- Title -->
+                                    <a id="newModalLink" href="#!" data-bs-toggle="modal" data-bs-target="#new-@newItem.Id"
+                                       class="newsBoxTitle d-block text-dark text-decoration-none mt-4">
+                                        @newItem.Title
+                                    </a>
+
+                                    <!-- Read more -->
+                                    <a id="newModalLink" href="#!" data-bs-toggle="modal" data-bs-target="#new-@newItem.Id"
+                                       class="postReadText d-inline-block border-bottom border-primary text-decoration-none mt-2 pb-1">
+                                        @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ReadPostText" + language)?.Value)
+
+                                    </a>
+                                </div>
+                            }
+                        </div>
+                        <span style="display:none; opocity:0;" id="langText">@language</span>
+                        <!-- Go to previous posts -->
+                        <a href="#" type="button" data-bs-dismiss="modal" aria-label="Close"
+                           class="newsBackBtn btn btn-pastel-primary hover-lift-light text-uppercase-bold-sm mt-4">
+                            <i class="fas fa-chevron-left fa-sm mr-2"></i>
+                            @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalHomeBackBtnText" + language)?.Value)
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div>
+    
+    @*    <script>
+
+    document.getElementById('newModalLink').addEventListener('click', function (event) {
+    //event.preventDefault(); // Sayfanın yenilenmesini önler
+
+    var divElement = document.getElementsByClassName(".testModal");
+
+    var newItemId = parseInt(this.getAttribute('data-value'));
+    divElement.id = newItemId;
+
+    fetch('/Home/Index?newItemId=' + newItemId)
+    .then(response => {
+    console.log(newItemId)
+
+    })
+    .catch(error => {
+    // Hata işleme
+    });
+    });
+    </script>*@
+</div>

@@ -9,8 +9,10 @@ using XBInsaat.Service.HelperService.Implementations;
 using XBInsaat.Service.HelperService.Interfaces;
 using XBInsaat.Services.Dtos.Area;
 using XBInsaat.Services.Profiles;
+using XBInsaat.Services.Services.Implementations;
 using XBInsaat.Services.Services.Implementations.Area;
 using XBInsaat.Services.Services.Implementations.User;
+using XBInsaat.Services.Services.Interfaces;
 using XBInsaat.Services.Services.Interfaces.Area;
 using XBInsaat.Services.Services.Interfaces.User;
 
@@ -27,8 +29,7 @@ namespace XBInsaat.Mvc.ServiceExtentions
             services.AddScoped<IHighProjectImageRepository, HighProjectImageRepository>();
             services.AddScoped<ISettingRepository, SettingRepository>();
             services.AddScoped<IAdminHighProjectIndexServices, AdminHighProjectIndexServices>();
-            //services.AddScoped<IEmailServices, EmailServices>();
-            //services.AddScoped<IProjectCreateServices, ProjectCreateServices>();
+            services.AddScoped<IEmailServices, EmailServices>();
             services.AddScoped<IManageImageHelper, ManageImageHelper>();
             services.AddScoped<IImageValue, ImageValue>();
             services.AddScoped<IAdminHighProjectCreateServices, AdminHighProjectCreateServices>();
@@ -62,6 +63,8 @@ namespace XBInsaat.Mvc.ServiceExtentions
             services.AddScoped<IContactUsCreateServices, ContactUsCreateServices>();
 
             services.AddScoped<IHomeIndexServices, HomeIndexServices>();
+
+            services.AddScoped<IAdminContactUsIndexServices, AdminContactUsIndexServices>();
 
 
             services.AddScoped<ILayoutServices, LayoutServices>();

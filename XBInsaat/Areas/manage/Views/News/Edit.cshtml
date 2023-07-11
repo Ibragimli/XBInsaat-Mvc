@@ -9,7 +9,7 @@
 <div class="content-wrapper">
     <!-- Content -->
     <div class="container-xxl flex-grow-1 container-p-y">
-        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Project /</span> Yaratmaq</h4>
+        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Xəbər /</span> Redaktə</h4>
         <div class="card">
             <div class="card-body">
                 <!-- Admin Project  Create Start -->
@@ -21,37 +21,44 @@
                                 <form class="form-control" asp-action="edit" asp-controller="News" method="post" enctype="multipart/form-data">
                                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                     <input type="hidden" value="@Model.News.Id" asp-for="News.Id" />
-                                    <!-- Project Name  Start -->
+                                    <!-- Xəbər Name  Start -->
                                     <div class="mb-3 posterName">
-                                        <label asp-for="News.Title" class="form-label">Layihə adı*</label>
+                                        <label asp-for="News.Title" class="form-label">Xəbər adı*</label>
                                         <input asp-for="News.Title" maxlength="100" type="text" class="form-control">
                                         <span asp-validation-for="News.Title" class="text-danger"></span>
                                     </div>
-                                    <!-- Layihə Name   End -->
-                                    <!-- Layihə DescribeAz  Start -->
+                                    <!-- Xəbər Name   End -->
+                                     <!-- Xəbər Title  Start -->
+                                    <div class="mb-3 posterTitle">
+                                        <label asp-for="News.InstagramUrl" class="form-label">Instagram Url*</label>
+                                        <input asp-for="News.InstagramUrl" maxlength="200" type="text" class="form-control">
+                                        <span asp-validation-for="News.InstagramUrl" class="text-danger"></span>
+                                    </div>
+                                    <!-- Xəbər Title   End -->
+                                    <!-- Xəbər DescribeAz  Start -->
                                     <div class="mb-3 posterName">
-                                        <label asp-for="News.TextAz" class="form-label">Layihə Təsviri (Azərbaycan) *</label>
+                                        <label asp-for="News.TextAz" class="form-label">Xəbər Təsviri (Azərbaycan) *</label>
                                         <textarea asp-for="News.TextAz" maxlength="5000" style="max-height:300px" rows="8" type="text" class="form-control"></textarea>
                                         <span asp-validation-for="News.TextAz" class="text-danger"></span>
                                     </div>
-                                    <!-- Layihə DescribeAz   End -->
-                                    <!-- Layihə DescribeEn  Start -->
+                                    <!-- Xəbər DescribeAz   End -->
+                                    <!-- Xəbər DescribeEn  Start -->
                                     <div class="mb-3 posterName">
-                                        <label asp-for="News.TextEn" class="form-label">Layihə Təsviri (İngilis) *</label>
+                                        <label asp-for="News.TextEn" class="form-label">Xəbər Təsviri (İngilis) *</label>
                                         <textarea asp-for="News.TextEn" maxlength="5000" style="max-height:300px" rows="8" type="text" class="form-control"></textarea>
                                         <span asp-validation-for="News.TextEn" class="text-danger"></span>
                                     </div>
-                                    <!-- Layihə DescribeEn   End -->
-                                    <!-- Layihə DescribeRu  Start -->
+                                    <!-- Xəbər DescribeEn   End -->
+                                    <!-- Xəbər DescribeRu  Start -->
                                     <div class="mb-3 posterName">
-                                        <label asp-for="News.TextRu" class="form-label">Layihə Təsviri (Rus) *</label>
+                                        <label asp-for="News.TextRu" class="form-label">Xəbər Təsviri (Rus) *</label>
                                         <textarea asp-for="News.TextRu" maxlength="5000" style="max-height:300px" rows="8" type="text" class="form-control"></textarea>
                                         <span asp-validation-for="News.TextRu" class="text-danger"></span>
                                     </div>
-                                    <!-- Layihə DescribeRu   End -->
+                                    <!-- Xəbər DescribeRu   End -->
 
                                      <div id="posterimage-box" class="posterimage-box row mb-3">
-                                        <label asp-for="News.ProjectImageFile" class="form-label">Layihənin Poster şəkli*</label>
+                                        <label asp-for="News.ProjectImageFile" class="form-label">Xəbərnin Poster şəkli*</label>
                                         <!-- Şəkil əlavə et -->
                                         <input asp-for="News.ProjectImageFile" id="imagePosterInput" type="file" accept="image/png,  image/jpeg"
                                                class="form-control" multiple="">
@@ -73,7 +80,7 @@
                                  
                                     <!-- Poster Image  Start -->
                                     <div class="mb-3 posterImages">
-                                        <label asp-for="News.ImageFiles" class="form-label">Layihənin Şəkilləri*</label>
+                                        <label asp-for="News.ImageFiles" class="form-label">Xəbərnin Şəkilləri*</label>
                                         <!-- Şəkil əlavə et -->
                                         <input asp-for="News.ImageFiles" id="imageInput" type="file" accept="image/png,  image/jpeg"
                                                class="form-control" multiple="">
@@ -107,7 +114,7 @@
                                             <a style=" height: 100%; width: 100%; display: flex; justify-content: center; align-items: center; " asp-action="index" asp-controller="News" class="btn  btn-dark">Geri dön</a>
                                         </div>
                                         <div class="col mb-1 posterButton ms-2 ">
-                                            <button style=" height: 100%; width: 100%; display: flex; justify-content: center; align-items: center; " type="submit" class="btn  btn-primary">Yaratmaq</button>
+                                            <button style=" height: 100%; width: 100%; display: flex; justify-content: center; align-items: center; " type="submit" class="btn  btn-primary">Redaktə et</button>
                                         </div>
                                     </div>
                                     <!-- Button  Start -->

@@ -1,13 +1,19 @@
 ﻿using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
+using Newtonsoft.Json;
+using System;
 using System.Diagnostics;
 using System.Resources;
+using System.Security.Policy;
+using XBInsaat.Core.Entites;
 using XBInsaat.Data.Datacontext;
 using XBInsaat.Mvc.ViewModels;
 using XBInsaat.Service.CustomExceptions;
 using XBInsaat.Services.Dtos.User;
 using XBInsaat.Services.Services.Implementations.User;
+using XBInsaat.Services.Services.Interfaces;
 using XBInsaat.Services.Services.Interfaces.User;
 
 namespace XBInsaat.Controllers
@@ -16,19 +22,26 @@ namespace XBInsaat.Controllers
     {
         private LanguageService _localization;
         private readonly IContactUsCreateServices _contactUsCreateServices;
+        private readonly IEmailServices _emailServices;
         private readonly IStringLocalizerFactory _stringLocalizerFactory;
         private readonly IHomeIndexServices _homeIndexServices;
+        private readonly DataContext _dataContext;
 
-        public HomeController(LanguageService localization, IContactUsCreateServices contactUsCreateServices, IStringLocalizerFactory stringLocalizerFactory, IHomeIndexServices homeIndexServices)
+        public HomeController(LanguageService localization, IContactUsCreateServices contactUsCreateServices, IEmailServices emailServices, IStringLocalizerFactory stringLocalizerFactory, IHomeIndexServices homeIndexServices, DataContext dataContext)
         {
             _localization = localization;
             _contactUsCreateServices = contactUsCreateServices;
+            _emailServices = emailServices;
             _stringLocalizerFactory = stringLocalizerFactory;
             _homeIndexServices = homeIndexServices;
+            _dataContext = dataContext;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int newItemId = 2)
         {
+
+            News newItem = new News();
+
             ViewBag.Welcome = _localization.Getkey("GeneralText").Value;
             var currentCulture = Thread.CurrentThread.CurrentCulture.Name;
             HomeIndexProjectsViewModel homeIndexProjectsViewModel = new HomeIndexProjectsViewModel
@@ -36,10 +49,126 @@ namespace XBInsaat.Controllers
                 HighProjects = await _homeIndexServices.GetHighProjects(),
                 Settings = await _homeIndexServices.GetSettings(),
             };
+            HomeIndexProjectViewModel homeIndexProjectViewModel = new HomeIndexProjectViewModel
+            {
+                HighProjects = await _homeIndexServices.GetHighProjects(),
+                Settings = await _homeIndexServices.GetSettings(),
+                MidProjects = await _homeIndexServices.GetMidProjects(),
+                HighProjectImages = await _homeIndexServices.GetHighProjectImages(),
+                MidProjectImages = await _homeIndexServices.GetMidProjectImages(),
+
+            };
             HomeIndexContactUsViewModel homeIndexContactUsViewModel = new HomeIndexContactUsViewModel
             {
                 ContactUsCreateDto = new ContactUsCreateDto(),
                 Settings = await _homeIndexServices.GetSettings(),
+            };
+
+            HomeIndexNewsViewModel homeIndexNewsViewModel = new HomeIndexNewsViewModel
+            {
+                News = await _homeIndexServices.GetNews(),
+                Settings = await _homeIndexServices.GetSettings(),
+            };
+            HomeIndexNewViewModel homeIndexNewViewModel = new HomeIndexNewViewModel
+            {
+                News = await _homeIndexServices.GetNews(),
+                Settings = await _homeIndexServices.GetSettings(),
+                NewsImages = await _homeIndexServices.GetNewsImages(),
+                New = await _homeIndexServices.GetNew(newItemId),
+
+            };
+
+
+            HomeViewModel homeViewModel = new HomeViewModel
+            {
+                ContactUsCreateDto = new ContactUsCreateDto(),
+                HighProjects = await _homeIndexServices.GetHighProjects(),
+                MidProjects = await _homeIndexServices.GetMidProjects(),
+                News = await _homeIndexServices.GetNews(),
+                Settings = await _homeIndexServices.GetSettings(),
+                XBServices = await _homeIndexServices.GetXBServices(),
+                HomeIndexProjectsViewModel = homeIndexProjectsViewModel,
+                HomeIndexContactUsViewModel = homeIndexContactUsViewModel,
+                HomeIndexProjectViewModel = homeIndexProjectViewModel,
+                HomeIndexNewsViewModel = homeIndexNewsViewModel,
+                HomeIndexNewViewModel = homeIndexNewViewModel,
+                RevolutionSliders = await _homeIndexServices.GetRevolutionSliders(),
+
+            };
+            //var project =  _dataContext.Projects.Where(x => x.IsDelete == false).ToList();
+            //return View(project);
+            return View(homeViewModel);
+        }
+        public ActionResult GetJsonData(int newItemId = 2, string language = "Az")
+        {
+            News data = _dataContext.News.Include(x => x.NewsImages).FirstOrDefault(x => x.Id == newItemId);
+            var lang = "";
+            if (language == "AZ")
+                lang = data.TextAz;
+            else if (language == "En")
+                lang = data.TextEn;
+            else lang = data.TextRu;
+
+            var jsonData = new
+            {
+                Id = data.Id,
+                Title = data.Title,
+                Text = lang,
+                Language = language,
+                // Diğer News özelliklerini buraya ekleyin
+
+                NewsImages = data.NewsImages.Select(image => new
+                {
+                    ImageUrl = image.Image,
+                    IsPoster = image.IsPoster
+                    // Diğer NewsImage özelliklerini buraya ekleyin
+                }).ToList() // NewsImages verilerini liste olarak dönüştürün
+            };
+            // Veriyi JSON formatına dönüştürün
+            //jsonData = JsonConvert.SerializeObject(data);
+            var jsonString = JsonConvert.SerializeObject(jsonData);
+
+
+            return Json(jsonString);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ContactUs(ContactUsCreateDto contactUsCreateDto, int newItemId = 2)
+        {
+
+            HomeIndexProjectsViewModel homeIndexProjectsViewModel = new HomeIndexProjectsViewModel
+            {
+                HighProjects = await _homeIndexServices.GetHighProjects(),
+                Settings = await _homeIndexServices.GetSettings(),
+            };
+            HomeIndexProjectViewModel homeIndexProjectViewModel = new HomeIndexProjectViewModel
+            {
+                HighProjects = await _homeIndexServices.GetHighProjects(),
+                Settings = await _homeIndexServices.GetSettings(),
+                MidProjects = await _homeIndexServices.GetMidProjects(),
+                HighProjectImages = await _homeIndexServices.GetHighProjectImages(),
+                MidProjectImages = await _homeIndexServices.GetMidProjectImages(),
+
+            };
+            HomeIndexContactUsViewModel homeIndexContactUsViewModel = new HomeIndexContactUsViewModel
+            {
+                ContactUsCreateDto = new ContactUsCreateDto(),
+                Settings = await _homeIndexServices.GetSettings(),
+            };
+
+            HomeIndexNewsViewModel homeIndexNewsViewModel = new HomeIndexNewsViewModel
+            {
+                News = await _homeIndexServices.GetNews(),
+                Settings = await _homeIndexServices.GetSettings(),
+            };
+            HomeIndexNewViewModel homeIndexNewViewModel = new HomeIndexNewViewModel
+            {
+                News = await _homeIndexServices.GetNews(),
+                Settings = await _homeIndexServices.GetSettings(),
+                NewsImages = await _homeIndexServices.GetNewsImages(),
+                New = await _homeIndexServices.GetNew(newItemId),
+
             };
             HomeViewModel homeViewModel = new HomeViewModel
             {
@@ -51,44 +180,31 @@ namespace XBInsaat.Controllers
                 XBServices = await _homeIndexServices.GetXBServices(),
                 HomeIndexProjectsViewModel = homeIndexProjectsViewModel,
                 HomeIndexContactUsViewModel = homeIndexContactUsViewModel,
-            };
-            //var project =  _dataContext.Projects.Where(x => x.IsDelete == false).ToList();
-            //return View(project);
-            return View(homeViewModel);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> ContactUs(ContactUsCreateDto contactUsCreateDto)
-        {
-
-            HomeIndexProjectsViewModel homeIndexProjectsViewModel = new HomeIndexProjectsViewModel
-            {
-                HighProjects = await _homeIndexServices.GetHighProjects(),
-                Settings = await _homeIndexServices.GetSettings(),
-            };
-            HomeIndexContactUsViewModel homeIndexContactUsViewModel = new HomeIndexContactUsViewModel
-            {
-                ContactUsCreateDto = new ContactUsCreateDto(),
-                Settings = await _homeIndexServices.GetSettings(),
-            };
-            HomeViewModel homeViewModel = new HomeViewModel
-            {
-                ContactUsCreateDto = new ContactUsCreateDto(),
-                HighProjects = await _homeIndexServices.GetHighProjects(),
-                MidProjects = await _homeIndexServices.GetMidProjects(),
-                News = await _homeIndexServices.GetNews(),
-                Settings = await _homeIndexServices.GetSettings(),
-                XBServices = await _homeIndexServices.GetXBServices(),
-                HomeIndexProjectsViewModel = homeIndexProjectsViewModel,
-
-
+                HomeIndexProjectViewModel = homeIndexProjectViewModel,
+                HomeIndexNewsViewModel = homeIndexNewsViewModel,
+                HomeIndexNewViewModel = homeIndexNewViewModel,
+                RevolutionSliders = await _homeIndexServices.GetRevolutionSliders(),
             };
             try
             {
+                string body = string.Empty;
+
+                using (StreamReader reader = new StreamReader("wwwroot/templates/contactEmail.html"))
+                {
+                    body = reader.ReadToEnd();
+                }
+
+
                 await _contactUsCreateServices.PhoneNumberCheck(contactUsCreateDto.PhoneNumber);
                 await _contactUsCreateServices.EmailCheck(contactUsCreateDto.Email);
                 await _contactUsCreateServices.ContactUsCreate(contactUsCreateDto);
+
+                body = body.Replace("{{phonenumber}}", contactUsCreateDto.PhoneNumber);
+                body = body.Replace("{{fullname}}", contactUsCreateDto.Fullname);
+                body = body.Replace("{{email}}", contactUsCreateDto.Email);
+                body = body.Replace("{{message}}", contactUsCreateDto.Message);
+                _emailServices.Send("elnur204@gmail.com", "XariBulBul Contact Message", body);
+
 
             }
             catch (ItemFormatException ex)

@@ -1,7 +1,120 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Index";
+    DateTime now = DateTime.UtcNow;
+
 }
+@model ContactUsIndexViewModel
+<div class="content-wrapper">
+    <!-- Content -->
 
-<h1>Index</h1>
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Əlaqə məktubları </span> </h4>
 
+        <!-- Bordered Table -->
+        <div class="card">
+            <div class="card-body">
+                @* Pagination *@
+                <div class="row">
+                    <form asp-action="index" asp-controller="ContactUs" asp-route-page="@ViewBag.Page" class="row d-flex">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="d-flex align-items-center col-lg-3 col-md-4 col-sm-6 mb-2">
+                            <input name="name" class="form-control " type="search" placeholder="Ad" aria-label="Ad">
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-2 text-center">
+                            <button class="btn btn-outline-primary" type="submit">Axtarış</button>
+                        </div>
+
+                    </form>
+
+                    <div class="d-flex align-items-center col-11 mt-2" style="display:flex; justify-content:flex-end;">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination">
+                                @if (Model.ContactUs.HasPrev)
+                                {
+
+                                    <li class="page-item">
+                                        <a asp-action="index" asp-controller="ContactUs" asp-route-page="@(Model.ContactUs.PageIndex-1)" asp-route-name="@(ViewBag.Name)" class="page-link" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                        </a>
+                                    </li>
+                                }
+                                @for (int i = 1; i <= Model.ContactUs.TotalPages; i++)
+                                {
+                                    <li aria-current="page" class="page-item" @(Model.ContactUs.PageIndex == i ? "active" : "")>
+                                        <a asp-action="index" asp-controller="ContactUs" asp-route-page="@i" asp-route-name="@(ViewBag.Name)" class="page-link">@i</a>
+                                    </li>
+                                }
+                                @if (Model.ContactUs.HasNext)
+                                {
+                                    <li class="page-item">
+                                        <a asp-action="index" asp-controller="ContactUs" asp-route-page="@(Model.ContactUs.PageIndex+1)" asp-route-name="@(ViewBag.Name)" class="page-link" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                }
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                @* Pagination *@
+
+                <br />
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <br />
+                @*table*@
+                <div class="table-responsive text-nowrap">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Ad Soyad</th>
+                                <th>Nömrə</th>
+                                <th>Email</th>
+                                <th>Mesaj</th>
+                                <th>Tarix</th>
+                                @*<th>Actions</th>*@
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var ContactUs in Model.ContactUs)
+                            {
+                                <tr>
+
+                                    <td class="text-center"><a target="_blank">@ContactUs.Fullname</a></td>
+                                    <td class="text-center"><a target="_blank">@ContactUs.PhoneNumber</a></td>
+                                    <td class="text-center"><a target="_blank">@ContactUs.Email</a></td>
+                                    <td class="text-center"><a target="_blank">@(ContactUs.Message.Length < 40 ? (ContactUs.Message) : (ContactUs.Message.Substring(0, 40) + "...."))</a></td>
+                                    <td class="text-center"><a target="_blank">@ContactUs.CreatedDate</a></td>
+
+                                    @*     <td class="text-center">
+                                <div class="d-flex justify-content-sm-around">
+                                <a asp-route-id="@ContactUs.Id" asp-action="edit" asp-controller="ContactUs"><i style="font-size: 26px !important; color:orange" class="fa-regular fa-pen-to-square"></i></a>
+                                <a class="delete-btn" asp-controller="ContactUs" asp-action="delete" asp-route-id="@ContactUs.Id"><i style="font-size:26px !important; color:red;" class="bx bx-trash me-1 "></i> </a>
+
+                                <button style="color:red;" type="button" class="btn " data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                <i style="font-size:26px !important;" class="bx bx-trash me-1 "></i>
+                                </button>
+                                </div>
+                                </td>*@
+                                </tr>
+
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+        <!--/ Bordered Table -->
+
+
+    </div>
+    <!-- / Content -->
+</div>
+
+@section Scripts{
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
+
+    <script src="~/manage/assets/js/sweetAlert.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+}

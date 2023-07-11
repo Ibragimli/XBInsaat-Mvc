@@ -189,6 +189,11 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
                 ModelState.AddModelError("", ex.Message);
                 return View("Edit", NewsEditVM);
             }
+            catch (ItemFormatException ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+                return View("Edit", NewsEditVM);
+            }
             catch (Exception)
             {
                 return RedirectToAction("Index", "notfound");

@@ -57,7 +57,12 @@ namespace XBInsaat.Services.Services.Implementations.Area
             {
                 oldNews.Title = News.Title;
                 checkBool = true;
+            }
 
+            if (oldNews?.InstagramUrl != News?.InstagramUrl)
+            {
+                oldNews.InstagramUrl = News.InstagramUrl;
+                checkBool = true;
             }
             if (oldNews.TextAz != News.TextAz)
             {
@@ -145,9 +150,6 @@ namespace XBInsaat.Services.Services.Implementations.Area
             return 0;
         }
 
-
-
-
         private int DeleteImages(News poster, News posterExist)
         {
             int i = 0;
@@ -200,6 +202,10 @@ namespace XBInsaat.Services.Services.Implementations.Area
             if (News.TextAz.Length < 3 || News.TextRu.Length < 3 || News.TextEn.Length < 3)
             {
                 throw new ValueFormatExpception("Xəbər mətninin uzunluğu minimum 3 ola bilər");
+            }
+            if (News.InstagramUrl?.Length > 200)
+            {
+                throw new ValueFormatExpception("Xəbər mətninin uzunluğu maksimum 200 ola bilər");
             }
         }
 

@@ -644,8 +644,8 @@ body {
       border-bottom: 1px solid #dee2e6;
       border-top-left-radius: calc(0.3rem - 1px);
       border-top-right-radius: calc(0.3rem - 1px); }
-      .modal .modal-dialog .modal-content .modal-header h2,
-      .fade .modal-dialog .modal-content .modal-header h2 {
+      .modal .modal-dialog .modal-content .modal-header h1,
+      .fade .modal-dialog .modal-content .modal-header h1 {
         color: #00a7c6;
         margin-bottom: 0;
         line-height: 1.5;

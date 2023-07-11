@@ -17,20 +17,48 @@ namespace XBInsaat.Services.Services.Implementations.User
         {
             _unitOfWork = unitOfWork;
         }
+
+        public async Task<IEnumerable<HighProjectImage>> GetHighProjectImages()
+        {
+            return await _unitOfWork.HighProjectImageRepository.GetAllAsync(x => !x.IsDelete);
+        }
+
         public async Task<IEnumerable<HighProject>> GetHighProjects()
         {
             return await _unitOfWork.HighProjectRepository.GetAllAsync(x => !x.IsDelete, "HighProjectImages");
         }
 
+        public async Task<IEnumerable<MidProjectImage>> GetMidProjectImages()
+        {
+            return await _unitOfWork.MidProjectImageRepository.GetAllAsync(x => !x.IsDelete);
+        }
+
         public async Task<IEnumerable<MidProject>> GetMidProjects()
         {
             return await _unitOfWork.MidProjectRepository.GetAllAsync(x => !x.IsDelete, "MidProjectImages");
+        }
+
+        public async Task<News> GetNew(int id)
+        {
+            return await _unitOfWork.NewsRepository.GetAsync(x => !x.IsDelete && x.Id == id, "NewsImages");
 
         }
 
         public async Task<IEnumerable<News>> GetNews()
         {
             return await _unitOfWork.NewsRepository.GetAllAsync(x => !x.IsDelete, "NewsImages");
+        }
+
+        public async Task<IEnumerable<NewsImage>> GetNewsImages()
+        {
+            return await _unitOfWork.NewsImageRepository.GetAllAsync(x => !x.IsDelete);
+
+        }
+
+        public async Task<IEnumerable<RevolutionSlider>> GetRevolutionSliders()
+        {
+            return await _unitOfWork.RevolutionSliderRepository.GetAllAsync(x => !x.IsDelete);
+
         }
 
         public async Task<IEnumerable<Setting>> GetSettings()
