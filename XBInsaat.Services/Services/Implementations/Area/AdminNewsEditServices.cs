@@ -179,9 +179,22 @@ namespace XBInsaat.Services.Services.Implementations.Area
                     }
                     return i;
                 }
+                else if (posterImages.Any(x => !x.IsPoster))
+                {
+                    foreach (var item in posterImages.ToList().Where(x => !x.IsDelete && !x.IsPoster))
+                    {
+                        _manageImageHelper.DeleteFile(item.Image, "News");
+                        posterExist.NewsImages.Remove(item);
+                        i++;
+                    }
+                    return i;
+                }
+                else if (posterImages.Any(x => x.IsPoster))
+                {
+                    return i;
+                }
                 else throw new ImageCountException("Axırıncı şəkil silinə bilməz!");
-                //}
-                //return i;
+
             }
         }
         private void Check(News News)

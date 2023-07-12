@@ -167,8 +167,7 @@ namespace XBInsaat.Services.Services.Implementations.Area
             }
             else
             {
-                //if (posterExist.PosterImages?.Count() > 1)
-                //{
+               
                 if (poster.ImageFiles?.Count() > 0)
                 {
                     foreach (var item in posterImages.ToList().Where(x => !x.IsDelete && !x.IsPoster))
@@ -179,9 +178,22 @@ namespace XBInsaat.Services.Services.Implementations.Area
                     }
                     return i;
                 }
+                else if (posterImages.Any(x => !x.IsPoster))
+                {
+                    foreach (var item in posterImages.ToList().Where(x => !x.IsDelete && !x.IsPoster))
+                    {
+                        _manageImageHelper.DeleteFile(item.Image, "midprojects");
+                        posterExist.MidProjectImages.Remove(item);
+                        i++;
+                    }
+                    return i;
+                }
+                else if (posterImages.Any(x => x.IsPoster))
+                {
+                    return i;
+                }
                 else throw new ImageCountException("Axırıncı şəkil silinə bilməz!");
-                //}
-                //return i;
+              ;
             }
         }
         private void Check(MidProject MidProject)

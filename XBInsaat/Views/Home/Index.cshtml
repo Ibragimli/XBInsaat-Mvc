@@ -4,37 +4,6 @@
     var language = _localization.Getkey("Language").Value;
     var count = 0;
 }
-@*
-@foreach (Project item in Model)
-{
-    var e = _localization.Getkey("Language").Value;
-    @if (e == "Az")
-    {
-        <p style="color:red; font-style:20px;">
-            @item.DescribeAz
-        </p>
-
-    }
-    else if (e == "En")
-    {
-        <p style="color:red; font-style:20px;">
-            @item.DescribeEn
-        </p>
-
-    }
-    else
-    {
-        <p style="color:red; font-style:20px;">
-            @item.DescribeRu
-        </p>
-
-    }
-}*@
-
-@*<form asp-action="change" method="post">
-    <input type="text" class="form-control" />
-    <button type="submit" class="btn btn-primary">Gonder</button>
-</form>*@
 
 <!-- Contact Us Button -->
 <div class="contactUsBtnBox " id="hereket">
@@ -52,8 +21,6 @@
         </div>
         @(count++)
     }
-
-
 </div>
 
 <!-- XBInsaat Web Size -->
