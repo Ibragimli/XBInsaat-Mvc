@@ -39,82 +39,110 @@ namespace XBInsaat.Controllers
 
         public async Task<IActionResult> Index(int newItemId = 2)
         {
+            HomeIndexProjectsViewModel homeIndexProjectsViewModel = new HomeIndexProjectsViewModel();
+            HomeIndexProjectViewModel homeIndexProjectViewModel = new HomeIndexProjectViewModel();
+            HomeIndexContactUsViewModel homeIndexContactUsViewModel = new HomeIndexContactUsViewModel();
+            HomeIndexNewsViewModel homeIndexNewsViewModel = new HomeIndexNewsViewModel();
+            HomeIndexNewViewModel homeIndexNewViewModel = new HomeIndexNewViewModel();
+            HomeIndexMidProjectViewModel homeIndexMidProjectViewModel = new HomeIndexMidProjectViewModel();
 
-            News newItem = new News();
+            HomeViewModel homeViewModel = new HomeViewModel();
 
-            ViewBag.Welcome = _localization.Getkey("GeneralText").Value;
-            var currentCulture = Thread.CurrentThread.CurrentCulture.Name;
-            HomeIndexProjectsViewModel homeIndexProjectsViewModel = new HomeIndexProjectsViewModel
+            try
             {
-                HighProjects = await _homeIndexServices.GetHighProjects(),
-                Settings = await _homeIndexServices.GetSettings(),
-            };
-            HomeIndexProjectViewModel homeIndexProjectViewModel = new HomeIndexProjectViewModel
+                News newItem = new News();
+
+                ViewBag.Welcome = _localization.Getkey("GeneralText").Value;
+                var currentCulture = Thread.CurrentThread.CurrentCulture.Name;
+                homeIndexProjectsViewModel = new HomeIndexProjectsViewModel
+                {
+                    HighProjects = await _homeIndexServices.GetHighProjects(),
+                    Settings = await _homeIndexServices.GetSettings(),
+                };
+                homeIndexProjectViewModel = new HomeIndexProjectViewModel
+                {
+                    HighProjects = await _homeIndexServices.GetHighProjects(),
+                    Settings = await _homeIndexServices.GetSettings(),
+                    MidProjects = await _homeIndexServices.GetMidProjects(),
+                    HighProjectImages = await _homeIndexServices.GetHighProjectImages(),
+                    MidProjectImages = await _homeIndexServices.GetMidProjectImages(),
+
+                };
+                homeIndexContactUsViewModel = new HomeIndexContactUsViewModel
+                {
+                    ContactUsCreateDto = new ContactUsCreateDto(),
+                    Settings = await _homeIndexServices.GetSettings(),
+                };
+                homeIndexMidProjectViewModel = new HomeIndexMidProjectViewModel
+                {
+                    Settings = await _homeIndexServices.GetSettings(),
+                    MidProjects = await _homeIndexServices.GetMidProjects(),
+                    MidProjectImages = await _homeIndexServices.GetMidProjectImages(),
+
+                };
+
+                homeIndexNewsViewModel = new HomeIndexNewsViewModel
+                {
+                    News = await _homeIndexServices.GetNews(),
+                    Settings = await _homeIndexServices.GetSettings(),
+                };
+                homeIndexNewViewModel = new HomeIndexNewViewModel
+                {
+                    News = await _homeIndexServices.GetNews(),
+                    Settings = await _homeIndexServices.GetSettings(),
+                    NewsImages = await _homeIndexServices.GetNewsImages(),
+                    //New = await _homeIndexServices.GetNew(newItemId),
+
+                };
+
+                homeViewModel = new HomeViewModel
+                {
+                    ContactUsCreateDto = new ContactUsCreateDto(),
+                    HighProjects = await _homeIndexServices.GetHighProjects(),
+                    MidProjects = await _homeIndexServices.GetMidProjects(),
+                    News = await _homeIndexServices.GetNews(),
+                    Settings = await _homeIndexServices.GetSettings(),
+                    XBServices = await _homeIndexServices.GetXBServices(),
+                    HomeIndexProjectsViewModel = homeIndexProjectsViewModel,
+                    HomeIndexContactUsViewModel = homeIndexContactUsViewModel,
+                    HomeIndexProjectViewModel = homeIndexProjectViewModel,
+                    HomeIndexNewsViewModel = homeIndexNewsViewModel,
+                    HomeIndexNewViewModel = homeIndexNewViewModel,
+                    RevolutionSliders = await _homeIndexServices.GetRevolutionSliders(),
+                    HomeIndexMidProjectViewModel = homeIndexMidProjectViewModel,
+                };
+            }
+            catch (ItemNotFoundException ex)
             {
-                HighProjects = await _homeIndexServices.GetHighProjects(),
-                Settings = await _homeIndexServices.GetSettings(),
-                MidProjects = await _homeIndexServices.GetMidProjects(),
-                HighProjectImages = await _homeIndexServices.GetHighProjectImages(),
-                MidProjectImages = await _homeIndexServices.GetMidProjectImages(),
-
-            };
-            HomeIndexContactUsViewModel homeIndexContactUsViewModel = new HomeIndexContactUsViewModel
+                TempData["Error"] = (ex.Message);
+                return RedirectToAction("index", "home", homeViewModel);
+            }
+            catch (Exception)
             {
-                ContactUsCreateDto = new ContactUsCreateDto(),
-                Settings = await _homeIndexServices.GetSettings(),
-            };
-
-            HomeIndexNewsViewModel homeIndexNewsViewModel = new HomeIndexNewsViewModel
-            {
-                News = await _homeIndexServices.GetNews(),
-                Settings = await _homeIndexServices.GetSettings(),
-            };
-            HomeIndexNewViewModel homeIndexNewViewModel = new HomeIndexNewViewModel
-            {
-                News = await _homeIndexServices.GetNews(),
-                Settings = await _homeIndexServices.GetSettings(),
-                NewsImages = await _homeIndexServices.GetNewsImages(),
-                New = await _homeIndexServices.GetNew(newItemId),
-
-            };
-
-
-            HomeViewModel homeViewModel = new HomeViewModel
-            {
-                ContactUsCreateDto = new ContactUsCreateDto(),
-                HighProjects = await _homeIndexServices.GetHighProjects(),
-                MidProjects = await _homeIndexServices.GetMidProjects(),
-                News = await _homeIndexServices.GetNews(),
-                Settings = await _homeIndexServices.GetSettings(),
-                XBServices = await _homeIndexServices.GetXBServices(),
-                HomeIndexProjectsViewModel = homeIndexProjectsViewModel,
-                HomeIndexContactUsViewModel = homeIndexContactUsViewModel,
-                HomeIndexProjectViewModel = homeIndexProjectViewModel,
-                HomeIndexNewsViewModel = homeIndexNewsViewModel,
-                HomeIndexNewViewModel = homeIndexNewViewModel,
-                RevolutionSliders = await _homeIndexServices.GetRevolutionSliders(),
-
-            };
-            //var project =  _dataContext.Projects.Where(x => x.IsDelete == false).ToList();
-            //return View(project);
+                return RedirectToAction("index", "notfound");
+            }
             return View(homeViewModel);
         }
-        public ActionResult GetJsonData(int newItemId = 2, string language = "Az")
+        public ActionResult GetNewsJsonData(int newItemId = 2, string language = "Az")
         {
             News data = _dataContext.News.Include(x => x.NewsImages).FirstOrDefault(x => x.Id == newItemId);
             var lang = "";
-            if (language == "AZ")
+            if (language == "Az")
                 lang = data.TextAz;
             else if (language == "En")
                 lang = data.TextEn;
             else lang = data.TextRu;
 
+            var instagramUrl = "#!";
+            if (data.InstagramUrl != null)
+                instagramUrl = data.InstagramUrl;
             var jsonData = new
             {
                 Id = data.Id,
                 Title = data.Title,
                 Text = lang,
                 Language = language,
+                InstagramUrl = instagramUrl,
                 // Diğer News özelliklerini buraya ekleyin
 
                 NewsImages = data.NewsImages.Select(image => new
@@ -132,68 +160,174 @@ namespace XBInsaat.Controllers
             return Json(jsonString);
         }
 
+
+        public ActionResult GetProjectsJsonData(int projectItemId = 2, string language = "Az")
+        {
+            HighProject data = _dataContext.HighProjects.Include(x => x.HighProjectImages).Include(x => x.MidProjects).ThenInclude(x => x.MidProjectImages).FirstOrDefault(x => x.Id == projectItemId);
+            var lang = "";
+            if (language == "Az")
+                lang = data.DescribeAz;
+            else if (language == "En")
+                lang = data.DescribeEn;
+            else lang = data.DescribeRu;
+
+            var instagramUrl = "#!";
+            //if (data.InstagramUrl != null)
+            //    instagramUrl = data.InstagramUrl;
+            var jsonData = new
+            {
+                Id = data.Id,
+                Name = data.Name,
+                Describe = lang,
+                Language = language,
+                //InstagramUrl = instagramUrl,
+                // Diğer News özelliklerini buraya ekleyin
+
+                HighProjectImages = data.HighProjectImages.Select(image => new
+                {
+                    ImageUrl = image.Image,
+                    IsPoster = image.IsPoster
+                    // Diğer NewsImage özelliklerini buraya ekleyin
+                }).ToList(), // NewsImages verilerini liste olarak dönüştürün
+
+                MidProjects = data.MidProjects.Select(midProject => new
+                {
+                    MidImageUrl = midProject.MidProjectImages.FirstOrDefault(x => x.IsPoster && x.MidProjectId == midProject.Id)?.Image,
+                    MidProjectId = midProject.Id,
+                    MidProjectName = midProject.Name,
+                    // Diğer NewsImage özelliklerini buraya ekleyin
+                }).ToList() // NewsImages verilerini liste olarak dönüştürün
+            };
+            // Veriyi JSON formatına dönüştürün
+            //jsonData = JsonConvert.SerializeObject(data);
+            var jsonString = JsonConvert.SerializeObject(jsonData);
+
+
+            return Json(jsonString);
+        }
+        public ActionResult GetMidProjectsJsonData(int midProjectItemId = 2, string language = "Az")
+        {
+            MidProject data = _dataContext.MidProjects.Include(x => x.MidProjectImages).FirstOrDefault(x => x.Id == midProjectItemId);
+            var lang = "";
+            if (language == "Az")
+                lang = data.DescribeAz;
+            else if (language == "En")
+                lang = data.DescribeEn;
+            else lang = data.DescribeRu;
+
+            var instagramUrl = "#!";
+            //if (data.InstagramUrl != null)
+            //    instagramUrl = data.InstagramUrl;
+            var jsonData = new
+            {
+                Id = data.Id,
+                Name = data.Name,
+                Describe = lang,
+                Language = language,
+                //InstagramUrl = instagramUrl,
+                // Diğer News özelliklerini buraya ekleyin
+
+                MidProjectImages = data.MidProjectImages.Select(image => new
+                {
+                    ImageUrl = image.Image,
+                    IsPoster = image.IsPoster
+                    // Diğer NewsImage özelliklerini buraya ekleyin
+                }).ToList(), // NewsImages verilerini liste olarak dönüştürün
+            };
+            // Veriyi JSON formatına dönüştürün
+            //jsonData = JsonConvert.SerializeObject(data);
+            var jsonString = JsonConvert.SerializeObject(jsonData);
+
+
+            return Json(jsonString);
+        }
+
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ContactUs(ContactUsCreateDto contactUsCreateDto, int newItemId = 2)
         {
 
-            HomeIndexProjectsViewModel homeIndexProjectsViewModel = new HomeIndexProjectsViewModel
-            {
-                HighProjects = await _homeIndexServices.GetHighProjects(),
-                Settings = await _homeIndexServices.GetSettings(),
-            };
-            HomeIndexProjectViewModel homeIndexProjectViewModel = new HomeIndexProjectViewModel
-            {
-                HighProjects = await _homeIndexServices.GetHighProjects(),
-                Settings = await _homeIndexServices.GetSettings(),
-                MidProjects = await _homeIndexServices.GetMidProjects(),
-                HighProjectImages = await _homeIndexServices.GetHighProjectImages(),
-                MidProjectImages = await _homeIndexServices.GetMidProjectImages(),
+            HomeIndexProjectsViewModel homeIndexProjectsViewModel = new HomeIndexProjectsViewModel();
+            HomeIndexProjectViewModel homeIndexProjectViewModel = new HomeIndexProjectViewModel();
+            HomeIndexContactUsViewModel homeIndexContactUsViewModel = new HomeIndexContactUsViewModel();
+            HomeIndexNewsViewModel homeIndexNewsViewModel = new HomeIndexNewsViewModel();
+            HomeIndexNewViewModel homeIndexNewViewModel = new HomeIndexNewViewModel();
 
-            };
-            HomeIndexContactUsViewModel homeIndexContactUsViewModel = new HomeIndexContactUsViewModel
-            {
-                ContactUsCreateDto = new ContactUsCreateDto(),
-                Settings = await _homeIndexServices.GetSettings(),
-            };
-
-            HomeIndexNewsViewModel homeIndexNewsViewModel = new HomeIndexNewsViewModel
-            {
-                News = await _homeIndexServices.GetNews(),
-                Settings = await _homeIndexServices.GetSettings(),
-            };
-            HomeIndexNewViewModel homeIndexNewViewModel = new HomeIndexNewViewModel
-            {
-                News = await _homeIndexServices.GetNews(),
-                Settings = await _homeIndexServices.GetSettings(),
-                NewsImages = await _homeIndexServices.GetNewsImages(),
-                New = await _homeIndexServices.GetNew(newItemId),
-
-            };
-            HomeViewModel homeViewModel = new HomeViewModel
-            {
-                ContactUsCreateDto = new ContactUsCreateDto(),
-                HighProjects = await _homeIndexServices.GetHighProjects(),
-                MidProjects = await _homeIndexServices.GetMidProjects(),
-                News = await _homeIndexServices.GetNews(),
-                Settings = await _homeIndexServices.GetSettings(),
-                XBServices = await _homeIndexServices.GetXBServices(),
-                HomeIndexProjectsViewModel = homeIndexProjectsViewModel,
-                HomeIndexContactUsViewModel = homeIndexContactUsViewModel,
-                HomeIndexProjectViewModel = homeIndexProjectViewModel,
-                HomeIndexNewsViewModel = homeIndexNewsViewModel,
-                HomeIndexNewViewModel = homeIndexNewViewModel,
-                RevolutionSliders = await _homeIndexServices.GetRevolutionSliders(),
-            };
+            HomeIndexMidProjectViewModel homeIndexMidProjectViewModel = new HomeIndexMidProjectViewModel();
+            HomeViewModel homeViewModel = new HomeViewModel();
             try
             {
+                News newItem = new News();
+
+                ViewBag.Welcome = _localization.Getkey("GeneralText").Value;
+                var currentCulture = Thread.CurrentThread.CurrentCulture.Name;
+                homeIndexProjectsViewModel = new HomeIndexProjectsViewModel
+                {
+                    HighProjects = await _homeIndexServices.GetHighProjects(),
+                    Settings = await _homeIndexServices.GetSettings(),
+                };
+                homeIndexProjectViewModel = new HomeIndexProjectViewModel
+                {
+                    HighProjects = await _homeIndexServices.GetHighProjects(),
+                    Settings = await _homeIndexServices.GetSettings(),
+                    MidProjects = await _homeIndexServices.GetMidProjects(),
+                    HighProjectImages = await _homeIndexServices.GetHighProjectImages(),
+                    MidProjectImages = await _homeIndexServices.GetMidProjectImages(),
+
+                };
+                homeIndexContactUsViewModel = new HomeIndexContactUsViewModel
+                {
+                    ContactUsCreateDto = new ContactUsCreateDto(),
+                    Settings = await _homeIndexServices.GetSettings(),
+                };
+
+                homeIndexNewsViewModel = new HomeIndexNewsViewModel
+                {
+                    News = await _homeIndexServices.GetNews(),
+                    Settings = await _homeIndexServices.GetSettings(),
+                };
+                homeIndexNewViewModel = new HomeIndexNewViewModel
+                {
+                    News = await _homeIndexServices.GetNews(),
+                    Settings = await _homeIndexServices.GetSettings(),
+                    NewsImages = await _homeIndexServices.GetNewsImages(),
+                    //New = await _homeIndexServices.GetNew(newItemId),
+
+                };
+                homeIndexMidProjectViewModel = new HomeIndexMidProjectViewModel
+                {
+                    Settings = await _homeIndexServices.GetSettings(),
+                    MidProjects = await _homeIndexServices.GetMidProjects(),
+                    MidProjectImages = await _homeIndexServices.GetMidProjectImages(),
+
+                };
+                homeViewModel = new HomeViewModel
+                {
+                    ContactUsCreateDto = new ContactUsCreateDto(),
+                    HighProjects = await _homeIndexServices.GetHighProjects(),
+                    MidProjects = await _homeIndexServices.GetMidProjects(),
+                    News = await _homeIndexServices.GetNews(),
+                    Settings = await _homeIndexServices.GetSettings(),
+                    XBServices = await _homeIndexServices.GetXBServices(),
+                    HomeIndexProjectsViewModel = homeIndexProjectsViewModel,
+                    HomeIndexContactUsViewModel = homeIndexContactUsViewModel,
+                    HomeIndexProjectViewModel = homeIndexProjectViewModel,
+                    HomeIndexNewsViewModel = homeIndexNewsViewModel,
+                    HomeIndexNewViewModel = homeIndexNewViewModel,
+                    RevolutionSliders = await _homeIndexServices.GetRevolutionSliders(),
+                    HomeIndexMidProjectViewModel = homeIndexMidProjectViewModel,
+
+                };
+
+                //Email
                 string body = string.Empty;
 
                 using (StreamReader reader = new StreamReader("wwwroot/templates/contactEmail.html"))
                 {
                     body = reader.ReadToEnd();
                 }
-
 
                 await _contactUsCreateServices.PhoneNumberCheck(contactUsCreateDto.PhoneNumber);
                 await _contactUsCreateServices.EmailCheck(contactUsCreateDto.Email);
@@ -204,8 +338,11 @@ namespace XBInsaat.Controllers
                 body = body.Replace("{{email}}", contactUsCreateDto.Email);
                 body = body.Replace("{{message}}", contactUsCreateDto.Message);
                 _emailServices.Send("elnur204@gmail.com", "XariBulBul Contact Message", body);
-
-
+            }
+            catch (ItemNotFoundException ex)
+            {
+                TempData["Error"] = (ex.Message);
+                return RedirectToAction("index", "home", homeViewModel);
             }
             catch (ItemFormatException ex)
             {

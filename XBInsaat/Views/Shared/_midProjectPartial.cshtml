@@ -1,22 +1,20 @@
-﻿@model HomeIndexNewViewModel
+﻿@model HomeIndexMidProjectViewModel
 @{
     var language = _localization.Getkey("Language").Value;
 
 }
-<!-- Modal New -->
-<div class="modal fade  newModal newJsonModal" id="2" tabindex="-1" role="dialog" aria-labelledby="new-Title"
-     aria-hidden="true">
+
+<div class="modal fade projectInfoModal  midProjectJsonModal" id="midProject-Test" tabindex="-1" role="dialog"
+     aria-labelledby="project-testTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 style="color:#00a7c6;" class="modal-title newModalTitleJs" id="new-testTitle"> </h1>
+                <h1 style="color:#00a7c6;" class="modal-title midProjectModalTitleJs" id="project-testTitle"> </h1>
                 <button type="button" class="" data-bs-dismiss="modal" aria-label="Close">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
             <div class="modal-body">
-
-
                 <!-- Older posts -->
                 <section class="mt-2 fx-fade-up">
                     <div class="container">
@@ -24,38 +22,39 @@
                             <!-- Post -->
                             <!-- Featured image -->
                             <div class="col-md-9 col-sm-11 mb-2 ">
-                                <div id="newSliders" class="newSliders">
-
-                                    <div class="newSlide">
+                                <div class="projectInfoSliders" id="projectInfoSliders">
+                                    <div class="projectInfoSlide">
                                         <div class="image-container">
                                             <a href="#!">
                                                 <img src=""
                                                      class="img-fluid rounded hover-lift-light" alt="">
                                             </a>
+
                                         </div>
                                     </div>
 
-                                    <a class="prev-new-btn prev-btn" href="#">&lt;</a>
-                                    <a class="next-new-btn next-btn" href="#">&gt;</a>
+                                    <a class="info-prev-btn prev-btn" href="#">&lt;</a>
+                                    <a class="info-next-btn next-btn" href="#">&gt;</a>
                                 </div>
                             </div>
-
                             <!-- Title -->
+
                             <div class="col-md-9 mb-2">
-                                <h1 class="h5 d-block text-dark text-decoration-none mt-4 newModalTitleJs">
+                                <h1 class="h5 d-block text-dark text-decoration-none mt-4 midProjectModalTitleJs">
                                 </h1>
                             </div>
                             <!-- Read more -->
                             <div class="col-md-9 mb-2">
-                                <p class="d-inline-block  mt-2 " id="newTextId">
-                                    s
+                                <p class="d-inline-block  mt-2 " id="midProjectTextId">
+
                                 </p>
                             </div>
-
                         </div>
                     </div>
                 </section>
+
             </div>
         </div>
     </div>
 </div>
+

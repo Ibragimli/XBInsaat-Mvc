@@ -3,179 +3,103 @@
     var language = _localization.Getkey("Language").Value;
 
 }
-@foreach (var highProject in Model.HighProjects)
-{
-    <!-- Modal Project -->
-    <div class="modal fade  projectModal" id="project-@highProject.Name.Substring(0,3)-@highProject.Id" tabindex="-1" role="dialog"
-         aria-labelledby="project-testTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 style="color:#00a7c6;" class="modal-title" id="project-testTitle">
-                        @highProject.Name
-                    </h1>
-                    <button type="button" class="" data-bs-dismiss="modal" aria-label="Close">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
-                </div>
-                <div class="modal-body">
 
-                    <!-- Older posts -->
-                    <section class="mt-2 fx-fade-up">
-                        <div class="container">
-                            <div class="row mt-4 justify-content-center ">
-                                <!-- Post -->
-                                <!-- Featured image -->
-                                <div class="col-md-9 col-sm-11 mb-2 ">
-                                    <div class="projectSliders">
-                                        @foreach (var highProjectImage in Model.HighProjectImages)
-                                        {
-                                            <div class="projectSlide projectSlide-@highProject.Name.Substring(0,4)">
-                                                <div class="image-container">
-                                                    <a href="#!">
-                                                        <img src="~/uploads/highprojects/@highProjectImage?.Image"
-                                                             class="img-fluid rounded hover-lift-light" alt="">
-                                                    </a>
+<!-- Modal Project -->
+<div class="modal fade  projectModal projectJsonModal" id="4" tabindex="-1" role="dialog"
+     aria-labelledby="project-testTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 style="color:#00a7c6;" class="modal-title projectModalTitleJs" id="project-testTitle">
+                </h1>
+                <button type="button" class="" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="modal-body">
 
-                                                </div>
-                                            </div>
-                                        }
+                <!-- Older posts -->
+                <section class="mt-2 fx-fade-up">
+                    <div class="container">
+                        <div class="row mt-4 justify-content-center ">
+                            <!-- Post -->
+                            <!-- Featured image -->
+                            <div class="col-md-9 col-sm-11 mb-2 ">
+                                <div class="projectSliders" id="projectSliders">
 
-                                        <a class="prev-project-btn prev-btn" href="#">&lt;</a>
-                                        <a class="next-project-btn next-btn " href="#">&gt;</a>
+                                    <div class="projectSlide">
+                                        <div class="image-container">
+                                            <a href="#!">
+                                                <img class="img-fluid rounded hover-lift-light" alt="">
+                                            </a>
+
+                                        </div>
                                     </div>
-                                </div>
-                                <!-- Title -->
 
-                                <div class="col-md-9 mb-2">
-                                    <h1 class="h5 d-block text-dark text-decoration-none mt-4">
-                                        @highProject.Name
-                                    </h1>
-                                </div>
-                                <!-- Read more -->
-                                <div class="col-md-9 mb-2">
-                                    <p class="d-inline-block  mt-2 ">
-                                        @Html.Raw("@highProject.Describe"+language)
-                                    </p>
-                                </div>
-
-                                <!-- Shops -->
-                                <div class="col-md-9 mb-2 projectShops">
-                                    <h2 class="mb-3 mt-2">Mağazalar</h2>
-                                    <div class="row">
-                                        <!-- Web slider -->
-                                        @if (Model.MidProjects.Where(x => x.HighProjectId == highProject.Id).Count() > 0)
-                                        {
-                                            @foreach (var midProject in Model.MidProjects.Where(x => x.HighProjectId == highProject.Id))
-                                            {
-                                                <div class="col-lg-3  col-md-7 mb-2 projectShopBoxs">
-                                                    <!-- Featured image -->
-                                                    <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info">
-                                                        <img src="~/uploads/midprojects/@midProject.MidProjectImages.FirstOrDefault(x=>x.MidProjectId == midProject.Id)?.Image)"
-                                                             class="img-fluid rounded hover-lift-light" alt="">
-                                                    </a>
-                                                    <!-- Title -->
-                                                    <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info"
-                                                       class="projectBoxTitle d-block  text-decoration-none mt-3">
-                                                        @midProject.Name
-                                                    </a>
-                                                </div>
-
-                                            }
-                                        }
-
-                                    </div>
-                                    <!-- Mobile Slider -->
-                                    <div class="owl-carousel owl-carousel-slider owl-theme mobile-owl  p-0 m-0">
-                                        @if (Model.MidProjects.Where(x => x.HighProjectId == highProject.Id).Count() > 0)
-                                        {
-                                            @foreach (var midProject in Model.MidProjects.Where(x => x.HighProjectId == highProject.Id))
-                                            {
-                                                <div class="item me-2">
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#project-info"
-                                                       class="projectBoxTitle d-block  text-decoration-none mt-3">
-                                                        <img style=" border-radius: 5px;"
-                                                             src="~/uploads/midprojects/@midProject.MidProjectImages.FirstOrDefault(x=>x.MidProjectId == midProject.Id)?.Image)"
-                                                             alt="" width="100% ">
-                                                    </a>
-                                                    <a href="#!" data-bs-toggle="modal" data-bs-target="#project-info"
-                                                       class="projectBoxTitle d-block  text-decoration-none mt-3"
-                                                       style="color: #000;">
-                                                        @midProject.Name
-
-                                                    </a>
-                                                </div>
-                                            }
-                                        }
-
-                                    </div>
-                                </div>
-                                <!-- Go to previous posts -->
-                                <div class="col-md-9 mb-2 text-end">
-                                    <!-- Go to previous posts -->
-                                    <a href="#" data-bs-dismiss="modal" aria-label="Close"
-                                       class="projectBackBtn btn btn-pastel-primary hover-lift-light text-uppercase-bold-sm mt-4">
-                                        <i class="fas fa-chevron-left fa-sm mr-2"></i>
-                                        @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalBackBtnText" + language)?.Value)
-                                    </a>
+                                    <a class="prev-project-btn prev-btn" href="#">&lt;</a>
+                                    <a class="next-project-btn next-btn " href="#">&gt;</a>
                                 </div>
                             </div>
-                        </div>
-                    </section>
+                            <!-- Title -->
 
-                </div>
+                            <div class="col-md-9 mb-2">
+                                <h1 class="h5 d-block text-dark text-decoration-none mt-4 projectModalTitleJs">
+                                </h1>
+                            </div>
+                            <!-- Read more -->
+                            <div class="col-md-9 mb-2">
+                                <p class="d-inline-block  mt-2" id="projectTextId">
+
+                                </p>
+                            </div>
+
+                            <!-- Shops -->
+                            <div class="col-md-9 mb-2 projectShops">
+                                <h2 class="mb-3 mt-2">
+
+                                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalProjectModalShops" + language)?.Value)
+                                </h2>
+                                <div class="row" id="projectShopsWeb">
+                                    <!-- Web slider -->
+
+                                    <div class="col-lg-3  col-md-7 mb-2 projectShopBoxs">
+                                        <!-- Featured image -->
+                                        <a href="#!" class="midProjectModalLink">
+                                            <img src="" class="img-fluid rounded hover-lift-light" alt="">
+                                        </a>
+                                        <!-- Title -->
+                                        <a href="#!" class="projectBoxTitle d-block  text-decoration-none mt-3 midProjectModalLink">
+                                            Adi
+                                        </a>
+                                    </div>
+
+                                </div>
+                                <!-- Mobile Slider -->
+                                <div class="owl-carousel owl-carousel-slider owl-theme mobile-owl  p-0 m-0" id="projectShopsMobile">
+                                    @*<div class="item me-2">
+                                        <a href="#" class="projectBoxTitle d-block  text-decoration-none mt-3">
+                                            <img style=" border-radius: 5px;" src="" alt="" width="100% ">
+                                        </a>
+                                        <a href="#!" class="projectBoxTitle d-block  text-decoration-none mt-3" style="color: #000;"> </a>
+                                    </div>*@
+
+                                </div>
+                            </div>
+                            <!-- Go to previous posts -->
+                            <div class="col-md-9 mb-2 text-end">
+                                <!-- Go to previous posts -->
+                                <a href="#" data-bs-dismiss="modal" aria-label="Close"
+                                   class="projectBackBtn btn btn-pastel-primary hover-lift-light text-uppercase-bold-sm mt-4">
+                                    <i class="fas fa-chevron-left fa-sm mr-2"></i>
+                                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalBackBtnText" + language)?.Value)
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
             </div>
         </div>
     </div>
-    @*<script>
-        const @highProject.Name.Substring(0,4) = document.querySelectorAll('.projectSlide-@(highProject.Name.Substring(0, 4))');
-        const @(highProject.Name.Substring(0, 3)) = document.querySelector('.prev-project-btn');
-        const @(highProject.Name.Substring(0, 2)) = document.querySelector('.next-project-btn');
-        let projectCurrentSlide = 0;
-        let projectSlideInterval;
+</div>
 
-        // İlk slaytı göster
-        @(highProject.Name.Substring(0, 4))[projectCurrentSlide].style.display = 'block';
-
-        // Otomatik dönme işlemini başlat
-        startSlideShow();
-
-        // Slayt gösterisini başlatan fonksiyon
-        function startSlideShow() {
-            projectSlideInterval = setInterval(nextSlide, 8000); // Saniyede bir döndürmek için 4000 milisaniye (4 saniye)
-        }
-
-        // Slaytı bir sonraki slayta geçiren fonksiyon
-        function nextSlide() {
-        @(highProject.Name.Substring(0, 4))[projectCurrentSlide].style.display = 'none';
-            projectCurrentSlide = (projectCurrentSlide + 1) % @(highProject.Name.Substring(0, 4)).length;
-        @(highProject.Name.Substring(0, 4))[projectCurrentSlide].style.display = 'block';
-        }
-
-        // Önceki slayta geç
-        @(highProject.Name.Substring(0, 3)).addEventListener('click', function () {
-        @(highProject.Name.Substring(0, 4))[projectCurrentSlide].style.display = 'none';
-            projectCurrentSlide = (projectCurrentSlide - 1 + @(highProject.Name.Substring(0, 4)).length) % @(highProject.Name.Substring(0, 4)).length;
-        @(highProject.Name.Substring(0, 4))[projectCurrentSlide].style.display = 'block';
-            clearInterval(projectSlideInterval); // Ok tuşlarına tıklandığında otomatik dönme işlemini durdur
-        });
-
-        // Sonraki slayta geç
-        @(highProject.Name.Substring(0, 2)).addEventListener('click', function () {
-        @(highProject.Name.Substring(0, 4))[projectCurrentSlide].style.display = 'none';
-            projectCurrentSlide = (projectCurrentSlide + 1) % @(highProject.Name.Substring(0, 4)).length;
-        @(highProject.Name.Substring(0, 4))[projectCurrentSlide].style.display = 'block';
-            clearInterval(projectSlideInterval); // Ok tuşlarına tıklandığında otomatik dönme işlemini durdur
-        });
-
-        // Resimler varsa ok tuşlarını gizle
-        if (@(highProject.Name.Substring(0, 4)).length <= 1) {
-        @(highProject.Name.Substring(0, 3)).style.display = 'none';
-        @(highProject.Name.Substring(0, 2)).style.display = 'none';
-        }
-
-
-
-    </script>
-*@
-}

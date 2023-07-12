@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using XBInsaat.Core.Entites;
 using XBInsaat.Core.IUnitOfWork;
+using XBInsaat.Service.CustomExceptions;
 using XBInsaat.Services.Services.Interfaces.User;
 
 namespace XBInsaat.Services.Services.Implementations.User
@@ -40,7 +41,11 @@ namespace XBInsaat.Services.Services.Implementations.User
 
         public async Task<News> GetNew(int id)
         {
-            return await _unitOfWork.NewsRepository.GetAsync(x => !x.IsDelete && x.Id == id, "NewsImages");
+            var item = await _unitOfWork.NewsRepository.GetAsync(x => !x.IsDelete && x.Id == id, "NewsImages");
+
+            if (item == null)
+                throw new ItemNotFoundException("Xəbər tapılmadı!");
+            return item;
 
         }
 

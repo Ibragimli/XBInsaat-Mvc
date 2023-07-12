@@ -101,6 +101,15 @@
                                 display: flex;
                                 align-items: center;
 
+                                .newsBoxs {
+
+                                    a {
+                                        img {
+                                            height: 215px !important;
+                                        }
+                                    }
+                                }
+
                                 .col-lg-4 {
                                     width: 30%;
                                 }
@@ -111,7 +120,47 @@
             }
         }
     }
-
+    .projectModal {
+        .modal-dialog {
+            .modal-content {
+                .modal-body {
+                    section {
+                        .container {
+                            .row {
+    
+                                .projectShops {
+                                    .projectShopBoxs {
+                                        a {
+                                            img {
+                                                height: 98.5px !important;
+                                            }
+                                        }
+    
+                                     
+    
+    
+                                    }
+    
+                                    .mobile-owl {
+                                        .item {
+                                            a {
+                                                img {}
+                                            }
+                                        }
+                                    }
+                                }
+    
+                                
+                            }
+    
+    
+                        }
+                    }
+                }
+            }
+        }
+    
+    }
     .modal-lg,
     .modal-xl {
         max-width: 1146px !important;

@@ -35,14 +35,12 @@
                                     </a>
 
                                     <!-- Title -->
-                                    <a id="newModalLink" href="#!" data-bs-toggle="modal" data-bs-target="#new-@newItem.Id"
-                                       class="newsBoxTitle d-block text-dark text-decoration-none mt-4">
+                                    <a data-value="@newItem.Id" id="newModalLink" href="#!" class="newModalLink newsBoxTitle d-block text-dark text-decoration-none mt-4">
                                         @newItem.Title
                                     </a>
 
                                     <!-- Read more -->
-                                    <a id="newModalLink" href="#!" data-bs-toggle="modal" data-bs-target="#new-@newItem.Id"
-                                       class="postReadText d-inline-block border-bottom border-primary text-decoration-none mt-2 pb-1">
+                                    <a data-value="@newItem.Id" id="newModalLink" href="#!" class="newModalLink postReadText d-inline-block border-bottom border-primary text-decoration-none mt-2 pb-1">
                                         @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ReadPostText" + language)?.Value)
 
                                     </a>
@@ -64,27 +62,3 @@
 
 </div>
 
-
-<div>
-    
-    @*    <script>
-
-    document.getElementById('newModalLink').addEventListener('click', function (event) {
-    //event.preventDefault(); // Sayfanın yenilenmesini önler
-
-    var divElement = document.getElementsByClassName(".testModal");
-
-    var newItemId = parseInt(this.getAttribute('data-value'));
-    divElement.id = newItemId;
-
-    fetch('/Home/Index?newItemId=' + newItemId)
-    .then(response => {
-    console.log(newItemId)
-
-    })
-    .catch(error => {
-    // Hata işleme
-    });
-    });
-    </script>*@
-</div>

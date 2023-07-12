@@ -364,8 +364,13 @@ body {
   #newsModalScrollable .modal-dialog .modal-content .modal-body section .container .row {
     display: flex;
     align-items: center; }
+    #newsModalScrollable .modal-dialog .modal-content .modal-body section .container .row .newsBoxs a img {
+      height: 215px !important; }
     #newsModalScrollable .modal-dialog .modal-content .modal-body section .container .row .col-lg-4 {
       width: 30%; }
+
+  .projectModal .modal-dialog .modal-content .modal-body section .container .row .projectShops .projectShopBoxs a img {
+    height: 98.5px !important; }
 
   .modal-lg,
   .modal-xl {
