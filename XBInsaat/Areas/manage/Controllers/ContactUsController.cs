@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using XBInsaat.Core.Entites;
 using XBInsaat.Mvc.Areas.manage.ViewModels;
 using XBInsaat.Service.CustomExceptions;
@@ -8,7 +9,8 @@ using XBInsaat.Services.Services.Interfaces.Area;
 namespace XBInsaat.Mvc.Areas.manage.Controllers
 {
     [Area("manage")]
-    //[Authorize(Roles = "SuperAdmin,Admin")]
+    [Authorize(Roles = "SuperAdmin")]
+
     public class ContactUsController : Controller
     {
         private readonly IAdminContactUsIndexServices _adminContactUsIndexServices;

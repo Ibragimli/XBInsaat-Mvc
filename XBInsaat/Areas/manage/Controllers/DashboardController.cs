@@ -5,7 +5,8 @@ using System.Data;
 namespace XBInsaat.Mvc.Areas.manage.Controllers
 {
     [Area("manage")]
-    //[Authorize(Roles = "SuperAdmin,Admin")]
+    [Authorize(Roles = "SuperAdmin,Admin,Editor,Viewer")]
+
     public class DashboardController : Controller
     {
         public IActionResult Index()

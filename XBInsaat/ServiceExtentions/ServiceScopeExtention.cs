@@ -67,9 +67,9 @@ namespace XBInsaat.Mvc.ServiceExtentions
             services.AddScoped<IAdminContactUsIndexServices, AdminContactUsIndexServices>();
 
 
+            services.AddScoped<IAdminLoginServices, AdminLoginServices>();
+
             services.AddScoped<ILayoutServices, LayoutServices>();
-            //services.AddScoped<IAnaSehifeIndexServices, AnaSehifeIndexServices>();
-            //services.AddScoped<IProjectCreateIndexServices, ProjectCreateIndexServices>();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using XBInsaat.Core.Entites;
 using XBInsaat.Mvc.Areas.manage.ViewModels;
@@ -11,7 +12,8 @@ using XBInsaat.Services.Services.Interfaces.Area;
 namespace XBInsaat.Mvc.Areas.manage.Controllers
 {
     [Area("manage")]
-    //[Authorize(Roles = "SuperAdmin,Admin")]
+    [Authorize(Roles = "SuperAdmin,Admin,Editor,Viewer")]
+
     public class HighProjectController : Controller
     {
         private readonly IAdminHighProjectIndexServices _adminHighProjectIndexServices;

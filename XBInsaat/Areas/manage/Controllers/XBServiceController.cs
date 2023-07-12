@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using System.Data;
 using XBInsaat.Core.Entites;
 using XBInsaat.Mvc.Areas.manage.ViewModels;
 using XBInsaat.Service.CustomExceptions;
@@ -10,7 +12,8 @@ using XBInsaat.Services.Services.Interfaces.Area;
 namespace XBInsaat.Mvc.Areas.manage.Controllers
 {
     [Area("manage")]
-    //[Authorize(Roles = "SuperAdmin,Admin")]
+    [Authorize(Roles = "SuperAdmin,Admin,Editor,Viewer")]
+
     public class XBServiceController : Controller
     {
         private readonly IAdminXBServiceIndexServices _adminXBServiceIndexServices;

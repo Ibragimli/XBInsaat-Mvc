@@ -12,7 +12,7 @@ using XBInsaat.Service.CustomExceptions;
 namespace XBInsaat.Mvc.Areas.manage.Controllers
 {
     [Area("manage")]
-    //[Authorize(Roles = "SuperAdmin,Admin")]
+    [Authorize(Roles = "SuperAdmin,Editor")]
 
     public class SettingController : Controller
     {

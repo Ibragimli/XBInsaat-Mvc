@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using System.Data;
 using XBInsaat.Core.Entites;
 using XBInsaat.Data.Datacontext;
 using XBInsaat.Mvc.Areas.manage.ViewModels;
@@ -10,7 +12,8 @@ using XBInsaat.Services.Services.Interfaces.Area;
 namespace XBInsaat.Mvc.Areas.manage.Controllers
 {
     [Area("manage")]
-    //[Authorize(Roles = "SuperAdmin,Admin")]
+    
+    [Authorize(Roles = "SuperAdmin")]
 
     public class RevolutionSliderController : Controller
     {
