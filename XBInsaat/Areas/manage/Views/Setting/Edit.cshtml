@@ -20,7 +20,16 @@
                                 <div class="col-lg-9 mb-3">
                                     <div class="form-group">
                                         <input type="hidden" asp-for="Id" value="@Model.Id" />
-                                        <label asp-for="Value" class="control-label" style=" color: #886CC0; font-weight: 700; font-size: 20px; ">Dəyər</label>
+                                        <label asp-for="Value" class="control-label" style=" color: #886CC0; font-weight: 700; font-size: 20px; ">
+                                            @if (@Model.Value != null && !Model.Key.EndsWith("Image"))
+                                            {
+                                                @Model.Key
+                                            }
+                                            else
+                                            {
+                                                <span>Dəyər</span>
+                                            }
+                                        </label>
                                         @if (@Model.Value != null && Model.Key.EndsWith("Image"))
                                         {
                                             <input asp-for="KeyImageFile" />
@@ -35,14 +44,14 @@
                                         }
                                         @if (@Model.Value != null && !@Model.Key.EndsWith("Image"))
                                         {
-                                            <textarea style="height:100px; max-height:200px" maxlength="1000" asp-for="Value" class="form-control"></textarea>
+                                            <textarea style="height:150px; max-height:400px" maxlength="1000" asp-for="Value" class="form-control"></textarea>
                                             <span asp-validation-for="Value" class="text-danger"></span>
                                         }
                                     </div>
 
                                     <div class="d-flex justify-content-end col-12">
                                         <a asp-action="index" asp-controller="Setting" class="btn btn-outline-warning mt-2">Geriyə qayıtmaq</a>
-                                        <button type="submit" class="ms-3 btn btn-outline-primary mt-2">Düzənləmək</button>
+                                        <button type="submit" class="ms-3 btn btn-outline-primary mt-2">Redaktə et</button>
                                     </div>
                                 </div>
                             </div>

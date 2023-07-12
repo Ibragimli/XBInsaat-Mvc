@@ -74,7 +74,7 @@
                                         }
                                         else
                                         {
-                                            @setting.Value
+                                            @(setting.Value?.Length < 50 ? setting.Value : setting.Value?.Substring(0, 50) + "...")
                                         }
                                     </td>
 

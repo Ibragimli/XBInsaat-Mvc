@@ -117,8 +117,9 @@ namespace XBInsaat.Controllers
                 TempData["Error"] = (ex.Message);
                 return RedirectToAction("index", "home", homeViewModel);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                TempData["Error"] = (ex.Message);
                 return RedirectToAction("index", "notfound");
             }
             return View(homeViewModel);

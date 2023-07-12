@@ -417,7 +417,7 @@ body {
 
   #boxDesctipions {
     left: calc((100vw - 100vw * 0.845)); }
-    #boxDesctipions .row .boxDesc h2 {
+    #boxDesctipions .row .boxDesc h1 {
       font-size: 59px; }
     #boxDesctipions .row .boxDesc p {
       font-size: 16px; }
@@ -431,7 +431,7 @@ body {
       width: 201px !important;
       height: 201px !important; }
 
-  #boxDesctipions .row .boxDesc h2 {
+  #boxDesctipions .row .boxDesc h1 {
     font-size: 56px; }
   #boxDesctipions .row .boxDesc p {
     font-size: 16px; }
@@ -456,8 +456,8 @@ body {
   .modal .modal-dialog .modal-content .modal-header,
   .fade .modal-dialog .modal-content .modal-header {
     padding: 1rem 2rem 1rem !important; }
-    .modal .modal-dialog .modal-content .modal-header h2,
-    .fade .modal-dialog .modal-content .modal-header h2 {
+    .modal .modal-dialog .modal-content .modal-header h1,
+    .fade .modal-dialog .modal-content .modal-header h1 {
       font-size: calc(1.325rem + .9vw) !important; }
     .modal .modal-dialog .modal-content .modal-header button,
     .fade .modal-dialog .modal-content .modal-header button {
@@ -1344,7 +1344,7 @@ body {
   #boxDesctipions .row .boxDesc {
     width: 200px !important;
     display: none; }
-    #boxDesctipions .row .boxDesc h2 {
+    #boxDesctipions .row .boxDesc h1 {
       z-index: 5;
       text-decoration: none;
       white-space: nowrap;
