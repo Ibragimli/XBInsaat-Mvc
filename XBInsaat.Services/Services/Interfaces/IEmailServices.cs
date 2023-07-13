@@ -8,6 +8,6 @@ namespace XBInsaat.Services.Services.Interfaces
 {
     public interface IEmailServices
     {
-        public void Send(string to, string subject, string html);
+        public Task Send(string to, string subject, string html);
     }
 }

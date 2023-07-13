@@ -18,6 +18,7 @@ namespace XBInsaat.Data.Datacontext
         public DbSet<AppUser> AppUsers { get; set; }
         public DbSet<ImageSetting> ImageSettings { get; set; }
         public DbSet<Setting> Settings { get; set; }
+        public DbSet<EmailSetting> EmailSettings { get; set; }
         public DbSet<ContactUs> ContactUss { get; set; }
         public DbSet<XBService> XBServices { get; set; }
         public DbSet<HighProjectImage> HighProjectImages { get; set; }

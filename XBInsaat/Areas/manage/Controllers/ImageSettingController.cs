@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Data;
 using XBInsaat.Core.Entites;
 using XBInsaat.Data.Datacontext;
 using XBInsaat.Mvc.Areas.manage.ViewModels;
@@ -11,41 +10,41 @@ using XBInsaat.Services.Services.Interfaces.Area;
 
 namespace XBInsaat.Mvc.Areas.manage.Controllers
 {
+
     [Area("manage")]
     [Authorize(Roles = "SuperAdmin")]
-
-    public class EmailSettingController : Controller
+    public class ImageSettingController : Controller
     {
         private readonly DataContext _context;
-        private readonly IEmailSettingEditServices _emailSettingEditServices;
-        private readonly IEmailSettingIndexServices _emailSettingIndexServices;
+        private readonly IImageSettingEditServices _ImageSettingEditServices;
+        private readonly IImageSettingIndexServices _ImageSettingIndexServices;
 
-        public EmailSettingController(DataContext context, IEmailSettingEditServices emailSettingEditServices, IEmailSettingIndexServices emailSettingIndexServices)
+        public ImageSettingController(DataContext context, IImageSettingEditServices ImageSettingEditServices, IImageSettingIndexServices ImageSettingIndexServices)
         {
             _context = context;
-            _emailSettingEditServices = emailSettingEditServices;
-            _emailSettingIndexServices = emailSettingIndexServices;
+            _ImageSettingEditServices =ImageSettingEditServices;
+            _ImageSettingIndexServices =ImageSettingIndexServices;
         }
         public IActionResult Index(int page = 1, string search = null)
         {
             ViewBag.Page = page;
 
-            var EmailSettings = _emailSettingIndexServices.SearchCheck(search);
+            var ImageSettings = _ImageSettingIndexServices.SearchCheck(search);
 
-            EmailSettingIndexViewModel EmailSettingIndexVM = new EmailSettingIndexViewModel
+            ImageSettingIndexViewModel ImageSettingIndexVM = new ImageSettingIndexViewModel
             {
-                PagenatedItems = PagenetedList<EmailSetting>.Create(EmailSettings, page, 6),
+                PagenatedItems = PagenetedList<ImageSetting>.Create(ImageSettings, page, 6),
             };
 
-            return View(EmailSettingIndexVM);
+            return View(ImageSettingIndexVM);
         }
 
         public async Task<IActionResult> Edit(int id)
         {
             try
             {
-                await _emailSettingEditServices.IsExists(id);
-                await _emailSettingEditServices.GetSearch(id);
+                await _ImageSettingEditServices.IsExists(id);
+                await _ImageSettingEditServices.GetSearch(id);
             }
             catch (Exception)
             {
@@ -53,37 +52,37 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
 
             }
 
-            return View(await _emailSettingEditServices.GetSearch(id));
+            return View(await _ImageSettingEditServices.GetSearch(id));
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(EmailSettingEditDto EmailSettingEdit)
+        public async Task<IActionResult> Edit(ImageSettingEditDto ImageSettingEdit)
         {
             try
             {
-                await _emailSettingEditServices.EmailSettingEdit(EmailSettingEdit);
+                await _ImageSettingEditServices.ImageSettingEdit(ImageSettingEdit);
             }
             catch (ValueFormatExpception ex)
             {
 
                 ModelState.AddModelError("", ex.Message);
-                return View(EmailSettingEdit);
+                return View(ImageSettingEdit);
             }
             catch (ItemNotFoundException ex)
             {
 
                 ModelState.AddModelError("", ex.Message);
-                return View(EmailSettingEdit);
+                return View(ImageSettingEdit);
             }
             catch (Exception ex)
             {
 
                 ModelState.AddModelError("", ex.Message);
-                return View(EmailSettingEdit);
+                return View(ImageSettingEdit);
             }
             TempData["Success"] = ("Proses uğurlu oldu!");
-            return RedirectToAction("index", "EmailSetting");
+            return RedirectToAction("index", "ImageSetting");
         }
     }
 }

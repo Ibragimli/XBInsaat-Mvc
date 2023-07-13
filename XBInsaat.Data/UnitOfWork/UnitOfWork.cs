@@ -17,6 +17,7 @@ namespace XBInsaat.Data.UnitOfWork
         private IImageSettingRepository _imageSettingRepository;
         private IHighProjectImageRepository _highProjectImageRepository;
         private ISettingRepository _settingRepository;
+        private IEmailSettingRepository _emailSettingRepository;
         private IAppUserRepository _userRepository;
         private IXBServiceRepository _xBServiceRepository;
         private ICameraRepository _cameraRepository;
@@ -56,6 +57,8 @@ namespace XBInsaat.Data.UnitOfWork
         public IRevolutionSliderRepository RevolutionSliderRepository => _revolutionSliderRepository = _revolutionSliderRepository ?? new RevolutionSliderRepository(_context);
 
         public IContactUsRepository ContactUsRepository => _contactUsRepository = _contactUsRepository ?? new ContactUsRepository(_context);
+
+        public IEmailSettingRepository EmailSettingRepository => _emailSettingRepository = _emailSettingRepository ?? new EmailSettingRepository(_context);
 
         public async Task<int> CommitAsync()
         {

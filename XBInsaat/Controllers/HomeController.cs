@@ -338,7 +338,7 @@ namespace XBInsaat.Controllers
                 body = body.Replace("{{fullname}}", contactUsCreateDto.Fullname);
                 body = body.Replace("{{email}}", contactUsCreateDto.Email);
                 body = body.Replace("{{message}}", contactUsCreateDto.Message);
-                _emailServices.Send("elnur204@gmail.com", "XariBulBul Contact Message", body);
+                await _emailServices.Send("elnur204@gmail.com", "XariBulBul Contact Message", body);
             }
             catch (ItemNotFoundException ex)
             {

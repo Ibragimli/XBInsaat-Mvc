@@ -12,25 +12,34 @@ using System.Collections.Generic;
 using System.Text;
 using MailKit.Security;
 using MimeKit.Text;
+using XBInsaat.Core.IUnitOfWork;
+using XBInsaat.Data.UnitOfWork;
 
 namespace XBInsaat.Services.Services.Implementations
 {
     public class EmailServices : IEmailServices
     {
+        private readonly IUnitOfWork _unitOfWork;
 
-       
-        public void Send(string to, string subject, string html)
+        public EmailServices(IUnitOfWork unitOfWork)
         {
+            _unitOfWork = unitOfWork;
+        }
+        public async Task Send(string to, string subject, string html)
+        {
+
+            int port = int.Parse((await _unitOfWork.EmailSettingRepository.GetAsync(x => x.Key == "SmtpHost"))?.Value);
+
             var email = new MimeMessage();
-            email.From.Add(MailboxAddress.Parse("idagrouptester@yandex.ru"));
+            email.From.Add(MailboxAddress.Parse((await _unitOfWork.EmailSettingRepository.GetAsync(x => x.Key == "SmtpEmail"))?.Value));
             email.To.Add(MailboxAddress.Parse(to));
             email.Subject = subject;
             email.Body = new TextPart(TextFormat.Html) { Text = html };
 
             // send email
             using var smtp = new SmtpClient();
-            smtp.Connect("smtp.yandex.com", 587, SecureSocketOptions.StartTls);
-            smtp.Authenticate("idagrouptester@yandex.ru", "idagroup123");
+            smtp.Connect((await _unitOfWork.EmailSettingRepository.GetAsync(x => x.Key == "SmtpHost"))?.Value, port, SecureSocketOptions.StartTls);
+            smtp.Authenticate((await _unitOfWork.EmailSettingRepository.GetAsync(x => x.Key == "SmtpEmail"))?.Value, (await _unitOfWork.EmailSettingRepository.GetAsync(x => x.Key == "SmtpPassword"))?.Value);
             smtp.Send(email);
             smtp.Disconnect(true);
         }

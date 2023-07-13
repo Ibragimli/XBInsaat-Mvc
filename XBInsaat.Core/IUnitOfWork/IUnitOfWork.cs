@@ -13,6 +13,7 @@ namespace XBInsaat.Core.IUnitOfWork
         IMidProjectRepository MidProjectRepository { get; }
         ILowProjectRepository LowProjectRepository { get; }
         ISettingRepository SettingRepository { get; }
+        IEmailSettingRepository EmailSettingRepository { get; }
         IImageSettingRepository ImageSettingRepository { get; }
         IXBServiceRepository XBServiceRepository { get; }
         IHighProjectImageRepository HighProjectImageRepository { get; }

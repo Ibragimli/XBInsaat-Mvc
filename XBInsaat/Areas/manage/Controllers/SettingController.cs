@@ -49,7 +49,7 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
             }
             catch (Exception)
             {
-                return RedirectToAction("notfound", "error");
+                return RedirectToAction("Index", "notfound");
             }
 
             return View(await _SettingEditServices.GetSearch(id));

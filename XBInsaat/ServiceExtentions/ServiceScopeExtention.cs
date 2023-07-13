@@ -45,6 +45,12 @@ namespace XBInsaat.Mvc.ServiceExtentions
             services.AddScoped<ISettingIndexServices, SettingIndexServices>();
             services.AddScoped<ISettingEditServices, SettingEditServices>();
 
+            services.AddScoped<IEmailSettingEditServices, EmailSettingEditServices>();
+            services.AddScoped<IEmailSettingIndexServices, EmailSettingIndexServices>();
+
+            services.AddScoped<IImageSettingIndexServices, ImageSettingIndexServices>();
+            services.AddScoped<IImageSettingEditServices, ImageSettingEditServices>();
+
             services.AddScoped<IAdminNewsEditServices, AdminNewsEditServices>();
             services.AddScoped<IAdminDeleteNewsServices, AdminDeleteNewsServices>();
             services.AddScoped<IAdminNewsCreateServices, AdminNewsCreateServices>();
