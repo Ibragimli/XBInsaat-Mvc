@@ -29,6 +29,7 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
         public IActionResult Index(int page = 1, string search = null)
         {
             ViewBag.Page = page;
+            ViewBag.Search = search;
 
             var Settings = _SettingIndexServices.SearchCheck(search);
 

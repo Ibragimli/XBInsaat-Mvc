@@ -7,10 +7,10 @@
 
 
 
-
-
+.pagination .active {
+    color: #696cff;
+}
 /*Temp Image*/
-
 .posterImages #imageInput {
     margin-bottom: 10px;
 }

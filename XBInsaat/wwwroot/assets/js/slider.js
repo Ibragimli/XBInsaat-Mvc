@@ -32,14 +32,24 @@ linksProject.forEach(function (linkProject) {
                 for (var i = 0; i < data.HighProjectImages.length; i++) {
                     if (i == 0) { dispText = 'style="display:block"'; }
                     else { dispText = style = ""; }
+                    var divImage = '';
 
-                    console.log(data.HighProjectImages[i].ImageUrl)
-                    let projectsForSlide = `<div class="projectSlide" ` + dispText + `><div class="image-container">
-                        <a  href="#!">
-                        <img src="./uploads/highprojects/`+ data.HighProjectImages[i].ImageUrl + `"class="img-fluid rounded hover-lift-light" alt=""></a>
-                        </div></div>`
+                    if (data.HighProjectImages[i].ImageTpye == "mp4") {
+                        divImage = `<div class="video-container image-container">
+                                        <video style="width: 100%; height: auto; object-fit: contain;"  class="video" src="./uploads/highprojects/`+ data.HighProjectImages[i].ImageUrl + `"  ></video>
+                                 </div>`;
+
+                    }
+                    else {
+                        divImage = `<div class="image-container">
+                                    <a  href="#!"> <img src="./uploads/highprojects/`+ data.HighProjectImages[i].ImageUrl + `"class="img-fluid rounded hover-lift-light" alt=""></a>
+                                 </div>`;
+
+                    }
+                    let projectsForSlide = `<div class="projectSlide" ` + dispText + `>` + divImage + ` </div>`
                     $('#projectSliders').append($(projectsForSlide));
                 };
+
                 let nextProjectsBtns = '<a class="prev-project-btn prev-btn" href = "#" >&lt;</a> <a class="next-project-btn next-btn" href = "#" >&gt; </a>'
                 $('#projectSliders').append($(nextProjectsBtns));
 
@@ -79,69 +89,104 @@ linksProject.forEach(function (linkProject) {
                 bootstrapProjectModal.show();
 
                 //----------
-                const projectSlide = document.querySelectorAll('.projectSlide');
-                const projectPrevBtn = document.querySelector('.prev-project-btn');
-                const projectNextBtn = document.querySelector('.next-project-btn');
-                let projectCurrentSlide = 0;
-                let projectsSlideInterval;
+                $(document).ready(function () {
+                    const projectSlide = $('.projectSlide');
+                    const projectPrevBtn = $('.prev-project-btn');
+                    const projectNextBtn = $('.next-project-btn');
+                    let projectCurrentSlide = 0;
+                    let projectsSlideInterval;
+                    let currentVideo;
+                    let videoEnded = true;
 
-                // İlk slaytı göster
-                projectSlide[projectCurrentSlide].style.display = 'block';
+                    // İlk slaytı göster
+                    projectSlide.eq(projectCurrentSlide).css('display', 'block');
 
-                // Otomatik dönme işlemini başlat
-                startSlideShow();
+                    // Otomatik dönme işlemini başlat
+                    startSlideShow();
 
-                // Slayt gösterisini başlatan fonksiyon
-                function startSlideShow() {
-                    projectsSlideInterval = setInterval(nextSlide, 8000); // Saniyede bir döndürmek için 4000 milisaniye (4 saniye)
-                }
+                    // Slayt gösterisini başlatan fonksiyon
+                    function startSlideShow() {
+                        projectsSlideInterval = setInterval(nextSlide, 8000); // Saniyede bir döndürmek için 8000 milisaniye (8 saniye)
+                    }
 
-                // Slaytı bir sonraki slayta geçiren fonksiyon
-                function nextSlide() {
-                    projectSlide[projectCurrentSlide].style.display = 'none';
-                    projectCurrentSlide = (projectCurrentSlide + 1) % projectSlide.length;
-                    projectSlide[projectCurrentSlide].style.display = 'block';
-                }
+                    // Slaytı bir sonraki slayta geçiren fonksiyon
+                    function nextSlide() {
+                        if (videoEnded) {
+                            pauseCurrentVideo();
+                            projectSlide.eq(projectCurrentSlide).css('display', 'none');
+                            projectCurrentSlide = (projectCurrentSlide + 1) % projectSlide.length;
+                            projectSlide.eq(projectCurrentSlide).css('display', 'block');
+                            playCurrentVideo();
+                        }
+                    }
 
-                // Önceki slayta geç
-                projectPrevBtn.addEventListener('click', function () {
-                    projectSlide[projectCurrentSlide].style.display = 'none';
-                    projectCurrentSlide = (projectCurrentSlide - 1 + projectSlide.length) % projectSlide.length;
-                    projectSlide[projectCurrentSlide].style.display = 'block';
-                    clearInterval(projectsSlideInterval); // Ok tuşlarına tıklandığında otomatik dönme işlemini durdur
+                    // Önceki slayta geç
+                    projectPrevBtn.on('click', function () {
+                        if (videoEnded) {
+                            pauseCurrentVideo();
+                            projectSlide.eq(projectCurrentSlide).css('display', 'none');
+                            projectCurrentSlide = (projectCurrentSlide - 1 + projectSlide.length) % projectSlide.length;
+                            projectSlide.eq(projectCurrentSlide).css('display', 'block');
+                            playCurrentVideo();
+                            clearInterval(projectsSlideInterval); // Ok tuşlarına tıklandığında otomatik dönme işlemini durdur
+                            startSlideShow(); // Yeniden döngüyü başlat
+                        }
+                    });
+
+                    // Sonraki slayta geç
+                    projectNextBtn.on('click', function () {
+                        if (videoEnded) {
+                            pauseCurrentVideo();
+                            projectSlide.eq(projectCurrentSlide).css('display', 'none');
+                            projectCurrentSlide = (projectCurrentSlide + 1) % projectSlide.length;
+                            projectSlide.eq(projectCurrentSlide).css('display', 'block');
+                            playCurrentVideo();
+                            clearInterval(projectsSlideInterval); // Ok tuşlarına tıklandığında otomatik dönme işlemini durdur
+                            startSlideShow(); // Yeniden döngüyü başlat
+                        }
+                    });
+
+                    // Şu anki slayttaki videoları duraklatır
+                    function pauseCurrentVideo() {
+                        currentVideo = projectSlide.eq(projectCurrentSlide).find('.video')[0];
+                        if (currentVideo) {
+                            currentVideo.pause();
+                        }
+                    }
+
+                    // Şu anki slayttaki videoları oynatır
+                    function playCurrentVideo() {
+                        currentVideo = projectSlide.eq(projectCurrentSlide).find('.video')[0];
+                        if (currentVideo) {
+                            videoEnded = false;
+                            currentVideo.play();
+                            currentVideo.onended = function () {
+                                videoEnded = true;
+                            };
+                        }
+                    }
+
+                    // Resimler ve videolar varsa ok tuşlarını gizle
+                    if (projectSlide.length <= 1) {
+                        projectPrevBtn.css('display', 'none');
+                        projectNextBtn.css('display', 'none');
+                    }
                 });
 
-                // Sonraki slayta geç
-                projectNextBtn.addEventListener('click', function () {
-                    projectSlide[projectCurrentSlide].style.display = 'none';
-                    projectCurrentSlide = (projectCurrentSlide + 1) % projectSlide.length;
-                    projectSlide[projectCurrentSlide].style.display = 'block';
-                    clearInterval(projectsSlideInterval); // Ok tuşlarına tıklandığında otomatik dönme işlemini durdur
-                });
 
-                // Resimler varsa ok tuşlarını gizle
-                if (projectSlide.length <= 1) {
-                    projectPrevBtn.style.display = 'none';
-                    projectNextBtn.style.display = 'none';
-                }
                 //---------
 
 
                 //midProjectJS
                 $(".midProjectModalLink").click(function () {
                     var idMidProject = parseInt(this.getAttribute('data-value'));
-                    console.log(idMidProject);
                     var languageMidProjectSpan = document.getElementById("langText");
-                    console.log(languageMidProjectSpan);
 
                     var divElementMidProject = document.querySelector(".midProjectJsonModal");
-                    console.log(divElementMidProject);
 
                     divElementMidProject.id = idMidProject
-                    console.log(divElementMidProject.id);
 
                     var modalMidProject = document.getElementById(idMidProject);
-                    console.log(modalMidProject);
 
                     var bootstrapMidProjectModal = new bootstrap.Modal(modalMidProject);
 
@@ -160,11 +205,23 @@ linksProject.forEach(function (linkProject) {
                             for (var i = 0; i < data.MidProjectImages.length; i++) {
                                 if (i == 0) { dispText = 'style="display:block"'; }
                                 else { dispText = style = ""; }
+                                var divMidImage = '';
 
-                                let midProjectsForSlide = `<div class="projectInfoSlide" ` + dispText + `><div class="image-container">
-                        <a  href="#!">
-                        <img src="./uploads/midprojects/`+ data.MidProjectImages[i].ImageUrl + `"class="img-fluid rounded hover-lift-light" alt=""></a>
-                        </div></div>`
+                                if (data.MidProjectImages[i].ImageTpye == "mp4") {
+                                    divMidImage = `<div class="video-container image-container">
+                                        <video style="width: 100%; height: auto; object-fit: contain;"  class="video" src="./uploads/midprojects/`+ data.MidProjectImages[i].ImageUrl + `"  ></video>
+                                 </div>`;
+
+                                }
+                                else {
+                                    divMidImage = `<div class="image-container">
+                                    <a  href="#!"> <img src="./uploads/midprojects/`+ data.MidProjectImages[i].ImageUrl + `"class="img-fluid rounded hover-lift-light" alt=""></a>
+                                 </div>`;
+
+                                }
+                                console.log(data.MidProjectImages[i].ImageTpye);
+
+                                let midProjectsForSlide = `<div class="projectInfoSlide" ` + dispText + `> ` + divMidImage + `</div>`
                                 $('#projectInfoSliders').append($(midProjectsForSlide));
                             };
 
@@ -177,54 +234,88 @@ linksProject.forEach(function (linkProject) {
 
                             //----------
 
-                            const slidesInfo = document.querySelectorAll('.projectInfoSlide');
-                            const projectInfoPrevBtn = document.querySelector('.info-prev-btn');
-                            const projectInfoNextBtn = document.querySelector('.info-next-btn');
-                            let currentInfoSlide = 0;
-                            let slideInfoInterval;
+                            $(document).ready(function () {
+                                const slidesInfo = $('.projectInfoSlide');
+                                const projectInfoPrevBtn = $('.info-prev-btn');
+                                const projectInfoNextBtn = $('.info-next-btn');
+                                let slideInfoInterval;
+                                let currentVideo;
+                                let videoEnded = true;
+                                let currentInfoSlide = 0;
+                                // İlk slaytı göster
+                                slidesInfo.eq(currentInfoSlide).css('display', 'block');
 
-                            // İlk slaytı göster
-                            slidesInfo[currentInfoSlide].style.display = 'block';
+                                // Otomatik dönme işlemini başlat
+                                startSlideShow();
 
-                            // Otomatik dönme işlemini başlat
-                            startSlideShow();
+                                // Slayt gösterisini başlatan fonksiyon
+                                function startSlideShow() {
+                                    slideInfoInterval = setInterval(nextSlide, 8000); // Saniyede bir döndürmek için 8000 milisaniye (8 saniye)
+                                }
 
-                            // Slayt gösterisini başlatan fonksiyon
-                            function startSlideShow() {
-                                slideInfoInterval = setInterval(nextSlide, 8000); // Saniyede bir döndürmek için 4000 milisaniye (4 saniye)
-                            }
+                                // Slaytı bir sonraki slayta geçiren fonksiyon
+                                function nextSlide() {
+                                    if (videoEnded) {
+                                        pauseCurrentVideo();
+                                        slidesInfo.eq(currentInfoSlide).css('display', 'none');
+                                        currentInfoSlide = (currentInfoSlide + 1) % slidesInfo.length;
+                                        slidesInfo.eq(currentInfoSlide).css('display', 'block');
+                                        playCurrentVideo();
+                                    }
+                                }
 
-                            // Slaytı bir sonraki slayta geçiren fonksiyon
-                            function nextSlide() {
-                                slidesInfo[currentInfoSlide].style.display = 'none';
-                                currentInfoSlide = (currentInfoSlide + 1) % slidesInfo.length;
-                                slidesInfo[currentInfoSlide].style.display = 'block';
-                            }
+                                // Önceki slayta geç
+                                projectInfoPrevBtn.on('click', function () {
+                                    if (videoEnded) {
+                                        pauseCurrentVideo();
+                                        slidesInfo.eq(currentInfoSlide).css('display', 'none');
+                                        currentInfoSlide = (currentInfoSlide - 1 + slidesInfo.length) % slidesInfo.length;
+                                        slidesInfo.eq(currentInfoSlide).css('display', 'block');
+                                        playCurrentVideo();
+                                        clearInterval(slideInfoInterval); // Ok tuşlarına tıklandığında otomatik dönme işlemini durdur
+                                        startSlideShow(); // Yeniden döngüyü başlat
+                                    }
+                                });
 
-                            // Önceki slayta geç
-                            projectInfoPrevBtn.addEventListener('click', function () {
-                                slidesInfo[currentInfoSlide].style.display = 'none';
-                                currentInfoSlide = (currentInfoSlide - 1 + slidesInfo.length) % slidesInfo.length;
-                                slidesInfo[currentInfoSlide].style.display = 'block';
-                                clearInterval(slideInfoInterval); // Ok tuşlarına tıklandığında otomatik dönme işlemini durdur
+                                // Sonraki slayta geç
+                                projectInfoNextBtn.on('click', function () {
+                                    if (videoEnded) {
+                                        pauseCurrentVideo();
+                                        slidesInfo.eq(currentInfoSlide).css('display', 'none');
+                                        currentInfoSlide = (currentInfoSlide + 1) % slidesInfo.length;
+                                        slidesInfo.eq(currentInfoSlide).css('display', 'block');
+                                        playCurrentVideo();
+                                        clearInterval(slideInfoInterval); // Ok tuşlarına tıklandığında otomatik dönme işlemini durdur
+                                        startSlideShow(); // Yeniden döngüyü başlat
+                                    }
+                                });
+
+                                // Şu anki slayttaki videoları duraklatır
+                                function pauseCurrentVideo() {
+                                    currentVideo = slidesInfo.eq(currentInfoSlide).find('.video')[0];
+                                    if (currentVideo) {
+                                        currentVideo.pause();
+                                    }
+                                }
+
+                                // Şu anki slayttaki videoları oynatır
+                                function playCurrentVideo() {
+                                    currentVideo = slidesInfo.eq(currentInfoSlide).find('.video')[0];
+                                    if (currentVideo) {
+                                        videoEnded = false;
+                                        currentVideo.play();
+                                        currentVideo.onended = function () {
+                                            videoEnded = true;
+                                        };
+                                    }
+                                }
+
+                                // Resimler ve videolar varsa ok tuşlarını gizle
+                                if (slidesInfo.length <= 1) {
+                                    projectInfoPrevBtn.css('display', 'none');
+                                    projectInfoNextBtn.css('display', 'none');
+                                }
                             });
-
-                            // Sonraki slayta geç
-                            projectInfoNextBtn.addEventListener('click', function () {
-                                slidesInfo[currentInfoSlide].style.display = 'none';
-                                currentInfoSlide = (currentInfoSlide + 1) % slidesInfo.length;
-                                slidesInfo[currentInfoSlide].style.display = 'block';
-                                clearInterval(slideInfoInterval); // Ok tuşlarına tıklandığında otomatik dönme işlemini durdur
-                            });
-
-                            // Resimler varsa ok tuşlarını gizle
-                            if (slidesInfo.length <= 1) {
-                                projectInfoPrevBtn.style.display = 'none';
-                                projectInfoNextBtn.style.display = 'none';
-                            }
-
-                            //---------
-
                         })
                         .catch(error => {
                             // Hata işleme

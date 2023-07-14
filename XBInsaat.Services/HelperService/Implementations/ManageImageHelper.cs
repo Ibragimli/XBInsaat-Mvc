@@ -22,7 +22,7 @@ namespace XBInsaat.Service.HelperService.Implementations
         }
         public void PosterCheck(IFormFile PosterImageFile)
         {
-            if (PosterImageFile.ContentType != _key.ValueStr("ImageType1") && PosterImageFile.ContentType != _key.ValueStr("ImageType2"))
+            if (PosterImageFile.ContentType != _key.ValueStr("ImageType1") && PosterImageFile.ContentType != _key.ValueStr("ImageType2") && PosterImageFile.ContentType != _key.ValueStr("ImageType3"))
                 throw new ImageFormatException("Şəkil yalnız (png ve ya jpg) type-ında ola bilər");
 
             if (PosterImageFile.Length > _key.ValueInt("ImageSize") * 1048576)
@@ -35,8 +35,7 @@ namespace XBInsaat.Service.HelperService.Implementations
 
             foreach (var image in Images)
             {
-
-                if (image.ContentType != _key.ValueStr("ImageType1") && image.ContentType != _key.ValueStr("ImageType2"))
+                if (image.ContentType != _key.ValueStr("ImageType1") && image.ContentType != _key.ValueStr("ImageType2") && image.ContentType != _key.ValueStr("ImageType3"))
                     throw new ImageFormatException("Şəkil yalnız (png ve ya jpeg) type-ında ola bilər");
                 if (image.Length > _key.ValueInt("ImageSize") * 1048576)
                     throw new ImageFormatException("Şəklin max yaddaşı " + _key.ValueInt("ImageSize") + "MB ola bilər!");

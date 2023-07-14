@@ -171,7 +171,6 @@ namespace XBInsaat.Controllers
             else if (language == "En")
                 lang = data.DescribeEn;
             else lang = data.DescribeRu;
-
             var instagramUrl = "#!";
             //if (data.InstagramUrl != null)
             //    instagramUrl = data.InstagramUrl;
@@ -186,8 +185,10 @@ namespace XBInsaat.Controllers
 
                 HighProjectImages = data.HighProjectImages.Select(image => new
                 {
+
                     ImageUrl = image.Image,
-                    IsPoster = image.IsPoster
+                    IsPoster = image.IsPoster,
+                    ImageTpye = image.Image.Substring(image.Image.LastIndexOf(".") + 1),
                     // Diğer NewsImage özelliklerini buraya ekleyin
                 }).ToList(), // NewsImages verilerini liste olarak dönüştürün
 
@@ -199,8 +200,6 @@ namespace XBInsaat.Controllers
                     // Diğer NewsImage özelliklerini buraya ekleyin
                 }).ToList() // NewsImages verilerini liste olarak dönüştürün
             };
-            // Veriyi JSON formatına dönüştürün
-            //jsonData = JsonConvert.SerializeObject(data);
             var jsonString = JsonConvert.SerializeObject(jsonData);
 
 
@@ -231,14 +230,13 @@ namespace XBInsaat.Controllers
                 MidProjectImages = data.MidProjectImages.Select(image => new
                 {
                     ImageUrl = image.Image,
-                    IsPoster = image.IsPoster
+                    IsPoster = image.IsPoster,
+                    ImageTpye = image.Image.Substring(image.Image.LastIndexOf(".") + 1),
+
                     // Diğer NewsImage özelliklerini buraya ekleyin
                 }).ToList(), // NewsImages verilerini liste olarak dönüştürün
             };
-            // Veriyi JSON formatına dönüştürün
-            //jsonData = JsonConvert.SerializeObject(data);
             var jsonString = JsonConvert.SerializeObject(jsonData);
-
 
             return Json(jsonString);
         }
@@ -357,7 +355,6 @@ namespace XBInsaat.Controllers
             TempData["Success"] = ("Məktub göndərildi");
             return View("index", homeViewModel);
         }
-
 
         public IActionResult ChangeLanguage(string culture)
         {

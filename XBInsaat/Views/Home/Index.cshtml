@@ -116,7 +116,7 @@
 
                 </h2>
                 <p style="color: rgb(148, 83, 84);">
-                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "DescText" + language)?.Value)
+                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "DescServiceText" + language)?.Value)
 
                 </p>
 
@@ -135,7 +135,7 @@
                     @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxProjectsTitle" + language)?.Value)
                 </h2>
                 <p style="color: rgb(96, 141, 155);">
-                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "DescText" + language)?.Value)
+                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "DescProjectsText" + language)?.Value)
 
                 </p>
 
@@ -151,7 +151,7 @@
                     @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxNewsTitle" + language)?.Value)
                 </h2>
                 <p style="color: rgb(87, 102, 118);">
-                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "DescText" + language)?.Value)
+                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "DescNewsText" + language)?.Value)
                 </p>
 
                 <div class="boxDescButton">
@@ -178,10 +178,10 @@
             </div>
             <div class="boxDesc col-lg-3">
                 <h2 style="color: #BFB256;">
-                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxCAMTitle" + language)?.Value)
+                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxContactUsTitle" + language)?.Value)
                 </h2>
                 <p style="color: #BFB256;">
-                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "DescText" + language)?.Value)
+                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "DescContactUsText" + language)?.Value)
                 </p>
                 <div class="boxDescButton">
                     <a data-bs-toggle="modal" data-bs-target="#contactModalScrollable"

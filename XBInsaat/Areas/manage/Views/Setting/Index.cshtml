@@ -9,47 +9,56 @@
         <!-- Bordered Table -->
         <div class="card">
             <div class="card-body">
+
                 @* Pagination *@
                 <div class="row">
-                    <div class="d-flex align-items-center col-5">
-                        <form asp-action="index" asp-controller="Setting" asp-route-page="@ViewBag.Page" class="d-flex">
-                            <input name="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-primary" type="submit">Search</button>
-                        </form>
-                    </div>
-                    <div class="d-flex align-items-center col-5" style="display:flex; justify-content:flex-end;">
+                    <form asp-action="index" asp-controller="Setting" asp-route-page="@ViewBag.Page" class="row d-flex">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="d-flex align-items-center col-lg-3 col-md-4 col-sm-6 mb-2">
+                            <input name="search" class="form-control " type="search" placeholder="" aria-label="Search">
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-2 text-center">
+                            <button class="btn btn-outline-primary" type="submit">Axtarış</button>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 mb-2 text-end">
+                            <a class="btn btn-danger" asp-action="create" asp-controller="Setting">Yeni Layihə</a>
+                        </div>
+                    </form>
+
+                    <div class="d-flex align-items-center col-11 mt-2" style="display:flex; justify-content:flex-end;">
                         <nav aria-label="Page navigation example">
                             <ul class="pagination">
                                 @if (Model.PagenatedItems.HasPrev)
                                 {
 
                                     <li class="page-item">
-                                        <a asp-action="index" asp-controller="Setting" asp-route-page="@(Model.PagenatedItems.PageIndex-1)" class="page-link" aria-label="Previous">
+                                        <a asp-action="index" asp-route-search="@ViewBag.Search" asp-controller="Setting" asp-route-page="@(Model.PagenatedItems.PageIndex-1)" asp-route-name="@(ViewBag.Name)" class="page-link" aria-label="Previous">
                                             <span aria-hidden="true">&laquo;</span>
                                         </a>
                                     </li>
                                 }
                                 @for (int i = 1; i <= Model.PagenatedItems.TotalPages; i++)
                                 {
-                                    <li aria-current="page" class="page-item" @(Model.PagenatedItems.PageIndex == i ? "active" : "")>
-                                        <a asp-action="index" asp-controller="Setting" asp-route-page="@i" class="page-link">@i</a>
+                                    <li aria-current="page" class="page-item  @(Model.PagenatedItems.PageIndex == i ? "active" : "") " )>
+                                        <a asp-action="index" asp-route-search="@ViewBag.Search" asp-controller="Setting" asp-route-page="@i" asp-route-name="@(ViewBag.Name)" class="page-link">@i</a>
                                     </li>
                                 }
                                 @if (Model.PagenatedItems.HasNext)
                                 {
                                     <li class="page-item">
-                                        <a asp-action="index" asp-controller="Setting" asp-route-page="@(Model.PagenatedItems.PageIndex+1)" class="page-link" aria-label="Next">
+                                        <a asp-action="index" asp-route-search="@ViewBag.Search" asp-controller="Setting" asp-route-page="@(Model.PagenatedItems.PageIndex+1)" asp-route-name="@(ViewBag.Name)" class="page-link" aria-label="Next">
                                             <span aria-hidden="true">&raquo;</span>
                                         </a>
-
                                     </li>
                                 }
                             </ul>
                         </nav>
                     </div>
-
                 </div>
+                @* Pagination *@
+
                 <br />
+
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <br />
                 <div class="table-responsive text-nowrap">
@@ -70,7 +79,7 @@
                                     <td>
                                         @if (setting.Value != null && setting.Key.EndsWith("Image"))
                                         {
-                                            <img  src="~/uploads/setting/@setting.Value" style="witdh:50%" height="100" />
+                                            <img src="~/uploads/setting/@setting.Value" style="witdh:50%" height="100" />
                                         }
                                         else
                                         {
