@@ -64,6 +64,11 @@ namespace XBInsaat.Services.Services.Implementations.Area
                 checkBool = true;
 
             }
+            if (oldMidProject?.InstagramUrl != MidProject?.InstagramUrl)
+            {
+                oldMidProject.InstagramUrl = MidProject.InstagramUrl;
+                checkBool = true;
+            }
             if (oldMidProject.DescribeAz != MidProject.DescribeAz)
             {
 
@@ -214,6 +219,17 @@ namespace XBInsaat.Services.Services.Implementations.Area
             if (MidProject.DescribeAz.Length < 3 || MidProject.DescribeRu.Length < 3 || MidProject.DescribeEn.Length < 3)
             {
                 throw new ValueFormatExpception("Layihə təsvirinin uzunluğu minimum 3 ola bilər");
+            }
+            if (MidProject.InstagramUrl?.Length > 200)
+            {
+                throw new ValueFormatExpception("Xəbər mətninin uzunluğu maksimum 200 ola bilər");
+            }
+            if (MidProject.InstagramUrl != null)
+            {
+                if (!MidProject.InstagramUrl.Contains("www.") && !MidProject.InstagramUrl.Contains(".com"))
+                {
+                    throw new ItemFormatException("Zəhmət olmasa linki doğru daxil edin");
+                }
             }
         }
 

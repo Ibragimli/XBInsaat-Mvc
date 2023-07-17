@@ -1,6 +1,16 @@
 body {
     main {
         position: relative;
+        .instagramLogo{
+            font-size: 30px;
+            transition: all 0.4s;
+
+        }
+         .instagramLogo:hover{
+            font-size: 30px;
+            color: #AA06E8;
+            transform: rotate(30deg);
+        }
     }
 
 }

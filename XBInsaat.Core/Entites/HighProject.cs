@@ -14,6 +14,7 @@ namespace XBInsaat.Core.Entites
         public string DescribeAz { get; set; }
         public string DescribeEn { get; set; }
         public string DescribeRu { get; set; }
+        public string InstagramUrl { get; set; }
         public ICollection<MidProject> MidProjects { get; set; }
         public ICollection<HighProjectImage> HighProjectImages { get; set; }
         [NotMapped]

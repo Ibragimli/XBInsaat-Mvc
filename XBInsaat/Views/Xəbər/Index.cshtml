@@ -3,8 +3,15 @@
     ViewData["Title"] = "Index";
     int i = 0;
 }
-@model News
+@model NewsViewModel
 
+
+<!-- Contact Us Button -->
+<div class="contactUsBtnBox " id="hereket">
+    <a href="#" data-bs-toggle="modal" data-bs-target="#contactUsModal" id="ctnBtn">
+        <i class="fa-solid fa-phone-volume "></i>
+    </a>
+</div>
 
 <!-- Older posts -->
 <section id="newsPage">
@@ -14,11 +21,11 @@
             <!-- Featured image -->
             <div class="col-md-9  col-sm-12 mb-2 ">
                 <div class="newSliders">
-                    @foreach (var item in Model.NewsImages)
+                    @foreach (var item in Model.News.NewsImages)
                     {
                         <div class="newSlide" style="display:@(i==0?"block":"none")">
                             <div class="image-container">
-                                <a target="_blank" href="@Model.InstagramUrl">
+                                <a href="#!">
                                     <img src="~/uploads/news/@item?.Image"
                                          class="img-fluid rounded hover-lift-light" alt="">
                                 </a>
@@ -34,8 +41,14 @@
             <div class="col-md-9 col-sm-12 newPagedDownBox">
                 <!-- Title -->
                 <div class=" mb-2 newPageTitleBox">
-                    <h1 class="h5 d-block text-dark text-decoration-none mt-4 ">
-                        @Model.Title
+                    <h1 class="h5 d-block text-dark text-decoration-none d-flex justify-content-between mt-4 ">
+                        @Model.News.Title
+                        @if (Model.News.InstagramUrl != null)
+                        {
+                            <a target="_blank" href="@Model.News.InstagramUrl">
+                                <i class="fa-brands fa-instagram instagramLogo"></i>
+                            </a>
+                        }
 
                     </h1>
                 </div>
@@ -44,15 +57,15 @@
                     <p class="d-inline-block  mt-2 ">
                         @if (language == "Az")
                         {
-                            @Model.TextAz
+                            @Model.News.TextAz
                         }
                         else if (language == "En")
                         {
-                            @Model.TextEn
+                            @Model.News.TextEn
                         }
                         else
                         {
-                            @Model.TextRu
+                            @Model.News.TextRu
                         }
                     </p>
                 </div>
@@ -62,15 +75,58 @@
 
 </section>
 
-
 <section id="BackgorundImageBox">
     <!-- BackgorundImage -->
     <div class="BackgorundPage">
         <div class="BackImage">
             <img src="~/assets/Images/slide-vaqif.png" alt="Resim 1">
         </div>
+        <div class="BackImage">
+            <img src="~/assets/Images/slide-susa.jpg" alt="Resim 1">
+        </div>
+        <div class="BackImage">
+            <img src="~/assets/Images/slide-xaribilbul.png" alt="Resim 1">
+        </div>
+        <div class="BackImage">
+            <img src="~/assets/Images/slide-projec-yujk-scaled.jpg" alt="Resim 1">
+        </div>
+        <div class="BackImage">
+            <img src="~/assets/Images/cam.png" alt="Resim 1">
+        </div>
+        <div class="BackImage">
+            <img src="~/assets/Images/slide-service3-scaled.jpg" alt="Resim 1">
+        </div>
+        <div class="BackImage">
+            <img src="~/assets/Images/vaqif-2.jpeg" alt="Resim 1">
+        </div>
+        <div class="BackImage">
+            <img src="~/assets/Images/xaribulbul-2.jpeg" alt="Resim 1">
+        </div>
     </div>
 </section>
+
+
+
+<div>
+    <script>
+        $(document).ready(function () {
+            var slideIndex = 0;
+            var slides = $(".BackImage");
+
+            function showSlide() {
+                slides.eq(slideIndex).fadeIn(1000).siblings().fadeOut(1000);
+                slideIndex = (slideIndex + 1) % slides.length;
+            }
+
+            showSlide();
+
+            setInterval(showSlide, 4500);
+        });
+    </script>
+</div>
+
+@await Html.PartialAsync("_contactUsPartial", Model.HomeIndexContactUsViewModel)
+
 
 @section Scripts{
     <script src="~/assets/js/newSlider.js"></script>

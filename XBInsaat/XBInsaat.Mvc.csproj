@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\uploads\highprojects\" />
     <Folder Include="wwwroot\uploads\midprojects\" />
     <Folder Include="wwwroot\uploads\revolutionSlider\" />
     <Folder Include="wwwroot\uploads\news\" />

@@ -320,6 +320,8 @@ namespace XBInsaat.Controllers
 
                 };
 
+                await _contactUsCreateServices.ValuesCheck(contactUsCreateDto);
+
                 //Email
                 string body = string.Empty;
 
@@ -336,7 +338,7 @@ namespace XBInsaat.Controllers
                 body = body.Replace("{{fullname}}", contactUsCreateDto.Fullname);
                 body = body.Replace("{{email}}", contactUsCreateDto.Email);
                 body = body.Replace("{{message}}", contactUsCreateDto.Message);
-                await _emailServices.Send("elnur204@gmail.com", "XariBulBul Contact Message", body);
+                await _emailServices.Send("office@xbinsaat.az", "Xarıbülbül əlaqə mesajı", body);
             }
             catch (ItemNotFoundException ex)
             {

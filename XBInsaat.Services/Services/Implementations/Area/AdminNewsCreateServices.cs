@@ -43,7 +43,7 @@ namespace XBInsaat.Services.Services.Implementations.Area
                 throw new ItemNullException("Xəta baş verdi.");
             if (NewsCreateDto.InstagramUrl != null)
             {
-                if (NewsCreateDto.InstagramUrl.Contains("www."))
+                if (!NewsCreateDto.InstagramUrl.Contains("www.") && !NewsCreateDto.InstagramUrl.Contains(".com"))
                 {
                     throw new ItemFormatException("Zəhmət olmasa linki doğru daxil edin");
                 }

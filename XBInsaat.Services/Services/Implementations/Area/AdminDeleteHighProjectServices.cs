@@ -27,8 +27,8 @@ namespace XBInsaat.Services.Services.Implementations.Area
             if (project == null)
                 throw new ItemNotFoundException("404");
             var images = await _unitOfWork.HighProjectImageRepository.GetAllAsync(x => x.HighProjectId == project.Id && !x.IsDelete);
-            var midProject = _unitOfWork.MidProjectRepository.GetAllAsync(x => x.HighProjectId == id);
-            if (midProject == null)
+            var midProject = _unitOfWork.MidProjectRepository.GetAllAsync(x => x.HighProjectId == project.Id);
+            if (midProject != null)
                 throw new ItemUseException("Layihə mağazalarda istifadə olunduğu üçün silinmədi.");
             if (images != null)
             {

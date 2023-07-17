@@ -40,6 +40,13 @@ namespace XBInsaat.Services.Services.Implementations.Area
         {
             if (highProjectCreateDto == null)
                 throw new ItemNullException("Xəta baş verdi.");
+            if (highProjectCreateDto.InstagramUrl != null)
+            {
+                if (!highProjectCreateDto.InstagramUrl.Contains("www.") && !highProjectCreateDto.InstagramUrl.Contains(".com"))
+                {
+                    throw new ItemFormatException("Zəhmət olmasa linki doğru daxil edin");
+                }
+            }
         }
         public async Task CreateImageFormFile(List<IFormFile> imageFiles, int Id)
         {

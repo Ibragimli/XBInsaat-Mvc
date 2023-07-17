@@ -223,7 +223,7 @@ namespace XBInsaat.Services.Services.Implementations.Area
             }
             if (News.InstagramUrl !=null)
             {
-                if (News.InstagramUrl.Contains("www."))
+                if (!News.InstagramUrl.Contains("www.") && !News.InstagramUrl.Contains(".com"))
                 {
                     throw new ItemFormatException("Zəhmət olmasa linki doğru daxil edin");
                 }

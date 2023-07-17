@@ -2,6 +2,13 @@
 @import url(https://fonts.googleapis.com/css?family=Merriweather:400,300italic,300,400italic,700,700italic);
 body main {
   position: relative; }
+  body main .instagramLogo {
+    font-size: 30px;
+    transition: all 0.4s; }
+  body main .instagramLogo:hover {
+    font-size: 30px;
+    color: #AA06E8;
+    transform: rotate(30deg); }
 
 header {
   position: relative; }

@@ -41,10 +41,7 @@ namespace XBInsaat.Services.Services.Implementations.User
             return Task.CompletedTask;
         }
 
-        public Task FNameTextCheck(string fullname, string message)
-        {
-            throw new NotImplementedException();
-        }
+
 
         public Task PhoneNumberCheck(string number)
         {
@@ -55,8 +52,11 @@ namespace XBInsaat.Services.Services.Implementations.User
         }
         private static bool EmailValidate(string emailAddress)
         {
-            string pattern = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$";
-            if (Regex.IsMatch(emailAddress, pattern)) return true;
+            if (emailAddress != null)
+            {
+                string pattern = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$";
+                if (Regex.IsMatch(emailAddress, pattern)) return true;
+            }
             return false;
         }
         private void PhoneNumberValidation(string phoneNumber)
@@ -82,13 +82,43 @@ namespace XBInsaat.Services.Services.Implementations.User
         private string PhoneNumberFilter(string phoneNumber)
         {
             string number = "";
-            string[] charsNumber = phoneNumber.Split('_', '-', ' ', '(', ')', ',', '.', '/', '?', '!', '+', '=', '|', '.');
-
-            foreach (var item in charsNumber)
+            if (phoneNumber != null)
             {
-                number += item;
+                string[] charsNumber = phoneNumber.Split('_', '-', ' ', '(', ')', ',', '.', '/', '?', '!', '+', '=', '|', '.');
+
+                foreach (var item in charsNumber)
+                {
+                    number += item;
+                }
+                return number;
+
             }
-            return number;
+
+            return phoneNumber;
+        }
+
+        public async Task ValuesCheck(ContactUsCreateDto contactUsCreateDto)
+        {
+            if (contactUsCreateDto.Email == null)
+            {
+                throw new ItemFormatException("Zəhmət olmasa email-i qeyd edin!");
+
+            }
+            if (contactUsCreateDto.Message == null)
+            {
+                throw new ItemFormatException("Zəhmət olmasa mesajınızı qeyd edin!");
+
+            }
+            if (contactUsCreateDto.Fullname == null)
+            {
+                throw new ItemFormatException("Zəhmət olmasa ad və soyadınızı qeyd edin!");
+
+            }
+            if (contactUsCreateDto.PhoneNumber == null)
+            {
+                throw new ItemFormatException("Zəhmət olmasa əlaqə nömrənizi qeyd edin!");
+
+            }
         }
     }
 }

@@ -10,6 +10,7 @@ using XBInsaat.Core.Entites;
 using XBInsaat.Core.IUnitOfWork;
 using XBInsaat.Service.CustomExceptions;
 using XBInsaat.Service.HelperService.Interfaces;
+using XBInsaat.Services.Dtos.Area;
 using XBInsaat.Services.Services.Interfaces.Area;
 
 namespace XBInsaat.Services.Services.Implementations.Area
@@ -56,6 +57,11 @@ namespace XBInsaat.Services.Services.Implementations.Area
                 oldHighProject.Name = highProject.Name;
                 checkBool = true;
 
+            }
+            if (oldHighProject?.InstagramUrl != highProject?.InstagramUrl)
+            {
+                oldHighProject.InstagramUrl = highProject.InstagramUrl;
+                checkBool = true;
             }
             if (oldHighProject.DescribeAz != highProject.DescribeAz)
             {
@@ -205,6 +211,24 @@ namespace XBInsaat.Services.Services.Implementations.Area
             if (highProject.DescribeAz.Length < 3 || highProject.DescribeRu.Length < 3 || highProject.DescribeEn.Length < 3)
             {
                 throw new ValueFormatExpception("Layihə təsvirinin uzunluğu minimum 3 ola bilər");
+            }
+            if (highProject.InstagramUrl != null)
+            {
+                if (!highProject.InstagramUrl.Contains("www.") && !highProject.InstagramUrl.Contains(".com"))
+                {
+                    throw new ItemFormatException("Zəhmət olmasa linki doğru daxil edin");
+                }
+            }
+            if (highProject.InstagramUrl?.Length > 200)
+            {
+                throw new ValueFormatExpception("Xəbər mətninin uzunluğu maksimum 200 ola bilər");
+            }
+            if (highProject.InstagramUrl != null)
+            {
+                if (!highProject.InstagramUrl.Contains("www.") && !highProject.InstagramUrl.Contains(".com"))
+                {
+                    throw new ItemFormatException("Zəhmət olmasa linki doğru daxil edin");
+                }
             }
         }
 

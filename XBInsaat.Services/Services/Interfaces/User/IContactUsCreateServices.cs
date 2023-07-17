@@ -13,6 +13,6 @@ namespace XBInsaat.Services.Services.Interfaces.User
         public Task ContactUsCreate(ContactUsCreateDto contactUsCreateDto);
         public Task PhoneNumberCheck(string number);
         public Task EmailCheck(string email);
-        public Task FNameTextCheck(string fullname, string message);
+        public Task ValuesCheck(ContactUsCreateDto contactUsCreateDto);
     }
 }

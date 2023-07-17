@@ -16,10 +16,10 @@
 <div class="slider">
     @foreach (var item in Model.RevolutionSliders)
     {
-        <div class="slide @(count == 0?"active":"")">
+        <div class="slide @(count == 0?"revoActive":"")">
             <img src="~/uploads/revolutionSlider/@(item?.Image) " alt="Resim 1">
         </div>
-        @(count++)
+        <span style="display:none;">  @(count++)</span>
     }
 </div>
 

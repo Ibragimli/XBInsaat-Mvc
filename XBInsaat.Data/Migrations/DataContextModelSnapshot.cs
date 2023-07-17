@@ -147,6 +147,10 @@ namespace XBInsaat.Data.Migrations
                         .HasMaxLength(5000)
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("InstagramUrl")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
                     b.Property<bool>("IsDelete")
                         .HasColumnType("bit");
 
@@ -352,6 +356,10 @@ namespace XBInsaat.Data.Migrations
 
                     b.Property<int>("HighProjectId")
                         .HasColumnType("int");
+
+                    b.Property<string>("InstagramUrl")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<bool>("IsDelete")
                         .HasColumnType("bit");

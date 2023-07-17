@@ -28,6 +28,12 @@
                                         <span asp-validation-for="HighProject.Name" class="text-danger"></span>
                                     </div>
                                     <!-- Layihə Name   End -->
+                                    <!-- InstagramUrl  Start -->
+                                    <div class="mb-3 posterTitle">
+                                        <label asp-for="HighProject.InstagramUrl" class="form-label">Instagram Url*</label>
+                                        <input asp-for="HighProject.InstagramUrl" maxlength="200" type="text" class="form-control">
+                                        <span asp-validation-for="HighProject.InstagramUrl" class="text-danger"></span>
+                                    </div>
                                     <!-- Layihə DescribeAz  Start -->
                                     <div class="mb-3 posterName">
                                         <label asp-for="HighProject.DescribeAz" class="form-label">Layihə Təsviri (Azərbaycan) *</label>
@@ -53,7 +59,7 @@
                                      <div id="posterimage-box" class="posterimage-box row mb-3">
                                         <label asp-for="HighProject.ProjectImageFile" class="form-label">Layihənin Poster şəkli*</label>
                                         <!-- Şəkil əlavə et -->
-                                        <input asp-for="HighProject.ProjectImageFile" id="imagePosterInput" type="file" accept="image/png,  image/jpeg"
+                                        <input asp-for="HighProject.ProjectImageFile" id="imagePosterInput" type="file" accept="image/png,  image/jpeg, video/mp4"
                                                class="form-control" multiple="">
                                             @foreach (var image in Model.HighProjectImages.Where(x => !x.IsDelete && x.IsPoster))
                                             {
@@ -75,7 +81,7 @@
                                     <div class="mb-3 posterImages">
                                         <label asp-for="HighProject.ImageFiles" class="form-label">Layihənin Şəkilləri*</label>
                                         <!-- Şəkil əlavə et -->
-                                        <input asp-for="HighProject.ImageFiles" id="imageInput" type="file" accept="image/png,  image/jpeg"
+                                        <input asp-for="HighProject.ImageFiles" id="imageInput" type="file" accept="image/png,  image/jpeg, video/mp4"
                                                class="form-control" multiple="">
                                         <div>
                                             <p id="imageErrorMessage" class="fw-bold "></p>

@@ -52,10 +52,5 @@ namespace XBInsaat.Mvc.ViewModels
         public IEnumerable<HighProjectImage> HighProjectImages { get; set; }
         public IEnumerable<MidProjectImage> MidProjectImages { get; set; }
     }
-    public class HomeIndexContactUsViewModel
-    {
-        public ContactUsCreateDto ContactUsCreateDto { get; set; }
-        public IEnumerable<Setting> Settings { get; set; }
-
-    }
+    
 }

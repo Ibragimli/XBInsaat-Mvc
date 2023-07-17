@@ -6,7 +6,7 @@
 
 
         if (!regex.test(email)) {
-            $('#emailError').text('Lütfen geçerli bir e-posta adresi girin.');
+            $('#emailError').text('Zəhmət olmasa düzgün poçt ünvanı daxil edin.');
             $('#emailError').css('padding', '3px 15px');
         } else {
             $('#emailError').text('');

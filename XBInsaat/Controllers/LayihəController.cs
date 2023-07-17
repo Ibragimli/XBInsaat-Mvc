@@ -2,6 +2,7 @@
 using XBInsaat.Core.Entites;
 using XBInsaat.Mvc.ViewModels;
 using XBInsaat.Service.CustomExceptions;
+using XBInsaat.Services.Dtos.User;
 using XBInsaat.Services.Services.Interfaces.User;
 
 namespace XBInsaat.Mvc.Controllers
@@ -17,6 +18,13 @@ namespace XBInsaat.Mvc.Controllers
         public async Task<IActionResult> Index(int id)
         {
             ProjectViewModel projectViewModel = new ProjectViewModel();
+            ContactUsCreateDto contactUsCreateDto = new ContactUsCreateDto();
+            HomeIndexContactUsViewModel homeIndexContactUsViewModel = new HomeIndexContactUsViewModel
+            {
+                ContactUsCreateDto = contactUsCreateDto,
+                Settings = await _homeIndexServices.GetSettings(),
+
+            };
             try
             {
                 projectViewModel = new ProjectViewModel
@@ -24,6 +32,7 @@ namespace XBInsaat.Mvc.Controllers
                     HighProject = await _homeIndexServices.GetHighProject(id),
                     MidProjects = await _homeIndexServices.GetMidProjects(),
                     Settings = await _homeIndexServices.GetSettings(),
+                    HomeIndexContactUsViewModel = homeIndexContactUsViewModel,
                 };
             }
             catch (ItemNotFoundException ex)
