@@ -27,18 +27,18 @@
                             {
                                 <div class="col-lg-4  col-md-10 mb-2 projectBoxs">
                                     <!-- Featured image -->
-                                    <a href="#!" id="openModal2" class="projectModalLink" data-value="@highProject.Id">
+                                    <a asp-action="index" asp-controller="layihə" asp-route-id="@highProject.Id">
                                         <img src="~/uploads/highprojects/@highProject.HighProjectImages.FirstOrDefault(x=>x.HighProjectId == highProject.Id)?.Image"
                                              class="img-fluid rounded hover-lift-light" alt="">
                                     </a>
 
                                     <!-- Title -->
-                                    <a data-value="@highProject.Id" href="#!" id="openModal2" class="projectModalLink projectBoxTitle d-block text-dark text-decoration-none mt-4">
+                                    <a asp-action="index" asp-controller="layihə" asp-route-id="@highProject.Id" class=" projectBoxTitle d-block text-dark text-decoration-none mt-4">
                                         @highProject.Name
                                     </a>
 
                                     <!-- Read more -->
-                                    <a href="#!" id="openModal2" data-value="@highProject.Id" class="projectModalLink postReadText d-inline-block border-bottom border-primary text-decoration-none mt-2 pb-1">
+                                    <a asp-action="index" asp-controller="layihə" asp-route-id="@highProject.Id" class=" postReadText d-inline-block border-bottom border-primary text-decoration-none mt-2 pb-1">
                                         @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ReadPostText" + language)?.Value)
                                     </a>
                                 </div>
@@ -46,7 +46,7 @@
                             }
 
                         </div>
-                        <span style="display:none; opocity:0;" id="langText">@language</span>
+                        <span style="display:none; opacity:0;" id="langText">@language</span>
                         <!-- Go to previous posts -->
                         <a href="#" id="close-first" data-bs-dismiss="modal" aria-label="Close"
                            class="projectBackBtn btn btn-pastel-primary hover-lift-light text-uppercase-bold-sm mt-4">

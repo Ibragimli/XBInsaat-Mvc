@@ -1,0 +1,130 @@
+﻿@{
+    ViewData["Title"] = "Layihə";
+    var language = _localization.Getkey("Language").Value;
+    int i = 0;
+}
+@model ProjectViewModel
+<section id="projectPage">
+    <div class="container">
+        <div class="row  justify-content-center ">
+            <!-- Post -->
+            <!-- Featured image -->
+            <div class="col-md-9  col-sm-12 mb-2 ">
+                <div class="projectSliders">
+
+                    @foreach (var item in Model.HighProject.HighProjectImages)
+                    {
+                        string type = item.Image.Substring(item.Image.LastIndexOf(".") + 1);
+
+                        if (type == "mp4")
+                        {
+                            <div class="projectSlide" style="display: none;">
+                                <div class="video-container image-container">
+                                    <video style=" width: 100%; height: auto; object-fit: cover;" class="video"
+                                           src="~/uploads/highprojects/@item?.Image"></video>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="projectSlide" style="display:@(i==0?"block":"none")">
+                                <div class="image-container">
+                                    <a target="_blank" href="#">
+                                        <img src="~/uploads/highprojects/@item.Image"
+                                             class="img-fluid rounded hover-lift-light" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        }
+                        i++;
+                    }
+
+                    <a class="prev-project-btn prev-btn" href="#">&lt;</a>
+                    <a class="next-project-btn next-btn" href="#">&gt;</a>
+                </div>
+            </div>
+
+            <div class="col-md-9 col-sm-12 projectPagedDownBox">
+                <!-- Title -->
+                <div class=" mb-2 projectPageTitleBox">
+                    <h1 class="h5 d-block text-dark text-decoration-none mt-4 ">
+                        @Model.HighProject.Name
+                    </h1>
+                </div>
+                <!-- Read more -->
+                <div class=" mb-2 projectPageDescBox">
+                    <p class="d-inline-block  mt-2 ">
+                        @if (language == "Az")
+                        {
+                            @Model.HighProject.DescribeAz
+                        }
+                        else if (language == "En")
+                        {
+                            @Model.HighProject.DescribeEn
+                        }
+                        else
+                        {
+                            @Model.HighProject.DescribeRu
+                        }
+                    </p>
+                </div>
+            </div>
+
+            <!-- Shops -->
+            <div class="col-md-9 mb-2 projectShops">
+                <h2 class="mb-3 mt-2">
+                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalProjectModalShops" + language)?.Value)
+                </h2>
+                <div class="row  projectShopBoxs">
+                    <!-- Web slider -->
+                    @foreach (var midProject in Model.HighProject.MidProjects)
+                    {
+                        <div class="col-lg-3  col-md-7 mb-2 projectShopBox">
+                            <!-- Featured image -->
+                            <a asp-action="index" asp-controller="altlayihə" asp-route-id="@midProject.Id" class="">
+                                <img src="~/uploads/midprojects/@midProject.MidProjectImages.FirstOrDefault(x=>x.MidProjectId == midProject.Id)?.Image"
+                                     class="img-fluid rounded hover-lift-light" alt="">
+                            </a>
+                            <!-- Title -->
+                            <a asp-action="index" asp-controller="altlayihə" asp-route-id="@midProject.Id"
+                               class="projectBoxTitle d-block  text-decoration-none mt-3 ">
+                                @midProject?.Name
+                            </a>
+                        </div>
+                    }
+
+                </div>
+                <!-- Mobile Slider -->
+                <div class="owl-carousel owl-carousel-slider owl-theme mobile-owl  p-0 m-0">
+                    @foreach (var midProject in Model.HighProject.MidProjects)
+                    {
+                        <div class="item me-2">
+                            <a asp-action="index" asp-controller="altlayihə" asp-route-id="@midProject.Id" class="projectBoxTitle d-block  text-decoration-none mt-3">
+                                <img style=" border-radius: 5px;"
+                                     src="~/uploads/midprojects/@midProject.MidProjectImages.FirstOrDefault(x=>x.MidProjectId == midProject.Id)?.Image" alt="" width="100% ">
+                            </a>
+                            <a asp-action="index" asp-controller="altlayihə" asp-route-id="@midProject.Id" class="projectBoxTitle d-block  text-decoration-none mt-3"
+                               style="color: #000;">
+                                @midProject?.Name
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="BackgorundImageBox">
+    <!-- BackgorundImage -->
+    <div class="BackgorundPage">
+        <div class="BackImage">
+            <img src="~/assets/Images/slide-vaqif.png" alt="Resim 1">
+        </div>
+    </div>
+</section>
+
+@section Scripts{
+    <script src="~/assets/js/slider.js"></script>
+}

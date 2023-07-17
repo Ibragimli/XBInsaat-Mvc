@@ -1,0 +1,38 @@
+
+
+::-webkit-scrollbar {
+    width: 6px;
+    border-radius: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: #00a8c6c9 #ffffff;
+    /* Kaydırma çubuğu genişliği */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #00a8c6c9;
+    /* Kaydırma çubuğu rengi */
+}
+
+::-webkit-scrollbar-track {
+    background-color: #ffffff;
+    scrollbar-width: thin;
+    scrollbar-color: #00a8c6c9 #ffffff;
+    /* Kaydırma çubuğu arka plan rengi */
+}
+
+
+
+::-moz-scrollbar {
+    width: 6px;
+    border-radius: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: #00a8c6c9 #ffffff;
+}
+
+::-moz-scrollbar-thumb {
+    background-color: #00a8c6c9;
+}
+
+::-moz-scrollbar-track {
+    background-color: #ffffff;
+}

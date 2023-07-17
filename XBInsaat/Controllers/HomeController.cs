@@ -124,7 +124,7 @@ namespace XBInsaat.Controllers
             }
             return View(homeViewModel);
         }
-        public ActionResult GetNewsJsonData(int newItemId = 2, string language = "Az")
+        private ActionResult GetNewsJsonData(int newItemId = 2, string language = "Az")
         {
             News data = _dataContext.News.Include(x => x.NewsImages).FirstOrDefault(x => x.Id == newItemId);
             var lang = "";
@@ -205,7 +205,7 @@ namespace XBInsaat.Controllers
 
             return Json(jsonString);
         }
-        public ActionResult GetMidProjectsJsonData(int midProjectItemId = 2, string language = "Az")
+        private ActionResult GetMidProjectsJsonData(int midProjectItemId = 2, string language = "Az")
         {
             MidProject data = _dataContext.MidProjects.Include(x => x.MidProjectImages).FirstOrDefault(x => x.Id == midProjectItemId);
             var lang = "";

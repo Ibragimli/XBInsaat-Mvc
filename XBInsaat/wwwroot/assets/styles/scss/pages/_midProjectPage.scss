@@ -1,0 +1,76 @@
+#midProjectPage {
+    margin-top: calc((100vh - 100vh * 0.785));
+
+    width: 100%;
+    z-index: 5;
+
+    .container {
+        .row {
+            .projectInfoSlides {
+                position: relative;
+                width: 100%;
+                overflow: hidden;
+
+                .projectInfoSlide {
+                    width: 100%;
+                    height: auto;
+                    display: none;
+
+                    .image-container {
+                        width: 100%;
+                        height: 0;
+                        padding-bottom: calc(100% / (16 / 9));
+                        /* Ya da resmin oranına göre ayarlayın */
+                        position: relative;
+
+                        a {
+                            img {
+                                width: 100%;
+                                height: 100%;
+                                object-fit: fill;
+                                object-position: center;
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                            }
+                        }
+                    }
+                }
+
+
+            }
+
+            .midProjectPagedDownBox {
+                background-color: rgba(255, 255, 255, 0.620);
+                // box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+                border-radius: 6px;
+                margin-bottom: 20px;
+                padding: 0px 14px;
+                box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+                .midProjectPageTitleBox {
+
+                    h1 {
+                        font-size: 24px;
+                        font-weight: 600;
+                        // color: #8e8e93 !important;
+                    }
+                }
+
+                .midProjectPageDescBox {
+
+                    p {
+                        // color: #8e8e93;
+                        font-size: 20px;
+                        font-weight: 500;
+                    }
+                }
+            }
+
+        }
+    }
+
+
+}
+
+

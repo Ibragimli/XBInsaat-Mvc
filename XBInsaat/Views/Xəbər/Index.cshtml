@@ -1,0 +1,78 @@
+﻿@{
+    var language = _localization.Getkey("Language").Value;
+    ViewData["Title"] = "Index";
+    int i = 0;
+}
+@model News
+
+
+<!-- Older posts -->
+<section id="newsPage">
+    <div class="container">
+        <div class="row  justify-content-center ">
+            <!-- Post -->
+            <!-- Featured image -->
+            <div class="col-md-9  col-sm-12 mb-2 ">
+                <div class="newSliders">
+                    @foreach (var item in Model.NewsImages)
+                    {
+                        <div class="newSlide" style="display:@(i==0?"block":"none")">
+                            <div class="image-container">
+                                <a target="_blank" href="@Model.InstagramUrl">
+                                    <img src="~/uploads/news/@item?.Image"
+                                         class="img-fluid rounded hover-lift-light" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        i++;
+                    }
+                    <a class="prev-new-btn prev-btn" href="#">&lt;</a>
+                    <a class="next-new-btn next-btn" href="#">&gt;</a>
+                </div>
+            </div>
+
+            <div class="col-md-9 col-sm-12 newPagedDownBox">
+                <!-- Title -->
+                <div class=" mb-2 newPageTitleBox">
+                    <h1 class="h5 d-block text-dark text-decoration-none mt-4 ">
+                        @Model.Title
+
+                    </h1>
+                </div>
+                <!-- Read more -->
+                <div class=" mb-2 newPageDescBox">
+                    <p class="d-inline-block  mt-2 ">
+                        @if (language == "Az")
+                        {
+                            @Model.TextAz
+                        }
+                        else if (language == "En")
+                        {
+                            @Model.TextEn
+                        }
+                        else
+                        {
+                            @Model.TextRu
+                        }
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+<section id="BackgorundImageBox">
+    <!-- BackgorundImage -->
+    <div class="BackgorundPage">
+        <div class="BackImage">
+            <img src="~/assets/Images/slide-vaqif.png" alt="Resim 1">
+        </div>
+    </div>
+</section>
+
+@section Scripts{
+    <script src="~/assets/js/newSlider.js"></script>
+
+}

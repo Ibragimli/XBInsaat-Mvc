@@ -42,7 +42,7 @@
                     <div class="kutu servicesKutu">
                         <a href="#" data-bs-toggle="modal" data-bs-target="#servicesModalScrollable">
                             <div class="kutuFeature" style="background-color: #fff;" onmouseover="showSlide(1)">
-                                <span style="color: black;">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxServicesTitle" + language)?.Value)</span>
+                                <span style="color: #949162;">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxServicesTitle" + language)?.Value)</span>
                             </div>
                         </a>
                     </div>
@@ -62,7 +62,7 @@
                 <div class="kutus d-flex ">
                     <div class="kutu newsKutu">
                         <a href="#" data-bs-toggle="modal" data-bs-target="#newsModalScrollable">
-                            <div class="kutuFeature" style="background-color: #576676;"
+                            <div class="kutuFeature" style="background-color: #5F6C7C;"
                                  onmouseover="showSlide(3)">
                                 <span style="color: white;">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxNewsTitle" + language)?.Value)</span>
                             </div>
@@ -70,7 +70,7 @@
                     </div>
                     <div class="kutu camKutu">
                         <a href="#" data-bs-toggle="modal" data-bs-target="#camsModalScrollable">
-                            <div class="kutuFeature" style="background-color: #fff;" onmouseover="showSlide(4)">
+                            <div class="kutuFeature" style="background-color: white;" onmouseover="showSlide(4)">
                                 <span style="color: black;">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxCAMTitle" + language)?.Value)</span>
                             </div>
                         </a>
@@ -81,7 +81,7 @@
                 <div class="kutus  d-flex justify-content-end">
                     <div class="kutu contactusKutu">
                         <a href="#" data-bs-toggle="modal" data-bs-target="#contactModalScrollable">
-                            <div class="kutuFeature" style="background-color: #000;" onmouseover="showSlide(5)">
+                            <div class="kutuFeature" style="background-color: #88A0AC;" onmouseover="showSlide(5)">
                                 <span style="color: white;">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxContactUsTitle" + language)?.Value)</span>
                             </div>
                         </a>
@@ -96,16 +96,16 @@
     <section id="boxDesctipions">
         <div class="row">
             <div class="boxDesc active col-lg-3">
-                <h2 style="color: #000;">
+                <h2 style="color: #363435;">
                     @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxGeneralTitle" + language)?.Value)
                 </h2>
-                <p style="color: #000;">
+                <p style="color: #363435;">
                     @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "DescText" + language)?.Value)
                 </p>
 
                 <div class="boxDescButton">
                     <a data-bs-toggle="modal" data-bs-target="#generalModalScrollable"
-                       style="background-color: #000;" href="#">
+                       style="background-color: #363435;" href="#">
                         @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxBtn" + language)?.Value)
                     </a>
                 </div>
@@ -147,45 +147,45 @@
                 </div>
             </div>
             <div class="boxDesc col-lg-3">
-                <h2 style="color: rgb(87, 102, 118);">
+                <h2 style="color: #827EA9;">
                     @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxNewsTitle" + language)?.Value)
                 </h2>
-                <p style="color: rgb(87, 102, 118);">
+                <p style="color:#827EA9;">
                     @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "DescNewsText" + language)?.Value)
                 </p>
 
                 <div class="boxDescButton">
                     <a data-bs-toggle="modal" data-bs-target="#newsModalScrollable"
-                       style="background-color:    rgb(87, 102, 118);" href="#">
+                       style="background-color: #827EA9;" href="#">
                         @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxBtn" + language)?.Value)
                     </a>
                 </div>
             </div>
             <div class="boxDesc col-lg-3">
-                <h2 style="color: #86988E;">
+                <h2 style="color: #4EA392;">
                     @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxCAMTitle" + language)?.Value)
                 </h2>
-                <p style="color: #86988E;">
+                <p style="color: #4EA392;">
                     @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "DescText" + language)?.Value)
                 </p>
 
                 <div class="boxDescButton">
                     <a data-bs-toggle="modal" data-bs-target="#camsModalScrollable"
-                       style="background-color: #86988E;" href="#">
+                       style="background-color: #4EA392;" href="#">
                         @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxBtn" + language)?.Value)
                     </a>
                 </div>
             </div>
             <div class="boxDesc col-lg-3">
-                <h2 style="color: #BFB256;">
+                <h2 style="color: #9B95C9;">
                     @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxContactUsTitle" + language)?.Value)
                 </h2>
-                <p style="color: #BFB256;">
+                <p style="color: #9B95C9;">
                     @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "DescContactUsText" + language)?.Value)
                 </p>
                 <div class="boxDescButton">
                     <a data-bs-toggle="modal" data-bs-target="#contactModalScrollable"
-                       style="background-color: #BFB256;" href="#">
+                       style="background-color: #9B95C9;" href="#">
                         @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxBtn" + language)?.Value)
                     </a>
 

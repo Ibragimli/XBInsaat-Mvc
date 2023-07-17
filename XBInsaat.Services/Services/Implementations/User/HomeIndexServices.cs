@@ -48,6 +48,15 @@ namespace XBInsaat.Services.Services.Implementations.User
             return item;
 
         }
+        public async Task<HighProject> GetHighProject(int id)
+        {
+            var item = await _unitOfWork.HighProjectRepository.GetAsync(x => !x.IsDelete && x.Id == id, "HighProjectImages");
+
+            if (item == null)
+                throw new ItemNotFoundException("Layihə tapılmadı!");
+            return item;
+
+        }
 
         public async Task<IEnumerable<News>> GetNews()
         {
@@ -74,6 +83,15 @@ namespace XBInsaat.Services.Services.Implementations.User
         public async Task<IEnumerable<XBService>> GetXBServices()
         {
             return await _unitOfWork.XBServiceRepository.GetAllAsync(x => !x.IsDelete);
+        }
+
+        public async Task<MidProject> GetMidProject(int id)
+        {
+            var item = await _unitOfWork.MidProjectRepository.GetAsync(x => !x.IsDelete && x.Id == id, "MidProjectImages");
+
+            if (item == null)
+                throw new ItemNotFoundException("Layihə tapılmadı!");
+            return item;
         }
     }
 }

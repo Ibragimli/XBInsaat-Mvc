@@ -64,7 +64,7 @@
             <div class="row">
                 <div class="headLogo">
                     <div class="headImageBox">
-                        <a href="#">
+                        <a asp-action="index" asp-controller="home">
                             <img src="~/uploads/setting/@settings.FirstOrDefault(x => x.Key == "LogoImage")?.Value" alt="">
                         </a>
                     </div>
@@ -213,10 +213,7 @@
     <script src="~/assets/js/revoSlider.js"></script>
 
     <script src="~/assets/js/localitaztion.js"></script>
-    <script src="~/assets/js/newSlider.js"></script>
-    <script src="~/assets/js/slider.js"></script>
 
-    @*<script src="~/assets/js/sliderInfo.js"></script>*@
 
     <!-- owlCarousel -->
     <script src="~/assets/js/owl.carousel.min.js"></script>

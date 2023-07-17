@@ -1,0 +1,90 @@
+﻿@{
+    var language = _localization.Getkey("Language").Value;
+    ViewData["Title"] = "Altlayihə";
+    int i = 0;
+}
+@model MidProjectViewModel
+
+
+<!-- Older posts -->
+<section id="midProjectPage">
+    <div class="container">
+        <div class="row  justify-content-center ">
+            <!-- Post -->
+            <!-- Featured image -->
+            <div class="col-md-9  col-sm-12 mb-2 ">
+                <div class="projectInfoSlides">
+                    @foreach (var item in Model.MidProject.MidProjectImages)
+                    {
+                        string type = item.Image.Substring(item.Image.LastIndexOf(".") + 1);
+
+                        if (type == "mp4")
+                        {
+                            <div class="projectInfoSlide" style="display: none;">
+                                <div class="video-container image-container">
+                                    <video style="width: 100%; height: auto; object-fit: cover;" class="video"
+                                           src="~/uploads/midprojects/@item?.Image"></video>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="projectInfoSlide" style="display:@(i==0?"block":"none")">
+                                <div class="image-container">
+                                    <a href="#">
+                                        <img src="~/uploads/midprojects/@item.Image"
+                                             class="img-fluid rounded hover-lift-light" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        }
+                        i++;
+                    }
+                    <a class="info-prev-btn prev-btn" href="#">&lt;</a>
+                    <a class="info-next-btn next-btn" href="#">&gt;</a>
+                </div>
+            </div>
+
+            <div class="col-md-9 col-sm-12 midProjectPagedDownBox">
+                <!-- Title -->
+                <div class=" mb-2 midProjectPageTitleBox">
+                    <h1 class="h5 d-block text-dark text-decoration-none mt-4 ">
+                        @Model.MidProject.Name
+
+                    </h1>
+                </div>
+                <!-- Read more -->
+                <div class=" mb-2 midProjectPageDescBox">
+                    <p class="d-inline-block  mt-2 ">
+                        @if (language == "Az")
+                        {
+                            @Model.MidProject.DescribeAz
+                        }
+                        else if (language == "En")
+                        {
+                            @Model.MidProject.DescribeEn
+                        }
+                        else
+                        {
+                            @Model.MidProject.DescribeRu
+                        }
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section id="BackgorundImageBox">
+    <!-- BackgorundImage -->
+    <div class="BackgorundPage">
+        <div class="BackImage">
+            <img src="~/assets/Images/slide-vaqif.png" alt="Resim 1">
+        </div>
+    </div>
+</section>
+
+@section Scripts{
+    <script src="~/assets/js/sliderInfo.js"></script>
+}

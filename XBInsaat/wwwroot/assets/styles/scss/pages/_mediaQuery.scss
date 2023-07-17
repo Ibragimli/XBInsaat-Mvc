@@ -11,6 +11,91 @@
         }
     }
 
+
+}
+
+@media (min-width: 1200px) {
+
+    #newsPage {
+        .container {
+            .row {
+                .newSliders {
+
+                    .newSlide {
+                        height: 380px !important;
+
+                        .image-container {
+
+                            a {
+                                img {
+                                    height: 380px !important;
+                                }
+                            }
+                            video{
+                                height: 380px !important;
+                            }
+                        }
+                    }
+
+
+                }
+            }
+        }
+    }
+
+    #projectPage {
+        .container {
+            .row {
+                .projectSliders {
+
+                    .projectSlide {
+                        height: 380px !important;
+
+                        .image-container {
+
+                            a {
+                                img {
+                                    height: 380px !important;
+                                }
+                            }
+                            video{
+                                height: 380px !important;
+                            }
+                        }
+                    }
+
+
+                }
+            }
+        }
+    }
+
+    #midProjectPagePage {
+        .container {
+            .row {
+                .projectInfoSlides {
+
+                    .projectInfoSlide {
+                        height: 380px !important;
+
+                        .image-container {
+
+                            a {
+                                img {
+                                    height: 380px !important;
+                                }
+                            }
+                            video{
+                                height: 380px !important;
+                            }
+                        }
+                    }
+
+
+                }
+            }
+        }
+    }
 }
 
 @media (max-height: 700px) {
@@ -41,9 +126,64 @@
     }
 }
 
+@media (min-height: 1000px) {
+    #sliderBoxs {
+        .sliderRangeBox {
+            top: 148px !important;
+        }
+
+    }
+
+    #boxDesctipions {
+        top: 390px !important;
+    }
+}
+
+@media (min-height: 1100px) {
+    #sliderBoxs {
+        .sliderRangeBox {
+            top: 220px !important;
+        }
+    }
+
+    #boxDesctipions {
+        top: 460px !important;
+    }
+}
+
+@media (min-height: 1200px) {
+    #sliderBoxs {
+        .sliderRangeBox {
+            top: 300px !important;
+        }
+    }
+
+    #boxDesctipions {
+        top: 540px !important;
+    }
+}
+
+@media (min-height: 1300px) {
+    #sliderBoxs {
+        .sliderRangeBox {
+            top: 370px !important;
+        }
+    }
+
+
+
+
+    #boxDesctipions {
+        top: 610px !important;
+    }
+}
+
+
+
+
 // 992-den yuxari
 @media (min-width: 992px) {
-
+   
     .modal,
     .fade {
         background-color: transparent !important;
@@ -69,6 +209,24 @@
             }
         }
     }
+
+    #projectPage {
+        .projectShops {
+            .projectShopBoxs {
+                .projectShopBox {
+                    a {
+                        img {
+                            height: 115.5px !important;
+                        }
+                    }
+                }
+            }
+           
+        }
+    
+    
+    }
+    
 
     #projectsModalScrollable {
         .modal-dialog {
@@ -120,47 +278,8 @@
             }
         }
     }
-    .projectModal {
-        .modal-dialog {
-            .modal-content {
-                .modal-body {
-                    section {
-                        .container {
-                            .row {
-    
-                                .projectShops {
-                                    .projectShopBoxs {
-                                        a {
-                                            img {
-                                                height: 98.5px !important;
-                                            }
-                                        }
-    
-                                     
-    
-    
-                                    }
-    
-                                    .mobile-owl {
-                                        .item {
-                                            a {
-                                                img {}
-                                            }
-                                        }
-                                    }
-                                }
-    
-                                
-                            }
-    
-    
-                        }
-                    }
-                }
-            }
-        }
-    
-    }
+
+  
     .modal-lg,
     .modal-xl {
         max-width: 1146px !important;
@@ -310,7 +429,7 @@
     }
 
     #boxDesctipions {
-        left: calc((100vw - 100vw * 0.845));
+        left: calc((100vw - 100vw * 0.855));
 
         .row {
             .boxDesc {
@@ -337,10 +456,11 @@
 
 @media (max-width: 1280px) {
     #boxDesctipions {
-        left: calc((100vw - 100vw * 0.828)) !important; 
-    }    
-  
+        left: calc((100vw - 100vw * 0.828)) !important;
+    }
+
 }
+
 @media only screen and (max-width: 1200px) {}
 
 @media only screen and (max-width: 1180px) {
@@ -395,11 +515,12 @@
         }
     }
 }
+
 @media (max-width: 1100px) {
     #boxDesctipions {
-        left: calc((100vw - 100vw * 0.850)) !important; 
-    }   
-  
+        left: calc((100vw - 100vw * 0.850)) !important;
+    }
+
 }
 
 // 992-den asagi
@@ -542,72 +663,99 @@
 
     }
 
-    //projectModal
-    .projectModal {
-        .modal-dialog {
-            .modal-content {
-                .modal-body {
-                    padding: 1rem 1rem 2rem 1rem !important;
 
-                    section {
-                        .container {
-                            .row {
-                                .projectShops {
+    #projectPage {
+        .container {
+            .row {
+                .projectShops {
+                    .projectShopBoxs {
+                        display: none !important;
 
-                                    h1 {}
+                        .projectShopBox {
+                            display: none !important;
 
-                                    .projectShopBoxs {
-                                        padding-right: 10px;
-                                        display: none;
-
-                                        a {
-                                            img {
-                                                width: 100%;
-                                                transition: all 0.4s;
-                                                transform: scale(1);
-                                            }
-                                        }
-
-                                        .projectBoxTitle {
-                                            transition: all 0.4s;
-                                            color: #000;
-
-                                        }
-
-
-                                    }
-
-                                    .mobile-owl {
-                                        display: block !important;
-                                    }
-                                }
-
-                                .projectBackBtn {
-                                    color: #2083fe;
-                                    // background-color: #c1dcff; 
-                                    background-color: #e4f0ff;
-                                    transform: scale(1);
-                                    transition: transform 0.4s;
-                                    text-transform: uppercase !important;
-                                    font-weight: 400 !important;
-                                    letter-spacing: 2px !important;
-                                    font-size: 24ox !important;
-                                    padding: 0.4rem 1.1rem;
-                                    line-height: 1.5;
-                                    margin-bottom: 17px;
-
-                                    i {
-                                        margin-right: 7px;
-                                        font-size: .875em;
-                                    }
-                                }
-                            }
                         }
                     }
+
+                    .mobile-owl {
+                        display: block !important;
+
+
+                    }
                 }
+
             }
         }
+
+
     }
+
+    //projectModal
+    // .projectModal {
+    //     .modal-dialog {
+    //         .modal-content {
+    //             .modal-body {
+    //                 padding: 1rem 1rem 2rem 1rem !important;
+
+    //                 section {
+    //                     .container {
+    //                         .row {
+    //                             .projectShops {
+
+    //                                 h1 {}
+
+    //                                 .projectShopBoxs {
+    //                                     padding-right: 10px;
+    //                                     display: none;
+
+    //                                     a {
+    //                                         img {
+    //                                             width: 100%;
+    //                                             transition: all 0.4s;
+    //                                             transform: scale(1);
+    //                                         }
+    //                                     }
+
+    //                                     .projectBoxTitle {
+    //                                         transition: all 0.4s;
+    //                                         color: #000;
+
+    //                                     }
+
+
+    //                                 }
+
+    //                                 .mobile-owl {
+    //                                     display: block !important;
+    //                                 }
+    //                             }
+
+    //                             .projectBackBtn {
+    //                                 color: #2083fe;
+    //                                 // background-color: #c1dcff; 
+    //                                 background-color: #e4f0ff;
+    //                                 transform: scale(1);
+    //                                 transition: transform 0.4s;
+    //                                 text-transform: uppercase !important;
+    //                                 font-weight: 400 !important;
+    //                                 letter-spacing: 2px !important;
+    //                                 font-size: 24ox !important;
+    //                                 padding: 0.4rem 1.1rem;
+    //                                 line-height: 1.5;
+    //                                 margin-bottom: 17px;
+
+    //                                 i {
+    //                                     margin-right: 7px;
+    //                                     font-size: .875em;
+    //                                 }
+    //                             }
+    //                         }
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
 
     #sliderMobileBoxs {
         .kutus {
@@ -809,6 +957,96 @@
             }
         }
     }
+
+    #newsPage {
+        margin-top: calc((100vh - 100vh * 0.790));
+
+        width: 100%;
+        z-index: 5;
+
+        .container {
+            .row {
+
+
+                .newPagedDownBox {
+                    .newPageTitleBox {
+
+                        h1 {
+                            font-weight: 500 !important;
+                        }
+                    }
+
+                    .newPageDescBox {
+
+                        p {
+                            font-weight: 300 !important;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+    #projectPage {
+        margin-top: calc((100vh - 100vh * 0.790));
+        width: 100%;
+        z-index: 5;
+
+        .container {
+            .row {
+
+
+                .projectPagedDownBox {
+                    .projectPageTitleBox {
+
+                        h1 {
+                            font-weight: 500 !important;
+                        }
+                    }
+
+                    .projectPageDescBox {
+
+                        p {
+                            font-weight: 300 !important;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+    #midProjectPage {
+        margin-top: calc((100vh - 100vh * 0.790));
+
+        width: 100%;
+        z-index: 5;
+
+        .container {
+            .row {
+
+
+                .midProjectPagePagePagedDownBox {
+                    .midProjectPagePageTitleBox {
+
+                        h1 {
+                            font-weight: 600 !important;
+                        }
+                    }
+
+                    .midProjectPagePageDescBox {
+
+                        p {
+                            font-weight: 300 !important;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
 }
 
 @media only screen and (max-width: 450px) {
@@ -872,5 +1110,32 @@
             }
         }
 
+    }
+
+    #newsPage {
+        margin-top: calc((100vh - 100vh * 0.81)) !important;
+    }
+
+    #projectPage {
+        margin-top: calc((100vh - 100vh * 0.81)) !important;
+    }
+
+    #midProjectPage {
+        margin-top: calc((100vh - 100vh * 0.81)) !important;
+    }
+}
+
+@media only screen and (max-width: 376px) {
+
+    #newsPage {
+        margin-top: calc((100vh - 100vh * 0.79)) !important;
+    }
+
+    #projectPage {
+        margin-top: calc((100vh - 100vh * 0.79)) !important;
+    }
+
+    #midProjectPage {
+        margin-top: calc((100vh - 100vh * 0.79)) !important;
     }
 }

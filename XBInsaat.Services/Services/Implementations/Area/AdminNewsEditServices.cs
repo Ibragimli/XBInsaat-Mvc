@@ -10,6 +10,7 @@ using XBInsaat.Core.Entites;
 using XBInsaat.Core.IUnitOfWork;
 using XBInsaat.Service.CustomExceptions;
 using XBInsaat.Service.HelperService.Interfaces;
+using XBInsaat.Services.Dtos.Area;
 using XBInsaat.Services.Services.Interfaces.Area;
 
 namespace XBInsaat.Services.Services.Implementations.Area
@@ -220,6 +221,14 @@ namespace XBInsaat.Services.Services.Implementations.Area
             {
                 throw new ValueFormatExpception("Xəbər mətninin uzunluğu maksimum 200 ola bilər");
             }
+            if (News.InstagramUrl !=null)
+            {
+                if (News.InstagramUrl.Contains("www."))
+                {
+                    throw new ItemFormatException("Zəhmət olmasa linki doğru daxil edin");
+                }
+            }
+         
         }
 
     }

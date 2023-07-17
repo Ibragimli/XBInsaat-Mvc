@@ -29,18 +29,18 @@
                             {
                                 <div class="col-lg-4  col-md-12 mb-2 newsBoxs">
                                     <!-- Featured image -->
-                                    <a class="newModalLink" data-value="@newItem.Id" href="#!">
+                                    <a asp-action="index" asp-controller="xəbər" asp-route-id="@newItem.Id" >
                                         <img src="~/uploads/news/@newItem.NewsImages.FirstOrDefault(x=>x.NewsId == newItem.Id)?.Image"
                                              class="img-fluid rounded hover-lift-light" alt="">
                                     </a>
 
                                     <!-- Title -->
-                                    <a data-value="@newItem.Id" id="newModalLink" href="#!" class="newModalLink newsBoxTitle d-block text-dark text-decoration-none mt-4">
+                                    <a asp-action="index" asp-controller="xəbər" asp-route-id="@newItem.Id"  class=" newsBoxTitle d-block text-dark text-decoration-none mt-4">
                                         @newItem.Title
                                     </a>
 
                                     <!-- Read more -->
-                                    <a data-value="@newItem.Id" id="newModalLink" href="#!" class="newModalLink postReadText d-inline-block border-bottom border-primary text-decoration-none mt-2 pb-1">
+                                    <a asp-action="index" asp-controller="xəbər" asp-route-id="@newItem.Id"  class=" postReadText d-inline-block border-bottom border-primary text-decoration-none mt-2 pb-1">
                                         @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ReadPostText" + language)?.Value)
 
                                     </a>
