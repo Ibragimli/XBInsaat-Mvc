@@ -28,8 +28,8 @@ namespace XBInsaat.Services.Services.Implementations
         public async Task Send(string to, string subject, string html)
         {
 
-            int port = int.Parse((await _unitOfWork.EmailSettingRepository.GetAsync(x => x.Key == "SmtpHost"))?.Value);
-
+            var portStr = (await _unitOfWork.EmailSettingRepository.GetAsync(x => x.Key == "SmtpPort")).Value;
+            int port = int.Parse(portStr);
             var email = new MimeMessage();
             email.From.Add(MailboxAddress.Parse((await _unitOfWork.EmailSettingRepository.GetAsync(x => x.Key == "SmtpEmail"))?.Value));
             email.To.Add(MailboxAddress.Parse(to));
