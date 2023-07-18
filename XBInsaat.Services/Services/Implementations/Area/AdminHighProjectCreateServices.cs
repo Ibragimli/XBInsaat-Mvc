@@ -40,6 +40,10 @@ namespace XBInsaat.Services.Services.Implementations.Area
         {
             if (highProjectCreateDto == null)
                 throw new ItemNullException("Xəta baş verdi.");
+            if (highProjectCreateDto.ContactInfo?.Length > 200)
+            {
+                throw new ValueFormatExpception("Əlaqə məlumatlarının uzunluğu maksimum 200 ola bilər");
+            }
             if (highProjectCreateDto.InstagramUrl != null)
             {
                 if (!highProjectCreateDto.InstagramUrl.Contains("www.") && !highProjectCreateDto.InstagramUrl.Contains(".com"))

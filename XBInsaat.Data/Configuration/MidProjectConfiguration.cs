@@ -15,6 +15,7 @@ namespace XBInsaat.Data.Configuration
         {
             builder.Property(x => x.Name).HasMaxLength(100).IsRequired(true);
             builder.Property(x => x.InstagramUrl).HasMaxLength(200).IsRequired(false);
+            builder.Property(x => x.ContactInfo).HasMaxLength(200).IsRequired(false);
             builder.Property(x => x.DescribeAz).HasMaxLength(5000).IsRequired(true);
             builder.Property(x => x.DescribeEn).HasMaxLength(5000).IsRequired(true);
             builder.Property(x => x.DescribeRu).HasMaxLength(5000).IsRequired(true);

@@ -34,6 +34,12 @@
                                         <input asp-for="MidProjectCreateDto.InstagramUrl" maxlength="200" type="text" class="form-control">
                                         <span asp-validation-for="MidProjectCreateDto.InstagramUrl" class="text-danger"></span>
                                     </div>
+                                    <!-- Layihə ContactInfo  Start -->
+                                    <div class="mb-3 posterTitle">
+                                        <label asp-for="MidProjectCreateDto.ContactInfo" class="form-label">Əlaqə məlumatları</label>
+                                        <input asp-for="MidProjectCreateDto.ContactInfo" maxlength="200" type="text" class="form-control">
+                                        <span asp-validation-for="MidProjectCreateDto.ContactInfo" class="text-danger"></span>
+                                    </div>
                                     <!-- Layihələr  Start -->
                                     <div class="mb-3 highProjects">
                                         <label class="form-label">Layihə</label>
@@ -44,7 +50,7 @@
 
                                             @foreach (var highProject in Model.HighProjects)
                                             {
-                                                <option  value="@highProject.Id">@highProject.Name</option>
+                                                <option value="@highProject.Id">@highProject.Name</option>
                                             }
                                         </select>
                                     </div>
@@ -150,9 +156,9 @@
         selectedFiles.forEach((file, i) => {
             if (i < 8) {
                 html += `<div class="imageBox">
-                                                      <p id="${i}" onclick="removeFile(${i})"><i class="fa-solid fa-trash"></i></p>
-                                                      <img data-image-id="${i}" class="temperorayImage" src="${file.src}" alt="">
-                                                  </div>`;
+                                                          <p id="${i}" onclick="removeFile(${i})"><i class="fa-solid fa-trash"></i></p>
+                                                          <img data-image-id="${i}" class="temperorayImage" src="${file.src}" alt="">
+                                                      </div>`;
             }
         });
 

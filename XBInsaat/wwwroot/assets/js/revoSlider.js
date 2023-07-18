@@ -37,6 +37,7 @@ function fadeDescIn(desc) {
 $('.kutu').each(function (index) {
     $(this).mouseover(function () {
         clearInterval(slideInterval);
+        currentSlide = index;
         showSlide(index);
     });
 

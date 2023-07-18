@@ -2,6 +2,13 @@
     var language = _localization.Getkey("Language").Value;
     ViewData["Title"] = "Altlayihə";
     int i = 0;
+    List<string> numbers = new List<string>();
+    if (Model.MidProject.ContactInfo != null)
+    {
+        numbers.Add(@Model.MidProject.ContactInfo.Substring(0, Model.MidProject.ContactInfo.IndexOf("-")));
+        numbers.Add(@Model.MidProject.ContactInfo.Substring(Model.MidProject.ContactInfo.LastIndexOf("-") + 1));
+    }
+   
 }
 @model MidProjectViewModel
 
@@ -21,7 +28,7 @@
             <!-- Post -->
             <!-- Featured image -->
             <div class="col-md-9  col-sm-12 mb-2 ">
-                <div class="projectInfoSlides">
+                <div style="background:black;" class="projectInfoSlides">
                     @foreach (var item in Model.MidProject.MidProjectImages)
                     {
                         string type = item.Image.Substring(item.Image.LastIndexOf(".") + 1);
@@ -59,12 +66,32 @@
                     <h1 class="h5 d-block text-dark text-decoration-none d-flex justify-content-between mt-4 ">
                         @Model.MidProject.Name
 
-                        @if (Model.MidProject.InstagramUrl != null)
-                        {
-                            <a target="_blank" href="@Model.MidProject.InstagramUrl">
-                                <i class="fa-brands fa-instagram instagramLogo"></i>
-                            </a>
-                        }
+                        <ul class="d-flex">
+                            @if (Model.MidProject.ContactInfo != null)
+                            {
+                                @foreach (var number in numbers)
+                                {
+                                    <li class="ms-3">
+                                        @if (Model.MidProject.InstagramUrl != null)
+                                        {
+                                            <a style="font-size:16px; color:black;" href="tel:@number">
+                                                <i style="color:black;" class="fa-solid fa-phone"></i>
+                                                @number
+                                            </a>
+                                        }
+                                    </li>
+                                }
+                            }
+                            <li class="ms-3">
+                                @if (Model.MidProject.InstagramUrl != null)
+                                {
+                                    <a target="_blank" href="@Model.MidProject.InstagramUrl">
+                                        <i class="fa-brands fa-instagram instagramLogo"></i>
+                                    </a>
+                                }
+                            </li>
+                        </ul>
+                     
                     </h1>
                 </div>
                 <!-- Read more -->

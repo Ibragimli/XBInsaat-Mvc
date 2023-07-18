@@ -63,6 +63,11 @@ namespace XBInsaat.Services.Services.Implementations.Area
                 oldHighProject.InstagramUrl = highProject.InstagramUrl;
                 checkBool = true;
             }
+            if (oldHighProject?.ContactInfo != highProject?.ContactInfo)
+            {
+                oldHighProject.ContactInfo = highProject.ContactInfo;
+                checkBool = true;
+            }
             if (oldHighProject.DescribeAz != highProject.DescribeAz)
             {
 
@@ -221,7 +226,11 @@ namespace XBInsaat.Services.Services.Implementations.Area
             }
             if (highProject.InstagramUrl?.Length > 200)
             {
-                throw new ValueFormatExpception("Xəbər mətninin uzunluğu maksimum 200 ola bilər");
+                throw new ValueFormatExpception("Instagram linkinin uzunluğu maksimum 200 ola bilər");
+            }
+            if (highProject.ContactInfo?.Length > 200)
+            {
+                throw new ValueFormatExpception("Əlaqə məlumatlarının uzunluğu maksimum 200 ola bilər");
             }
             if (highProject.InstagramUrl != null)
             {

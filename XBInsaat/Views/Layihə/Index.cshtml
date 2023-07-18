@@ -2,6 +2,13 @@
     ViewData["Title"] = "Layihə";
     var language = _localization.Getkey("Language").Value;
     int i = 0;
+    List<string> numbers = new List<string>();
+   
+    if (Model.HighProject.ContactInfo != null)
+    {
+        numbers.Add(@Model.HighProject.ContactInfo.Substring(0, Model.HighProject.ContactInfo.IndexOf("-")));
+        numbers.Add(@Model.HighProject.ContactInfo.Substring(Model.HighProject.ContactInfo.LastIndexOf("-") + 1));
+    }
 }
 @model ProjectViewModel
 
@@ -58,12 +65,31 @@
                 <div class=" mb-2 projectPageTitleBox">
                     <h1 class="h5 d-block text-dark text-decoration-none d-flex justify-content-between mt-4 ">
                         @Model.HighProject.Name
-                        @if (Model.HighProject.InstagramUrl != null)
-                        {
-                            <a target="_blank" href="@Model.HighProject.InstagramUrl">
-                                <i class="fa-brands fa-instagram instagramLogo"></i>
-                            </a>
-                        }
+                        <ul class="d-flex">
+                             @if (Model.HighProject.ContactInfo != null)
+                            {
+                                @foreach (var number in numbers)
+                                {
+                                    <li class="ms-3">
+                                        @if (Model.HighProject.InstagramUrl != null)
+                                        {
+                                            <a style="font-size:16px; color:black;"   href="tel:@number">
+                                                <i style="color:black;" class="fa-solid fa-phone"></i>
+                                                @number
+                                            </a>
+                                        }
+                                    </li>
+                                }
+                            }
+                            <li class="ms-3">
+                                @if (Model.HighProject.InstagramUrl != null)
+                                {
+                                    <a target="_blank" href="@Model.HighProject.InstagramUrl">
+                                        <i class="fa-brands fa-instagram instagramLogo"></i>
+                                    </a>
+                                }
+                            </li>
+                        </ul>
                     </h1>
                 </div>
                 <!-- Read more -->
@@ -86,10 +112,10 @@
             </div>
 
             <!-- Shops -->
-            <div class="col-md-9 mb-2 projectShops" style=" background-color: #00a7c640; padding: 14px 14px; box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; border-radius: 6px; ">
-                <h2 class="mb-3 mt-2">
+            <div class="col-md-9 mb-2 projectShops" style=" background: linear-gradient(to bottom, #3e5578, #FFFFFF); padding: 14px 14px; box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; border-radius: 6px; ">
+                <h2 style="color:white;" class="mb-3 mt-2">
                     @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalProjectModalShops" + language)?.Value)
-                   
+
                 </h2>
                 <div class="row  projectShopBoxs">
                     <!-- Web slider -->
