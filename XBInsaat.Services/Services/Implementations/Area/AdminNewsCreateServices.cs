@@ -37,16 +37,36 @@ namespace XBInsaat.Services.Services.Implementations.Area
             return News;
         }
 
-        public void DtoCheck(NewsCreateDto NewsCreateDto)
+        public void DtoCheck(NewsCreateDto newsCreateDto)
         {
-            if (NewsCreateDto == null)
+            if (newsCreateDto == null)
                 throw new ItemNullException("Xəta baş verdi.");
-            if (NewsCreateDto.InstagramUrl != null)
+            if (newsCreateDto.InstagramUrl != null)
             {
-                if (!NewsCreateDto.InstagramUrl.Contains("www.") && !NewsCreateDto.InstagramUrl.Contains(".com"))
+                if (!newsCreateDto.InstagramUrl.Contains("www.") && !newsCreateDto.InstagramUrl.Contains(".com"))
                 {
                     throw new ItemFormatException("Zəhmət olmasa linki doğru daxil edin");
                 }
+            }
+            if (newsCreateDto.ImageFiles == null)
+            {
+                throw new ImageNullException("Şəkil əlavə edin");
+            }
+            if (newsCreateDto.Title == null)
+            {
+                throw new ItemFormatException("Xəbər adı əlavə edin!");
+            }
+            if (newsCreateDto.TextAz == null)
+            {
+                throw new ItemFormatException("Təsvir əlavə edin!");
+            }
+            if (newsCreateDto.TextEn == null)
+            {
+                throw new ItemFormatException("Təsvir əlavə edin!");
+            }
+            if (newsCreateDto.TextRu == null)
+            {
+                throw new ItemFormatException("Təsvir əlavə edin!");
             }
         }
         public async Task CreateImageFormFile(List<IFormFile> imageFiles, int Id)

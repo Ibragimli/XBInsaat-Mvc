@@ -14,8 +14,8 @@ namespace XBInsaat.Services.Dtos.Area
         public string DescribeAz { get; set; }
         public string DescribeEn { get; set; }
         public string DescribeRu { get; set; }
-        public string InstagramUrl { get; set; }
-        public string ContactInfo { get; set; }
+        public string? InstagramUrl { get; set; }
+        public string? ContactInfo { get; set; }
         public List<IFormFile> ImageFiles { get; set; }
 
     }

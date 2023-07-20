@@ -51,6 +51,26 @@ namespace XBInsaat.Services.Services.Implementations.Area
                     throw new ItemFormatException("Zəhmət olmasa linki doğru daxil edin");
                 }
             }
+            if (highProjectCreateDto.ImageFiles == null)
+            {
+                throw new ImageNullException("Şəkil əlavə edin");
+            }
+            if (highProjectCreateDto.Name == null)
+            {
+                throw new ItemFormatException("Layihə adı əlavə edin!");
+            }
+            if (highProjectCreateDto.DescribeAz == null)
+            {
+                throw new ItemFormatException("Təsvir əlavə edin!");
+            }
+            if (highProjectCreateDto.DescribeEn == null)
+            {
+                throw new ItemFormatException("Təsvir əlavə edin!");
+            }
+            if (highProjectCreateDto.DescribeRu == null)
+            {
+                throw new ItemFormatException("Təsvir əlavə edin!");
+            }
         }
         public async Task CreateImageFormFile(List<IFormFile> imageFiles, int Id)
         {

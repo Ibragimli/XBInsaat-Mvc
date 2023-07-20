@@ -42,6 +42,26 @@ namespace XBInsaat.Services.Services.Implementations.Area
                 throw new ItemNullException("Xəta baş verdi.");
             if (!await _unitOfWork.HighProjectRepository.IsExistAsync(x => x.Id == MidProjectCreateDto.HighProjectId))
                 throw new ItemNotFoundException("Layihə tapılmadı");
+            if (MidProjectCreateDto.ImageFiles == null)
+            {
+                throw new ImageNullException("Şəkil əlavə edin");
+            }
+            if (MidProjectCreateDto.Name == null)
+            {
+                throw new ItemFormatException("Layihə adı əlavə edin!");
+            }
+            if (MidProjectCreateDto.DescribeAz == null)
+            {
+                throw new ItemFormatException("Təsvir əlavə edin!");
+            }
+            if (MidProjectCreateDto.DescribeEn == null)
+            {
+                throw new ItemFormatException("Təsvir əlavə edin!");
+            }
+            if (MidProjectCreateDto.DescribeRu == null)
+            {
+                throw new ItemFormatException("Təsvir əlavə edin!");
+            }
         }
 
         public async Task CreateImageFormFile(List<IFormFile> imageFiles, int Id)

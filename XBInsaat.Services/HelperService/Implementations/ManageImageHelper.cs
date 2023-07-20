@@ -30,16 +30,20 @@ namespace XBInsaat.Service.HelperService.Implementations
         }
         public void ImagesCheck(List<IFormFile> Images)
         {
-            if (Images.Count > 8)
-                throw new ImageCountException("Maksimum 8 şəkil əlavə edə bilərsiniz");
-
-            foreach (var image in Images)
+            if (Images != null)
             {
-                if (image.ContentType != _key.ValueStr("ImageType1") && image.ContentType != _key.ValueStr("ImageType2") && image.ContentType != _key.ValueStr("ImageType3"))
-                    throw new ImageFormatException("Şəkil yalnız (png ve ya jpeg) type-ında ola bilər");
-                if (image.Length > _key.ValueInt("ImageSize") * 1048576)
-                    throw new ImageFormatException("Şəklin max yaddaşı " + _key.ValueInt("ImageSize") + "MB ola bilər!");
+                if (Images.Count > 8)
+                    throw new ImageCountException("Maksimum 8 şəkil əlavə edə bilərsiniz");
+
+                foreach (var image in Images)
+                {
+                    if (image.ContentType != _key.ValueStr("ImageType1") && image.ContentType != _key.ValueStr("ImageType2") && image.ContentType != _key.ValueStr("ImageType3"))
+                        throw new ImageFormatException("Şəkil yalnız (png ve ya jpeg) type-ında ola bilər");
+                    if (image.Length > _key.ValueInt("ImageSize") * 1048576)
+                        throw new ImageFormatException("Şəklin max yaddaşı " + _key.ValueInt("ImageSize") + "MB ola bilər!");
+                }
             }
+
         }
         public string FileSave(IFormFile Image, string folderName)
         {

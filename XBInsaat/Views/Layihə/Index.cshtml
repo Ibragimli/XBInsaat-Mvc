@@ -6,8 +6,16 @@
    
     if (Model.HighProject.ContactInfo != null)
     {
-        numbers.Add(@Model.HighProject.ContactInfo.Substring(0, Model.HighProject.ContactInfo.IndexOf("-")));
-        numbers.Add(@Model.HighProject.ContactInfo.Substring(Model.HighProject.ContactInfo.LastIndexOf("-") + 1));
+        if (Model.HighProject.ContactInfo.Length > 11)
+        {
+            numbers.Add(@Model.HighProject.ContactInfo.Substring(0, Model.HighProject.ContactInfo.IndexOf("-")));
+            numbers.Add(@Model.HighProject.ContactInfo.Substring(Model.HighProject.ContactInfo.LastIndexOf("-") + 1));
+        }
+        else
+        {
+            numbers.Add(Model.HighProject.ContactInfo);
+        }
+      
     }
 }
 @model ProjectViewModel
@@ -71,13 +79,11 @@
                                 @foreach (var number in numbers)
                                 {
                                     <li class="ms-3">
-                                        @if (Model.HighProject.InstagramUrl != null)
-                                        {
+                                       
                                             <a style="font-size:16px; color:black;"   href="tel:@number">
                                                 <i style="color:black;" class="fa-solid fa-phone"></i>
                                                 @number
                                             </a>
-                                        }
                                     </li>
                                 }
                             }

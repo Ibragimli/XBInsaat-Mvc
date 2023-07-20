@@ -5,6 +5,8 @@ $(function () {
         autoplayTimeout: 3000,
         autoplayHoverPause: false,
         nav: false,
+        dots: false,
+        pagination: false,
         responsive: {
             200:{
                 items:1
