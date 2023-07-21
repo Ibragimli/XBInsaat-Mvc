@@ -5,7 +5,7 @@ namespace XBInsaat.Mvc.ViewModels
 {
     public class NewsViewModel
     {
-        public News News { get; set; }
+        public IEnumerable<News> News { get; set; }
         public IEnumerable<Setting> Settings { get; set; }
         public HomeIndexContactUsViewModel HomeIndexContactUsViewModel { get; set; }
 

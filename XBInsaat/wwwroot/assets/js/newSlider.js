@@ -45,7 +45,7 @@ if (newSlide.length <= 1) {
     newPrevBtn.style.display = 'none';
     newNextBtn.style.display = 'none';
 }
-                //---------
+//---------
 
 
 
@@ -205,3 +205,4 @@ if (newSlide.length <= 1) {
 //    newPrevBtn.style.display = 'none';
 //    newNextBtn.style.display = 'none';
 //}
+

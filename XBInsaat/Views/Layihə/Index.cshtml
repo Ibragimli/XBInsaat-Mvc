@@ -44,7 +44,7 @@
                         {
                             <div class="projectSlide" style="display: none;">
                                 <div class="video-container image-container">
-                                    <video style=" width: 100%; height: auto; object-fit: cover;" class="video"
+                                    <video muted style=" width: 100%; height: auto; object-fit: cover;" class="video"
                                            src="~/uploads/highprojects/@item?.Image"></video>
                                 </div>
                             </div>
@@ -53,7 +53,7 @@
                         {
                             <div class="projectSlide" style="display:@(i==0?"block":"none")">
                                 <div class="image-container">
-                                    <a target="_blank" href="#">
+                                    <a target="_blank" href="@Model.HighProject.InstagramUrl">
                                         <img src="~/uploads/highprojects/@item.Image"
                                              class="img-fluid rounded hover-lift-light" alt="">
                                     </a>
@@ -73,17 +73,21 @@
                 <div class=" mb-2 projectPageTitleBox">
                     <h1 class="h5 d-block text-dark text-decoration-none d-flex justify-content-between mt-4 ">
                         @Model.HighProject.Name
+                    </h1>
+                </div>
+                <div class=" mb-2 projectPageTitleBox" style="display:flex; justify-content:end; align-items:center;">
+                    <h1 class="h5 d-block text-dark text-decoration-none d-flex justify-content-between  ">
                         <ul class="d-flex">
-                             @if (Model.HighProject.ContactInfo != null)
+                            @if (Model.HighProject.ContactInfo != null)
                             {
                                 @foreach (var number in numbers)
                                 {
-                                    <li class="ms-3">
-                                       
-                                            <a style="font-size:16px; color:black;"   href="tel:@number">
-                                                <i style="color:black;" class="fa-solid fa-phone"></i>
-                                                @number
-                                            </a>
+                                    <li class="ms-3" style="display:flex; justify-content:center; align-items:center;">
+
+                                        <a style="font-size:16px; color:black; display:flex;" href="tel:@number">
+                                            <i style="color:black;" class="fa-solid fa-phone me-1"></i>
+                                            @number
+                                        </a>
                                     </li>
                                 }
                             }
@@ -91,7 +95,7 @@
                                 @if (Model.HighProject.InstagramUrl != null)
                                 {
                                     <a target="_blank" href="@Model.HighProject.InstagramUrl">
-                                        <i class="fa-brands fa-instagram instagramLogo"></i>
+                                        <i style="color:#00A7C6;" class="fa-brands fa-instagram instagramLogo"></i>
                                     </a>
                                 }
                             </li>

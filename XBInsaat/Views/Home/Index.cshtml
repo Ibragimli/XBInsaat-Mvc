@@ -61,8 +61,8 @@
             <div class=" revolutionSliderclass " style="display: flex; justify-content: end; ">
                 <div class="kutus d-flex ">
                     <div class="kutu newsKutu">
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#newsModalScrollable">
-                            <div class="kutuFeature" style="background-color: #5F6C7C;"
+                        <a  asp-action="index" asp-controller="Xeberler">
+                            <div class="kutuFeature" style="background-color: #5F6C7C;" 
                                  onmouseover="showSlide(3)">
                                 <span style="color: white;">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxNewsTitle" + language)?.Value)</span>
                             </div>
@@ -75,6 +75,7 @@
                             </div>
                         </a>
                     </div>
+
                 </div>
             </div>
             <div class=" revolutionSliderclass ">
@@ -155,8 +156,8 @@
                 </p>
 
                 <div class="boxDescButton">
-                    <a data-bs-toggle="modal" data-bs-target="#newsModalScrollable"
-                       style="background-color: #827EA9;" href="#">
+                    <a asp-action="index" asp-controller="Xeberler"
+                       style="background-color: #827EA9;" >
                         @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxBtn" + language)?.Value)
                     </a>
                 </div>
@@ -223,7 +224,7 @@
             </div>
             <div class="col-5">
                 <div class="kutu newsKutu d-flex justify-content-end ">
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#newsModalScrollable">
+                    <a asp-action="index" asp-controller="Xeberler">
                         <div class="kutuFeature" style="background-color: #575575;" onmouseover="showSlide(3)">
                             <span style="color: white;">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxNewsTitle" + language)?.Value)</span>
 

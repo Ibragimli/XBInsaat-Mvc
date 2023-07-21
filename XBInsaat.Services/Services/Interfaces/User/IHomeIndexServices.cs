@@ -16,6 +16,7 @@ namespace XBInsaat.Services.Services.Interfaces.User
         public Task<IEnumerable<MidProject>> GetMidProjects();
         public Task<IEnumerable<XBService>> GetXBServices();
         public Task<IEnumerable<News>> GetNews();
+        public Task<List<News>> GetNewsData(int page, int pageSize);
         public Task<News> GetNew(int id);
         public Task<IEnumerable<HighProjectImage>> GetHighProjectImages();
         public Task<IEnumerable<MidProjectImage>> GetMidProjectImages();

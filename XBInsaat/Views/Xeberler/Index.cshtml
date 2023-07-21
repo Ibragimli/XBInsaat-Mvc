@@ -1,0 +1,255 @@
+﻿@{
+    var language = _localization.Getkey("Language").Value;
+    ViewData["Title"] = "Index";
+    int i = 0;
+    int j = 0;
+}
+@model NewsViewModel
+
+
+<!-- Contact Us Button -->
+<div class="contactUsBtnBox " id="hereket">
+    <a href="#" data-bs-toggle="modal" data-bs-target="#contactUsModal" id="ctnBtn">
+        <i class="fa-solid fa-phone-volume "></i>
+    </a>
+</div>
+
+<!-- Older posts -->
+<section id="newsPage">
+    <div class="container" id="addThere">
+
+      
+
+
+    </div>
+    <div style="display:none;" id="langText">@language</div>
+</section>
+
+<section id="BackgorundImageBox">
+    <!-- BackgorundImage -->
+    <div class="BackgorundPage">
+        <div class="BackImage">
+            <img src="~/assets/Images/slide-vaqif.png" alt="Resim 1">
+        </div>
+        <div class="BackImage">
+            <img src="~/assets/Images/slide-susa.jpg" alt="Resim 1">
+        </div>
+        <div class="BackImage">
+            <img src="~/assets/Images/slide-xaribilbul.png" alt="Resim 1">
+        </div>
+        <div class="BackImage">
+            <img src="~/assets/Images/slide-projec-yujk-scaled.jpg" alt="Resim 1">
+        </div>
+        <div class="BackImage">
+            <img src="~/assets/Images/cam.png" alt="Resim 1">
+        </div>
+        <div class="BackImage">
+            <img src="~/assets/Images/slide-service3-scaled.jpg" alt="Resim 1">
+        </div>
+        <div class="BackImage">
+            <img src="~/assets/Images/vaqif-2.jpeg" alt="Resim 1">
+        </div>
+        <div class="BackImage">
+            <img src="~/assets/Images/xaribulbul-2.jpeg" alt="Resim 1">
+        </div>
+    </div>
+</section>
+
+
+
+<div>
+    <script>
+        $(document).ready(function () {
+            var slideIndex = 0;
+            var slides = $(".BackImage");
+
+            function showSlide() {
+                slides.eq(slideIndex).fadeIn(1000).siblings().fadeOut(1000);
+                slideIndex = (slideIndex + 1) % slides.length;
+            }
+
+            showSlide();
+
+            setInterval(showSlide, 4500);
+        });
+    </script>
+</div>
+@*slider*@
+
+@await Html.PartialAsync("_contactUsPartial", Model.HomeIndexContactUsViewModel)
+
+
+@section Scripts{
+
+}
+
+
+
+<div id="content">
+    <!-- Burada verilerin görüntüleneceği bir bölüm olacak -->
+</div>
+
+<div>
+    <script>
+        var isLoading = false;
+        var currentPage = 1;
+        var loopCount = 1;
+        var languageText = document.getElementById("langText");
+
+
+        function loadData() {
+            if (isLoading) return;
+            isLoading = true;
+
+            fetch('/xeberler/GetDataNews?page=' + currentPage + `&language=` + languageText.innerHTML)
+                .then(response => response.json())
+                .then(jsonData => {
+                    // JSON veriyi JavaScript nesnesine dönüştürün
+                    var data = JSON.parse(jsonData);
+                    for (var a = 0; a < data.length; a++) {
+                     
+                        var dispText = ``;
+                        let tempImageBox = ``;
+                        let imagesBox = ``;
+                        let newBoxs = ``;
+                        let newSlidersId = ``;
+                        let scriptBox = ``;
+                        let aTags = ``;
+                        //Umumi main box
+                        let mainBox = `<div class="row  mb-5 justify-content-center" id="newBoxs` + loopCount + `"> </div>`;
+
+                        //Ana image box
+                         imagesBox = `<div class="col-md-9  col-sm-12 mb-2 ">
+                                                    <div class="newSliders" id="newSlidersId`+loopCount+`">
+                                                 
+                                                    </div>
+                                                </div>`;
+
+                        newBoxs = `#newBoxs` + loopCount;
+                        newSlidersId = `#newSlidersId` + loopCount;
+
+                        $(`#addThere`).append($(mainBox));
+                        $(newBoxs).append($(imagesBox));
+                        //Şəkillər
+                        for (var i = 0; i < data[a].NewsImages.length; i++) {
+                            if (i == 0) {
+                                dispText = 'style="display:block"';
+                            }
+                            else{
+                                dispText = 'style="display:none"';
+
+                            }
+
+                            let images = `<div class="newSlide-`+loopCount+` newSlide" ` + dispText + ` ">
+                                                    <div class="image-container">
+                                                                <a href="#!"><img src="./uploads/news/`+ data[a].NewsImages[i].ImageUrl + `" class="img-fluid rounded hover-lift-light" alt=""></a>
+                                                     </div>
+                                                    </div>`
+                              
+                            $(newSlidersId).append($(images));
+                          
+                        }
+                        aTags = `<a class="prev-new-btn-`+loopCount+ ` prev-btn" href="#">&lt;</a>
+                                 <a class="next-new-btn-`+loopCount+ ` next-btn" href="#">&gt;</a>`;
+                        $(newSlidersId).append($(aTags));
+
+
+
+                        //Desc Title 
+                         textDownBox = ` <div class="col-md-9 col-sm-12 newPagedDownBox">
+                            <!-- Title -->
+                            <div class=" mb-2 newPageTitleBox">
+                                <h1 class="h5 d-block text-dark text-decoration-none d-flex justify-content-between mt-4 ">
+                                `+ data[a].Title + ` <a target="_blank" href="`+ data[a].InstagramUrl + `">
+                                <i style="color:#00A7C6;" class="fa-brands fa-instagram instagramLogo"></i></a>
+                                </h1>
+                                </div>
+                                 <!-- Read more -->
+                                <div class=" mb-2 newPageDescBox">
+                                <p class="d-inline-block  mt-2 "> `+ data[a].Text + `</p>
+                                <p class="text-end"> `+ data[a].CreatedTime + `</p>
+                                </div>
+                            </div>`;
+                        $(newBoxs).append($(textDownBox));
+
+                         scriptBox = `<div><script>
+                                    var newSlide`+loopCount+ ` = document.querySelectorAll('.newSlide-` +loopCount+ `');
+                                    var newPrevBtn`+loopCount+ ` = document.querySelector('.prev-new-btn-` +loopCount+ `');
+                                    var newNextBtn`+loopCount+ ` = document.querySelector('.next-new-btn-` +loopCount+ `');
+                                    let newCurrentSlide`+loopCount+ ` = 0;
+                                    let newsSlideInterval`+loopCount+ `;
+
+                                    // İlk slaytı göster
+                                    newSlide`+loopCount+ `[newCurrentSlide` +loopCount+ `].style.display = 'block';
+
+                                    // Otomatik dönme işlemini başlat
+                                    startSlideShow();
+
+                                    // Slayt gösterisini başlatan fonksiyon
+                                    function startSlideShow() {
+                                        newsSlideInterval`+loopCount+ ` = setInterval(nextSlide, 3000); // Saniyede bir döndürmek için 4000 milisaniye (4 saniye)
+                                    }
+
+                                    // Slaytı bir sonraki slayta geçiren fonksiyon
+                                    function nextSlide() {
+                                        newSlide`+loopCount+ `[newCurrentSlide` +loopCount+ `].style.display = 'none';
+                                        newCurrentSlide`+loopCount+ ` = (newCurrentSlide` +loopCount+ ` + 1) % newSlide` +loopCount+ `.length;
+                                        newSlide`+loopCount+ `[newCurrentSlide` +loopCount+ `].style.display = 'block';
+                                    }
+
+                                    // Önceki slayta geç
+                                    newPrevBtn`+loopCount+ `.addEventListener('click', function (event) {
+                                event.preventDefault();
+
+                                        newSlide`+loopCount+ `[newCurrentSlide` +loopCount+ `].style.display = 'none';
+                                        newCurrentSlide`+loopCount+ ` = (newCurrentSlide` +loopCount+ ` - 1 + newSlide` +loopCount+ `.length) % newSlide` +loopCount+ `.length;
+                                        newSlide`+loopCount+ `[newCurrentSlide` +loopCount+ `].style.display = 'block';
+                                        clearInterval(newsSlideInterval`+loopCount+ `); // Ok tuşlarına tıklandığında otomatik dönme işlemini durdur
+                                    });
+
+                                    // Sonraki slayta geç
+                                            newNextBtn`+loopCount+ `.addEventListener('click', function (event) {
+                                event.preventDefault();
+
+                                        newSlide`+loopCount+ `[newCurrentSlide` +loopCount+ `].style.display = 'none';
+                                        newCurrentSlide`+loopCount+ ` = (newCurrentSlide` +loopCount+ ` + 1) % newSlide` +loopCount+ `.length;
+                                        newSlide`+loopCount+ `[newCurrentSlide` +loopCount+ `].style.display = 'block';
+                                        clearInterval(newsSlideInterval`+loopCount+ `); // Ok tuşlarına tıklandığında otomatik dönme işlemini durdur
+                                    });
+
+                                    // Resimler varsa ok tuşlarını gizle
+                                    if (newSlide`+loopCount+ `.length <= 1) {
+                                        newPrevBtn`+loopCount+ `.style.display = 'none';
+                                        newNextBtn`+loopCount+ `.style.display = 'none';
+                                    }
+                                    <`+`/` +`script></div>`;
+                        $(newBoxs).append($(scriptBox));
+                        loopCount++;
+
+                    };
+
+                    isLoading = false;
+                    currentPage++;
+                })
+                .catch(error => {
+                    isLoading = false;
+                    // Hata işleme
+                });
+           
+        }
+
+
+        // Sayfa yüklenirken ilk verileri yükle
+        loadData();
+
+        // Sayfa altına doğru kaydırıldıkça yeni verileri yükle
+        $(window).scroll(function () {
+            if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+                loadData();
+            }
+        });
+
+    </script>
+
+</div>
+

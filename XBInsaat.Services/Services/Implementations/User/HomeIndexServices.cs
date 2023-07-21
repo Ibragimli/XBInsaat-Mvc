@@ -93,5 +93,22 @@ namespace XBInsaat.Services.Services.Implementations.User
                 throw new ItemNotFoundException("Layihə tapılmadı!");
             return item;
         }
+
+        public async Task<List<News>> GetNewsData(int page,int pageSize)
+        {
+            //var news = await _unitOfWork.NewsRepository.GetAllPagenatedAsync(x => !x.IsDelete, page, pageSize, "NewsImages").ToList();
+            //return news;
+            var newsAsync = _unitOfWork.NewsRepository.GetAllPagenatedAsync(x => !x.IsDelete, page, pageSize, "NewsImages");
+
+            // Task'i tamamlayın ve sonuçları alın
+            var newsList = await newsAsync;
+
+            // News nesnelerini bir liste olarak alın
+            var newsListAsList = newsList.ToList();
+
+            // Haber listesini kullanarak istediğiniz işlemleri yapabilirsiniz.
+            // Örneğin, bu listeyi bir View'e gönderebilirsiniz:
+            return newsListAsList;
+        }
     }
 }

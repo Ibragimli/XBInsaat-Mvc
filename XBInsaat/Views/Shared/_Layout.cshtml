@@ -80,22 +80,22 @@
                         </div>
                         <div class="headLanguage mt-4">
                             <div class="dropdown">
-                                <a href="#" onclick="toggleDropdown()">
+                                <span onclick="toggleDropdown()">
                                     @Html.Raw(_localization.Getkey("Language").Value)
-                                </a>
+                                </span>
                                 <div class="dropdown-content">
                                     <ul>
-                                        <li onclick="selectLanguage('az')">
+                                        <li>
                                             <a asp-controller="Home"
                                                asp-action="ChangeLanguage"
                                                asp-route-culture="az-Latn-AZ">Az</a>
                                         </li>
-                                        <li onclick="selectLanguage('en')">
+                                        <li>
                                             <a asp-controller="Home"
                                                asp-action="ChangeLanguage"
                                                asp-route-culture="en-US">En</a>
                                         </li>
-                                        <li onclick="selectLanguage('ru')">
+                                        <li>
                                             <a asp-controller="Home"
                                                asp-action="ChangeLanguage"
                                                asp-route-culture="ru-RU">Ru</a>

@@ -89,7 +89,7 @@ header {
             border-left: 3px solid rgba(142, 142, 147, 0.671);
             border-bottom: 3px solid rgba(142, 142, 147, 0.671);
             color: #8e8e93; }
-          header #headerSection .row .headRight .headLoginLangueage .headLanguage .dropdown a {
+          header #headerSection .row .headRight .headLoginLangueage .headLanguage .dropdown span {
             color: #8e8e93;
             text-decoration: none; }
           header #headerSection .row .headRight .headLoginLangueage .headLanguage .dropdown .dropdown-content {
@@ -1492,17 +1492,16 @@ body {
           top: 0;
           left: 0; }
   #newsPage .container .row .newPagedDownBox {
-    background-color: rgba(255, 255, 255, 0.62);
     border-radius: 6px;
     margin-bottom: 20px;
     padding: 0px 14px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; }
+    background-color: rgba(255, 255, 255, 0.192); }
     #newsPage .container .row .newPagedDownBox .newPageTitleBox h1 {
       font-size: 24px;
       font-weight: 600; }
     #newsPage .container .row .newPagedDownBox .newPageDescBox p {
-      font-size: 20px;
-      font-weight: 500; }
+      font-size: 18px;
+      font-weight: 600; }
 
 #BackgorundImageBox {
   position: fixed;
