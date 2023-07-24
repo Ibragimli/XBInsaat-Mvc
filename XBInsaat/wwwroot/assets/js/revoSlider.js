@@ -40,6 +40,8 @@ $('.kutu').each(function (index) {
         currentSlide = index;
         showSlide(index);
     });
+ 
+
 
     $(this).mouseout(function () {
         slideInterval = setInterval(nextSlide, 3000);

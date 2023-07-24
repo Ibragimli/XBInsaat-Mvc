@@ -5,6 +5,18 @@
     var count = 0;
 }
 
+
+@section LinksCss{
+    <link href="~/plugins/bootstrap-5.3.0-alpha3-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/plugins/bootstrap-5.3.0-alpha3-dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/plugins/bootstrap-5.3.0-alpha3-dist/css/bootstrap-utilities.min.css" />
+    <link rel="stylesheet" href="~/plugins/bootstrap-5.3.0-alpha3-dist/css/bootstrap-grid.min.css" />
+    <link rel="stylesheet" href="~/plugins/bootstrap-5.3.0-alpha3-dist/css/bootstrap-reboot.min.css" />
+    <link rel="stylesheet" href="~/assets/styles/css/revo.css">
+    <!-- owlCarousel -->
+    <link rel="stylesheet" href="~/assets/styles/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/assets/styles/css/owl.theme.default.min.css">
+}
 <!-- Contact Us Button -->
 <div class="contactUsBtnBox " id="hereket">
     <a href="#" data-bs-toggle="modal" data-bs-target="#contactUsModal" id="ctnBtn">
@@ -32,7 +44,7 @@
                 <div class="kutus d-flex">
                     <div class="kutu generalKutu">
                         <a href="#" data-bs-toggle="modal" data-bs-target="#generalModalScrollable">
-                            <div class="kutuFeature" style="background-color: #000;" onmouseover="showSlide(0)">
+                            <div class="kutuFeature" style="background-color: #000;" onmouseover="showSlide(0)" onclick="showSlide(0)">
                                 <span style="color: white;">
                                     @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxGeneralTitle" + language)?.Value)
                                 </span>
@@ -41,7 +53,7 @@
                     </div>
                     <div class="kutu servicesKutu">
                         <a href="#" data-bs-toggle="modal" data-bs-target="#servicesModalScrollable">
-                            <div class="kutuFeature" style="background-color: #fff;" onmouseover="showSlide(1)">
+                            <div class="kutuFeature" style="background-color: #fff;" onmouseover="showSlide(1)" onclick="showSlide(1)">
                                 <span style="color: #949162;">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxServicesTitle" + language)?.Value)</span>
                             </div>
                         </a>
@@ -61,8 +73,8 @@
             <div class=" revolutionSliderclass " style="display: flex; justify-content: end; ">
                 <div class="kutus d-flex ">
                     <div class="kutu newsKutu">
-                        <a  asp-action="index" asp-controller="Xeberler">
-                            <div class="kutuFeature" style="background-color: #5F6C7C;" 
+                        <a asp-action="index" asp-controller="Xeberler">
+                            <div class="kutuFeature" style="background-color: #5F6C7C;"
                                  onmouseover="showSlide(3)">
                                 <span style="color: white;">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxNewsTitle" + language)?.Value)</span>
                             </div>
@@ -157,7 +169,7 @@
 
                 <div class="boxDescButton">
                     <a asp-action="index" asp-controller="Xeberler"
-                       style="background-color: #827EA9;" >
+                       style="background-color: #827EA9;">
                         @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxBtn" + language)?.Value)
                     </a>
                 </div>
@@ -205,7 +217,7 @@
             <div class="col-5">
                 <div class="kutu generalKutu d-flex justify-content-end">
                     <a href="#" data-bs-toggle="modal" data-bs-target="#generalModalScrollable">
-                        <div class="kutuFeature" style="background-color: #000;" onmouseover="showSlide(0)">
+                        <div class="kutuFeature" style="background-color: #000;" onmouseover="showSlide(0)" onclick="showSlide(0)">
                             <span style="color: white;">
                                 @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxGeneralTitle" + language)?.Value)
                             </span>
@@ -216,7 +228,7 @@
             <div class="col-5">
                 <div class="kutu servicesKutu">
                     <a href="#" data-bs-toggle="modal" data-bs-target="#servicesModalScrollable">
-                        <div class="kutuFeature" style="background-color: #fff;" onmouseover="showSlide(1)">
+                        <div class="kutuFeature" style="background-color: #fff;" onmouseover="showSlide(1)" onclick="showSlide(1)">
                             <span style="color: black;">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxServicesTitle" + language)?.Value)</span>
                         </div>
                     </a>
@@ -344,7 +356,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable" role="document">
         <div class="modal-content ">
             <div class="modal-header">
-                <h1 style="color:#00a7c6;" class="modal-title" id="camModalScrollableTitle">Online CAMs</h1>
+                <h1 style="color:#00a7c6;" class="modal-title" id="camModalScrollableTitle">Video</h1>
                 <button type="button" id="close-first" class="" data-bs-dismiss="modal" aria-label="Close">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
@@ -357,32 +369,17 @@
                             <!-- Cam -->
                             <div class="col-lg-4 col-md-10 camBox">
                                 <!-- Featured image -->
-                                <a href="#!" data-bs-toggle="modal" data-bs-target="#camModal-test">
+                                <a href="#!" data-bs-toggle="modal" data-bs-target="#liveModal-test">
                                     <img src="~/assets/Images/Asset-1-1.png"
                                          class="img-fluid rounded hover-lift-light" alt="">
                                 </a>
 
                                 <!-- Title -->
-                                <a href="#!" data-toggle="modal" data-target="#camModal-test"
+                                <a href="#!" data-toggle="modal" data-target="#liveModal-test"
                                    class="h5 d-block text-dark text-decoration-none mt-4">
-                                    Port Baku Residence
+                                    Gala Shopping Village
                                 </a>
                             </div>
-                            <!-- Cam -->
-                            <div class="col-lg-4 col-md-10 camBox">
-                                <!-- Featured image -->
-                                <a href="#!" data-bs-toggle="modal" data-bs-target="#camModal-test">
-                                    <img src="~/assets/Images/Asset-1-1.png"
-                                         class="img-fluid rounded hover-lift-light" alt="">
-                                </a>
-
-                                <!-- Title -->
-                                <a href="#!" data-toggle="modal" data-target="#camModal-test"
-                                   class="h5 d-block text-dark text-decoration-none mt-4">
-                                    Port Baku Residence
-                                </a>
-                            </div>
-
                         </div>
                 </section>
 
@@ -414,8 +411,10 @@
                             <div class="col-lg-4 col-md-10 camBox">
                                 <!-- Featured image -->
                                 <a href="#!" data-bs-toggle="modal" data-bs-target="#liveModal-test">
-                                    <img src="~/assets/Images/Asset-1-1.png"
-                                         class="img-fluid rounded hover-lift-light" alt="">
+                             @*       <img src="~/assets/Images/Asset-1-1.png"
+                                         class="img-fluid rounded hover-lift-light" alt="">*@
+                                    <video style="width: 100%; height: auto; object-fit: cover;" class="video"
+                                           src="~/assets/Images/DJI_0534.mp4"></video>
                                 </a>
 
                                 <!-- Title -->
@@ -440,8 +439,7 @@
         <div class="modal-content shadow-lg">
             <div class="modal-header">
                 <h1 style="color:#00a7c6;" class="modal-title" id="camModal-testTitle">
-                    Port Baku Residence Online
-                    CAM - 1
+                    Gala Shopping Village Video
                 </h1>
                 <button type="button" id="close-first" class="" data-bs-dismiss="modal" aria-label="Close">
                     <i class="fa-solid fa-xmark"></i>
@@ -453,10 +451,13 @@
                     <div class="container">
                         <div class="row  mt-4 justify-content-center">
                             <!-- Post -->
-                            <div class="col-lg-10  camBox">
+                            <div class="col-lg-10  camBox" style="border:none;">
+                                <video controls loop autoplay style="width: 100%; height: auto; object-fit: cover;" class="video"
+                                       src="~/assets/Images/DJI_0534.mp4"></video>
                                 <div class="camera-container row">
-                                    <div class="col-lg-8 camera-feed">
-                                    </div>
+                                    @*<div class="col-lg-8 camera-feed">
+                                      
+                                    </div>*@
                                     <div class="camera-controls ">
                                         <!-- <div class="col-4">
                                             <button class="btn btn-primary" id="start-button">1</button>
@@ -464,6 +465,7 @@
                                         <div class="col-4">
                                             <button class="btn btn-danger" id="stop-button">2</button>
                                         </div> -->
+                                        
                                     </div>
                                 </div>
 
@@ -537,70 +539,8 @@
     </div>
 </div>
 
-<!-- Modal Login -->
-<div class="modal fade" id="loginModalScrollable" tabindex="-1" role="dialog"
-     aria-labelledby="loginModalScrollableTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable" role="document">
-        <div class="modal-content ">
-            <div class="modal-header">
-                <h1 style="color:#00a7c6;" class="modal-title" id="loginModalScrollableTitle">
-                    @*İstifadəçi kabineti*@
-                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "LoginTitle" + language)?.Value)
-                </h1>
-                <button type="button" id="close-first" class="" data-bs-dismiss="modal" aria-label="Close">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-
-                <form class="row  " action="#" method="post" enctype="multipart/form-data">
-                    <div class="loginLogoImage d-flex justify-content-center">
-                        <a href="#">
-                            <img decoding="async" src="~/assets/Images/xaribulbulgroup-logo.png" alt="">
-                        </a>
-                    </div>
-                    <div class="loginEmail col-lg-6">
-                        <label class="quform-label-text" for="loginEmailInput">
-                            @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalLoginText" + language)?.Value)
-                            <span class="loginRequired">*</span>
-                        </label>
-                        <input id="loginEmailInput" class="" type="text" aria-label="default input example">
-
-                    </div>
-                    <div class="loginPassword col-lg-6">
-                        <label class="quform-label-text" for="inputPassword5">
-                            @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalPasswordText" + language)?.Value)
-                            <span class="loginRequired">*</span>
-                        </label>
-                        <input type="password" id="inputPassword5" class="" aria-labelledby="passwordHelpBlock">
-                    </div>
-
-                    @* <div class="col-lg-6 loginRememberMe">
-                    <input type="checkbox" class="" value="Məni unutma">
-                    <span class="quform-option-text">
-                    Məni unutma
-                    </span>
-                    </div>*@
-                    <div class="col-lg-6 loginButton">
-                        <button name="quform_submit" type="submit" class="btn" value="submit">
-                            <span class="spanText quform-button-text quform-button-submit-text">
-
-                                @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalBtnText" + language)?.Value)
-
-                            </span>
-                            <span class="quform-button-icon quform-button-submit-icon">
-                                <i class="fa fa-chevron-right"></i>
-                            </span>
-                        </button>
-                    </div>
-                </form>
-
-
-
-            </div>
-        </div>
-    </div>
-</div>
+<!-- Login Modal -->
+@await Html.PartialAsync("_loginModalPartial", Model.LoginViewModel)
 
 @await Html.PartialAsync("_contactUsPartial", Model.HomeIndexContactUsViewModel)
 
@@ -744,3 +684,10 @@
     </div>
 </div>
 
+@section Scripts{
+    <!-- Slid   er image and text -->
+    <script src="~/assets/js/revoSlider.js"></script>
+    <!-- owlCarousel -->
+    <script src="~/assets/js/owl.carousel.min.js"></script>
+    <script src="~/assets/js/owlCarousel.js"></script>
+}

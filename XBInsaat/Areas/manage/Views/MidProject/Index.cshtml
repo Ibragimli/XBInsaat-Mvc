@@ -24,7 +24,7 @@
                             <button class="btn btn-outline-primary" type="submit">Axtarış</button>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 mb-2 text-end">
-                            <a  class="btn btn-danger"  asp-action="create" asp-controller="Midproject">Yeni Layihə</a>
+                            <a class="btn btn-danger" asp-action="create" asp-controller="Midproject">Yeni Layihə</a>
                         </div>
                     </form>
 
@@ -72,6 +72,7 @@
                                 <th>Elanın adı</th>
                                 <th>Layihə</th>
                                 <th>Təsvir</th>
+                                <th>Sıra nömrəsi</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -88,6 +89,7 @@
                                     <td class="text-center"><a target="_blank">@MidProject.Name</a></td>
                                     <td class="text-center"><a target="_blank">@MidProject.HighProject.Name</a></td>
                                     <td class="text-center"><a target="_blank">@(MidProject.DescribeAz.Length < 30 ? (MidProject.DescribeAz) : (MidProject.DescribeAz.Substring(0, 30) + "...."))</a></td>
+                                    <td class="text-center"><a>@(MidProject?.Row == null ? "Sıra nömrəsi yoxdur" : MidProject?.Row)</a></td>
 
                                     <td class="text-center">
                                         <div class="d-flex justify-content-sm-around">

@@ -26,23 +26,32 @@ namespace XBInsaat.Mvc.Controllers
         public async Task<IActionResult> Index()
         {
             ContactUsCreateDto contactUsCreateDto = new ContactUsCreateDto();
-            HomeIndexContactUsViewModel homeIndexContactUsViewModel = new HomeIndexContactUsViewModel
-            {
-                ContactUsCreateDto = contactUsCreateDto,
-                Settings = await _homeIndexServices.GetSettings(),
-
-            };
+           
             NewsViewModel newsViewModel = new NewsViewModel();
 
 
             try
             {
+                HomeIndexContactUsViewModel homeIndexContactUsViewModel = new HomeIndexContactUsViewModel
+                {
+                    ContactUsCreateDto = contactUsCreateDto,
+                    Settings = await _homeIndexServices.GetSettings(),
+
+                };
+                LoginViewModel loginVM = new LoginViewModel
+                {
+                    LoginPostDto = new LoginPostDto(),
+                    Settings = await _homeIndexServices.GetSettings(),
+
+                };
                 newsViewModel = new NewsViewModel()
                 {
                     News = await _homeIndexServices.GetNews(),
                     Settings = await _homeIndexServices.GetSettings(),
                     HomeIndexContactUsViewModel = homeIndexContactUsViewModel,
+                    LoginViewModel = loginVM,
                 };
+
             }
             catch (ItemNotFoundException ex)
             {
@@ -56,7 +65,7 @@ namespace XBInsaat.Mvc.Controllers
             }
             return View(newsViewModel);
         }
-        public async Task<IActionResult> GetDataNews(int page =1, int pageSize = 7, string language = "Az")
+        public async Task<IActionResult> GetDataNews(int page =1, int pageSize = 5, string language = "Az")
         {
 
           

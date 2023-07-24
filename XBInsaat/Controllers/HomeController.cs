@@ -47,9 +47,16 @@ namespace XBInsaat.Controllers
             HomeIndexMidProjectViewModel homeIndexMidProjectViewModel = new HomeIndexMidProjectViewModel();
 
             HomeViewModel homeViewModel = new HomeViewModel();
+            LoginViewModel loginVM = new LoginViewModel();
+
 
             try
             {
+                loginVM = new LoginViewModel
+                {
+                    LoginPostDto = new LoginPostDto(),
+                    Settings = await _homeIndexServices.GetSettings(),
+                };
                 News newItem = new News();
 
                 ViewBag.Welcome = _localization.Getkey("GeneralText").Value;
@@ -110,6 +117,7 @@ namespace XBInsaat.Controllers
                     HomeIndexNewViewModel = homeIndexNewViewModel,
                     RevolutionSliders = await _homeIndexServices.GetRevolutionSliders(),
                     HomeIndexMidProjectViewModel = homeIndexMidProjectViewModel,
+                    LoginViewModel = loginVM
                 };
             }
             catch (ItemNotFoundException ex)

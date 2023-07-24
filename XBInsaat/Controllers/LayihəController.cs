@@ -19,20 +19,28 @@ namespace XBInsaat.Mvc.Controllers
         {
             ProjectViewModel projectViewModel = new ProjectViewModel();
             ContactUsCreateDto contactUsCreateDto = new ContactUsCreateDto();
-            HomeIndexContactUsViewModel homeIndexContactUsViewModel = new HomeIndexContactUsViewModel
-            {
-                ContactUsCreateDto = contactUsCreateDto,
-                Settings = await _homeIndexServices.GetSettings(),
-
-            };
+         
+         
             try
             {
+                HomeIndexContactUsViewModel homeIndexContactUsViewModel = new HomeIndexContactUsViewModel
+                {
+                    ContactUsCreateDto = contactUsCreateDto,
+                    Settings = await _homeIndexServices.GetSettings(),
+                };
+                LoginViewModel loginVM = new LoginViewModel
+                {
+                    LoginPostDto = new LoginPostDto(),
+                    Settings = await _homeIndexServices.GetSettings(),
+
+                };
                 projectViewModel = new ProjectViewModel
                 {
                     HighProject = await _homeIndexServices.GetHighProject(id),
-                    MidProjects = await _homeIndexServices.GetMidProjects(),
+                    MidProjects = await _homeIndexServices.GetRowMidProjects(),
                     Settings = await _homeIndexServices.GetSettings(),
                     HomeIndexContactUsViewModel = homeIndexContactUsViewModel,
+                    LoginViewModel = loginVM,
                 };
             }
             catch (ItemNotFoundException ex)

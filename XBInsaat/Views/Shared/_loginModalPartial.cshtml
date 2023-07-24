@@ -1,0 +1,66 @@
+﻿@model LoginViewModel
+@{
+    var language = _localization.Getkey("Language").Value;
+
+}
+<!-- Modal Login -->
+<div class="modal fade" id="loginModalScrollable" tabindex="-1" role="dialog"
+     aria-labelledby="loginModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable" role="document">
+        <div class="modal-content ">
+            <div class="modal-header">
+                <h1 style="color:#00a7c6;" class="modal-title" id="loginModalScrollableTitle">
+                    @*İstifadəçi kabineti*@
+                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "LoginTitle" + language)?.Value)
+                </h1>
+                <button type="button" id="close-first" class="" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <form class="row  " action="#" method="post" enctype="multipart/form-data">
+                    <div class="loginLogoImage d-flex justify-content-center">
+                        <a href="#">
+                            <img decoding="async" src="~/assets/Images/xaribulbulgroup-logo.png" alt="">
+                        </a>
+                    </div>
+                    <div class="loginEmail col-lg-6">
+                        <label class="quform-label-text" for="loginEmailInput">
+                            @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalLoginText" + language)?.Value)
+                            <span class="loginRequired">*</span>
+                        </label>
+                        <input id="loginEmailInput" class="" type="text" aria-label="default input example">
+
+                    </div>
+                    <div class="loginPassword col-lg-6">
+                        <label class="quform-label-text" for="inputPassword5">
+                            @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalPasswordText" + language)?.Value)
+                            <span class="loginRequired">*</span>
+                        </label>
+                        <input type="password" id="inputPassword5" class="" aria-labelledby="passwordHelpBlock">
+                    </div>
+
+                    @* <div class="col-lg-6 loginRememberMe">
+                    <input type="checkbox" class="" value="Məni unutma">
+                    <span class="quform-option-text">
+                    Məni unutma
+                    </span>
+                    </div>*@
+                    <div class="col-lg-6 loginButton">
+                        <button name="quform_submit" type="submit" class="btn" value="submit">
+                            <span class="spanText quform-button-text quform-button-submit-text">
+
+                                @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalBtnText" + language)?.Value)
+
+                            </span>
+                            <span class="quform-button-icon quform-button-submit-icon">
+                                <i class="fa fa-chevron-right"></i>
+                            </span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

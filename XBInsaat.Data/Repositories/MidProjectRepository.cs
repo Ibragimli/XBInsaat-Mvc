@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,5 +20,17 @@ namespace XBInsaat.Data.Repositories
             _context = context;
         }
 
+        public async Task<List<MidProject>> GetAllRowMid()
+        {
+           return await  _context.MidProjects.Include("MidProjectImages").OrderBy(e => e.Row).ToListAsync();
+        }
+
+        public  MidProject MaxRow()
+        {
+            var entityWithMaxRow = _context.MidProjects.OrderByDescending(e => e.Row).FirstOrDefault();
+            return entityWithMaxRow;
+
+
+        }
     }
 }

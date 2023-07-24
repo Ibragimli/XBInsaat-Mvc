@@ -139,6 +139,7 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
                     MidProject = await _adminMidProjectEditServices.GetMidProject(id),
                     MidProjectImages = await _adminMidProjectEditServices.GetImages(id),
                     HighProjects = await _adminMidProjectCreateServices.GetAllHighProjects(),
+                    maxRow =  _adminMidProjectEditServices.GetMaxRow(),
                 };
 
             }
@@ -175,6 +176,8 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
                 {
                     MidProject = await _adminMidProjectEditServices.GetMidProject(MidProject.Id),
                     MidProjectImages = await _adminMidProjectEditServices.GetImages(MidProject.Id),
+                    HighProjects = await _adminMidProjectCreateServices.GetAllHighProjects(),
+                    maxRow = _adminMidProjectEditServices.GetMaxRow(),
                 };
 
 

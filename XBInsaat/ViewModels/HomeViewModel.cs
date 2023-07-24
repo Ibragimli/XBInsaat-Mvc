@@ -18,6 +18,7 @@ namespace XBInsaat.Mvc.ViewModels
         public HomeIndexNewsViewModel HomeIndexNewsViewModel { get; set; }
         public HomeIndexNewViewModel HomeIndexNewViewModel { get; set; }
         public HomeIndexMidProjectViewModel HomeIndexMidProjectViewModel { get; set; }
+        public LoginViewModel LoginViewModel { get; set; }
     }
     public class HomeIndexProjectsViewModel
     {
@@ -25,6 +26,7 @@ namespace XBInsaat.Mvc.ViewModels
         public IEnumerable<Setting> Settings { get; set; }
 
     }
+  
     public class HomeIndexNewsViewModel
     {
         public IEnumerable<News> News { get; set; }

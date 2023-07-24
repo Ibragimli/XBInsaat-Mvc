@@ -25,6 +25,7 @@ namespace XBInsaat.Services.Dtos.Area
     {
         public MidProjectCreateDtoValidator()
         {
+
             RuleFor(x => x.ContactInfo).Null().MinimumLength(3).WithMessage("Əlaqə məlumatlarının uzunluğu 3-dən az ola bilməz!").MaximumLength(200).WithMessage("Əlaqə məlumatlarının uzunluğu 200-dən böyük ola bilməz!");
             RuleFor(x => x.InstagramUrl).Null().MinimumLength(3).WithMessage("Instagram url-nin uzunluğu 3-dən az ola bilməz!").MaximumLength(200).WithMessage("Instagram url-nin uzunluğu 200-dən böyük ola bilməz!");
             RuleFor(x => x.Name).MinimumLength(3).WithMessage("Layihənin adının uzunluğu 3-dən az ola bilməz!").MaximumLength(100).WithMessage("Layihənin adının uzunluğu 100-dən böyük ola bilməz!");

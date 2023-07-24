@@ -38,6 +38,10 @@ namespace XBInsaat.Services.Services.Implementations.User
         {
             return await _unitOfWork.MidProjectRepository.GetAllAsync(x => !x.IsDelete, "MidProjectImages");
         }
+        public async Task<List<MidProject>> GetRowMidProjects()
+        {
+            return await _unitOfWork.MidProjectRepository.GetAllRowMid();
+        }
 
         public async Task<News> GetNew(int id)
         {

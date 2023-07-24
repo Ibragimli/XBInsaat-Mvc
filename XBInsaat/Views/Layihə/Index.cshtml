@@ -3,7 +3,7 @@
     var language = _localization.Getkey("Language").Value;
     int i = 0;
     List<string> numbers = new List<string>();
-   
+
     if (Model.HighProject.ContactInfo != null)
     {
         if (Model.HighProject.ContactInfo.Length > 11)
@@ -17,6 +17,11 @@
         }
       
     }
+}
+@section LinksCss{
+    <!-- owlCarousel -->
+    <link rel="stylesheet" href="~/assets/styles/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/assets/styles/css/owl.theme.default.min.css">
 }
 @model ProjectViewModel
 
@@ -133,7 +138,7 @@
                     {
                         <div class="col-lg-3  col-md-7 mb-2 projectShopBox">
                             <!-- Featured image -->
-                            <a asp-action="index" asp-controller="altlayihə" asp-route-id="@midProject.Id" class="">
+                            <a asp-action="index" asp-controller="altlayihə" asp-route-id="@midProject.Id" target="_blank">
                                 <img src="~/uploads/midprojects/@midProject.MidProjectImages.FirstOrDefault(x=>x.MidProjectId == midProject.Id)?.Image"
                                      class="img-fluid rounded hover-lift-light" alt="">
                             </a>
@@ -151,7 +156,7 @@
                     @foreach (var midProject in Model.HighProject.MidProjects)
                     {
                         <div class="item me-2">
-                            <a asp-action="index" asp-controller="altlayihə" asp-route-id="@midProject.Id" class="projectBoxTitle d-block  text-decoration-none mt-3">
+                            <a target="_blank" asp-action="index" asp-controller="altlayihə" asp-route-id="@midProject.Id" class="projectBoxTitle d-block  text-decoration-none mt-3">
                                 <img style=" border-radius: 5px;"
                                      src="~/uploads/midprojects/@midProject.MidProjectImages.FirstOrDefault(x=>x.MidProjectId == midProject.Id)?.Image" alt="" width="100% ">
                             </a>
@@ -199,15 +204,17 @@
 </section>
 
 
-
+<!-- Login Modal -->
+@await Html.PartialAsync("_loginModalPartial", Model.LoginViewModel)
 
 @await Html.PartialAsync("_contactUsPartial", Model.HomeIndexContactUsViewModel)
 
 @section Scripts{
     <script src="~/assets/js/slider.js"></script>
+    <!-- owlCarousel -->
+    <script src="~/assets/js/owl.carousel.min.js"></script>
+    <script src="~/assets/js/owlCarousel.js"></script>
 }
-
-
 <div>
     <script>
         $(document).ready(function () {

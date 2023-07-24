@@ -29,6 +29,22 @@
                                         <span asp-validation-for="MidProject.Name" class="text-danger"></span>
                                     </div>
                                     <!-- Layihə Name   End -->
+                                     <!-- Sıra nömrəsi  Start -->
+                                    <div class="mb-3 posterName">
+                                       <div class="row">
+                                           <div class="col-5">
+                                                <label asp-for="MidProject.Row" class="form-label">Sıra nömrəsi*</label>
+                                                <input  asp-for="MidProject.Row"  type="number" class="form-control ">
+                                           </div>
+                                            <div class="col-5">
+                                                 <label asp-for="maxRow" class="form-label">Maksimum sıra nömrəsi*</label>
+                                                <input  type="number" disabled value="@Model.maxRow"   class="form-control ">
+                                           </div>
+                                       </div>  
+                                     
+                                        <span asp-validation-for="MidProject.Row" class="text-danger"></span>
+                                    </div>
+                                    <!-- Sıra nömrəsi   End -->
                                        <!-- InstagramUrl  Start -->
                                     <div class="mb-3 posterTitle">
                                         <label asp-for="MidProject.InstagramUrl" class="form-label">Instagram Url*</label>

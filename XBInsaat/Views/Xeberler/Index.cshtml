@@ -4,6 +4,9 @@
     int i = 0;
     int j = 0;
 }
+@section LinksCss{
+
+}
 @model NewsViewModel
 
 
@@ -16,13 +19,10 @@
 
 <!-- Older posts -->
 <section id="newsPage">
-    <div class="container" id="addThere">
-
-      
-
-
-    </div>
+    <div class="container" id="addThere"> </div>
     <div style="display:none;" id="langText">@language</div>
+
+
 </section>
 
 <section id="BackgorundImageBox">
@@ -52,11 +52,12 @@
         <div class="BackImage">
             <img src="~/assets/Images/xaribulbul-2.jpeg" alt="Resim 1">
         </div>
+    </div>>
     </div>
 </section>
 
 
-
+@*slider*@
 <div>
     <script>
         $(document).ready(function () {
@@ -76,6 +77,9 @@
 </div>
 @*slider*@
 
+<!-- Login Modal -->
+@await Html.PartialAsync("_loginModalPartial", Model.LoginViewModel)
+
 @await Html.PartialAsync("_contactUsPartial", Model.HomeIndexContactUsViewModel)
 
 
@@ -91,10 +95,12 @@
 
 <div>
     <script>
+        // JavaScript
         var isLoading = false;
         var currentPage = 1;
         var loopCount = 1;
         var languageText = document.getElementById("langText");
+
 
 
         function loadData() {
@@ -107,7 +113,7 @@
                     // JSON veriyi JavaScript nesnesine dönüştürün
                     var data = JSON.parse(jsonData);
                     for (var a = 0; a < data.length; a++) {
-                     
+
                         var dispText = ``;
                         let tempImageBox = ``;
                         let imagesBox = ``;
@@ -115,15 +121,20 @@
                         let newSlidersId = ``;
                         let scriptBox = ``;
                         let aTags = ``;
+                        let instagramUrl = ``;
+                        if (data[a].InstagramUrl.length > 2) {
+                            instagramUrl = ` <a target="_blank" href="` + data[a].InstagramUrl + `">
+                                                                <i style="color:#00A7C6;" class="fa-brands fa-instagram instagramLogo"></i></a>`
+                        }
                         //Umumi main box
                         let mainBox = `<div class="row  mb-5 justify-content-center" id="newBoxs` + loopCount + `"> </div>`;
 
                         //Ana image box
-                         imagesBox = `<div class="col-md-9  col-sm-12 mb-2 ">
-                                                    <div class="newSliders" id="newSlidersId`+loopCount+`">
-                                                 
-                                                    </div>
-                                                </div>`;
+                        imagesBox = `<div class="col-md-9  col-sm-12 mb-2 ">
+                                                                    <div class="newSliders" id="newSlidersId`+ loopCount + `">
+
+                                                                    </div>
+                                                                </div>`;
 
                         newBoxs = `#newBoxs` + loopCount;
                         newSlidersId = `#newSlidersId` + loopCount;
@@ -135,94 +146,80 @@
                             if (i == 0) {
                                 dispText = 'style="display:block"';
                             }
-                            else{
+                            else {
                                 dispText = 'style="display:none"';
 
                             }
 
-                            let images = `<div class="newSlide-`+loopCount+` newSlide" ` + dispText + ` ">
-                                                    <div class="image-container">
-                                                                <a href="#!"><img src="./uploads/news/`+ data[a].NewsImages[i].ImageUrl + `" class="img-fluid rounded hover-lift-light" alt=""></a>
-                                                     </div>
-                                                    </div>`
-                              
+                            let images = `<div class="newSlide-` + loopCount + ` newSlide" ` + dispText + ` ">
+                                                                    <div class="image-container">
+                                                                                <a href="#!"><img src="./uploads/news/`+ data[a].NewsImages[i].ImageUrl + `" class="img-fluid rounded hover-lift-light" alt=""></a>
+                                                                     </div>
+                                                                    </div>`
+
                             $(newSlidersId).append($(images));
-                          
+
                         }
-                        aTags = `<a class="prev-new-btn-`+loopCount+ ` prev-btn" href="#">&lt;</a>
-                                 <a class="next-new-btn-`+loopCount+ ` next-btn" href="#">&gt;</a>`;
+                        aTags = `<a class="prev-new-btn-` + loopCount + ` prev-btn" href="#">&lt;</a>
+                                                 <a class="next-new-btn-`+ loopCount + ` next-btn" href="#">&gt;</a>`;
                         $(newSlidersId).append($(aTags));
 
 
 
-                        //Desc Title 
-                         textDownBox = ` <div class="col-md-9 col-sm-12 newPagedDownBox">
-                            <!-- Title -->
-                            <div class=" mb-2 newPageTitleBox">
-                                <h1 class="h5 d-block text-dark text-decoration-none d-flex justify-content-between mt-4 ">
-                                `+ data[a].Title + ` <a target="_blank" href="`+ data[a].InstagramUrl + `">
-                                <i style="color:#00A7C6;" class="fa-brands fa-instagram instagramLogo"></i></a>
-                                </h1>
-                                </div>
-                                 <!-- Read more -->
-                                <div class=" mb-2 newPageDescBox">
-                                <p class="d-inline-block  mt-2 "> `+ data[a].Text + `</p>
-                                <p class="text-end"> `+ data[a].CreatedTime + `</p>
-                                </div>
-                            </div>`;
+                        //Desc Title
+                        textDownBox = ` <div class="col-md-9 col-sm-12 newPagedDownBox">
+                                            <!-- Title -->
+                                            <div class=" mb-2 newPageTitleBox">
+                                                <h1 class="h5 d-block text-dark text-decoration-none d-flex justify-content-between mt-4 ">
+                                                        `+ data[a].Title + instagramUrl + `
+                                                        </h1>
+                                                </div>
+                                                 <!-- Read more -->
+                                                <div class=" mb-2 newPageDescBox">
+                                                <p class="d-inline-block  mt-2 "> `+ data[a].Text + `</p>
+                                                <p class="text-end"> `+ data[a].CreatedTime + `</p>
+                                                </div>
+                                            </div>
+                                            <hr>`;
                         $(newBoxs).append($(textDownBox));
 
-                         scriptBox = `<div><script>
-                                    var newSlide`+loopCount+ ` = document.querySelectorAll('.newSlide-` +loopCount+ `');
-                                    var newPrevBtn`+loopCount+ ` = document.querySelector('.prev-new-btn-` +loopCount+ `');
-                                    var newNextBtn`+loopCount+ ` = document.querySelector('.next-new-btn-` +loopCount+ `');
-                                    let newCurrentSlide`+loopCount+ ` = 0;
-                                    let newsSlideInterval`+loopCount+ `;
+                        scriptBox = `<div><script>
+                                                    var newSlide`+ loopCount + ` = document.querySelectorAll('.newSlide-` + loopCount + `');
+                                                    var newPrevBtn`+ loopCount + ` = document.querySelector('.prev-new-btn-` + loopCount + `');
+                                                    var newNextBtn`+ loopCount + ` = document.querySelector('.next-new-btn-` + loopCount + `');
+                                                    let newCurrentSlide`+ loopCount + ` = 0;
+                                                    let newsSlideInterval`+ loopCount + `;
 
-                                    // İlk slaytı göster
-                                    newSlide`+loopCount+ `[newCurrentSlide` +loopCount+ `].style.display = 'block';
+                                                    // İlk slaytı göster
+                                                    newSlide`+ loopCount + `[newCurrentSlide` + loopCount + `].style.display = 'block';
 
-                                    // Otomatik dönme işlemini başlat
-                                    startSlideShow();
 
-                                    // Slayt gösterisini başlatan fonksiyon
-                                    function startSlideShow() {
-                                        newsSlideInterval`+loopCount+ ` = setInterval(nextSlide, 3000); // Saniyede bir döndürmek için 4000 milisaniye (4 saniye)
-                                    }
+                                                    // Önceki slayta geç
+                                                    newPrevBtn`+ loopCount + `.addEventListener('click', function (event) {
+                                                event.preventDefault();
 
-                                    // Slaytı bir sonraki slayta geçiren fonksiyon
-                                    function nextSlide() {
-                                        newSlide`+loopCount+ `[newCurrentSlide` +loopCount+ `].style.display = 'none';
-                                        newCurrentSlide`+loopCount+ ` = (newCurrentSlide` +loopCount+ ` + 1) % newSlide` +loopCount+ `.length;
-                                        newSlide`+loopCount+ `[newCurrentSlide` +loopCount+ `].style.display = 'block';
-                                    }
+                                                        newSlide`+ loopCount + `[newCurrentSlide` + loopCount + `].style.display = 'none';
+                                                        newCurrentSlide`+ loopCount + ` = (newCurrentSlide` + loopCount + ` - 1 + newSlide` + loopCount + `.length) % newSlide` + loopCount + `.length;
+                                                        newSlide`+ loopCount + `[newCurrentSlide` + loopCount + `].style.display = 'block';
+                                                        clearInterval(newsSlideInterval`+ loopCount + `); // Ok tuşlarına tıklandığında otomatik dönme işlemini durdur
+                                                    });
 
-                                    // Önceki slayta geç
-                                    newPrevBtn`+loopCount+ `.addEventListener('click', function (event) {
-                                event.preventDefault();
+                                                    // Sonraki slayta geç
+                                                            newNextBtn`+ loopCount + `.addEventListener('click', function (event) {
+                                                event.preventDefault();
 
-                                        newSlide`+loopCount+ `[newCurrentSlide` +loopCount+ `].style.display = 'none';
-                                        newCurrentSlide`+loopCount+ ` = (newCurrentSlide` +loopCount+ ` - 1 + newSlide` +loopCount+ `.length) % newSlide` +loopCount+ `.length;
-                                        newSlide`+loopCount+ `[newCurrentSlide` +loopCount+ `].style.display = 'block';
-                                        clearInterval(newsSlideInterval`+loopCount+ `); // Ok tuşlarına tıklandığında otomatik dönme işlemini durdur
-                                    });
+                                                        newSlide`+ loopCount + `[newCurrentSlide` + loopCount + `].style.display = 'none';
+                                                        newCurrentSlide`+ loopCount + ` = (newCurrentSlide` + loopCount + ` + 1) % newSlide` + loopCount + `.length;
+                                                        newSlide`+ loopCount + `[newCurrentSlide` + loopCount + `].style.display = 'block';
+                                                        clearInterval(newsSlideInterval`+ loopCount + `); // Ok tuşlarına tıklandığında otomatik dönme işlemini durdur
+                                                    });
 
-                                    // Sonraki slayta geç
-                                            newNextBtn`+loopCount+ `.addEventListener('click', function (event) {
-                                event.preventDefault();
-
-                                        newSlide`+loopCount+ `[newCurrentSlide` +loopCount+ `].style.display = 'none';
-                                        newCurrentSlide`+loopCount+ ` = (newCurrentSlide` +loopCount+ ` + 1) % newSlide` +loopCount+ `.length;
-                                        newSlide`+loopCount+ `[newCurrentSlide` +loopCount+ `].style.display = 'block';
-                                        clearInterval(newsSlideInterval`+loopCount+ `); // Ok tuşlarına tıklandığında otomatik dönme işlemini durdur
-                                    });
-
-                                    // Resimler varsa ok tuşlarını gizle
-                                    if (newSlide`+loopCount+ `.length <= 1) {
-                                        newPrevBtn`+loopCount+ `.style.display = 'none';
-                                        newNextBtn`+loopCount+ `.style.display = 'none';
-                                    }
-                                    <`+`/` +`script></div>`;
+                                                    // Resimler varsa ok tuşlarını gizle
+                                                    if (newSlide`+ loopCount + `.length <= 1) {
+                                                        newPrevBtn`+ loopCount + `.style.display = 'none';
+                                                        newNextBtn`+ loopCount + `.style.display = 'none';
+                                                    }
+                                                    <`+ `/` + `script></div>`;
                         $(newBoxs).append($(scriptBox));
                         loopCount++;
 
@@ -235,8 +232,25 @@
                     isLoading = false;
                     // Hata işleme
                 });
-           
+
         }
+
+        function loadOnScroll(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    loadData();
+                }
+            });
+        }
+
+        var options = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0
+        };
+
+        var observer = new IntersectionObserver(loadOnScroll, options);
+        observer.observe(document.querySelector('#addThere'));
 
 
         // Sayfa yüklenirken ilk verileri yükle

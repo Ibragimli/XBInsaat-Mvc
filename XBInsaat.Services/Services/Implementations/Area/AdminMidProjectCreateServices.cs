@@ -30,7 +30,11 @@ namespace XBInsaat.Services.Services.Implementations.Area
 
         public async Task<MidProject> CreateProject(MidProjectCreateDto MidProjectCreateDto)
         {
+            var midExist =  _unitOfWork.MidProjectRepository.MaxRow();
+            var rowMax = midExist.Row;
+
             var midProject = _mapper.Map<MidProject>(MidProjectCreateDto);
+            midProject.Row = rowMax + 1;
             await _unitOfWork.MidProjectRepository.InsertAsync(midProject);
             await _unitOfWork.CommitAsync();
             return midProject;

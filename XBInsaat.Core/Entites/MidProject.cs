@@ -11,6 +11,7 @@ namespace XBInsaat.Core.Entites
    public class MidProject : BaseEntity
     {
         public string Name { get; set; }
+        public int Row { get; set; }
         public string DescribeAz { get; set; }
         public string DescribeEn { get; set; }
         public string DescribeRu { get; set; }

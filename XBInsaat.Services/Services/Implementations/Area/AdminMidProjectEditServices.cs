@@ -58,6 +58,21 @@ namespace XBInsaat.Services.Services.Implementations.Area
                 checkBool = true;
 
             }
+
+            if (oldMidProject?.Row != MidProject?.Row)
+            {
+                var oldRowProject = await _unitOfWork.MidProjectRepository.GetAsync(x => x.Row == MidProject.Row);
+                if (oldRowProject != null && oldRowProject.Row > 0)
+                {
+                    oldRowProject.Row = oldMidProject.Row;
+                }
+                else
+                {
+                    oldMidProject.Row = MidProject.Row;
+                }
+
+                checkBool = true;
+            }
             if (oldMidProject.HighProjectId != MidProject.HighProjectId)
             {
                 oldMidProject.HighProjectId = MidProject.HighProjectId;
@@ -177,7 +192,7 @@ namespace XBInsaat.Services.Services.Implementations.Area
             }
             else
             {
-               
+
                 if (poster.ImageFiles?.Count() > 0)
                 {
                     foreach (var item in posterImages.ToList().Where(x => !x.IsDelete && !x.IsPoster))
@@ -203,11 +218,24 @@ namespace XBInsaat.Services.Services.Implementations.Area
                     return i;
                 }
                 else throw new ImageCountException("Axırıncı şəkil silinə bilməz!");
-              ;
+                ;
             }
         }
         private void Check(MidProject MidProject)
         {
+
+            var maxRow = _unitOfWork.MidProjectRepository.MaxRow();
+            maxRow.Row = maxRow.Row + 1;
+            if (MidProject?.Row < 1)
+            {
+                throw new ValueFormatExpception("Sıra nömrəsi 0-ola bilməz!!");
+            }
+            if (MidProject?.Row > maxRow.Row)
+            {
+                throw new ValueFormatExpception("Sonuncu sıra nömrəsi maksimum " + maxRow.Row + " ola bilər");
+            }
+
+
             if (MidProject.Name.Length < 3)
             {
                 throw new ValueFormatExpception("Layihə adının uzunluğu minimum 3 ola bilər");
@@ -242,5 +270,10 @@ namespace XBInsaat.Services.Services.Implementations.Area
             }
         }
 
+        public int GetMaxRow()
+        {
+            var project = _unitOfWork.MidProjectRepository.MaxRow();
+            return project.Row + 1;
+        }
     }
 }
