@@ -312,9 +312,9 @@
                         <p>
                             @Html.Raw(_localization.Getkey("Services-Projecting").Value)
                         </p>
-                        <div class="servicesModalImage">
+                      @*  <div class="servicesModalImage">
                             <img class="mt-2" style="width: 53px; height: 46px;" src="~/assets/Images/icon2.png" alt="">
-                        </div>
+                        </div>*@
                     </div>
                     <div class="col-lg-6  col-md-11 servicesBox leftP ">
                         <h2>
@@ -323,9 +323,9 @@
                         <p>
                             @Html.Raw(_localization.Getkey("Services-Construction").Value)
                         </p>
-                        <div class="servicesModalImage ">
+                       @* <div class="servicesModalImage ">
                             <img class="mt-2" style="width: 70px; height: 35px;" src="~/assets/Images/icon3.png" alt="">
-                        </div>
+                        </div>*@
                     </div>
                 </div>
             </div>
@@ -519,11 +519,15 @@
                                 <br>
                                 <br>
                                 <i class="fas fa-phone-volume"> </i>
-                                @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ContactNumber")?.Value)
-
+                                <a style="color:#8a8a8a;" href="tel:@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ContactNumber")?.Value)">
+                                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ContactNumber")?.Value)
+                                </a>
                                 <br>
                                 <i class="far fa-envelope-open"> </i>
-                                @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ContactEmail")?.Value)
+                                <a style="color:#8a8a8a;" href="mailto:@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ContactEmail")?.Value)">
+                                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ContactEmail")?.Value)
+                                </a>
+          
                             </p>
                         </div>
                     </div>

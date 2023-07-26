@@ -1,11 +1,12 @@
 header {
     position: relative;
+    z-index: 40;
 
     #headerSection {
         position: fixed;
         top: 0;
         left: 0;
-        z-index: 20;
+        z-index: 40;
 
         .row {
 

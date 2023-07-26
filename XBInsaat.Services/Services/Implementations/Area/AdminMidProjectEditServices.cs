@@ -65,13 +65,9 @@ namespace XBInsaat.Services.Services.Implementations.Area
                 if (oldRowProject != null && oldRowProject.Row > 0)
                 {
                     oldRowProject.Row = oldMidProject.Row;
-                }
-                else
-                {
                     oldMidProject.Row = MidProject.Row;
+                    checkBool = true;
                 }
-
-                checkBool = true;
             }
             if (oldMidProject.HighProjectId != MidProject.HighProjectId)
             {
@@ -273,7 +269,7 @@ namespace XBInsaat.Services.Services.Implementations.Area
         public int GetMaxRow()
         {
             var project = _unitOfWork.MidProjectRepository.MaxRow();
-            return project.Row + 1;
+            return project.Row;
         }
     }
 }

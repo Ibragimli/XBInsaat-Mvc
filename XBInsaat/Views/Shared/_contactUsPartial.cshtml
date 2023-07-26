@@ -9,7 +9,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable " role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title" id="contactUsModalLabel">Contact Us</h1>
+                <h1 class="modal-title" id="contactUsModalLabel">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxContactUsTitle" + language)?.Value)</h1>
                 <button type="button" id="close-first" class="" data-bs-dismiss="modal" aria-label="Close">
                     <i class="fa-solid fa-xmark"></i>
                 </button>

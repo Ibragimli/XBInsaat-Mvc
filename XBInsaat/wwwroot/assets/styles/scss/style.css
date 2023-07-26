@@ -11,12 +11,13 @@ body main {
     transform: rotate(30deg); }
 
 header {
-  position: relative; }
+  position: relative;
+  z-index: 40; }
   header #headerSection {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 20; }
+    z-index: 40; }
     header #headerSection .row .headLogo {
       position: absolute;
       display: block;
