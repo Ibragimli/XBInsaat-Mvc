@@ -308,6 +308,11 @@ table {
   src: url(../fonts/SpartanMB-Bold%EF%B9%96.eot#iefix) format("embedded-opentype"), url(../fonts/SpartanMB-Bold.svg#SpartanMB-Bold) format("svg"), url(../fonts/SpartanMB-Bold.ttf) format("truetype"), url(../fonts/SpartanMB-Bold.woff) format("woff"), url(../fonts/SpartanMB-Bold.woff2) format("woff2");
   font-weight: 600;
   font-style: normal; }
+.validation-summary-errors ul li {
+  color: red;
+  list-style: outside;
+  margin-bottom: 5px; }
+
 * {
   box-sizing: border-box; }
   * h1,
@@ -441,9 +446,9 @@ body {
     #servicesModalScrollable .modal-dialog .modal-content .modal-body .row .boxPadding {
       border-right: 1px solid; }
 
-  #contactModalScrollable .modal-dialog .modal-content .modal-body .containerContact .row .contactMap {
-    padding-right: 30px;
-    border-right: 1px solid; }
+  #contactModalScrollable .modal-dialog .modal-content .modal-body .containerContact .row .careerBox {
+    border-right: 1px solid;
+    padding-right: 30px; }
   #contactModalScrollable .modal-dialog .modal-content .modal-body .containerContact .row .contactInfo {
     padding-left: 30px; } }
 @media (min-width: 1200px) {
@@ -582,9 +587,9 @@ body {
 
   #contactModalScrollable .modal-dialog .modal-content .modal-body .containerContact {
     padding: 0px 20px 25px 20px !important; }
-    #contactModalScrollable .modal-dialog .modal-content .modal-body .containerContact .row .contactMap {
-      padding-bottom: 30px;
-      border-bottom: 1px solid; }
+    #contactModalScrollable .modal-dialog .modal-content .modal-body .containerContact .row .careerBox {
+      border-bottom: 1px solid;
+      padding-bottom: 30px; }
     #contactModalScrollable .modal-dialog .modal-content .modal-body .containerContact .row .contactInfo {
       padding-top: 30px; }
 
@@ -934,11 +939,30 @@ body {
 
 #contactModalScrollable .modal-dialog .modal-content .modal-body .containerContact {
   padding: 0px 30px 25px 30px; }
-  #contactModalScrollable .modal-dialog .modal-content .modal-body .containerContact .row .contactMap h4 {
-    font-weight: 500;
-    font-style: 1.5rem; }
+  #contactModalScrollable .modal-dialog .modal-content .modal-body .containerContact .row .careerBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; }
+    #contactModalScrollable .modal-dialog .modal-content .modal-body .containerContact .row .careerBox h1 {
+      font-size: 26px;
+      color: #8a8a8a;
+      margin-bottom: 25px;
+      text-align: center; }
+    #contactModalScrollable .modal-dialog .modal-content .modal-body .containerContact .row .careerBox a {
+      padding: 8px 50px;
+      font-size: 22px;
+      color: white;
+      background-color: #00A7C6; }
+    #contactModalScrollable .modal-dialog .modal-content .modal-body .containerContact .row .careerBox img {
+      margin-bottom: 30px; }
   #contactModalScrollable .modal-dialog .modal-content .modal-body .containerContact .row .contactInfo p {
     font-weight: normal; }
+  #contactModalScrollable .modal-dialog .modal-content .modal-body .containerContact .row .contactInfo .contactMap {
+    margin-top: 35px; }
+    #contactModalScrollable .modal-dialog .modal-content .modal-body .containerContact .row .contactInfo .contactMap h4 {
+      font-weight: 500;
+      font-style: 1.5rem; }
 
 .camModal .modal-dialog .modal-content .modal-body section .container .row .camBox {
   padding-right: 28px;
@@ -1649,5 +1673,138 @@ body {
 
 ::-moz-scrollbar-track {
   background-color: #ffffff; }
+
+#career {
+  margin-top: calc((100vh - 100vh * 0.790));
+  width: 100%;
+  z-index: 5; }
+  #career .container .row .careerInputBox {
+    border-radius: 6px;
+    margin-bottom: 20px;
+    padding: 10px 14px;
+    background-color: rgba(255, 255, 255, 0.233); }
+    #career .container .row .careerInputBox h1 {
+      color: #00A7C6; }
+    #career .container .row .careerInputBox .newPageTitleBox h1 {
+      font-size: 24px;
+      font-weight: 600; }
+    #career .container .row .careerInputBox form {
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      width: 100%; }
+      #career .container .row .careerInputBox form .contactLogoImage a img {
+        margin: 20px 0px; }
+      #career .container .row .careerInputBox form .contactUsInputsBox {
+        padding: 0 0 15px 0;
+        margin: 0 0 5px 0; }
+        #career .container .row .careerInputBox form .contactUsInputsBox label {
+          margin-bottom: 0.5rem;
+          vertical-align: middle;
+          cursor: pointer; }
+        #career .container .row .careerInputBox form .contactUsInputsBox input {
+          box-shadow: 0 0 10px #719ECE;
+          width: 100%;
+          margin: 0 0 3px 0;
+          zoom: 1;
+          min-width: 10px;
+          max-width: 100%;
+          padding: 8px;
+          height: auto;
+          line-height: 1.5;
+          font-size: 1em;
+          border: 1px solid #e3e3e3;
+          background-color: white;
+          box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; }
+        #career .container .row .careerInputBox form .contactUsInputsBox input[type=file]::file-selector-button {
+          background-color: #00A7C6;
+          border: 1px solid #00A7C6;
+          color: white;
+          cursor: pointer; }
+        #career .container .row .careerInputBox form .contactUsInputsBox textarea {
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+          max-height: 300px;
+          margin: 0 0 3px 0;
+          zoom: 1;
+          min-width: 10px;
+          max-width: 100%;
+          width: 100%;
+          padding: 8px;
+          height: auto;
+          line-height: 1.5;
+          font-size: 1em;
+          border: 1px solid #e3e3e3; }
+        #career .container .row .careerInputBox form .contactUsInputsBox input:focus {
+          outline: none !important;
+          border-color: #719ECE;
+          box-shadow: 0 0 10px #719ECE; }
+        #career .container .row .careerInputBox form .contactUsInputsBox textarea:focus {
+          outline: none !important;
+          border-color: #719ECE;
+          box-shadow: 0 0 10px #719ECE; }
+      #career .container .row .careerInputBox form .contactButton {
+        margin: 10px 0; }
+        #career .container .row .careerInputBox form .contactButton button {
+          transition: transform .4s ease-in-out, background-color .4s ease-in-out, border-color .4s ease-in-out, color .4s ease-in-out, -webkit-transform .4s ease-in-out;
+          padding: 8px 12px;
+          background: #fff;
+          border: 1px solid #ccc;
+          color: #333;
+          border-radius: 4px;
+          -webkit-box-shadow: none;
+          box-shadow: none;
+          display: block;
+          margin: 0;
+          cursor: pointer;
+          line-height: 1.5;
+          width: 100%;
+          max-width: 100%;
+          background-color: #00A7C6; }
+          #career .container .row .careerInputBox form .contactButton button span {
+            font-weight: bold;
+            color: white; }
+            #career .container .row .careerInputBox form .contactButton button span i {
+              color: white;
+              margin-left: 10px; }
+        #career .container .row .careerInputBox form .contactButton button:hover {
+          background-color: #00a8c6a4;
+          border-color: #00a8c6a4;
+          color: #333; }
+      #career .container .row .careerInputBox form .contactRequired {
+        color: #cc0101;
+        margin: 0 0 0 5px;
+        font-size: 90%;
+        cursor: pointer; }
+      #career .container .row .careerInputBox form .error-message {
+        color: red;
+        margin: 0;
+        background-color: #f2dede;
+        color: #b94a48;
+        border-left: 5px solid #c73412;
+        max-width: 100%;
+        font-family: SpartanMB, sans-serif;
+        font-size: 1rem; }
+
+#BackgorundImageBox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; }
+  #BackgorundImageBox .BackgorundPage {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    transition: all 0.8s; }
+    #BackgorundImageBox .BackgorundPage .BackImage {
+      width: 100%;
+      height: 100%;
+      transition: all 0.8s; }
+      #BackgorundImageBox .BackgorundPage .BackImage img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover;
+        pointer-events: none; }
 
 /*# sourceMappingURL=style.css.map */

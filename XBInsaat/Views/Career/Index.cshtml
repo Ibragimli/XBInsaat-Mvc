@@ -1,0 +1,95 @@
+﻿@{
+    ViewData["Title"] = "Index";
+
+    var language = _localization.Getkey("Language").Value;
+}
+
+@model CareerViewModel
+<!-- Older posts -->
+<section id="career">
+    <div class="container">
+        <div class="row  justify-content-center ">
+            <!-- Post -->
+            <!-- Featured image -->
+
+            <div class="col-md-9 col-sm-12 careerInputBox">
+                <!-- Title -->
+                <h1 class="text-center">
+                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "Career" + language)?.Value)
+                </h1>
+                <div class=" mb-2 newPageTitleBox">
+                    <h3 class="h5 d-block text-center text-dark text-decoration-none mt-4 ">
+                        @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "CareerText" + language)?.Value)
+                    </h3>
+                </div>
+                <form class="row  mt-5 mb-3" asp-action="CareerSend" method="post" enctype="multipart/form-data">
+                    <!-- AdSoyad -->
+                    <div class="contactUsInputsBox col-lg-6  col-md-8 col-sm-9">
+                        <div class="text-danger" style="color:red"  asp-validation-summary="ModelOnly"></div>
+
+                        <label class="quform-label-text" for="contactNameInput">
+                            @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalContactUsInputFullname" + language)?.Value)
+                            <span class="contactRequired">*</span>
+                        </label>
+                        <input asp-for="CareerPostDto.Fullname" class="" type="text" aria-label="default input example">
+                        <span class="text-danger" asp-validation-for="CareerPostDto.Fullname"></span>
+                    </div>
+                    <!-- Nomre -->
+                    <div class="contactUsInputsBox col-lg-6 col-md-8 col-sm-9">
+                        <label class="quform-label-text" for="contactNumberInput">
+                            @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalContactUsInputNumber" + language)?.Value)
+                            <span class="contactRequired">*</span>
+                        </label>
+                        <input asp-for="CareerPostDto.PhoneNumber" id="contactNumberInput" class="" type="tel" aria-label="default input example">
+                        <div id="numberError" class="error-message"></div>
+                        <span class="text-danger" asp-validation-for="CareerPostDto.PhoneNumber"></span>
+
+                    </div>
+
+                    <!-- CV -->
+                    <div class="contactUsInputsBox col-lg-6  col-md-8 col-sm-9">
+                        <label class="quform-label-text" for="contactNameInput">
+                            CV<span class="contactRequired">*</span>
+                        </label>
+
+                        <input asp-for="CareerPostDto.CV" class="" type="file" accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" aria-label="default input example">
+                        <span class="text-danger" asp-validation-for="CareerPostDto.CV"></span>
+
+                    </div>
+                    <!-- Desc -->
+                    <div class="contactUsInputsBox col-lg-6 col-md-8 col-sm-9">
+                        <label class="quform-label-text" for="contactDescInput">
+                            @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalContactUsInputMessage" + language)?.Value)
+                        </label>
+                        <textarea asp-for="CareerPostDto.Message" maxlength="1000"  rows="6"></textarea>
+                        <span class="text-danger" asp-validation-for="CareerPostDto.Message"></span>
+
+                    </div>
+                    <!-- btn -->
+                    <div class="col-lg-6 col-md-8 col-sm-9 contactButton">
+                        <button name="quform_submit" type="submit" class="btn" >
+                            <span class="spanText quform-button-text quform-button-submit-text">
+
+                                @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalContactUsInputBtn" + language)?.Value)
+                            </span>
+                            <span class="quform-button-icon quform-button-submit-icon">
+                                <i class="fa fa-chevron-right"></i>
+                            </span>
+                        </button>
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Login Modal -->
+@await Html.PartialAsync("_loginModalPartial", Model.LoginViewModel)
+
+<!-- ContactUs Modal -->
+@await Html.PartialAsync("_contactUsPartial", Model.HomeIndexContactUsViewModel)
+
+<!--BackgroundSlider -->
+@await Html.PartialAsync("_backgroundImageSlider")

@@ -76,6 +76,7 @@ namespace XBInsaat.Mvc.ServiceExtentions
             services.AddScoped<IAdminLoginServices, AdminLoginServices>();
 
             services.AddScoped<ILayoutServices, LayoutServices>();
+            services.AddScoped<ICareerServices, CareerServices>();
         }
     }
 }

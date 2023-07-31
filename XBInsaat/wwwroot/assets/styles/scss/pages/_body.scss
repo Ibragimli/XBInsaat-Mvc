@@ -27,6 +27,16 @@
     font-style: normal
 }
 
+.validation-summary-errors {
+    ul {
+        li {
+            color: red;
+            list-style: outside;
+            margin-bottom: 5px;
+        }
+    }
+}
+
 * {
 
     h1,
@@ -52,6 +62,7 @@ body {
     .xbinsaat-mobile {
         display: none;
     }
+
     background-color: #eeecec;
 
 

@@ -43,5 +43,23 @@ namespace XBInsaat.Services.Services.Implementations
             smtp.Send(email);
             smtp.Disconnect(true);
         }
+
+        public async Task Send(string to, string subject, BodyBuilder html)
+        {
+            var portStr = (await _unitOfWork.EmailSettingRepository.GetAsync(x => x.Key == "SmtpPort")).Value;
+            int port = int.Parse(portStr);
+            var email = new MimeMessage();
+            email.From.Add(MailboxAddress.Parse((await _unitOfWork.EmailSettingRepository.GetAsync(x => x.Key == "SmtpEmail"))?.Value));
+            email.To.Add(MailboxAddress.Parse(to));
+            email.Subject = subject;
+            email.Body =  html.ToMessageBody();
+
+            // send email
+            using var smtp = new SmtpClient();
+            smtp.Connect((await _unitOfWork.EmailSettingRepository.GetAsync(x => x.Key == "SmtpHost"))?.Value, port, SecureSocketOptions.StartTls);
+            smtp.Authenticate((await _unitOfWork.EmailSettingRepository.GetAsync(x => x.Key == "SmtpEmail"))?.Value, (await _unitOfWork.EmailSettingRepository.GetAsync(x => x.Key == "SmtpPassword"))?.Value);
+            smtp.Send(email);
+            smtp.Disconnect(true);
+        }
     }
 }

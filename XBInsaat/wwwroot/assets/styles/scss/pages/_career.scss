@@ -1,0 +1,204 @@
+#career {
+    margin-top: calc((100vh - 100vh * 0.790));
+
+    width: 100%;
+    z-index: 5;
+
+    .container {
+        .row {
+
+
+            .careerInputBox {
+                border-radius: 6px;
+                margin-bottom: 20px;
+                padding: 10px 14px;
+                background-color: rgba(255, 255, 255, 0.233);
+
+                h1 {
+                    
+                    color: #00A7C6;
+                }
+
+                .newPageTitleBox {
+
+                    h1 {
+                        font-size: 24px;
+                        font-weight: 600;
+                        // color: #8e8e93 !important;
+                    }
+                }
+
+                form {
+                    justify-content: center;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 100%;
+
+                    .contactLogoImage {
+                        a {
+                            img {
+                                margin: 20px 0px;
+                            }
+                        }
+                    }
+
+                    .contactUsInputsBox {
+                        padding: 0 0 15px 0;
+                        margin: 0 0 5px 0;
+
+                        label {
+                            margin-bottom: 0.5rem;
+                            vertical-align: middle;
+                            cursor: pointer;
+                        }
+
+                        input {
+                            box-shadow: 0 0 10px #719ECE;
+                            width: 100%;
+                            margin: 0 0 3px 0;
+                            zoom: 1;
+                            min-width: 10px;
+                            max-width: 100%;
+                            padding: 8px;
+                            height: auto;
+                            line-height: 1.5;
+                            font-size: 1em;
+                            border: 1px solid #e3e3e3;
+                            background-color: white;
+                            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+                        }
+                        input[type=file]::file-selector-button {
+                            background-color: #00A7C6;
+                            border: 1px solid #00A7C6;
+                            color: white;
+                            cursor: pointer;
+                          }
+
+                        textarea {
+                            box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
+                            max-height: 300px;
+                            margin: 0 0 3px 0;
+                            zoom: 1;
+                            min-width: 10px;
+                            max-width: 100%;
+                            width: 100%;
+                            padding: 8px;
+                            height: auto;
+                            line-height: 1.5;
+                            font-size: 1em;
+                            border: 1px solid #e3e3e3;
+
+                        }
+
+                        input:focus {
+                            outline: none !important;
+                            border-color: #719ECE;
+                            box-shadow: 0 0 10px #719ECE;
+                        }
+
+                        textarea:focus {
+                            outline: none !important;
+                            border-color: #719ECE;
+                            box-shadow: 0 0 10px #719ECE;
+                        }
+                    }
+
+
+
+                    .contactButton {
+                        margin: 10px 0;
+
+                        button {
+                            transition: transform .4s ease-in-out, background-color .4s ease-in-out, border-color .4s ease-in-out, color .4s ease-in-out, -webkit-transform .4s ease-in-out;
+                            padding: 8px 12px;
+                            background: #fff;
+                            border: 1px solid #ccc;
+                            color: #333;
+                            border-radius: 4px;
+                            -webkit-box-shadow: none;
+                            box-shadow: none;
+                            display: block;
+                            margin: 0;
+                            cursor: pointer;
+                            line-height: 1.5;
+                            width: 100%;
+                            max-width: 100%;
+                            background-color: #00A7C6;
+                            // .spanText {}
+
+                            span {
+                                font-weight: bold;
+                                color: white;
+
+                                i {
+                                    color: white;
+
+                                    margin-left: 10px;
+                                }
+                            }
+                        }
+
+                        button:hover {
+                            background-color: #00a8c6a4;
+                            border-color: #00a8c6a4;
+                            color: #333;
+                        }
+                    }
+
+                    .contactRequired {
+                        color: #cc0101;
+                        margin: 0 0 0 5px;
+                        font-size: 90%;
+                        cursor: pointer;
+                    }
+
+                    .error-message {
+                        color: red;
+                        margin: 0;
+                        background-color: #f2dede;
+                        color: #b94a48;
+                        border-left: 5px solid #c73412;
+                        max-width: 100%;
+                        font-family: SpartanMB, sans-serif;
+                        font-size: 1rem;
+                    }
+                }
+            }
+
+        }
+    }
+
+
+}
+
+#BackgorundImageBox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+    .BackgorundPage {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        transition: all 0.8s;
+
+        .BackImage {
+
+            width: 100%;
+            height: 100%;
+            transition: all 0.8s;
+
+
+            img {
+                width: 100% !important;
+                height: 100% !important;
+                object-fit: cover;
+                pointer-events: none;
+            }
+        }
+    }
+}

@@ -31,7 +31,8 @@
                                     height: 380px !important;
                                 }
                             }
-                            video{
+
+                            video {
                                 height: 380px !important;
                             }
                         }
@@ -58,7 +59,8 @@
                                     height: 380px !important;
                                 }
                             }
-                            video{
+
+                            video {
                                 height: 380px !important;
                             }
                         }
@@ -85,7 +87,8 @@
                                     height: 380px !important;
                                 }
                             }
-                            video{
+
+                            video {
                                 height: 380px !important;
                             }
                         }
@@ -183,7 +186,7 @@
 
 // 992-den yuxari
 @media (min-width: 992px) {
-   
+
     .modal,
     .fade {
         background-color: transparent !important;
@@ -221,12 +224,12 @@
                     }
                 }
             }
-           
+
         }
-    
-    
+
+
     }
-    
+
 
     #projectsModalScrollable {
         .modal-dialog {
@@ -279,7 +282,7 @@
         }
     }
 
-  
+
     .modal-lg,
     .modal-xl {
         max-width: 1146px !important;
@@ -326,13 +329,17 @@
                 .modal-body {
                     .containerContact {
                         .row {
-                            .contactMap {
+
+                            .careerBox {
+                                border-right: 1px solid;
                                 padding-right: 30px;
 
-                                border-right: 1px solid;
+                              
                             }
 
                             .contactInfo {
+                                .contactMap {}
+
                                 padding-left: 30px;
                             }
                         }
@@ -825,15 +832,17 @@
                         padding: 0px 20px 25px 20px !important;
 
                         .row {
-                            .contactMap {
-                                padding-bottom: 30px;
+
+                            .careerBox {
                                 border-bottom: 1px solid;
+                                padding-bottom: 30px;
+
                             }
 
                             .contactInfo {
                                 padding-top: 30px;
 
-
+                                .contactMap {}
                             }
                         }
                     }

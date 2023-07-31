@@ -312,8 +312,8 @@
                         <p>
                             @Html.Raw(_localization.Getkey("Services-Projecting").Value)
                         </p>
-                      @*  <div class="servicesModalImage">
-                            <img class="mt-2" style="width: 53px; height: 46px;" src="~/assets/Images/icon2.png" alt="">
+                        @*  <div class="servicesModalImage">
+                        <img class="mt-2" style="width: 53px; height: 46px;" src="~/assets/Images/icon2.png" alt="">
                         </div>*@
                     </div>
                     <div class="col-lg-6  col-md-11 servicesBox leftP ">
@@ -323,8 +323,8 @@
                         <p>
                             @Html.Raw(_localization.Getkey("Services-Construction").Value)
                         </p>
-                       @* <div class="servicesModalImage ">
-                            <img class="mt-2" style="width: 70px; height: 35px;" src="~/assets/Images/icon3.png" alt="">
+                        @* <div class="servicesModalImage ">
+                        <img class="mt-2" style="width: 70px; height: 35px;" src="~/assets/Images/icon3.png" alt="">
                         </div>*@
                     </div>
                 </div>
@@ -411,8 +411,8 @@
                             <div class="col-lg-4 col-md-10 camBox">
                                 <!-- Featured image -->
                                 <a href="#!" data-bs-toggle="modal" data-bs-target="#liveModal-test">
-                             @*       <img src="~/assets/Images/Asset-1-1.png"
-                                         class="img-fluid rounded hover-lift-light" alt="">*@
+                                    @*       <img src="~/assets/Images/Asset-1-1.png"
+                                    class="img-fluid rounded hover-lift-light" alt="">*@
                                     <video style="width: 100%; height: auto; object-fit: cover;" class="video"
                                            src="~/assets/Images/DJI_0534.mp4"></video>
                                 </a>
@@ -456,7 +456,7 @@
                                        src="~/assets/Images/DJI_0534.mp4"></video>
                                 <div class="camera-container row">
                                     @*<div class="col-lg-8 camera-feed">
-                                      
+
                                     </div>*@
                                     <div class="camera-controls ">
                                         <!-- <div class="col-4">
@@ -465,7 +465,7 @@
                                         <div class="col-4">
                                             <button class="btn btn-danger" id="stop-button">2</button>
                                         </div> -->
-                                        
+
                                     </div>
                                 </div>
 
@@ -484,7 +484,8 @@
         <div class="modal-content ">
             <div class="modal-header">
                 <h1 style="color:#00a7c6;" class="modal-title" id="contactModalScrollableTitle">
-
+                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "Career" + language)?.Value)
+                    /
                     @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxContactUsTitle" + language)?.Value)
 
                 </h1>
@@ -495,17 +496,21 @@
             <div class="modal-body">
                 <div class="containerContact">
                     <div class="row">
-                        <div class="col-lg-6 contactMap">
-                            <h4 style="color: #8a8a8a;">
-                                <i class="far fa-map"></i>
+                        <div class="col-lg-6 careerBox">
+                            <img src="~/uploads/setting/@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "LogoImage")?.Value)" alt="">
+                            <h1>
+                              
+                                @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalCareerText" + language)?.Value)
 
-                                @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ContactMapText" + language)?.Value)
+                            </h1>
+                            <a asp-action="index" asp-controller="career" class="btn">
+                                @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "Career" + language)?.Value)
 
-                            </h4>
-                            <iframe src="@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "MapUrl")?.Value)"
-                                    width="100%" height="250" style="border:0;" allowfullscreen=""
-                                    loading="lazy"></iframe>
+                            </a>
+
+
                         </div>
+
                         <div class="col-lg-6 contactInfo">
                             <h4 style="color: #8a8a8a;">
                                 <i class="fas fa-chevron-right"></i>
@@ -527,7 +532,19 @@
                                 <a style="color:#8a8a8a;" href="mailto:@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ContactEmail")?.Value)">
                                     @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ContactEmail")?.Value)
                                 </a>
-          
+
+                                <div class="contactMap">
+                                    @*  <h4 style="color: #8a8a8a;">
+                                    <i class="far fa-map"></i>
+
+                                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ContactMapText" + language)?.Value)
+
+                                    </h4>*@
+                                    <iframe src="@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "MapUrl")?.Value)"
+                                            width="100%" height="250" style="border:0;" allowfullscreen=""
+                                            loading="lazy"></iframe>
+                                </div>
+
                             </p>
                         </div>
                     </div>

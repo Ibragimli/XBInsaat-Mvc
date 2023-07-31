@@ -15,7 +15,7 @@
         {
             numbers.Add(Model.HighProject.ContactInfo);
         }
-      
+
     }
 }
 @section LinksCss{
@@ -173,41 +173,16 @@
 </section>
 
 
-<section id="BackgorundImageBox">
-    <!-- BackgorundImage -->
-    <div class="BackgorundPage">
-        <div class="BackImage">
-            <img src="~/assets/Images/slide-vaqif.png" alt="Resim 1">
-        </div>
-        <div class="BackImage">
-            <img src="~/assets/Images/slide-susa.jpg" alt="Resim 1">
-        </div>
-        <div class="BackImage">
-            <img src="~/assets/Images/slide-xaribilbul.png" alt="Resim 1">
-        </div>
-        <div class="BackImage">
-            <img src="~/assets/Images/slide-projec-yujk-scaled.jpg" alt="Resim 1">
-        </div>
-        <div class="BackImage">
-            <img src="~/assets/Images/cam.png" alt="Resim 1">
-        </div>
-        <div class="BackImage">
-            <img src="~/assets/Images/slide-service3-scaled.jpg" alt="Resim 1">
-        </div>
-        <div class="BackImage">
-            <img src="~/assets/Images/vaqif-2.jpeg" alt="Resim 1">
-        </div>
-        <div class="BackImage">
-            <img src="~/assets/Images/xaribulbul-2.jpeg" alt="Resim 1">
-        </div>
-    </div>
-</section>
 
 
 <!-- Login Modal -->
 @await Html.PartialAsync("_loginModalPartial", Model.LoginViewModel)
 
+<!-- ContactUs Modal -->
 @await Html.PartialAsync("_contactUsPartial", Model.HomeIndexContactUsViewModel)
+
+<!--BackgroundSlider -->
+@await Html.PartialAsync("_backgroundImageSlider")
 
 @section Scripts{
     <script src="~/assets/js/slider.js"></script>
@@ -215,20 +190,3 @@
     <script src="~/assets/js/owl.carousel.min.js"></script>
     <script src="~/assets/js/owlCarousel.js"></script>
 }
-<div>
-    <script>
-        $(document).ready(function () {
-            var slideIndex = 0;
-            var slides = $(".BackImage");
-
-            function showSlide() {
-                slides.eq(slideIndex).fadeIn(1000).siblings().fadeOut(1000);
-                slideIndex = (slideIndex + 1) % slides.length;
-            }
-
-            showSlide();
-
-            setInterval(showSlide, 4500);
-        });
-    </script>
-</div>

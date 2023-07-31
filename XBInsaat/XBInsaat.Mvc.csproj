@@ -56,6 +56,7 @@
     <None Include="wwwroot\assets\styles\scss\pages\_body.scss" />
     <None Include="wwwroot\assets\styles\scss\pages\_camModal.scss" />
     <None Include="wwwroot\assets\styles\scss\pages\_camsModal.scss" />
+    <None Include="wwwroot\assets\styles\scss\pages\_career.scss" />
     <None Include="wwwroot\assets\styles\scss\pages\_contactModal.scss" />
     <None Include="wwwroot\assets\styles\scss\pages\_contactUsBtn.scss" />
     <None Include="wwwroot\assets\styles\scss\pages\_descBox.scss" />
