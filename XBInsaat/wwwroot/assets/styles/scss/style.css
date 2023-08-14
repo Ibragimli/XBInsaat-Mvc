@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import url(https://fonts.googleapis.com/css?family=Merriweather:400,300italic,300,400italic,700,700italic);
 body main {
   position: relative; }
   body main .instagramLogo {
@@ -287,32 +286,6 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-/* url(../fonts/SpartanMB-Medium.ttf) format("truetype"), url(../fonts/SpartanMB-Medium.woff) format("woff"), url(../fonts/SpartanMB-Medium.woff2) format("woff2") */
-@font-face {
-  font-family: SpartanMB;
-  src: url(../fonts/SpartanMB-Medium.eot);
-  src: url(../fonts/SpartanMB-Medium%EF%B9%96.eot#iefix) format("embedded-opentype"), url(../fonts/SpartanMB-Medium.svg#SpartanMB-Medium) format("svg");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap; }
-@font-face {
-  font-family: SpartanMB;
-  src: url(../fonts/SpartanMB-SemiBold.eot);
-  src: url(../fonts/SpartanMB-SemiBold%EF%B9%96.eot#iefix) format("embedded-opentype"), url(../fonts/SpartanMB-SemiBold.svg#SpartanMB-SemiBold) format("svg"), url(../fonts/SpartanMB-SemiBold.ttf) format("truetype"), url(../fonts/SpartanMB-SemiBold.woff) format("woff"), url(../fonts/SpartanMB-SemiBold.woff2) format("woff2");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap; }
-@font-face {
-  font-family: SpartanMB;
-  src: url(../fonts/SpartanMB-Bold.eot);
-  src: url(../fonts/SpartanMB-Bold%EF%B9%96.eot#iefix) format("embedded-opentype"), url(../fonts/SpartanMB-Bold.svg#SpartanMB-Bold) format("svg"), url(../fonts/SpartanMB-Bold.ttf) format("truetype"), url(../fonts/SpartanMB-Bold.woff) format("woff"), url(../fonts/SpartanMB-Bold.woff2) format("woff2");
-  font-weight: 600;
-  font-style: normal; }
-.validation-summary-errors ul li {
-  color: red;
-  list-style: outside;
-  margin-bottom: 5px; }
-
 * {
   box-sizing: border-box; }
   * h1,
@@ -324,9 +297,14 @@ table {
   * a,
   * p,
   * span,
-  * li {
-    font-family: SpartanMB, sans-serif;
+  * li, * div {
+    font-family: 'DM Sans', sans-serif;
     color: #111111; }
+
+.validation-summary-errors ul li {
+  color: red;
+  list-style: outside;
+  margin-bottom: 5px; }
 
 body {
   background-color: #eeecec; }
@@ -1410,12 +1388,24 @@ body {
     align-items: end;
     padding: 0px 0px 12px 12px;
     line-height: 21px;
-    transition: all 0.4s; }
+    transition: all 0.4s;
+    position: relative; }
     #sliderBoxs .sliderRangeBox .revolutionSliderclass .kutus .kutu a .kutuFeature span {
       font-weight: bold;
       font-size: 21px; }
+    #sliderBoxs .sliderRangeBox .revolutionSliderclass .kutus .kutu a .kutuFeature .career-2 {
+      position: absolute;
+      top: 12px;
+      left: 11px; }
   #sliderBoxs .sliderRangeBox .revolutionSliderclass .kutus .kutu:hover .slide {
     opacity: 1; }
+
+#sliderMobileBoxs .kutuFeature {
+  position: relative; }
+  #sliderMobileBoxs .kutuFeature .career-2 {
+    position: absolute;
+    top: 12px;
+    left: 12px; }
 
 #boxDesctipions {
   z-index: 20;
@@ -1433,7 +1423,7 @@ body {
       line-height: 70px;
       letter-spacing: 2px;
       font-weight: 550;
-      font-size: 63px; }
+      font-size: 65px; }
     #boxDesctipions .row .boxDesc p {
       z-index: 6;
       text-decoration: none;

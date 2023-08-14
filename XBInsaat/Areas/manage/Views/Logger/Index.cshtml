@@ -1,0 +1,108 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    DateTime now = DateTime.UtcNow;
+
+}
+@model LoggerIndexViewModel
+<div class="content-wrapper">
+    <!-- Content -->
+
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Loggers </span> </h4>
+
+        <!-- Bordered Table -->
+        <div class="card">
+            <div class="card-body">
+                @* Pagination *@
+                <div class="row">
+                    <form asp-action="index" asp-controller="Logger" asp-route-page="@ViewBag.Page" class="row d-flex">
+
+                        <div class="d-flex align-items-center col-lg-3 col-md-4 col-sm-6 mb-2">
+                            <input name="name" class="form-control " type="search" placeholder="Ad" aria-label="Ad">
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-2 text-center">
+                            <button class="btn btn-outline-primary" type="submit">Axtarış</button>
+                        </div>
+
+                    </form>
+
+                    <div class="d-flex align-items-center col-11 mt-2" style="display:flex; justify-content:flex-end;">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination">
+                                @if (Model.Loggers.HasPrev)
+                                {
+
+                                    <li class="page-item">
+                                        <a asp-action="index" asp-controller="Logger" asp-route-page="@(Model.Loggers.PageIndex-1)" asp-route-name="@(ViewBag.Name)" class="page-link" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                        </a>
+                                    </li>
+                                }
+                                @for (int i = 1; i <= Model.Loggers.TotalPages; i++)
+                                {
+                                    <li aria-current="page" class="page-item" @(Model.Loggers.PageIndex == i ? "active" : "")>
+                                        <a asp-action="index" asp-controller="Logger" asp-route-page="@i" asp-route-name="@(ViewBag.Name)" class="page-link">@i</a>
+                                    </li>
+                                }
+                                @if (Model.Loggers.HasNext)
+                                {
+                                    <li class="page-item">
+                                        <a asp-action="index" asp-controller="Logger" asp-route-page="@(Model.Loggers.PageIndex+1)" asp-route-name="@(ViewBag.Name)" class="page-link" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                }
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                @* Pagination *@
+
+                <br />
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <br />
+                @*table*@
+                <div class="table-responsive text-nowrap">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Controller</th>
+                                <th>Action</th>
+                                <th>Product</th>
+                                <th>Fullname</th>
+                                <th>Role</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var Logger in Model.Loggers)
+                            {
+                                <tr>
+                                    <td class="text-center"><a target="_blank">@Logger.Controller</a></td>
+                                    <td class="text-center"><a target="_blank">@Logger.Action</a></td
+                                    <td class="text-center"><a target="_blank">@Logger.Product</a></td>
+                                    <td class="text-center"><a target="_blank">@Logger.Name</a></td>
+                                    <td class="text-center"><a target="_blank">@Logger.Role</a></td>
+                                    <td class="text-center"><a target="_blank">@Logger.CreatedDate</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+        <!--/ Bordered Table -->
+
+
+    </div>
+    <!-- / Content -->
+</div>
+
+@section Scripts{
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
+
+    <script src="~/manage/assets/js/sweetAlert.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+}

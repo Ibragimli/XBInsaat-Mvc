@@ -32,7 +32,12 @@
         @settings.FirstOrDefault(x => x.Key == "Title")?.Value
     </title>
 
-
+    @*Font*@
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,900;1,9..40,400&display=swap"
+          rel="stylesheet">
+    @*Font*@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -48,6 +53,7 @@
     <meta property="og:description" content="xbinsaat.az – “Xarıbülbül İnşaat” MMC Azərbaycanda yüksək keyfiyyətli tikinti layihələrinin ölkə ərazisində həyata keçirilməsini təmin edən aparıcı tikinti şirkətidir. Şirkətimiz böyük və mürəkkəb layihələri həyata keçirməklə, innovasiyaları təştiq etməklə, müasir texnologiyaları mənimsəməklə, müştərilərilərimiz üçün fərq yaratmaqla tanınıb. “Xarıbülbül İnşaat”-da yüksək keyfiyyətli materiallardan istifadə edərək, ixtisaslı mühəndis kadrları cəlb 
     etməklə istənilən çətinlik səviyyəsində layihələndirmə, tədqiqat, tikinti, quraşdırma və təmir-tikinti işlərinini təqdim edir. “Xarıbülbül İnşaat”-da biz yaşayış binalarından ticarət komplekslərinə, zavodlara, fabriklərə və infrastruktur inkişaflarına qədər müxtəlif layihələrin tikintisində ixtisaslaşmışıq. Təcrübəli peşəkarlardan ibarət komandamız müxtəlif layihələri həyata keçirməyə imkan verən qlobal standardlara uyğun və zəngin təcrübəyə malikdir.">
     @await RenderSectionAsync("LinksCss", required: false)
+
 
 </head>
 

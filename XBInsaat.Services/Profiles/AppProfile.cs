@@ -19,6 +19,7 @@ namespace XBInsaat.Services.Profiles
             CreateMap<NewsCreateDto, News>();
             CreateMap<XBServiceCreateDto, XBService>();
             CreateMap<ContactUsCreateDto, ContactUs>();
+            CreateMap<LoggerPostDto, Logger>();
 
         }
     }

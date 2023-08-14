@@ -1,9 +1,11 @@
 ﻿using XBInsaat.Service.CustomExceptions;
 using Microsoft.AspNetCore.Diagnostics;
 using Newtonsoft.Json;
+using XBInsaat.Services.CustomExceptions;
 
 namespace XBInsaat.Mvc.ServiceExtentions
 {
+
     public static class ExceptionHandlerExtention
     {
         public static void AddExceptionHandlerService(this IApplicationBuilder app)
@@ -47,7 +49,9 @@ namespace XBInsaat.Mvc.ServiceExtentions
                             code = 500;
                         if (contextFeature.Error is ValueFormatExpception)
                             code = 400;
-
+                        if (contextFeature.Error is UserPasswordResetException)
+                            code = 400;
+                        
                     }
 
                     context.Response.StatusCode = code;

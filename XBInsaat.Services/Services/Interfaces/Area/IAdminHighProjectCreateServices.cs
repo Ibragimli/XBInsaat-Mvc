@@ -16,8 +16,5 @@ namespace XBInsaat.Services.Services.Interfaces.Area
         void DtoCheck(HighProjectCreateDto highProjectCreateDto);
         public Task CreateImageFormFile(List<IFormFile> imageFiles, int Id);
 
-        //void SaveChange(Poster Poster);
-        //void SaveContext(Poster Poster);
-
     }
 }

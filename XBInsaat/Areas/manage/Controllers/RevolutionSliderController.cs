@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using XBInsaat.Core.Entites;
@@ -7,22 +8,27 @@ using XBInsaat.Mvc.Areas.manage.ViewModels;
 using XBInsaat.Service.CustomExceptions;
 using XBInsaat.Service.Helper;
 using XBInsaat.Services.Dtos.Area;
+using XBInsaat.Services.HelperService.Interfaces;
 using XBInsaat.Services.Services.Interfaces.Area;
 
 namespace XBInsaat.Mvc.Areas.manage.Controllers
 {
     [Area("manage")]
-    
+
     [Authorize(Roles = "SuperAdmin")]
 
     public class RevolutionSliderController : Controller
     {
+        private readonly ILoggerServices _loggerServices;
+        private readonly UserManager<AppUser> _userManager;
         private readonly DataContext _context;
         private readonly IRevolutionSliderEditServices _revolutionSliderEditServices;
         private readonly IRevolutionSliderIndexServices _revolutionSliderIndexServices;
 
-        public RevolutionSliderController(DataContext context, IRevolutionSliderEditServices revolutionSliderEditServices, IRevolutionSliderIndexServices revolutionSliderIndexServices)
+        public RevolutionSliderController(ILoggerServices loggerServices, UserManager<AppUser> userManager, DataContext context, IRevolutionSliderEditServices revolutionSliderEditServices, IRevolutionSliderIndexServices revolutionSliderIndexServices)
         {
+            _loggerServices = loggerServices;
+            _userManager = userManager;
             _context = context;
             _revolutionSliderEditServices = revolutionSliderEditServices;
             _revolutionSliderIndexServices = revolutionSliderIndexServices;
@@ -62,6 +68,13 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
             try
             {
                 await _revolutionSliderEditServices.RevolutionSliderEdit(revolutionSlider);
+
+                //Logger
+                var product = await _revolutionSliderEditServices.GetSearch(revolutionSlider.Id);
+                AppUser user = User.Identity.IsAuthenticated ? _userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name && x.IsAdmin) : null;
+                if (user == null)
+                    throw new UserNotFoundException("Error bas verdi!");
+                await _loggerServices.LoggerCreate("RevolutionSlider", "Edit", user.FullName, user.UserName, product.Image);
             }
             catch (ValueFormatExpception ex)
             {
@@ -74,6 +87,10 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
 
                 ModelState.AddModelError("", ex.Message);
                 return View(revolutionSlider);
+            }
+            catch (UserNotFoundException)
+            {
+                return RedirectToAction("index", "notfound");
             }
             catch (Exception ex)
             {

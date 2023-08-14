@@ -10,6 +10,7 @@ namespace XBInsaat.Core.Entites
     public class AppUser : IdentityUser
     {
         public string FullName { get; set; }
+        public string RoleName { get; set; }
         public bool IsAdmin { get; set; }
 
     }

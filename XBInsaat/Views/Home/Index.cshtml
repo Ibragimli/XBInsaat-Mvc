@@ -81,26 +81,32 @@
                         </a>
                     </div>
                     <div class="kutu camKutu">
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#camsModalScrollable">
+                        <a asp-action="index" asp-controller="career">
                             <div class="kutuFeature" style="background-color: white;" onmouseover="showSlide(4)">
-                                <span style="color: black;">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxCAMTitle" + language)?.Value)</span>
+                                <span style="color: black;">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "Career" + language)?.Value)</span>
+
                             </div>
                         </a>
                     </div>
 
                 </div>
             </div>
+
             <div class=" revolutionSliderclass ">
                 <div class="kutus  d-flex justify-content-end">
                     <div class="kutu contactusKutu">
                         <a href="#" data-bs-toggle="modal" data-bs-target="#contactModalScrollable">
                             <div class="kutuFeature" style="background-color: #88A0AC;" onmouseover="showSlide(5)">
+                                @*<span class="career-2" style="color: white;">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "Career" + language)?.Value)</span>*@
+
                                 <span style="color: white;">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxContactUsTitle" + language)?.Value)</span>
                             </div>
                         </a>
+
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 
@@ -174,21 +180,23 @@
                     </a>
                 </div>
             </div>
+           
             <div class="boxDesc col-lg-3">
                 <h2 style="color: #4EA392;">
-                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxCAMTitle" + language)?.Value)
+                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "Career" + language)?.Value)
                 </h2>
                 <p style="color: #4EA392;">
                     @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "DescText" + language)?.Value)
                 </p>
 
                 <div class="boxDescButton">
-                    <a data-bs-toggle="modal" data-bs-target="#camsModalScrollable"
-                       style="background-color: #4EA392;" href="#">
+                    <a asp-action="index" asp-controller="career"
+                       style="background-color: #4EA392;" >
                         @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxBtn" + language)?.Value)
                     </a>
                 </div>
             </div>
+            
             <div class="boxDesc col-lg-3">
                 <h2 style="color: #9B95C9;">
                     @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxContactUsTitle" + language)?.Value)
@@ -229,7 +237,7 @@
                 <div class="kutu servicesKutu">
                     <a href="#" data-bs-toggle="modal" data-bs-target="#servicesModalScrollable">
                         <div class="kutuFeature" style="background-color: #fff;" onmouseover="showSlide(1)" onclick="showSlide(1)">
-                            <span style="color: black;">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxServicesTitle" + language)?.Value)</span>
+                            <span style="color: #949162;">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxServicesTitle" + language)?.Value)</span>
                         </div>
                     </a>
                 </div>
@@ -256,9 +264,9 @@
             </div>
             <div class="col-5">
                 <div class="kutu camKutu d-flex justify-content-end">
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#camsModalScrollable">
+                    <a asp-action="index" asp-controller="career">
                         <div class="kutuFeature" style="background-color: #fff;" onmouseover="showSlide(4)">
-                            <span style="color: black;">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxCAMTitle" + language)?.Value)</span>
+                            <span  style="color: black;">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "Career" + language)?.Value)</span>
 
                         </div>
                     </a>
@@ -267,7 +275,8 @@
             <div class="col-5">
                 <div class="kutu contactusKutu">
                     <a href="#" data-bs-toggle="modal" data-bs-target="#contactModalScrollable">
-                        <div class="kutuFeature" style="background-color: #000;" onmouseover="showSlide(5)">
+                        <div class="kutuFeature" style="background-color: #88A0AC;" onmouseover="showSlide(5)">
+
                             <span style="color: white;">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxContactUsTitle" + language)?.Value)</span>
                         </div>
                     </a>
@@ -349,134 +358,6 @@
 <!-- Modal New -->
 @await Html.PartialAsync("_newPartial", Model.HomeIndexNewViewModel)
 
-
-<!-- Modal Cams -->
-<div class="modal fade" id="camsModalScrollable" tabindex="-1" role="dialog"
-     aria-labelledby="camModalScrollableTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable" role="document">
-        <div class="modal-content ">
-            <div class="modal-header">
-                <h1 style="color:#00a7c6;" class="modal-title" id="camModalScrollableTitle">Video</h1>
-                <button type="button" id="close-first" class="" data-bs-dismiss="modal" aria-label="Close">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <!-- Older posts -->
-                <section class="mt-2 fx-fade-up">
-                    <div class="container">
-                        <div class="row mt-4">
-                            <!-- Cam -->
-                            <div class="col-lg-4 col-md-10 camBox">
-                                <!-- Featured image -->
-                                <a href="#!" data-bs-toggle="modal" data-bs-target="#liveModal-test">
-                                    <img src="~/assets/Images/Asset-1-1.png"
-                                         class="img-fluid rounded hover-lift-light" alt="">
-                                </a>
-
-                                <!-- Title -->
-                                <a href="#!" data-toggle="modal" data-target="#liveModal-test"
-                                   class="h5 d-block text-dark text-decoration-none mt-4">
-                                    Gala Shopping Village
-                                </a>
-                            </div>
-                        </div>
-                </section>
-
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal Cams 1 -->
-<div class="modal fade camModal" id="camModal-test" tabindex="-1" role="dialog"
-     aria-labelledby="camModal-testTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable" role="document">
-        <div class="modal-content shadow-lg">
-            <div class="modal-header">
-                <h1 style="color:#00a7c6;" class="modal-title" id="camModal-testTitle">
-                    Port Baku Residence Online
-                    CAMs
-                </h1>
-                <button type="button" id="close-first" class="" data-bs-dismiss="modal" aria-label="Close">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <!-- Older posts -->
-                <section class="mt-2 fx-fade-up">
-                    <div class="container">
-                        <div class="row  mt-4">
-                            <!-- Post -->
-                            <div class="col-lg-4 col-md-10 camBox">
-                                <!-- Featured image -->
-                                <a href="#!" data-bs-toggle="modal" data-bs-target="#liveModal-test">
-                                    @*       <img src="~/assets/Images/Asset-1-1.png"
-                                    class="img-fluid rounded hover-lift-light" alt="">*@
-                                    <video style="width: 100%; height: auto; object-fit: cover;" class="video"
-                                           src="~/assets/Images/DJI_0534.mp4"></video>
-                                </a>
-
-                                <!-- Title -->
-                                <a href="#!" data-toggle="modal" data-target="#liveModal-test"
-                                   class="h5 d-block text-center text-dark text-decoration-none mt-4">
-                                    1
-                                </a>
-                            </div>
-
-                        </div>
-                </section>
-
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal Cam 2 -->
-<div class="modal fade liveCameraModal" id="liveModal-test" tabindex="-1" role="dialog"
-     aria-labelledby="camModal-testTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable" role="document">
-        <div class="modal-content shadow-lg">
-            <div class="modal-header">
-                <h1 style="color:#00a7c6;" class="modal-title" id="camModal-testTitle">
-                    Gala Shopping Village Video
-                </h1>
-                <button type="button" id="close-first" class="" data-bs-dismiss="modal" aria-label="Close">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <!-- Older posts -->
-                <section class="mt-2 fx-fade-up">
-                    <div class="container">
-                        <div class="row  mt-4 justify-content-center">
-                            <!-- Post -->
-                            <div class="col-lg-10  camBox" style="border:none;">
-                                <video controls loop autoplay style="width: 100%; height: auto; object-fit: cover;" class="video"
-                                       src="~/assets/Images/DJI_0534.mp4"></video>
-                                <div class="camera-container row">
-                                    @*<div class="col-lg-8 camera-feed">
-
-                                    </div>*@
-                                    <div class="camera-controls ">
-                                        <!-- <div class="col-4">
-                                            <button class="btn btn-primary" id="start-button">1</button>
-                                        </div>
-                                        <div class="col-4">
-                                            <button class="btn btn-danger" id="stop-button">2</button>
-                                        </div> -->
-
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                </section>
-            </div>
-        </div>
-    </div>
-</div>
-
 <!-- Modal Contact -->
 <div class="modal fade" id="contactModalScrollable" tabindex="-1" role="dialog"
      aria-labelledby="contactModalScrollableTitle" aria-hidden="true">
@@ -484,8 +365,7 @@
         <div class="modal-content ">
             <div class="modal-header">
                 <h1 style="color:#00a7c6;" class="modal-title" id="contactModalScrollableTitle">
-                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "Career" + language)?.Value)
-                    /
+                    
                     @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxContactUsTitle" + language)?.Value)
 
                 </h1>
@@ -497,18 +377,29 @@
                 <div class="containerContact">
                     <div class="row">
                         <div class="col-lg-6 careerBox">
-                            <img src="~/uploads/setting/@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "LogoImage")?.Value)" alt="">
+                            <div class="contactMap" style="width:100%">
+                                  <h4 style="color: #8a8a8a;">
+                                <i class="far fa-map"></i>
+
+                                @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ContactMapText" + language)?.Value)
+
+                                </h4>
+                                <iframe src="@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "MapUrl")?.Value)"
+                                        style="border:0;width: 100%;" height="250"  allowfullscreen="allowfullscreen"
+                                        loading="lazy"></iframe>
+                            </div>
+
+
+                            @*      <img src="~/uploads/setting/@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "LogoImage")?.Value)" alt="">
                             <h1>
-                              
-                                @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalCareerText" + language)?.Value)
+
+                            @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalCareerText" + language)?.Value)
 
                             </h1>
                             <a asp-action="index" asp-controller="career" class="btn">
-                                @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "Career" + language)?.Value)
+                            @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "Career" + language)?.Value)
 
-                            </a>
-
-
+                            </a>*@
                         </div>
 
                         <div class="col-lg-6 contactInfo">
@@ -533,17 +424,7 @@
                                     @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ContactEmail")?.Value)
                                 </a>
 
-                                <div class="contactMap">
-                                    @*  <h4 style="color: #8a8a8a;">
-                                    <i class="far fa-map"></i>
 
-                                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ContactMapText" + language)?.Value)
-
-                                    </h4>*@
-                                    <iframe src="@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "MapUrl")?.Value)"
-                                            width="100%" height="250" style="border:0;" allowfullscreen=""
-                                            loading="lazy"></iframe>
-                                </div>
 
                             </p>
                         </div>
@@ -712,3 +593,4 @@
     <script src="~/assets/js/owl.carousel.min.js"></script>
     <script src="~/assets/js/owlCarousel.js"></script>
 }
+

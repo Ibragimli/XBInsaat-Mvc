@@ -28,6 +28,7 @@ namespace XBInsaat.Data.Datacontext
         public DbSet<News> News { get; set; }
         public DbSet<MidProjectImage> MidProjectImages { get; set; }
         public DbSet<NewsImage> NewsImages { get; set; }
+        public DbSet<Logger> Loggers { get; set; }
         public DbSet<RevolutionSlider> RevolutionSliders { get; set; }
 
 

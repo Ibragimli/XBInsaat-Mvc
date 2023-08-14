@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using XBInsaat.Core.Entites;
@@ -7,6 +8,8 @@ using XBInsaat.Service.CustomExceptions;
 using XBInsaat.Service.Helper;
 using XBInsaat.Service.HelperService.Interfaces;
 using XBInsaat.Services.Dtos.Area;
+using XBInsaat.Services.HelperService.Interfaces;
+using XBInsaat.Services.Services.Implementations.Area;
 using XBInsaat.Services.Services.Interfaces.Area;
 
 namespace XBInsaat.Mvc.Areas.manage.Controllers
@@ -16,13 +19,17 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
 
     public class XBServiceController : Controller
     {
+        private readonly ILoggerServices _loggerServices;
+        private readonly UserManager<AppUser> _userManager;
         private readonly IAdminXBServiceIndexServices _adminXBServiceIndexServices;
         private readonly IAdminDeleteXBServiceServices _adminDeleteXBServiceServices;
         private readonly IAdminXBServiceEditServices _adminXBServiceEditServices;
         private readonly IAdminXBServiceCreateServices _adminXBServiceCreateServices;
 
-        public XBServiceController(IAdminXBServiceIndexServices adminXBServiceIndexServices, IAdminDeleteXBServiceServices adminDeleteXBServiceServices, IAdminXBServiceEditServices adminXBServiceEditServices, IAdminXBServiceCreateServices adminXBServiceCreateServices)
+        public XBServiceController(ILoggerServices loggerServices, UserManager<AppUser> userManager, IAdminXBServiceIndexServices adminXBServiceIndexServices, IAdminDeleteXBServiceServices adminDeleteXBServiceServices, IAdminXBServiceEditServices adminXBServiceEditServices, IAdminXBServiceCreateServices adminXBServiceCreateServices)
         {
+            _loggerServices = loggerServices;
+            _userManager = userManager;
             _adminXBServiceIndexServices = adminXBServiceIndexServices;
             _adminDeleteXBServiceServices = adminDeleteXBServiceServices;
             _adminXBServiceEditServices = adminXBServiceEditServices;
@@ -64,13 +71,23 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
             {
                 _adminXBServiceCreateServices.DtoCheck(XBServiceCreateDto);
                 var XBService = await _adminXBServiceCreateServices.CreateProject(XBServiceCreateDto);
+
+
+                //Logger
+                AppUser user = User.Identity.IsAuthenticated ? _userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name && x.IsAdmin) : null;
+                if (user == null)
+                    throw new UserNotFoundException("Error bas verdi!");
+                await _loggerServices.LoggerCreate("XBService", "Create", user.FullName, user.UserName, XBServiceCreateDto.NameAz);
             }
             catch (ItemNullException ex)
             {
                 ModelState.AddModelError("", ex.Message);
                 return View();
             }
-
+            catch (UserNotFoundException )
+            {
+                return RedirectToAction("index", "notfound");
+            }
             catch (ValueFormatExpception ex)
             {
                 ModelState.AddModelError("", ex.Message);
@@ -132,6 +149,14 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
 
 
                 await _adminXBServiceEditServices.EditXBService(XBService);
+
+
+                //Logger
+                var product = await _adminXBServiceEditServices.GetXBService(XBService.Id);
+                AppUser user = User.Identity.IsAuthenticated ? _userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name && x.IsAdmin) : null;
+                if (user == null)
+                    throw new UserNotFoundException("Error bas verdi!");
+                await _loggerServices.LoggerCreate("XBService", "Edit", user.FullName, user.UserName, product.NameAz);
             }
 
             catch (NotFoundException)
@@ -144,6 +169,10 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
                 ModelState.AddModelError("", ex.Message);
                 return View("Edit", XBServiceEditVM);
 
+            }
+            catch (UserNotFoundException )
+            {
+                return RedirectToAction("index", "notfound");
             }
             catch (ValueFormatExpception ex)
             {
@@ -171,6 +200,13 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
             try
             {
                 await _adminDeleteXBServiceServices.DeleteXBService(id);
+               
+                //Logger
+                var product = await _adminXBServiceEditServices.GetXBService(id);
+                AppUser user = User.Identity.IsAuthenticated ? _userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name && x.IsAdmin) : null;
+                if (user == null)
+                    throw new UserNotFoundException("Error bas verdi!");
+                await _loggerServices.LoggerCreate("XBService", "Delete", user.FullName, user.UserName, product.NameAz);
             }
             catch (ItemNotFoundException ex)
             {
@@ -182,6 +218,11 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
                 TempData["Error"] = (ex.Message);
                 return Ok();
             }
+            catch (UserNotFoundException)
+            {
+                return RedirectToAction("index", "notfound");
+            }
+            
             catch (Exception ex)
             {
                 return Ok(ex.Message);

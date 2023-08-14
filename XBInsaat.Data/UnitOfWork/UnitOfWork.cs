@@ -28,6 +28,7 @@ namespace XBInsaat.Data.UnitOfWork
         private IMidProjectImageRepository _midProjectImageRepository;
         private IRevolutionSliderRepository _revolutionSliderRepository;
         private IContactUsRepository _contactUsRepository;
+        private ILoggerRepository _loggerRepository;
 
 
         public UnitOfWork(DataContext context)
@@ -59,6 +60,7 @@ namespace XBInsaat.Data.UnitOfWork
         public IContactUsRepository ContactUsRepository => _contactUsRepository = _contactUsRepository ?? new ContactUsRepository(_context);
 
         public IEmailSettingRepository EmailSettingRepository => _emailSettingRepository = _emailSettingRepository ?? new EmailSettingRepository(_context);
+        public ILoggerRepository LoggerRepository => _loggerRepository = _loggerRepository ?? new LoggerRepository(_context);
 
         public async Task<int> CommitAsync()
         {

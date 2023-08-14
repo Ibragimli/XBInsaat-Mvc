@@ -1,42 +1,35 @@
-@import url(https://fonts.googleapis.com/css?family=Merriweather:400,300italic,300,400italic,700,700italic);
 
-/* url(../fonts/SpartanMB-Medium.ttf) format("truetype"), url(../fonts/SpartanMB-Medium.woff) format("woff"), url(../fonts/SpartanMB-Medium.woff2) format("woff2") */
-@font-face {
-    font-family: SpartanMB;
-    src: url(../fonts/SpartanMB-Medium.eot);
-    src: url(../fonts/SpartanMB-Medium%EF%B9%96.eot#iefix) format("embedded-opentype"), url(../fonts/SpartanMB-Medium.svg#SpartanMB-Medium) format("svg");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap
-}
 
-@font-face {
-    font-family: SpartanMB;
-    src: url(../fonts/SpartanMB-SemiBold.eot);
-    src: url(../fonts/SpartanMB-SemiBold%EF%B9%96.eot#iefix) format("embedded-opentype"), url(../fonts/SpartanMB-SemiBold.svg#SpartanMB-SemiBold) format("svg"), url(../fonts/SpartanMB-SemiBold.ttf) format("truetype"), url(../fonts/SpartanMB-SemiBold.woff) format("woff"), url(../fonts/SpartanMB-SemiBold.woff2) format("woff2");
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap
-}
 
-@font-face {
-    font-family: SpartanMB;
-    src: url(../fonts/SpartanMB-Bold.eot);
-    src: url(../fonts/SpartanMB-Bold%EF%B9%96.eot#iefix) format("embedded-opentype"), url(../fonts/SpartanMB-Bold.svg#SpartanMB-Bold) format("svg"), url(../fonts/SpartanMB-Bold.ttf) format("truetype"), url(../fonts/SpartanMB-Bold.woff) format("woff"), url(../fonts/SpartanMB-Bold.woff2) format("woff2");
-    font-weight: 600;
-    font-style: normal
-}
 
-.validation-summary-errors {
-    ul {
-        li {
-            color: red;
-            list-style: outside;
-            margin-bottom: 5px;
-        }
-    }
-}
+// @import url(https://fonts.googleapis.com/css?family=Merriweather:400,300italic,300,400italic,700,700italic);
 
+// /* url(../fonts/SpartanMB-Medium.ttf) format("truetype"), url(../fonts/SpartanMB-Medium.woff) format("woff"), url(../fonts/SpartanMB-Medium.woff2) format("woff2") */
+// @font-face {
+//     font-family: SpartanMB;
+//     src: url(../fonts/SpartanMB-Medium.eot);
+//     src: url(../fonts/SpartanMB-Medium%EF%B9%96.eot#iefix) format("embedded-opentype"), url(../fonts/SpartanMB-Medium.svg#SpartanMB-Medium) format("svg");
+//     font-weight: 400;
+//     font-style: normal;
+//     font-display: swap
+// }
+
+// @font-face {
+//     font-family: SpartanMB;
+//     src: url(../fonts/SpartanMB-SemiBold.eot);
+//     src: url(../fonts/SpartanMB-SemiBold%EF%B9%96.eot#iefix) format("embedded-opentype"), url(../fonts/SpartanMB-SemiBold.svg#SpartanMB-SemiBold) format("svg"), url(../fonts/SpartanMB-SemiBold.ttf) format("truetype"), url(../fonts/SpartanMB-SemiBold.woff) format("woff"), url(../fonts/SpartanMB-SemiBold.woff2) format("woff2");
+//     font-weight: 500;
+//     font-style: normal;
+//     font-display: swap
+// }
+
+// @font-face {
+//     font-family: SpartanMB;
+//     src: url(../fonts/SpartanMB-Bold.eot);
+//     src: url(../fonts/SpartanMB-Bold%EF%B9%96.eot#iefix) format("embedded-opentype"), url(../fonts/SpartanMB-Bold.svg#SpartanMB-Bold) format("svg"), url(../fonts/SpartanMB-Bold.ttf) format("truetype"), url(../fonts/SpartanMB-Bold.woff) format("woff"), url(../fonts/SpartanMB-Bold.woff2) format("woff2");
+//     font-weight: 600;
+//     font-style: normal
+// }
 * {
 
     h1,
@@ -48,14 +41,25 @@
     a,
     p,
     span,
-    li {
-        font-family: SpartanMB, sans-serif;
+    li,div {
+        font-family: 'DM Sans', sans-serif;
         color: #111111;
     }
 
     box-sizing: border-box;
 
 }
+.validation-summary-errors {
+    ul {
+        li {
+            color: red;
+            list-style: outside;
+            margin-bottom: 5px;
+        }
+    }
+}
+
+
 
 body {
 

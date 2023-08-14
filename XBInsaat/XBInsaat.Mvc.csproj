@@ -47,6 +47,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Areas\manage\Views\Logger\Index.cshtml" />
+    <None Include="Areas\manage\Views\RoleManager\Create.cshtml" />
+    <None Include="Areas\manage\Views\RoleManager\Edit.cshtml" />
+    <None Include="Areas\manage\Views\RoleManager\Index.cshtml" />
+    <None Include="Areas\manage\Views\UserManager\Create.cshtml" />
+    <None Include="Areas\manage\Views\UserManager\Edit.cshtml" />
+    <None Include="Areas\manage\Views\UserManager\Index.cshtml" />
     <None Include="wwwroot\assets\styles\scss\fonts\SpartanMB-Bold.svg" />
     <None Include="wwwroot\assets\styles\scss\fonts\SpartanMB-Bold.woff2" />
     <None Include="wwwroot\assets\styles\scss\fonts\SpartanMB-Medium.svg" />

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using XBInsaat.Services.Services.Implementations.Area.UserManagers;
 using FluentValidation.AspNetCore;
 using XBInsaat.Core.Entites;
 using XBInsaat.Core.IUnitOfWork;
@@ -8,16 +9,24 @@ using XBInsaat.Data.UnitOfWork;
 using XBInsaat.Service.HelperService.Implementations;
 using XBInsaat.Service.HelperService.Interfaces;
 using XBInsaat.Services.Dtos.Area;
+using XBInsaat.Services.HelperService.Implementations;
+using XBInsaat.Services.HelperService.Interfaces;
 using XBInsaat.Services.Profiles;
 using XBInsaat.Services.Services.Implementations;
 using XBInsaat.Services.Services.Implementations.Area;
+using XBInsaat.Services.Services.Implementations.Area.Loggers;
 using XBInsaat.Services.Services.Implementations.User;
 using XBInsaat.Services.Services.Interfaces;
 using XBInsaat.Services.Services.Interfaces.Area;
+using XBInsaat.Services.Services.Interfaces.Area.Loggers;
+using XBInsaat.Services.Services.Interfaces.Area.UserManagers;
 using XBInsaat.Services.Services.Interfaces.User;
+using XBInsaat.Services.Services.Implementations.Area.RoleManagers;
+using XBInsaat.Services.Services.Interfaces.Area.RoleManagers;
 
 namespace XBInsaat.Mvc.ServiceExtentions
 {
+
     public static class ServiceScopeExtention
     {
         public static void AddServiceScopeExtention(this IServiceCollection services)
@@ -72,6 +81,19 @@ namespace XBInsaat.Mvc.ServiceExtentions
 
             services.AddScoped<IAdminContactUsIndexServices, AdminContactUsIndexServices>();
 
+            services.AddScoped<IAdminUserManagerCreateServices, AdminUserManagerCreateServices>();
+            services.AddScoped<IAdminUserManagerDeleteServices, AdminUserManagerDeleteServices>();
+            services.AddScoped<IAdminUserManagerEditServices, AdminUserManagerEditServices>();
+            services.AddScoped<IAdminUserManagerIndexServices, AdminUserManagerIndexServices>();
+
+            services.AddScoped<IAdminRoleManagerCreateServices, AdminRoleManagerCreateServices>();
+            services.AddScoped<IAdminRoleManagerDeleteServices, AdminRoleManagerDeleteServices>();
+            services.AddScoped<IAdminRoleManagerEditServices, AdminRoleManagerEditServices>();
+            services.AddScoped<IAdminRoleManagerIndexServices, AdminRoleManagerIndexServices>();
+        
+
+            services.AddScoped<IAdminLoggerIndexServices, AdminLoggerIndexServices>();
+            services.AddScoped<ILoggerServices, LoggerServices>();
 
             services.AddScoped<IAdminLoginServices, AdminLoginServices>();
 

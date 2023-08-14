@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using XBInsaat.Core.Entites;
@@ -7,6 +8,7 @@ using XBInsaat.Mvc.Areas.manage.ViewModels;
 using XBInsaat.Service.CustomExceptions;
 using XBInsaat.Service.Helper;
 using XBInsaat.Services.Dtos.Area;
+using XBInsaat.Services.HelperService.Interfaces;
 using XBInsaat.Services.Services.Interfaces.Area;
 
 namespace XBInsaat.Mvc.Areas.manage.Controllers
@@ -16,12 +18,16 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
 
     public class EmailSettingController : Controller
     {
+        private readonly ILoggerServices _loggerServices;
+        private readonly UserManager<AppUser> _userManager;
         private readonly DataContext _context;
         private readonly IEmailSettingEditServices _emailSettingEditServices;
         private readonly IEmailSettingIndexServices _emailSettingIndexServices;
 
-        public EmailSettingController(DataContext context, IEmailSettingEditServices emailSettingEditServices, IEmailSettingIndexServices emailSettingIndexServices)
+        public EmailSettingController(ILoggerServices loggerServices, UserManager<AppUser> userManager, DataContext context, IEmailSettingEditServices emailSettingEditServices, IEmailSettingIndexServices emailSettingIndexServices)
         {
+            _loggerServices = loggerServices;
+            _userManager = userManager;
             _context = context;
             _emailSettingEditServices = emailSettingEditServices;
             _emailSettingIndexServices = emailSettingIndexServices;
@@ -63,6 +69,13 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
             try
             {
                 await _emailSettingEditServices.EmailSettingEdit(EmailSettingEdit);
+              
+                //Logger
+                var product = await _emailSettingEditServices.GetSearch(EmailSettingEdit.Id);
+                AppUser user = User.Identity.IsAuthenticated ? _userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name && x.IsAdmin) : null;
+                if (user == null)
+                    throw new UserNotFoundException("Error bas verdi!");
+                await _loggerServices.LoggerCreate("EmailSetting", "Edit", user.FullName, user.UserName, product.Key);
             }
             catch (ValueFormatExpception ex)
             {
@@ -70,11 +83,16 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
                 ModelState.AddModelError("", ex.Message);
                 return View(EmailSettingEdit);
             }
+          
             catch (ItemNotFoundException ex)
             {
 
                 ModelState.AddModelError("", ex.Message);
                 return View(EmailSettingEdit);
+            }
+            catch (UserNotFoundException)
+            {
+                return RedirectToAction("index", "notfound");
             }
             catch (Exception ex)
             {

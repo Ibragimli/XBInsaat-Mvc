@@ -68,6 +68,8 @@ namespace XBInsaat.Services.Services.Implementations.User
 
                 if (phoneNumber.Length > 15)
                     throw new ItemFormatException("Nömrə yanlışdır");
+                if (!(phoneNumber.StartsWith("050") || phoneNumber.StartsWith("099") || phoneNumber.StartsWith("051") || phoneNumber.StartsWith("055") || phoneNumber.StartsWith("070") || phoneNumber.StartsWith("077") || phoneNumber.StartsWith("010")))
+                    throw new ItemFormatException("Nömrənin prefiksi yanlışdır!");
             }
         }
         private void PhoneNumberPrefixValidation(string phoneNumber)
@@ -76,7 +78,8 @@ namespace XBInsaat.Services.Services.Implementations.User
             if (phoneNumber != null)
             {
                 if (!Regex.IsMatch(phoneNumber, phoneRegex))
-                    throw new ItemFormatException("Nömrənin prefiksi yanlışdır!");
+                    throw new ItemFormatException("Nömrə yanlışdır!");
+
             }
         }
         private string PhoneNumberFilter(string phoneNumber)
@@ -91,7 +94,6 @@ namespace XBInsaat.Services.Services.Implementations.User
                     number += item;
                 }
                 return number;
-
             }
 
             return phoneNumber;

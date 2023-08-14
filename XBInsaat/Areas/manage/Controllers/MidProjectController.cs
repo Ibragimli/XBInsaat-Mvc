@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using XBInsaat.Core.Entites;
@@ -7,6 +8,7 @@ using XBInsaat.Service.CustomExceptions;
 using XBInsaat.Service.Helper;
 using XBInsaat.Service.HelperService.Interfaces;
 using XBInsaat.Services.Dtos.Area;
+using XBInsaat.Services.HelperService.Interfaces;
 using XBInsaat.Services.Services.Interfaces.Area;
 
 namespace XBInsaat.Mvc.Areas.manage.Controllers
@@ -16,14 +18,18 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
 
     public class MidProjectController : Controller
     {
+        private readonly ILoggerServices _loggerServices;
+        private readonly UserManager<AppUser> _userManager;
         private readonly IAdminMidProjectIndexServices _adminMidProjectIndexServices;
         private readonly IManageImageHelper _manageImageHelper;
         private readonly IAdminDeleteMidProjectServices _adminDeleteMidProjectServices;
         private readonly IAdminMidProjectEditServices _adminMidProjectEditServices;
         private readonly IAdminMidProjectCreateServices _adminMidProjectCreateServices;
 
-        public MidProjectController(IAdminMidProjectIndexServices adminMidProjectIndexServices, IManageImageHelper manageImageHelper, IAdminDeleteMidProjectServices adminDeleteMidProjectServices, IAdminMidProjectEditServices adminMidProjectEditServices, IAdminMidProjectCreateServices adminMidProjectCreateServices)
+        public MidProjectController(ILoggerServices loggerServices, UserManager<AppUser> userManager, IAdminMidProjectIndexServices adminMidProjectIndexServices, IManageImageHelper manageImageHelper, IAdminDeleteMidProjectServices adminDeleteMidProjectServices, IAdminMidProjectEditServices adminMidProjectEditServices, IAdminMidProjectCreateServices adminMidProjectCreateServices)
         {
+            _loggerServices = loggerServices;
+            _userManager = userManager;
             _adminMidProjectIndexServices = adminMidProjectIndexServices;
             _manageImageHelper = manageImageHelper;
             _adminDeleteMidProjectServices = adminDeleteMidProjectServices;
@@ -89,11 +95,22 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
                 _manageImageHelper.ImagesCheck(MidProjectCreateDto.ImageFiles);
                 var MidProject = await _adminMidProjectCreateServices.CreateProject(MidProjectCreateDto);
                 await _adminMidProjectCreateServices.CreateImageFormFile(MidProjectCreateDto.ImageFiles, MidProject.Id);
+
+                //Logger
+                AppUser user = User.Identity.IsAuthenticated ? _userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name && x.IsAdmin) : null;
+                if (user == null)
+                    throw new UserNotFoundException("Error bas verdi!");
+                await _loggerServices.LoggerCreate("MidProject", "Create", user.FullName, user.UserName, MidProjectCreateDto.Name);
+
             }
             catch (ItemNullException ex)
             {
                 ModelState.AddModelError("", ex.Message);
                 return View(midProjectCreateVM);
+            }
+            catch (UserNotFoundException)
+            {
+                return RedirectToAction("index", "notfound");
             }
             catch (ItemNotFoundException ex)
             {
@@ -182,6 +199,14 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
 
 
                 await _adminMidProjectEditServices.EditMidProject(MidProject);
+
+
+                //Logger
+                var product = await _adminMidProjectEditServices.GetMidProject(MidProject.Id);
+                AppUser user = User.Identity.IsAuthenticated ? _userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name && x.IsAdmin) : null;
+                if (user == null)
+                    throw new UserNotFoundException("Error bas verdi!");
+                await _loggerServices.LoggerCreate("MidProject", "Edit", user.FullName, user.UserName, product.Name);
             }
 
             catch (NotFoundException)
@@ -193,6 +218,10 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
             {
                 ModelState.AddModelError("", ex.Message);
                 return View("Edit", MidProjectEditVM);
+            }
+            catch (UserNotFoundException)
+            {
+                return RedirectToAction("index", "notfound");
             }
             catch (ValueFormatExpception ex)
             {
@@ -241,6 +270,13 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
         {
             try
             {
+                //Logger
+                var product = await _adminMidProjectEditServices.GetMidProject(id);
+                AppUser user = User.Identity.IsAuthenticated ? _userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name && x.IsAdmin) : null;
+                if (user == null)
+                    throw new UserNotFoundException("Error bas verdi!");
+                await _loggerServices.LoggerCreate("MidProject", "Delete", user.FullName, user.UserName, product.Name);
+
                 await _adminDeleteMidProjectServices.DeleteMidProject(id);
             }
             catch (ItemNotFoundException ex)
