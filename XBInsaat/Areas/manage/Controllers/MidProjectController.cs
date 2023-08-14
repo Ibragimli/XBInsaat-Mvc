@@ -36,7 +36,7 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
             _adminMidProjectEditServices = adminMidProjectEditServices;
             _adminMidProjectCreateServices = adminMidProjectCreateServices;
         }
-        public async Task<IActionResult> Index(int page = 1, string name = null)
+        public IActionResult Index(int page = 1, string name = null)
         {
             MidProjectIndexViewModel MidProjectIndexVM = new MidProjectIndexViewModel();
             try

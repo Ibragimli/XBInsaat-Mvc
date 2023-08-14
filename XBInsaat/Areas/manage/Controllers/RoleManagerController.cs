@@ -34,7 +34,7 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
             _adminRoleManagerEditServices = adminRoleManagerEditServices;
             _adminRoleManagerCreateServices = adminRoleManagerCreateServices;
         }
-        public async Task<IActionResult> Index(int page = 1, string name = null)
+        public IActionResult Index(int page = 1, string name = null)
         {
             RoleManagerIndexViewModel RoleManagerIndexVM = new RoleManagerIndexViewModel();
             try
@@ -56,7 +56,7 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
             }
             return View(RoleManagerIndexVM);
         }
-        public async Task<IActionResult> Create()
+        public IActionResult Create()
         {
             RoleManagerCreateDto roleManagerCreateDto = new RoleManagerCreateDto();
 

@@ -36,7 +36,7 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
             _adminNewsEditServices = adminNewsEditServices;
             _adminNewsCreateServices = adminNewsCreateServices;
         }
-        public async Task<IActionResult> Index(int page = 1, string name = null)
+        public IActionResult Index(int page = 1, string name = null)
         {
             NewsIndexViewModel NewsIndexVM = new NewsIndexViewModel();
             try

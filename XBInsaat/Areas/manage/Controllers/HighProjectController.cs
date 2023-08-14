@@ -36,7 +36,7 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
             _adminHighProjectEditServices = adminHighProjectEditServices;
             _adminHighProjectCreateServices = adminHighProjectCreateServices;
         }
-        public async Task<IActionResult> Index(int page = 1, string name = null)
+        public IActionResult Index(int page = 1, string name = null)
         {
             HighProjectIndexViewModel highProjectIndexVM = new HighProjectIndexViewModel();
             try

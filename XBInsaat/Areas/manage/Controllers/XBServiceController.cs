@@ -35,7 +35,7 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
             _adminXBServiceEditServices = adminXBServiceEditServices;
             _adminXBServiceCreateServices = adminXBServiceCreateServices;
         }
-        public async Task<IActionResult> Index(int page = 1, string name = null)
+        public IActionResult Index(int page = 1, string name = null)
         {
             XBServiceIndexViewModel XBServiceIndexVM = new XBServiceIndexViewModel();
             try
@@ -84,7 +84,7 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
                 ModelState.AddModelError("", ex.Message);
                 return View();
             }
-            catch (UserNotFoundException )
+            catch (UserNotFoundException)
             {
                 return RedirectToAction("index", "notfound");
             }
@@ -170,7 +170,7 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
                 return View("Edit", XBServiceEditVM);
 
             }
-            catch (UserNotFoundException )
+            catch (UserNotFoundException)
             {
                 return RedirectToAction("index", "notfound");
             }
@@ -200,7 +200,7 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
             try
             {
                 await _adminDeleteXBServiceServices.DeleteXBService(id);
-               
+
                 //Logger
                 var product = await _adminXBServiceEditServices.GetXBService(id);
                 AppUser user = User.Identity.IsAuthenticated ? _userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name && x.IsAdmin) : null;
@@ -222,7 +222,7 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
             {
                 return RedirectToAction("index", "notfound");
             }
-            
+
             catch (Exception ex)
             {
                 return Ok(ex.Message);

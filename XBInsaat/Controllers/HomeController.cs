@@ -179,7 +179,7 @@ namespace XBInsaat.Controllers
             else if (language == "En")
                 lang = data.DescribeEn;
             else lang = data.DescribeRu;
-            var instagramUrl = "#!";
+            //var instagramUrl = "#!";
             //if (data.InstagramUrl != null)
             //    instagramUrl = data.InstagramUrl;
             var jsonData = new
@@ -223,7 +223,7 @@ namespace XBInsaat.Controllers
                 lang = data.DescribeEn;
             else lang = data.DescribeRu;
 
-            var instagramUrl = "#!";
+            //var instagramUrl = "#!";
             //if (data.InstagramUrl != null)
             //    instagramUrl = data.InstagramUrl;
             var jsonData = new
