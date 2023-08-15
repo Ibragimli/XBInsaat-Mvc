@@ -26,7 +26,7 @@ namespace XBInsaat.Mvc.Controllers
         public async Task<IActionResult> Index()
         {
             ContactUsCreateDto contactUsCreateDto = new ContactUsCreateDto();
-           
+
             NewsViewModel newsViewModel = new NewsViewModel();
 
 
@@ -65,15 +65,16 @@ namespace XBInsaat.Mvc.Controllers
             }
             return View(newsViewModel);
         }
-        public async Task<IActionResult> GetDataNews(int page =1, int pageSize = 5, string language = "Az")
+        public async Task<IActionResult> GetDataNews(int page = 1, int pageSize = 5, string language = "Az")
         {
 
-          
+
             //var news = _context.News.Include(x => x.NewsImages).Where(x => !x.IsDelete).Skip((page - 1) * pageSize).Take(pageSize).ToList();
             var news = await _homeIndexServices.GetNewsData(page, pageSize);
             var lang = "";
+            var title = "";
             List<object> list = new List<object>();
-            foreach (var item in  news)
+            foreach (var item in news)
             {
                 if (language == "Az")
                     lang = item.TextAz;
@@ -81,13 +82,20 @@ namespace XBInsaat.Mvc.Controllers
                     lang = item.TextEn;
                 else lang = item.TextRu;
 
+                if (language == "Az")
+                    title = item.TitleAz;
+                else if (language == "En")
+                    title = item.TitleEn;
+                else title = item.TitleRu;
+
+
                 var instagramUrl = "#!";
                 if (item.InstagramUrl != null)
                     instagramUrl = item.InstagramUrl;
                 var jsonData = new
                 {
                     Id = item.Id,
-                    Title = item.Title,
+                    Title = title,
                     Text = lang,
                     IsLoad = false,
                     Language = language,

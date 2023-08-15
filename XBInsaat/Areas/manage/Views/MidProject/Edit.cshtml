@@ -28,6 +28,7 @@
                                         <input asp-for="MidProject.Name" maxlength="100" type="text" class="form-control">
                                         <span asp-validation-for="MidProject.Name" class="text-danger"></span>
                                     </div>
+
                                     <!-- Layihə Name   End -->
                                      <!-- Sıra nömrəsi  Start -->
                                     <div class="mb-3 posterName">
@@ -96,7 +97,7 @@
                                      <div id="posterimage-box" class="posterimage-box row mb-3">
                                         <label asp-for="MidProject.ProjectImageFile" class="form-label">Layihənin Poster şəkli*</label>
                                         <!-- Şəkil əlavə et -->
-                                        <input asp-for="MidProject.ProjectImageFile" id="imagePosterInput" type="file" accept="image/png,  image/jpeg"
+                                        <input asp-for="MidProject.ProjectImageFile" id="imagePosterInput" type="file" accept="image/png,  image/webp,   image/jpeg"
                                                class="form-control" multiple="">
                                             @foreach (var image in Model.MidProjectImages.Where(x => !x.IsDelete && x.IsPoster))
                                             {
@@ -118,7 +119,7 @@
                                     <div class="mb-3 posterImages">
                                         <label asp-for="MidProject.ImageFiles" class="form-label">Layihənin Şəkilləri*</label>
                                         <!-- Şəkil əlavə et -->
-                                        <input asp-for="MidProject.ImageFiles" id="imageInput" type="file" accept="image/png,  image/jpeg, video/mp4"
+                                        <input asp-for="MidProject.ImageFiles" id="imageInput" type="file" accept="image/png,  image/jpeg,  image/webp,  video/mp4"
                                                class="form-control" multiple="">
                                         <div>
                                             <p id="imageErrorMessage" class="fw-bold "></p>

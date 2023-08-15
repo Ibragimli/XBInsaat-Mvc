@@ -65,7 +65,7 @@
                                      <div id="posterimage-box" class="posterimage-box row mb-3">
                                         <label asp-for="HighProject.ProjectImageFile" class="form-label">Layihənin Poster şəkli*</label>
                                         <!-- Şəkil əlavə et -->
-                                        <input asp-for="HighProject.ProjectImageFile" id="imagePosterInput" type="file" accept="image/png,  image/jpeg, video/mp4"
+                                        <input asp-for="HighProject.ProjectImageFile" id="imagePosterInput" type="file" accept="image/png,  image/jpeg,image/webp, video/mp4"
                                                class="form-control" multiple="">
                                             @foreach (var image in Model.HighProjectImages.Where(x => !x.IsDelete && x.IsPoster))
                                             {
@@ -87,7 +87,7 @@
                                     <div class="mb-3 posterImages">
                                         <label asp-for="HighProject.ImageFiles" class="form-label">Layihənin Şəkilləri*</label>
                                         <!-- Şəkil əlavə et -->
-                                        <input asp-for="HighProject.ImageFiles" id="imageInput" type="file" accept="image/png,  image/jpeg, video/mp4"
+                                        <input asp-for="HighProject.ImageFiles" id="imageInput" type="file" accept="image/png,  image/jpeg,image/webp, video/mp4"
                                                class="form-control" multiple="">
                                         <div>
                                             <p id="imageErrorMessage" class="fw-bold "></p>

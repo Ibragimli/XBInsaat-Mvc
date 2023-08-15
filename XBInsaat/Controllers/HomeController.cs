@@ -136,11 +136,18 @@ namespace XBInsaat.Controllers
         {
             News data = _dataContext.News.Include(x => x.NewsImages).FirstOrDefault(x => x.Id == newItemId);
             var lang = "";
+            var title = "";
             if (language == "Az")
                 lang = data.TextAz;
             else if (language == "En")
                 lang = data.TextEn;
             else lang = data.TextRu;
+
+            if (language == "Az")
+                title = data.TitleAz;
+            else if (language == "En")
+                title = data.TitleEn;
+            else title = data.TitleRu;
 
             var instagramUrl = "#!";
             if (data.InstagramUrl != null)
@@ -148,7 +155,7 @@ namespace XBInsaat.Controllers
             var jsonData = new
             {
                 Id = data.Id,
-                Title = data.Title,
+                Title = title,
                 Text = lang,
                 Language = language,
                 InstagramUrl = instagramUrl,

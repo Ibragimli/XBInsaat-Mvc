@@ -23,9 +23,23 @@
                                     <input type="hidden" value="@Model.News.Id" asp-for="News.Id" />
                                     <!-- Xəbər Name  Start -->
                                     <div class="mb-3 posterName">
-                                        <label asp-for="News.Title" class="form-label">Xəbər adı*</label>
-                                        <input asp-for="News.Title" maxlength="100" type="text" class="form-control">
-                                        <span asp-validation-for="News.Title" class="text-danger"></span>
+                                        <label asp-for="News.TitleAz" class="form-label">Xəbər adı (Az)*</label>
+                                        <input asp-for="News.TitleAz" maxlength="100" type="text" class="form-control">
+                                        <span asp-validation-for="News.TitleAz" class="text-danger"></span>
+                                    </div>
+                                    <!-- Xəbər Name   End -->
+                                       <!-- Xəbər Name  Start -->
+                                    <div class="mb-3 posterName">
+                                        <label asp-for="News.TitleEn" class="form-label">Xəbər adı (En)*</label>
+                                        <input asp-for="News.TitleEn" maxlength="100" type="text" class="form-control">
+                                        <span asp-validation-for="News.TitleEn" class="text-danger"></span>
+                                    </div>
+                                    <!-- Xəbər Name   End -->
+                                       <!-- Xəbər Name  Start -->
+                                    <div class="mb-3 posterName">
+                                        <label asp-for="News.TitleRu" class="form-label">Xəbər adı (Ru)*</label>
+                                        <input asp-for="News.TitleRu" maxlength="100" type="text" class="form-control">
+                                        <span asp-validation-for="News.TitleRu" class="text-danger"></span>
                                     </div>
                                     <!-- Xəbər Name   End -->
                                      <!-- InstagramUrl  Start -->
@@ -60,7 +74,7 @@
                                      <div id="posterimage-box" class="posterimage-box row mb-3">
                                         <label asp-for="News.ProjectImageFile" class="form-label">Xəbərnin Poster şəkli*</label>
                                         <!-- Şəkil əlavə et -->
-                                        <input asp-for="News.ProjectImageFile" id="imagePosterInput" type="file" accept="image/png,  image/jpeg"
+                                        <input asp-for="News.ProjectImageFile" id="imagePosterInput" type="file" accept="image/png,  image/webp,  image/jpeg"
                                                class="form-control" multiple="">
                                             @foreach (var image in Model.NewsImages.Where(x => !x.IsDelete && x.IsPoster))
                                             {
@@ -82,7 +96,7 @@
                                     <div class="mb-3 posterImages">
                                         <label asp-for="News.ImageFiles" class="form-label">Xəbərnin Şəkilləri*</label>
                                         <!-- Şəkil əlavə et -->
-                                        <input asp-for="News.ImageFiles" id="imageInput" type="file" accept="image/png,  image/jpeg"
+                                        <input asp-for="News.ImageFiles" id="imageInput" type="file" accept="image/png,  image/webp,  image/jpeg"
                                                class="form-control" multiple="">
                                         <div>
                                             <p id="imageErrorMessage" class="fw-bold "></p>

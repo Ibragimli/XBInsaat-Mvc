@@ -52,19 +52,11 @@ namespace XBInsaat.Services.Services.Implementations.Area
             {
                 throw new ImageNullException("Şəkil əlavə edin");
             }
-            if (newsCreateDto.Title == null)
+            if (newsCreateDto.TitleAz == null || newsCreateDto.TitleEn == null || newsCreateDto.TitleRu == null)
             {
                 throw new ItemFormatException("Xəbər adı əlavə edin!");
             }
-            if (newsCreateDto.TextAz == null)
-            {
-                throw new ItemFormatException("Təsvir əlavə edin!");
-            }
-            if (newsCreateDto.TextEn == null)
-            {
-                throw new ItemFormatException("Təsvir əlavə edin!");
-            }
-            if (newsCreateDto.TextRu == null)
+            if (newsCreateDto.TextAz == null || newsCreateDto.TextRu == null || newsCreateDto.TextEn == null)
             {
                 throw new ItemFormatException("Təsvir əlavə edin!");
             }

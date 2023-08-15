@@ -84,7 +84,7 @@
                                     <td class="text-center">
                                         <img src="~/uploads/news/@News.NewsImages.FirstOrDefault(x => x.IsPoster == true)?.Image" width="100" height="100" />
                                     </td>
-                                    <td class="text-center"><a target="_blank">@News.Title</a></td>
+                                    <td class="text-center"><a target="_blank">@News.TitleAz</a></td>
                                     <td class="text-center"><a target="_blank">@(News.TextAz.Length < 30 ? (News.TextAz) : (News.TextAz.Substring(0, 30) + "...."))</a></td>
                                     <td class="text-center">
                                         <div class="d-flex justify-content-sm-around">

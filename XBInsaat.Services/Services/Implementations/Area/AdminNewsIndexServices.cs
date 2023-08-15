@@ -25,7 +25,7 @@ namespace XBInsaat.Services.Services.Implementations.Area
             poster = poster.Where(x => !x.IsDelete);
 
             if (name != null)
-                poster = poster.Where(i => EF.Functions.Like(i.Title, $"%{name}%"));
+                poster = poster.Where(i => EF.Functions.Like(i.TitleAz, $"%{name}%"));
 
             return poster;
         }

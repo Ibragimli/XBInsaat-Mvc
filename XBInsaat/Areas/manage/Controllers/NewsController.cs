@@ -80,7 +80,7 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
                 AppUser user = User.Identity.IsAuthenticated ? _userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name && x.IsAdmin) : null;
                 if (user == null)
                     throw new UserNotFoundException("Error bas verdi!");
-                await _loggerServices.LoggerCreate("News", "Create", user.FullName, user.UserName, NewsCreateDto.Title);
+                await _loggerServices.LoggerCreate("News", "Create", user.FullName, user.UserName, NewsCreateDto.TitleAz);
             }
             catch (ItemNullException ex)
             {
@@ -172,7 +172,7 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
                 AppUser user = User.Identity.IsAuthenticated ? _userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name && x.IsAdmin) : null;
                 if (user == null)
                     throw new UserNotFoundException("Error bas verdi!");
-                await _loggerServices.LoggerCreate("News", "Edit", user.FullName, user.UserName, product.Title);
+                await _loggerServices.LoggerCreate("News", "Edit", user.FullName, user.UserName, product.TitleAz);
             }
 
             catch (NotFoundException)
@@ -242,7 +242,7 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
                 AppUser user = User.Identity.IsAuthenticated ? _userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name && x.IsAdmin) : null;
                 if (user == null)
                     throw new UserNotFoundException("Error bas verdi!");
-                await _loggerServices.LoggerCreate("News", "Delete", user.FullName, user.UserName, product.Title);
+                await _loggerServices.LoggerCreate("News", "Delete", user.FullName, user.UserName, product.TitleAz);
 
                 await _adminDeleteNewsServices.DeleteNews(id);
             }

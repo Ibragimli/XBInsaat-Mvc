@@ -180,7 +180,7 @@
                     </a>
                 </div>
             </div>
-           
+
             <div class="boxDesc col-lg-3">
                 <h2 style="color: #4EA392;">
                     @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "Career" + language)?.Value)
@@ -191,12 +191,12 @@
 
                 <div class="boxDescButton">
                     <a asp-action="index" asp-controller="career"
-                       style="background-color: #4EA392;" >
+                       style="background-color: #4EA392;">
                         @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxBtn" + language)?.Value)
                     </a>
                 </div>
             </div>
-            
+
             <div class="boxDesc col-lg-3">
                 <h2 style="color: #9B95C9;">
                     @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxContactUsTitle" + language)?.Value)
@@ -266,7 +266,7 @@
                 <div class="kutu camKutu d-flex justify-content-end">
                     <a asp-action="index" asp-controller="career">
                         <div class="kutuFeature" style="background-color: #fff;" onmouseover="showSlide(4)">
-                            <span  style="color: black;">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "Career" + language)?.Value)</span>
+                            <span style="color: black;">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "Career" + language)?.Value)</span>
 
                         </div>
                     </a>
@@ -365,7 +365,7 @@
         <div class="modal-content ">
             <div class="modal-header">
                 <h1 style="color:#00a7c6;" class="modal-title" id="contactModalScrollableTitle">
-                    
+
                     @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxContactUsTitle" + language)?.Value)
 
                 </h1>
@@ -378,14 +378,14 @@
                     <div class="row">
                         <div class="col-lg-6 careerBox">
                             <div class="contactMap" style="width:100%">
-                                  <h4 style="color: #8a8a8a;">
-                                <i class="far fa-map"></i>
+                              @*  <h4 style="color: #8a8a8a;">
+                                    <i class="far fa-map"></i>
 
-                                @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ContactMapText" + language)?.Value)
+                                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ContactMapText" + language)?.Value)
 
-                                </h4>
+                                </h4>*@
                                 <iframe src="@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "MapUrl")?.Value)"
-                                        style="border:0;width: 100%;" height="250"  allowfullscreen="allowfullscreen"
+                                        style="border:0;width: 100%;" height="250" allowfullscreen="allowfullscreen"
                                         loading="lazy"></iframe>
                             </div>
 

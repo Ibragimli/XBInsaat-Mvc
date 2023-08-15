@@ -6,6 +6,7 @@
 @{
     DateTime now = DateTime.UtcNow;
 }
+
 <div class="content-wrapper">
     <!-- Content -->
     <div class="container-xxl flex-grow-1 container-p-y">
@@ -28,8 +29,6 @@
                                         <span asp-validation-for="Name" class="text-danger"></span>
                                     </div>
                                     <!-- Layihə Name   End -->
-                                  
-
                                     <!-- Layihə instagramUrl  Start -->
                                     <div class="mb-3 posterTitle">
                                         <label asp-for="InstagramUrl" class="form-label">Instagram Url</label>
@@ -48,7 +47,7 @@
                                         <textarea asp-for="DescribeAz" maxlength="5000" style="max-height:300px" rows="8" type="text" class="form-control"></textarea>
                                         <span asp-validation-for="DescribeAz" class="text-danger"></span>
                                     </div>
-                                   
+
                                     <!-- Layihə DescribeAz   End -->
                                     <!-- Layihə DescribeEn  Start -->
                                     <div class="mb-3 posterName">
@@ -64,12 +63,11 @@
                                         <span asp-validation-for="DescribeRu" class="text-danger"></span>
                                     </div>
                                     <!-- Layihə DescribeRu   End -->
-
                                     <!-- Poster Image  Start -->
                                     <div class="mb-3 posterImages">
                                         <label asp-for="ImageFiles" class="form-label">Layihənin Şəkilləri*</label>
                                         <!-- Şəkil əlavə et -->
-                                        <input asp-for="ImageFiles" id="imageInput" type="file" accept="image/png,  image/jpeg, video/mp4"
+                                        <input asp-for="ImageFiles" id="imageInput" type="file" accept="image/png,  image/jpeg, image/webp, video/mp4"
                                                class="form-control" multiple="">
                                         <div>
                                             <p id="imageErrorMessage" class="fw-bold "></p>
@@ -145,9 +143,9 @@
         selectedFiles.forEach((file, i) => {
             if (i < 8) {
                 html += `<div class="imageBox">
-                                      <p id="${i}" onclick="removeFile(${i})"><i class="fa-solid fa-trash"></i></p>
-                                      <img data-image-id="${i}" class="temperorayImage" src="${file.src}" alt="">
-                                  </div>`;
+                                          <p id="${i}" onclick="removeFile(${i})"><i class="fa-solid fa-trash"></i></p>
+                                          <img data-image-id="${i}" class="temperorayImage" src="${file.src}" alt="">
+                                      </div>`;
             }
         });
 

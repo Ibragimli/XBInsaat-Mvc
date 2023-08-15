@@ -19,13 +19,11 @@ namespace XBInsaat.Services.Services.Implementations.Area
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IManageImageHelper _manageImageHelper;
-        private readonly IMapper _mapper;
 
-        public AdminNewsEditServices(IUnitOfWork unitOfWork, IManageImageHelper manageImageHelper, IMapper mapper)
+        public AdminNewsEditServices(IUnitOfWork unitOfWork, IManageImageHelper manageImageHelper)
         {
             _unitOfWork = unitOfWork;
             _manageImageHelper = manageImageHelper;
-            _mapper = mapper;
         }
 
         public async Task EditNews(News News)
@@ -54,9 +52,19 @@ namespace XBInsaat.Services.Services.Implementations.Area
             if (await CreateImageFormFile(News.ImageFiles, News.Id, deleteCount) == 1)
                 checkBool = true;
 
-            if (oldNews.Title != News.Title)
+            if (oldNews.TitleAz != News.TitleAz)
             {
-                oldNews.Title = News.Title;
+                oldNews.TitleAz = News.TitleAz;
+                checkBool = true;
+            }
+            if (oldNews.TitleEn != News.TitleEn)
+            {
+                oldNews.TitleEn = News.TitleEn;
+                checkBool = true;
+            }
+            if (oldNews.TitleRu != News.TitleRu)
+            {
+                oldNews.TitleRu = News.TitleRu;
                 checkBool = true;
             }
 
@@ -200,11 +208,11 @@ namespace XBInsaat.Services.Services.Implementations.Area
         }
         private void Check(News News)
         {
-            if (News.Title.Length < 3)
+            if (News.TitleAz.Length < 3 || News.TitleEn.Length < 3 || News.TitleRu.Length < 3)
             {
                 throw new ValueFormatExpception("Xəbər adının uzunluğu minimum 3 ola bilər");
             }
-            if (News.Title.Length > 100)
+            if (News.TitleAz.Length > 100|| News.TitleEn.Length > 100 || News.TitleRu.Length > 100)
             {
                 throw new ValueFormatExpception("Xəbər adının uzunluğu maksimum 100 ola bilər");
             }

@@ -63,7 +63,7 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
         }
 
 
-        public async Task<IActionResult> CreateRole()
+        private async Task<IActionResult> CreateRole()
         {
             //var role1 = await _roleManager.CreateAsync(new IdentityRole("SuperAdmin"));
             //var role2 = await _roleManager.CreateAsync(new IdentityRole("Admin"));

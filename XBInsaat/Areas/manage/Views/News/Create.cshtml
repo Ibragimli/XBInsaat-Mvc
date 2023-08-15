@@ -23,9 +23,23 @@
 
                                     <!-- Xəbər Title  Start -->
                                     <div class="mb-3 posterTitle">
-                                        <label asp-for="Title" class="form-label">Xəbər adı*</label>
-                                        <input asp-for="Title" maxlength="100" type="text" class="form-control">
-                                        <span asp-validation-for="Title" class="text-danger"></span>
+                                        <label asp-for="TitleAz" class="form-label">Xəbər adı (Az)*</label>
+                                        <input asp-for="TitleAz" maxlength="100" type="text" class="form-control">
+                                        <span asp-validation-for="TitleAz" class="text-danger"></span>
+                                    </div>
+                                    <!-- Xəbər Title   End -->
+                                    <!-- Xəbər Title  Start -->
+                                    <div class="mb-3 posterTitle">
+                                        <label asp-for="TitleEn" class="form-label">Xəbər adı (En)*</label>
+                                        <input asp-for="TitleEn" maxlength="100" type="text" class="form-control">
+                                        <span asp-validation-for="TitleEn" class="text-danger"></span>
+                                    </div>
+                                    <!-- Xəbər Title   End -->
+                                    <!-- Xəbər Title  Start -->
+                                    <div class="mb-3 posterTitle">
+                                        <label asp-for="TitleRu" class="form-label">Xəbər adı (Ru)*</label>
+                                        <input asp-for="TitleRu" maxlength="100" type="text" class="form-control">
+                                        <span asp-validation-for="TitleRu" class="text-danger"></span>
                                     </div>
                                     <!-- Xəbər Title   End -->
                                     
@@ -62,7 +76,7 @@
                                     <div class="mb-3 posterImages">
                                         <label asp-for="ImageFiles" class="form-label">Xəbərin Şəkilləri*</label>
                                         <!-- Şəkil əlavə et -->
-                                        <input asp-for="ImageFiles" id="imageInput" type="file" accept="image/png,  image/jpeg"
+                                        <input asp-for="ImageFiles" id="imageInput" type="file" accept="image/png,  image/webp,   image/jpeg"
                                                class="form-control" multiple="">
                                         <div>
                                             <p id="imageErrorMessage" class="fw-bold "></p>

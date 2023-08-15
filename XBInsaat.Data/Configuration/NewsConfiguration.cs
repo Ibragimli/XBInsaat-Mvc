@@ -13,7 +13,9 @@ namespace XBInsaat.Data.Configuration
     {
         public void Configure(EntityTypeBuilder<News> builder)
         {
-            builder.Property(x => x.Title).HasMaxLength(100).IsRequired(true);
+            builder.Property(x => x.TitleAz).HasMaxLength(100).IsRequired(true);
+            builder.Property(x => x.TitleEn).HasMaxLength(100).IsRequired(true);
+            builder.Property(x => x.TitleRu).HasMaxLength(100).IsRequired(true);
             builder.Property(x => x.TextAz).HasMaxLength(5000).IsRequired(true);
             builder.Property(x => x.TextEn).HasMaxLength(5000).IsRequired(true);
             builder.Property(x => x.TextRu).HasMaxLength(5000).IsRequired(true);

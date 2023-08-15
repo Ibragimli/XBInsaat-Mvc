@@ -11,7 +11,9 @@ namespace XBInsaat.Core.Entites
 
     public class News : BaseEntity
     {
-        public string Title { get; set; }
+        public string TitleAz { get; set; }
+        public string TitleEn { get; set; }
+        public string TitleRu { get; set; }
         public string TextAz { get; set; }
         public string TextEn { get; set; }
         public string TextRu { get; set; }
