@@ -11,6 +11,7 @@ namespace XBInsaat.Core.Entites
     {
         public string FullName { get; set; }
         public string RoleName { get; set; }
+        public int? LoginAttemptCount { get; set; }
         public bool IsAdmin { get; set; }
 
     }

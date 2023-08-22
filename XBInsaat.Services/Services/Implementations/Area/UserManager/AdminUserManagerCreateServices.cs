@@ -35,7 +35,7 @@ namespace XBInsaat.Services.Services.Implementations.Area.UserManagers
         {
             await DtoCheck(userManagerCreateDto);
             var role = _roleManager.Roles.FirstOrDefault(x => x.Id == userManagerCreateDto.RoleId);
-            AppUser newAdmin = new AppUser { FullName = userManagerCreateDto.Fullname, IsAdmin = userManagerCreateDto.IsAdmin, UserName = userManagerCreateDto.Username, RoleName = role.Name };
+            AppUser newAdmin = new AppUser { LoginAttemptCount = 5, FullName = userManagerCreateDto.Fullname, IsAdmin = userManagerCreateDto.IsAdmin, UserName = userManagerCreateDto.Username, RoleName = role.Name };
             var admin = await _userManager.CreateAsync(newAdmin, userManagerCreateDto.Password);
             var resultRole = await _userManager.AddToRoleAsync(newAdmin, role.Name);
             await _unitOfWork.CommitAsync();

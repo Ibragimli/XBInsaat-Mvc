@@ -5,7 +5,7 @@
     List<string> numbers = new List<string>();
     if (Model.MidProject.ContactInfo != null)
     {
-        if (Model.MidProject.ContactInfo.Length>11)
+        if (Model.MidProject.ContactInfo.Length > 11)
         {
             numbers.Add(@Model.MidProject.ContactInfo.Substring(0, Model.MidProject.ContactInfo.IndexOf("-")));
             numbers.Add(@Model.MidProject.ContactInfo.Substring(Model.MidProject.ContactInfo.LastIndexOf("-") + 1));
@@ -16,8 +16,14 @@
         }
 
     }
-   
+
 }
+@section Links{
+    <link href="https://xbinsaat.az/altlayih%C9%99/index/@Model.MidProject.Id" rel="canonical">
+    <meta property="og:url" content="https://xbinsaat.az/altlayih%C9%99/index/@Model.MidProject.Id">
+    <meta property="og:title" content="@Model.MidProject.Name | XBINSAAT MMC">
+}
+
 @model MidProjectViewModel
 
 

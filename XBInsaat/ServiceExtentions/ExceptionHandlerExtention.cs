@@ -51,7 +51,10 @@ namespace XBInsaat.Mvc.ServiceExtentions
                             code = 400;
                         if (contextFeature.Error is UserPasswordResetException)
                             code = 400;
-                        
+                        if (contextFeature.Error is UserLoginAttempCountException)
+                            code = 400;
+
+
                     }
 
                     context.Response.StatusCode = code;

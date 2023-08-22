@@ -15,5 +15,7 @@ namespace XBInsaat.Services.Services.Interfaces.Area.UserManagers
         public Task EditUserManager(UserManagerEditDto UserManagerEditDto);
         public Task<string> RoleName(string id);
 
+        public Task RestartLoginAttempCount(string id);
+
     }
 }

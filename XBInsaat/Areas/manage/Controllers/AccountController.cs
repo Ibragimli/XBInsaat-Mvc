@@ -6,18 +6,22 @@ using XBInsaat.Service.CustomExceptions;
 using System.Data;
 using XBInsaat.Services.Services.Interfaces.Area;
 using XBInsaat.Services.Dtos.Area;
+using XBInsaat.Services.CustomExceptions;
+using XBInsaat.Services.HelperService.Interfaces;
 
 namespace XBInsaat.Mvc.Areas.manage.Controllers
 {
     [Area("manage")]
     public class AccountController : Controller
     {
+        private readonly ILoggerServices _loggerServices;
         private readonly UserManager<AppUser> _userManager;
         private readonly IAdminLoginServices _adminLoginServices;
         //private readonly RoleManager<IdentityRole> _roleManager;
 
-        public AccountController(UserManager<AppUser> userManager, IAdminLoginServices adminLoginServices)
+        public AccountController(ILoggerServices loggerServices, UserManager<AppUser> userManager, IAdminLoginServices adminLoginServices)
         {
+            _loggerServices = loggerServices;
             _userManager = userManager;
             _adminLoginServices = adminLoginServices;
             //_roleManager = roleManager;
@@ -37,14 +41,21 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(AdminLoginPostDto adminLoginPostDto)
         {
-            if (!ModelState.IsValid)
-            {
-                return View();
-            }
-
             try
             {
                 await _adminLoginServices.Login(adminLoginPostDto);
+
+
+                //Logger
+                AppUser user = await _userManager.FindByNameAsync(adminLoginPostDto.Username);
+
+                await _loggerServices.LoggerCreate("Account", "Login", adminLoginPostDto.Username, user.RoleName, adminLoginPostDto.Username);
+            }
+            catch (UserLoginAttempCountException ex)
+            {
+                TempData["Error"] = (ex.Message);
+
+                return View();
             }
             catch (UserNotFoundException ex)
             {
@@ -63,19 +74,19 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
         }
 
 
-        private async Task<IActionResult> CreateRole()
-        {
-            //var role1 = await _roleManager.CreateAsync(new IdentityRole("SuperAdmin"));
-            //var role2 = await _roleManager.CreateAsync(new IdentityRole("Admin"));
-            //var role3 = await _roleManager.CreateAsync(new IdentityRole("Member"));
-            //var role4 = await _roleManager.CreateAsync(new IdentityRole("Editor"));
-            //var role5 = await _roleManager.CreateAsync(new IdentityRole("Viewer"));
+        //private async Task<IActionResult> CreateRole()
+        //{
+        //    //var role1 = await _roleManager.CreateAsync(new IdentityRole("SuperAdmin"));
+        //var role2 = await _roleManager.CreateAsync(new IdentityRole("Admin"));
+        //var role3 = await _roleManager.CreateAsync(new IdentityRole("Member"));
+        //var role4 = await _roleManager.CreateAsync(new IdentityRole("Editor"));
+        //var role5 = await _roleManager.CreateAsync(new IdentityRole("Viewer"));
 
-            AppUser SuperAdmin = new AppUser { FullName = "Name", UserName = "Username" };
-            var admin = await _userManager.CreateAsync(SuperAdmin, "password");
-            var resultRole = await _userManager.AddToRoleAsync(SuperAdmin, "Admin");
-            return Ok(resultRole);
-        }
+        //    AppUser SuperAdmin = new AppUser { FullName = "Name", UserName = "Username" };
+        //    var admin = await _userManager.CreateAsync(SuperAdmin, "password");
+        //    var resultRole = await _userManager.AddToRoleAsync(SuperAdmin, "Admin");
+        //    return Ok(resultRole);
+        //}
 
     }
 }

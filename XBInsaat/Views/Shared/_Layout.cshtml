@@ -50,9 +50,14 @@
     <meta property="og:site_name" content="xbinsaat.az">
     <meta property="og:url" content="https://xbinsaat.az/">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="xbinsaat.az – “Xarıbülbül İnşaat” MMC Azərbaycanda yüksək keyfiyyətli tikinti layihələrinin ölkə ərazisində həyata keçirilməsini təmin edən aparıcı tikinti şirkətidir. Şirkətimiz böyük və mürəkkəb layihələri həyata keçirməklə, innovasiyaları təştiq etməklə, müasir texnologiyaları mənimsəməklə, müştərilərilərimiz üçün fərq yaratmaqla tanınıb. “Xarıbülbül İnşaat”-da yüksək keyfiyyətli materiallardan istifadə edərək, ixtisaslı mühəndis kadrları cəlb 
+    <meta property="og:description" content="xbinsaat.az – “Xarıbülbül İnşaat” MMC Azərbaycanda yüksək keyfiyyətli tikinti layihələrinin ölkə ərazisində həyata keçirilməsini təmin edən aparıcı tikinti şirkətidir. Şirkətimiz böyük və mürəkkəb layihələri həyata keçirməklə, innovasiyaları təştiq etməklə, müasir texnologiyaları mənimsəməklə, müştərilərilərimiz üçün fərq yaratmaqla tanınıb. “Xarıbülbül İnşaat”-da yüksək keyfiyyətli materiallardan istifadə edərək, ixtisaslı mühəndis kadrları cəlb
     etməklə istənilən çətinlik səviyyəsində layihələndirmə, tədqiqat, tikinti, quraşdırma və təmir-tikinti işlərinini təqdim edir. “Xarıbülbül İnşaat”-da biz yaşayış binalarından ticarət komplekslərinə, zavodlara, fabriklərə və infrastruktur inkişaflarına qədər müxtəlif layihələrin tikintisində ixtisaslaşmışıq. Təcrübəli peşəkarlardan ibarət komandamız müxtəlif layihələri həyata keçirməyə imkan verən qlobal standardlara uyğun və zəngin təcrübəyə malikdir.">
+    <meta name="MobileOptimized" content="width">
+    <meta name="HandheldFriendly" content="true">
+    <meta content="XARIBULBUL INSAAT MMC. Copyright (c) 2023" name="copyright">
+
     @await RenderSectionAsync("LinksCss", required: false)
+    @await RenderSectionAsync("LinkS", required: false)
 
 
 </head>
@@ -178,7 +183,7 @@
 
             $('#contactNumberInput').on('blur', function () {
                 var phoneNumber = $(this).val();
-                var numberRegex = /^(050|051|055|070|077|010)(\d{7})$/;
+                var numberRegex = /^(050|051|055|070|077|010|099)(\d{7})$/;
 
                 if (!numberRegex.test(phoneNumber)) {
                     $('#numberError').text('Zəhmət olmasa düzgün telefon nömrəsi daxil edin.');

@@ -369,7 +369,7 @@ namespace XBInsaat.Controllers
             {
                 return RedirectToAction("index", "notfound");
             }
-            TempData["Success"] = ("Məktub göndərildi");
+            TempData["Success"] = ("Müraciətiniz göndərildi");
             return View("index", homeViewModel);
         }
 

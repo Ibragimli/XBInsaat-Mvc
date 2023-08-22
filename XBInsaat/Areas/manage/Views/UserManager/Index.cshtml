@@ -71,6 +71,7 @@
                                 <th>Username</th>
                                 <th>Fullname</th>
                                 <th>Role</th>
+                                <th>Limit Count</th>
                                 <th>IsAdmin</th>
                                 <th>Actions</th>
                             </tr>
@@ -83,10 +84,12 @@
                                     <td class="text-center"><a>@appUser.UserName</a></td>
                                     <td class="text-center"><a>@appUser.FullName</a></td>
                                     <td class="text-center"><a>@appUser.RoleName</a></td>
+                                    <td class="text-center"><a>@appUser.LoginAttemptCount</a></td>
                                     <td class="text-center"><a> <i class="fa-solid fa-@(appUser.IsAdmin ? "check":"xmark")"></i></a></td>
                                     <td class="text-center">
                                         <div class="d-flex justify-content-sm-around">
                                             <a asp-route-id="@appUser.Id" asp-action="edit" asp-controller="UserManager"><i style="font-size: 26px !important; color:orange" class="fa-regular fa-pen-to-square"></i></a>
+                                            <a class="attempt-count-btn" asp-controller="UserManager" asp-action="restartLimitCount" asp-route-id="@appUser.Id"><i style="font-size:26px !important; color:limegreen;" class="fa-solid fa-arrows-rotate me-1 "></i> </a>
                                             <a class="delete-btn" asp-controller="UserManager" asp-action="delete" asp-route-id="@appUser.Id"><i style="font-size:26px !important; color:red;" class="bx bx-trash me-1 "></i> </a>
                                         </div>
                                     </td>
@@ -109,6 +112,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
 
     <script src="~/manage/assets/js/sweetAlert.js"></script>
+    <script src="~/manage/assets/js/sweetAlertLoginAttempt.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 }

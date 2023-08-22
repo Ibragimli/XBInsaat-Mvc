@@ -88,6 +88,14 @@ namespace XBInsaat.Services.Services.Implementations.Area.UserManagers
             return UserExist;
         }
 
+        public async Task RestartLoginAttempCount(string id)
+        {
+            var user = await GetUserManager(id);
+            if (user == null)
+                throw new UserNotFoundException("User tapılmadı");
+
+            user.LoginAttemptCount = 5;
+        }
         public async Task<string> RoleName(string id)
         {
             var roleName = await GetUserManager(id);
