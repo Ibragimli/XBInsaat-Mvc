@@ -47,6 +47,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Areas\manage\Views\Career\Index.cshtml" />
     <None Include="Areas\manage\Views\Logger\Index.cshtml" />
     <None Include="Areas\manage\Views\RoleManager\Create.cshtml" />
     <None Include="Areas\manage\Views\RoleManager\Edit.cshtml" />

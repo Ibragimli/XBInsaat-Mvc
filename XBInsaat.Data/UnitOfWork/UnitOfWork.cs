@@ -21,6 +21,7 @@ namespace XBInsaat.Data.UnitOfWork
         private IAppUserRepository _userRepository;
         private IXBServiceRepository _xBServiceRepository;
         private ICameraRepository _cameraRepository;
+        private ICareerRepository _careerRepository;
         private IMidProjectRepository _midProjectRepository;
         private ILowProjectRepository _lowProjectRepository;
         private INewsRepository _newsRepository;
@@ -61,6 +62,8 @@ namespace XBInsaat.Data.UnitOfWork
 
         public IEmailSettingRepository EmailSettingRepository => _emailSettingRepository = _emailSettingRepository ?? new EmailSettingRepository(_context);
         public ILoggerRepository LoggerRepository => _loggerRepository = _loggerRepository ?? new LoggerRepository(_context);
+
+        public ICareerRepository CareerRepository => _careerRepository = _careerRepository ?? new CareerRepository(_context);
 
         public async Task<int> CommitAsync()
         {

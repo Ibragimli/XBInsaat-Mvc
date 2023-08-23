@@ -23,6 +23,10 @@ using XBInsaat.Services.Services.Interfaces.Area.UserManagers;
 using XBInsaat.Services.Services.Interfaces.User;
 using XBInsaat.Services.Services.Implementations.Area.RoleManagers;
 using XBInsaat.Services.Services.Interfaces.Area.RoleManagers;
+using XBInsaat.Services.Services.Interfaces.Area.Dashboard;
+using XBInsaat.Services.Services.Implementations.Area.Dashboard;
+using XBInsaat.Services.Services.Interfaces.Area.Careers;
+using XBInsaat.Services.Services.Implementations.Area.Careers;
 
 namespace XBInsaat.Mvc.ServiceExtentions
 {
@@ -90,7 +94,11 @@ namespace XBInsaat.Mvc.ServiceExtentions
             services.AddScoped<IAdminRoleManagerDeleteServices, AdminRoleManagerDeleteServices>();
             services.AddScoped<IAdminRoleManagerEditServices, AdminRoleManagerEditServices>();
             services.AddScoped<IAdminRoleManagerIndexServices, AdminRoleManagerIndexServices>();
-        
+
+            services.AddScoped<IDashboardServices, DashboardServices>();
+            services.AddScoped<IAdminCareerIndexServices, AdminCareerIndexServices>();
+
+
 
             services.AddScoped<IAdminLoggerIndexServices, AdminLoggerIndexServices>();
             services.AddScoped<ILoggerServices, LoggerServices>();

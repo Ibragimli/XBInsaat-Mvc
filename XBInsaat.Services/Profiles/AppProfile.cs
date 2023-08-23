@@ -20,6 +20,7 @@ namespace XBInsaat.Services.Profiles
             CreateMap<XBServiceCreateDto, XBService>();
             CreateMap<ContactUsCreateDto, ContactUs>();
             CreateMap<LoggerPostDto, Logger>();
+            CreateMap<CareerPostDto, Career>();
 
         }
     }

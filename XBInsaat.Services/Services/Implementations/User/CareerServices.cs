@@ -1,10 +1,13 @@
-﻿using MimeKit;
+﻿using AutoMapper;
+using MimeKit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using XBInsaat.Core.Entites;
+using XBInsaat.Core.IUnitOfWork;
 using XBInsaat.Service.CustomExceptions;
 using XBInsaat.Services.Dtos.User;
 using XBInsaat.Services.Services.Interfaces;
@@ -16,10 +19,14 @@ namespace XBInsaat.Services.Services.Implementations.User
     public class CareerServices : ICareerServices
     {
         private readonly IEmailServices _emailServices;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
 
-        public CareerServices(IEmailServices emailServices)
+        public CareerServices(IEmailServices emailServices, IUnitOfWork unitOfWork, IMapper mapper)
         {
             _emailServices = emailServices;
+            _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
         public void CheckValue(CareerPostDto careerPostDto)
         {
@@ -45,13 +52,13 @@ namespace XBInsaat.Services.Services.Implementations.User
                     throw new ItemNullException("Əlaqə nömrənizi qeyd edin");
                 }
                 PhoneNumberPrefixValidation(careerPostDto.PhoneNumber);
-               
+
             }
             else
             {
                 throw new ItemFormatException("CV-nizi sadəcə Pdf və Word formatında əlavə edə bilərsiniz!");
             }
-           
+
         }
 
         public async Task SendCV(CareerPostDto careerPostDto)
@@ -83,6 +90,14 @@ namespace XBInsaat.Services.Services.Implementations.User
 
 
             await _emailServices.Send("elnur204@gmail.com", "XBInsaat MMC Career", bodyBuilder);
+            await CreateCareer(careerPostDto);
+        }
+        private async Task CreateCareer(CareerPostDto careerPostDto)
+        {
+            var career = _mapper.Map<Career>(careerPostDto);
+            career.IsCV = true;
+            await _unitOfWork.CareerRepository.InsertAsync(career);
+            await _unitOfWork.CommitAsync();
         }
         private void PhoneNumberPrefixValidation(string phoneNumber)
         {

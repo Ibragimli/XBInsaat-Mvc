@@ -25,6 +25,7 @@ namespace XBInsaat.Core.IUnitOfWork
         IRevolutionSliderRepository RevolutionSliderRepository { get; }
         IContactUsRepository ContactUsRepository { get; }
         ILoggerRepository LoggerRepository { get; }
+        ICareerRepository CareerRepository { get; }
         Task<int> CommitAsync();
 
     }
