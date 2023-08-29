@@ -7,6 +7,7 @@ namespace XBInsaat.Mvc.ViewModels
     {
         public ContactUsCreateDto ContactUsCreateDto { get; set; }
         public IEnumerable<Setting> Settings { get; set; }
+        public IEnumerable<Localization> Localizations { get; set; }
 
     }
 }

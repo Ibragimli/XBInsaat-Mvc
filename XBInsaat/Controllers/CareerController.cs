@@ -12,7 +12,7 @@ namespace XBInsaat.Mvc.Controllers
         private readonly IHomeIndexServices _homeIndexServices;
         private readonly ICareerServices _careerServices;
 
-        public CareerController(IHomeIndexServices homeIndexServices,ICareerServices careerServices)
+        public CareerController(IHomeIndexServices homeIndexServices, ICareerServices careerServices)
         {
             _homeIndexServices = homeIndexServices;
             _careerServices = careerServices;
@@ -26,12 +26,14 @@ namespace XBInsaat.Mvc.Controllers
                 {
                     ContactUsCreateDto = new ContactUsCreateDto(),
                     Settings = await _homeIndexServices.GetSettings(),
+                    Localizations = await _homeIndexServices.GetLocalizations(),
 
                 };
                 LoginViewModel loginVM = new LoginViewModel
                 {
                     LoginPostDto = new LoginPostDto(),
                     Settings = await _homeIndexServices.GetSettings(),
+                    Localizations = await _homeIndexServices.GetLocalizations(),
 
                 };
                 careerVM = new CareerViewModel()
@@ -40,6 +42,8 @@ namespace XBInsaat.Mvc.Controllers
                     Settings = await _homeIndexServices.GetSettings(),
                     HomeIndexContactUsViewModel = homeIndexContactUsViewModel,
                     LoginViewModel = loginVM,
+                    Localizations = await _homeIndexServices.GetLocalizations(),
+
                 };
 
             }
@@ -91,7 +95,7 @@ namespace XBInsaat.Mvc.Controllers
                     HomeIndexContactUsViewModel = homeIndexContactUsViewModel,
                     LoginViewModel = loginVM,
                 };
-                 _careerServices.CheckValue(CareerPostDto);
+                _careerServices.CheckValue(CareerPostDto);
                 await _careerServices.SendCV(CareerPostDto);
 
             }
@@ -103,14 +107,14 @@ namespace XBInsaat.Mvc.Controllers
             catch (ItemFormatException ex)
             {
                 ModelState.AddModelError("", ex.Message);
-                return View("index",  careerVM);
+                return View("index", careerVM);
             }
             catch (ItemNullException ex)
             {
                 ModelState.AddModelError("", ex.Message);
                 return View("index", careerVM);
             }
-            catch (Exception )
+            catch (Exception)
             {
                 //TempData["Error"] = (ex.Message);
                 return RedirectToAction("index", "notfound");

@@ -31,6 +31,7 @@ namespace XBInsaat.Data.Datacontext
         public DbSet<Logger> Loggers { get; set; }
         public DbSet<Career> Careers { get; set; }
         public DbSet<RevolutionSlider> RevolutionSliders { get; set; }
+        public DbSet<Localization> Localizations { get; set; }
 
 
 

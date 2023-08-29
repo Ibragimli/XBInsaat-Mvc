@@ -1,0 +1,86 @@
+﻿@model SettingViewModel
+@{
+    var language = _localization.Getkey("Language").Value;
+
+}
+<div class="modal fade" id="contactModalScrollable" tabindex="-1" role="dialog"
+     aria-labelledby="contactModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable" role="document">
+        <div class="modal-content ">
+            <div class="modal-header">
+                <h1 style="color:#00a7c6;" class="modal-title" id="contactModalScrollableTitle">
+
+                    @Html.Raw(Model.Localizations.FirstOrDefault(x => x.Key == "BoxContactUsTitle" + language)?.Value)
+
+                </h1>
+                <button type="button" class="" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="containerContact">
+                    <div class="row">
+                        <div class="col-lg-6 careerBox">
+                            <div class="contactMap" style="width:100%">
+                                @*  <h4 style="color: #8a8a8a;">
+                                <i class="far fa-map"></i>
+
+                                @Html.Raw(Model.Localizations.FirstOrDefault(x => x.Key == "ContactMapText" + language)?.Value)
+
+                                </h4>*@
+                                <iframe src="@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "MapUrl")?.Value)"
+                                        style="border:0;width: 100%;" height="250" allowfullscreen="allowfullscreen"
+                                        loading="lazy"></iframe>
+                            </div>
+
+
+                            @*      <img src="~/uploads/setting/@Html.Raw(Model.Localizations.FirstOrDefault(x => x.Key == "LogoImage")?.Value)" alt="">
+                            <h1>
+
+                            @Html.Raw(Model.Localizations.FirstOrDefault(x => x.Key == "ModalCareerText" + language)?.Value)
+
+                            </h1>
+                            <a asp-action="index" asp-controller="career" class="btn">
+                            @Html.Raw(Model.Localizations.FirstOrDefault(x => x.Key == "Career" + language)?.Value)
+
+                            </a>*@
+                        </div>
+
+                        <div class="col-lg-6 contactInfo">
+                            <h4 style="color: #8a8a8a;">
+                                <i class="fas fa-chevron-right"></i>
+
+                                @Html.Raw(Model.Localizations.FirstOrDefault(x => x.Key == "ModalContactText" + language)?.Value)
+
+                            </h4>
+                            <p style="color: #8a8a8a;">
+                                @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ContactAdress")?.Value)
+
+                                <br>
+                                <br>
+                                <i class="fas fa-phone-volume"> </i>
+                                <a style="color:#8a8a8a;" href="tel:@Html.Raw(Model.Localizations.FirstOrDefault(x => x.Key == "ContactNumber")?.Value)">
+                                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ContactNumber")?.Value)
+                                </a>
+                                <br>
+                                <i class="far fa-envelope-open"> </i>
+                                <a style="color:#8a8a8a;" href="mailto:@Html.Raw(Model.Localizations.FirstOrDefault(x => x.Key == "ContactEmail")?.Value)">
+                                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ContactEmail")?.Value)
+                                </a>
+
+
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="wp-block-columns is-layout-flex wp-container-7">
+                        <div class="wp-block-column kenarsag iceri is-layout-flow">
+                        </div>
+                        <div class="wp-block-column is-layout-flow">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

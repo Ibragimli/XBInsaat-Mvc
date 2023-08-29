@@ -1,4 +1,4 @@
-﻿@model List<Setting>
+﻿@model SettingViewModel
 @{
     var language = _localization.Getkey("Language").Value;
 
@@ -10,7 +10,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title" id="generalModalScrollableLabel">
-                    @Model.FirstOrDefault(x => x.Key == "BoxGeneralTitle" + language)?.Value
+                    @Model.Localizations.FirstOrDefault(x => x.Key == "BoxGeneralTitle" + language)?.Value
                 </h1>
                 <button type="button" class="" data-bs-dismiss="modal" aria-label="Close">
                     <i class="fa-solid fa-xmark"></i>
@@ -18,7 +18,7 @@
             </div>
             <div class="modal-body">
 
-                @Model.FirstOrDefault(x => x.Key == "GeneralText" + language)?.Value
+                @Model.Localizations.FirstOrDefault(x => x.Key == "GeneralText" + language)?.Value
             </div>
         </div>
     </div>

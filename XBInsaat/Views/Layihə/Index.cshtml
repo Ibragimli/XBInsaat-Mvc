@@ -6,14 +6,14 @@
 
     if (Model.HighProject.ContactInfo != null)
     {
-        if (Model.HighProject.ContactInfo.Length > 11)
+        if (Model.HighProject.ContactInfo.Contains('-'))
         {
             numbers.Add(@Model.HighProject.ContactInfo.Substring(0, Model.HighProject.ContactInfo.IndexOf("-")));
             numbers.Add(@Model.HighProject.ContactInfo.Substring(Model.HighProject.ContactInfo.LastIndexOf("-") + 1));
         }
         else
         {
-            numbers.Add(Model.HighProject.ContactInfo);
+            numbers.Add(@Model.HighProject.ContactInfo);
         }
 
     }
@@ -133,7 +133,7 @@
             <!-- Shops -->
             <div class="col-md-9 mb-2 projectShops" style=" background: linear-gradient(to right, #ffffff8f, #adb5bd82); padding: 14px 14px; box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; border-radius: 6px; ">
                 <h2 style="color:black;" class="mb-3 mt-2">
-                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalProjectModalShops" + language)?.Value)
+                    @Html.Raw(Model.Localizations.FirstOrDefault(x => x.Key == "ModalProjectModalShops" + language)?.Value)
 
                 </h2>
                 <div class="row  projectShopBoxs">

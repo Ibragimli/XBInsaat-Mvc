@@ -11,7 +11,7 @@
             <div class="modal-header">
                 <h1 style="color:#00a7c6;" class="modal-title" id="loginModalScrollableTitle">
                     @*İstifadəçi kabineti*@
-                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "LoginTitle" + language)?.Value)
+                    @Html.Raw(Model.Localizations.FirstOrDefault(x => x.Key == "LoginTitle" + language)?.Value)
                 </h1>
                 <button type="button" id="close-first" class="" data-bs-dismiss="modal" aria-label="Close">
                     <i class="fa-solid fa-xmark"></i>
@@ -27,7 +27,7 @@
                     </div>
                     <div class="loginEmail col-lg-6">
                         <label class="quform-label-text" for="loginEmailInput">
-                            @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalLoginText" + language)?.Value)
+                            @Html.Raw(Model.Localizations.FirstOrDefault(x => x.Key == "ModalLoginText" + language)?.Value)
                             <span class="loginRequired">*</span>
                         </label>
                         <input id="loginEmailInput" class="" type="text" aria-label="default input example">
@@ -35,7 +35,7 @@
                     </div>
                     <div class="loginPassword col-lg-6">
                         <label class="quform-label-text" for="inputPassword5">
-                            @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalPasswordText" + language)?.Value)
+                            @Html.Raw(Model.Localizations.FirstOrDefault(x => x.Key == "ModalPasswordText" + language)?.Value)
                             <span class="loginRequired">*</span>
                         </label>
                         <input type="password" id="inputPassword5" class="" aria-labelledby="passwordHelpBlock">
@@ -51,7 +51,7 @@
                         <button name="quform_submit" type="submit" class="btn" value="submit">
                             <span class="spanText quform-button-text quform-button-submit-text">
 
-                                @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalBtnText" + language)?.Value)
+                                @Html.Raw(Model.Localizations.FirstOrDefault(x => x.Key == "ModalBtnText" + language)?.Value)
 
                             </span>
                             <span class="quform-button-icon quform-button-submit-icon">

@@ -288,6 +288,14 @@ table {
 
 * {
   box-sizing: border-box; }
+  * #toast-container {
+    display: block; }
+    * #toast-container .toast .toast-message {
+      color: white; }
+    * #toast-container .toast-error {
+      background-color: red; }
+    * #toast-container .toast-success {
+      background-color: #00A7C6; }
   * h1,
   * h2,
   * h3,
@@ -297,7 +305,8 @@ table {
   * a,
   * p,
   * span,
-  * li, * div {
+  * li,
+  * div {
     font-family: 'DM Sans', sans-serif;
     color: #111111; }
 

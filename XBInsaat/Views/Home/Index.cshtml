@@ -51,7 +51,7 @@
                         <a href="#" data-bs-toggle="modal" data-bs-target="#generalModalScrollable">
                             <div class="kutuFeature" style="background-color: #000;" onmouseover="showSlide(0)" onclick="showSlide(0)">
                                 <span style="color: white;">
-                                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxGeneralTitle" + language)?.Value)
+                                    @Html.Raw(Model.SettingViewModel.Localizations.FirstOrDefault(x => x.Key == "BoxGeneralTitle" + language)?.Value)
                                 </span>
                             </div>
                         </a>
@@ -59,7 +59,7 @@
                     <div class="kutu servicesKutu">
                         <a href="#" data-bs-toggle="modal" data-bs-target="#servicesModalScrollable">
                             <div class="kutuFeature" style="background-color: #fff;" onmouseover="showSlide(1)" onclick="showSlide(1)">
-                                <span style="color: #949162;">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxServicesTitle" + language)?.Value)</span>
+                                <span style="color: #949162;">@Html.Raw(Model.SettingViewModel.Localizations.FirstOrDefault(x => x.Key == "BoxServicesTitle" + language)?.Value)</span>
                             </div>
                         </a>
                     </div>
@@ -67,7 +67,7 @@
                         <a href="#" data-bs-toggle="modal" data-bs-target="#projectsModalScrollable">
                             <div class="kutuFeature" style="background-color: #00A7C6;"
                                  onmouseover="showSlide(2)">
-                                <span style="color: white;">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxProjectsTitle" + language)?.Value)</span>
+                                <span style="color: white;">@Html.Raw(Model.SettingViewModel.Localizations.FirstOrDefault(x => x.Key == "BoxProjectsTitle" + language)?.Value)</span>
                             </div>
                         </a>
                     </div>
@@ -81,14 +81,14 @@
                         <a asp-action="index" asp-controller="Xeberler">
                             <div class="kutuFeature" style="background-color: #5F6C7C;"
                                  onmouseover="showSlide(3)">
-                                <span style="color: white;">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxNewsTitle" + language)?.Value)</span>
+                                <span style="color: white;">@Html.Raw(Model.SettingViewModel.Localizations.FirstOrDefault(x => x.Key == "BoxNewsTitle" + language)?.Value)</span>
                             </div>
                         </a>
                     </div>
                     <div class="kutu camKutu">
                         <a asp-action="index" asp-controller="career">
                             <div class="kutuFeature" style="background-color: white;" onmouseover="showSlide(4)">
-                                <span style="color: black;">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "Career" + language)?.Value)</span>
+                                <span style="color: black;">@Html.Raw(Model.SettingViewModel.Localizations.FirstOrDefault(x => x.Key == "Career" + language)?.Value)</span>
 
                             </div>
                         </a>
@@ -102,9 +102,9 @@
                     <div class="kutu contactusKutu">
                         <a href="#" data-bs-toggle="modal" data-bs-target="#contactModalScrollable">
                             <div class="kutuFeature" style="background-color: #88A0AC;" onmouseover="showSlide(5)">
-                                @*<span class="career-2" style="color: white;">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "Career" + language)?.Value)</span>*@
+                                @*<span class="career-2" style="color: white;">@Html.Raw(Model.SettingViewModel.Localizations.FirstOrDefault(x => x.Key == "Career" + language)?.Value)</span>*@
 
-                                <span style="color: white;">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxContactUsTitle" + language)?.Value)</span>
+                                <span style="color: white;">@Html.Raw(Model.SettingViewModel.Localizations.FirstOrDefault(x => x.Key == "BoxContactUsTitle" + language)?.Value)</span>
                             </div>
                         </a>
 
@@ -121,26 +121,26 @@
         <div class="row">
             <div class="boxDesc active col-lg-3">
                 <h2 style="color: #363435;">
-                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxGeneralTitle" + language)?.Value)
+                    @Html.Raw(Model.SettingViewModel.Localizations.FirstOrDefault(x => x.Key == "BoxGeneralTitle" + language)?.Value)
                 </h2>
                 <p style="color: #363435;">
-                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "DescText" + language)?.Value)
+                    @Html.Raw(Model.SettingViewModel.Localizations.FirstOrDefault(x => x.Key == "DescText" + language)?.Value)
                 </p>
 
                 <div class="boxDescButton">
                     <a data-bs-toggle="modal" data-bs-target="#generalModalScrollable"
                        style="background-color: #363435;" href="#">
-                        @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxBtn" + language)?.Value)
+                        @Html.Raw(Model.SettingViewModel.Localizations.FirstOrDefault(x => x.Key == "BoxBtn" + language)?.Value)
                     </a>
                 </div>
             </div>
             <div class="boxDesc col-lg-3">
                 <h2 style="color: rgb(148, 83, 84);">
-                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxServicesTitle" + language)?.Value)
+                    @Html.Raw(Model.SettingViewModel.Localizations.FirstOrDefault(x => x.Key == "BoxServicesTitle" + language)?.Value)
 
                 </h2>
                 <p style="color: rgb(148, 83, 84);">
-                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "DescServiceText" + language)?.Value)
+                    @Html.Raw(Model.SettingViewModel.Localizations.FirstOrDefault(x => x.Key == "DescServiceText" + language)?.Value)
 
                 </p>
 
@@ -148,7 +148,7 @@
 
                     <a data-bs-toggle="modal" data-bs-target="#servicesModalScrollable"
                        style="background-color: rgb(148, 83, 84);" href="#">
-                        @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxBtn" + language)?.Value)
+                        @Html.Raw(Model.SettingViewModel.Localizations.FirstOrDefault(x => x.Key == "BoxBtn" + language)?.Value)
 
                     </a>
 
@@ -156,63 +156,63 @@
             </div>
             <div class="boxDesc col-lg-3">
                 <h2 style="color: rgb(96, 141, 155);">
-                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxProjectsTitle" + language)?.Value)
+                    @Html.Raw(Model.SettingViewModel.Localizations.FirstOrDefault(x => x.Key == "BoxProjectsTitle" + language)?.Value)
                 </h2>
                 <p style="color: rgb(96, 141, 155);">
-                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "DescProjectsText" + language)?.Value)
+                    @Html.Raw(Model.SettingViewModel.Localizations.FirstOrDefault(x => x.Key == "DescProjectsText" + language)?.Value)
 
                 </p>
 
                 <div class="boxDescButton">
                     <a data-bs-toggle="modal" data-bs-target="#projectsModalScrollable"
                        style="background-color:rgb(87, 102, 118);" href="#">
-                        @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxBtn" + language)?.Value)
+                        @Html.Raw(Model.SettingViewModel.Localizations.FirstOrDefault(x => x.Key == "BoxBtn" + language)?.Value)
                     </a>
                 </div>
             </div>
             <div class="boxDesc col-lg-3">
                 <h2 style="color: #827EA9;">
-                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxNewsTitle" + language)?.Value)
+                    @Html.Raw(Model.SettingViewModel.Localizations.FirstOrDefault(x => x.Key == "BoxNewsTitle" + language)?.Value)
                 </h2>
                 <p style="color:#827EA9;">
-                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "DescNewsText" + language)?.Value)
+                    @Html.Raw(Model.SettingViewModel.Localizations.FirstOrDefault(x => x.Key == "DescNewsText" + language)?.Value)
                 </p>
 
                 <div class="boxDescButton">
                     <a asp-action="index" asp-controller="Xeberler"
                        style="background-color: #827EA9;">
-                        @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxBtn" + language)?.Value)
+                        @Html.Raw(Model.SettingViewModel.Localizations.FirstOrDefault(x => x.Key == "BoxBtn" + language)?.Value)
                     </a>
                 </div>
             </div>
 
             <div class="boxDesc col-lg-3">
                 <h2 style="color: #4EA392;">
-                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "Career" + language)?.Value)
+                    @Html.Raw(Model.SettingViewModel.Localizations.FirstOrDefault(x => x.Key == "Career" + language)?.Value)
                 </h2>
                 <p style="color: #4EA392;">
-                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "DescText" + language)?.Value)
+                    @Html.Raw(Model.SettingViewModel.Localizations.FirstOrDefault(x => x.Key == "DescText" + language)?.Value)
                 </p>
 
                 <div class="boxDescButton">
                     <a asp-action="index" asp-controller="career"
                        style="background-color: #4EA392;">
-                        @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxBtn" + language)?.Value)
+                        @Html.Raw(Model.SettingViewModel.Localizations.FirstOrDefault(x => x.Key == "BoxBtn" + language)?.Value)
                     </a>
                 </div>
             </div>
 
             <div class="boxDesc col-lg-3">
                 <h2 style="color: #9B95C9;">
-                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxContactUsTitle" + language)?.Value)
+                    @Html.Raw(Model.SettingViewModel.Localizations.FirstOrDefault(x => x.Key == "BoxContactUsTitle" + language)?.Value)
                 </h2>
                 <p style="color: #9B95C9;">
-                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "DescContactUsText" + language)?.Value)
+                    @Html.Raw(Model.SettingViewModel.Localizations.FirstOrDefault(x => x.Key == "DescContactUsText" + language)?.Value)
                 </p>
                 <div class="boxDescButton">
                     <a data-bs-toggle="modal" data-bs-target="#contactModalScrollable"
                        style="background-color: #9B95C9;" href="#">
-                        @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxBtn" + language)?.Value)
+                        @Html.Raw(Model.SettingViewModel.Localizations.FirstOrDefault(x => x.Key == "BoxBtn" + language)?.Value)
                     </a>
 
                 </div>
@@ -232,7 +232,7 @@
                     <a href="#" data-bs-toggle="modal" data-bs-target="#generalModalScrollable">
                         <div class="kutuFeature" style="background-color: #000;" onmouseover="showSlide(0)" onclick="showSlide(0)">
                             <span style="color: white;">
-                                @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxGeneralTitle" + language)?.Value)
+                                @Html.Raw(Model.SettingViewModel.Localizations.FirstOrDefault(x => x.Key == "BoxGeneralTitle" + language)?.Value)
                             </span>
                         </div>
                     </a>
@@ -242,7 +242,7 @@
                 <div class="kutu servicesKutu">
                     <a href="#" data-bs-toggle="modal" data-bs-target="#servicesModalScrollable">
                         <div class="kutuFeature" style="background-color: #fff;" onmouseover="showSlide(1)" onclick="showSlide(1)">
-                            <span style="color: #949162;">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxServicesTitle" + language)?.Value)</span>
+                            <span style="color: #949162;">@Html.Raw(Model.SettingViewModel.Localizations.FirstOrDefault(x => x.Key == "BoxServicesTitle" + language)?.Value)</span>
                         </div>
                     </a>
                 </div>
@@ -251,7 +251,7 @@
                 <div class="kutu newsKutu d-flex justify-content-end ">
                     <a asp-action="index" asp-controller="Xeberler">
                         <div class="kutuFeature" style="background-color: #575575;" onmouseover="showSlide(3)">
-                            <span style="color: white;">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxNewsTitle" + language)?.Value)</span>
+                            <span style="color: white;">@Html.Raw(Model.SettingViewModel.Localizations.FirstOrDefault(x => x.Key == "BoxNewsTitle" + language)?.Value)</span>
 
                         </div>
                     </a>
@@ -261,7 +261,7 @@
                 <div class="kutu projectsKutu ">
                     <a href="#" data-bs-toggle="modal" data-bs-target="#projectsModalScrollable">
                         <div class="kutuFeature" style="background-color: #00A7C5;" onmouseover="showSlide(2)">
-                            <span style="color: white;">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxProjectsTitle" + language)?.Value)</span>
+                            <span style="color: white;">@Html.Raw(Model.SettingViewModel.Localizations.FirstOrDefault(x => x.Key == "BoxProjectsTitle" + language)?.Value)</span>
 
                         </div>
                     </a>
@@ -271,7 +271,7 @@
                 <div class="kutu camKutu d-flex justify-content-end">
                     <a asp-action="index" asp-controller="career">
                         <div class="kutuFeature" style="background-color: #fff;" onmouseover="showSlide(4)">
-                            <span style="color: black;">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "Career" + language)?.Value)</span>
+                            <span style="color: black;">@Html.Raw(Model.SettingViewModel.Localizations.FirstOrDefault(x => x.Key == "Career" + language)?.Value)</span>
 
                         </div>
                     </a>
@@ -282,7 +282,7 @@
                     <a href="#" data-bs-toggle="modal" data-bs-target="#contactModalScrollable">
                         <div class="kutuFeature" style="background-color: #88A0AC;" onmouseover="showSlide(5)">
 
-                            <span style="color: white;">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxContactUsTitle" + language)?.Value)</span>
+                            <span style="color: white;">@Html.Raw(Model.SettingViewModel.Localizations.FirstOrDefault(x => x.Key == "BoxContactUsTitle" + language)?.Value)</span>
                         </div>
                     </a>
                 </div>
@@ -291,305 +291,23 @@
     </section>
 </div>
 
+@*General Modal*@
+@await Html.PartialAsync("_generalPartial", Model.SettingViewModel)
 
-@await Html.PartialAsync("_generalPartial", Model.Settings)
-
-
-<!-- Services Modal -->
-<div class="modal fade" id="servicesModalScrollable" tabindex="-1" aria-labelledby="servicesModalScrollable"
-     aria-hidden="true">
-    <div class="modal-dialog modal-lg  modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title" id="servicesModalScrollableLabel">
-                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxServicesTitle" + language)?.Value)
-                </h1>
-                <button type="button" class="" data-bs-dismiss="modal" aria-label="Close">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="row justify-content-center">
-                    <!-- <div class="col-lg-4 col-md-11 servicesBox rightP ">
-                        <h2>Memarlıq</h2>
-                    <p>
-                    @*@Html.Raw(_localization.Getkey("GeneralText").Value)*@
-                    </p>
-                        <div class="servicesModalImage">
-                            <img style="width: 32px; height: 66px;" src="~/assets/Images/icon1.png" alt="">
-                        </div>
-                    </div> -->
-                    <div class="col-lg-6  col-md-11 servicesBox boxPadding iceri">
-                        <h2>
-                            @Html.Raw(_localization.Getkey("Services-Title-Projecting").Value)
-                        </h2>
-                        <p>
-                            @Html.Raw(_localization.Getkey("Services-Projecting").Value)
-                        </p>
-                        @*  <div class="servicesModalImage">
-                        <img class="mt-2" style="width: 53px; height: 46px;" src="~/assets/Images/icon2.png" alt="">
-                        </div>*@
-                    </div>
-                    <div class="col-lg-6  col-md-11 servicesBox leftP ">
-                        <h2>
-                            @Html.Raw(_localization.Getkey("Services-Title-Construction").Value)
-                        </h2>
-                        <p>
-                            @Html.Raw(_localization.Getkey("Services-Construction").Value)
-                        </p>
-                        @* <div class="servicesModalImage ">
-                        <img class="mt-2" style="width: 70px; height: 35px;" src="~/assets/Images/icon3.png" alt="">
-                        </div>*@
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+@*Services Modal*@
+@await Html.PartialAsync("_servicesPartial", Model.SettingViewModel)
 
 <!-- Modal Projects -->
 @await Html.PartialAsync("_projectsPartial", Model.HomeIndexProjectsViewModel)
 
-<!-- Modal Project -->
-@await Html.PartialAsync("_projectPartial", Model.HomeIndexProjectViewModel)
-
-
-<!-- Modal Project -->
-<!-- Modal  Info MidProject -->
-@await Html.PartialAsync("_midProjectPartial", Model.HomeIndexMidProjectViewModel)
-
-<!-- Modal News -->
-@await Html.PartialAsync("_newsPartial", Model.HomeIndexNewsViewModel)
-<!-- Modal New -->
-@await Html.PartialAsync("_newPartial", Model.HomeIndexNewViewModel)
-
 <!-- Modal Contact -->
-<div class="modal fade" id="contactModalScrollable" tabindex="-1" role="dialog"
-     aria-labelledby="contactModalScrollableTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable" role="document">
-        <div class="modal-content ">
-            <div class="modal-header">
-                <h1 style="color:#00a7c6;" class="modal-title" id="contactModalScrollableTitle">
-
-                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxContactUsTitle" + language)?.Value)
-
-                </h1>
-                <button type="button" class="" data-bs-dismiss="modal" aria-label="Close">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="containerContact">
-                    <div class="row">
-                        <div class="col-lg-6 careerBox">
-                            <div class="contactMap" style="width:100%">
-                              @*  <h4 style="color: #8a8a8a;">
-                                    <i class="far fa-map"></i>
-
-                                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ContactMapText" + language)?.Value)
-
-                                </h4>*@
-                                <iframe src="@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "MapUrl")?.Value)"
-                                        style="border:0;width: 100%;" height="250" allowfullscreen="allowfullscreen"
-                                        loading="lazy"></iframe>
-                            </div>
-
-
-                            @*      <img src="~/uploads/setting/@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "LogoImage")?.Value)" alt="">
-                            <h1>
-
-                            @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalCareerText" + language)?.Value)
-
-                            </h1>
-                            <a asp-action="index" asp-controller="career" class="btn">
-                            @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "Career" + language)?.Value)
-
-                            </a>*@
-                        </div>
-
-                        <div class="col-lg-6 contactInfo">
-                            <h4 style="color: #8a8a8a;">
-                                <i class="fas fa-chevron-right"></i>
-
-                                @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalContactText" + language)?.Value)
-
-                            </h4>
-                            <p style="color: #8a8a8a;">
-                                @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ContactAdress")?.Value)
-
-                                <br>
-                                <br>
-                                <i class="fas fa-phone-volume"> </i>
-                                <a style="color:#8a8a8a;" href="tel:@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ContactNumber")?.Value)">
-                                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ContactNumber")?.Value)
-                                </a>
-                                <br>
-                                <i class="far fa-envelope-open"> </i>
-                                <a style="color:#8a8a8a;" href="mailto:@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ContactEmail")?.Value)">
-                                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ContactEmail")?.Value)
-                                </a>
-
-
-
-                            </p>
-                        </div>
-                    </div>
-                    <div class="wp-block-columns is-layout-flex wp-container-7">
-                        <div class="wp-block-column kenarsag iceri is-layout-flow">
-                        </div>
-                        <div class="wp-block-column is-layout-flow">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+@await Html.PartialAsync("_contactModalPartial", Model.SettingViewModel)
 
 <!-- Login Modal -->
 @await Html.PartialAsync("_loginModalPartial", Model.LoginViewModel)
 
 @await Html.PartialAsync("_contactUsPartial", Model.HomeIndexContactUsViewModel)
 
-<!-- User Modal -->
-<div class="modal fade" id="userModal" role="dialog" tabindex="-1" aria-labelledby="userModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable " role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title" id="userModalLabel">İstifadəçi kabineti</h1>
-                <button type="button" id="close-first" class="" data-bs-dismiss="modal" aria-label="Close">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-            <!-- Modal User -->
-            <div class="modal-body">
-                <div class="row" id="accordion">
-                    <div class="d-flex align-items-start row">
-                        <div class="col-lg-3 col-md-12 userInformationBox">
-                            <div class="nav flex-column nav-pills " id="v-pills-tab" role="tablist"
-                                 aria-orientation="vertical">
-                                <h6 class="  mb-3 ms-4">
-                                    İnformation
-                                </h6>
-                                <button class="btn  active" id="v-pills-home-tab" data-bs-toggle="pill"
-                                        data-bs-target="#v-pills-home" type="button" role="tab"
-                                        aria-controls="v-pills-home" aria-selected="true">
-                                    General
-                                </button>
-                                <button class="btn" id="v-pills-profile-tab" data-bs-toggle="pill"
-                                        data-bs-target="#v-pills-profile" type="button" role="tab"
-                                        aria-controls="v-pills-profile" aria-selected="false">
-                                    Contract
-                                </button>
-                                <button class="btn" id="v-pills-messages-tab" data-bs-toggle="pill"
-                                        data-bs-target="#v-pills-messages" type="button" role="tab"
-                                        aria-controls="v-pills-messages" aria-selected="false">
-                                    Messages
-                                </button>
-                                <button class="btn" id="v-pills-settings-tab" data-bs-toggle="pill"
-                                        data-bs-target="#v-pills-settings" type="button" role="tab"
-                                        aria-controls="v-pills-settings" aria-selected="false">
-                                    Settings
-                                </button>
-                            </div>
-                        </div>
-                        <div class="col-lg-9 col-md-12">
-                            <div class="tab-content" id="v-pills-tabContent">
-                                <div class="card-header bg-white py-4">
-                                    <h5 class=" m-0">
-                                        Basic information
-                                    </h5>
-                                </div>
-                                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
-                                     aria-labelledby="v-pills-home-tab" tabindex="0">
-                                    <div id="collapseOne">
-                                        <div class="card-body">
-                                            <div class="d-flex align-items-center border-bottom border-gray-200 pb-4 mb-4">
-                                                <div class="avatar avatar-lg">
-                                                    <img src="http://2.gravatar.com/avatar/?s=96&d=mm&r=g"
-                                                         class="avatar-image rounded-circle" alt="">
-                                                </div>
-                                                <div class="avatarText flex-1 ml-4 pl-2">
-                                                    <h6 class="text-darkblue">
-                                                        Ibrahimli Ibrahim
-                                                    </h6>
-                                                    <span class="font-size-sm ">
-                                                        Port Baku Residence, Flat 4th, Floor 7
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
-                                     aria-labelledby="v-pills-profile-tab" tabindex="0">
-                                    <div id="collapseTwo">
-                                        <div class="card-body">
-                                            <div class="d-flex align-items-center border-bottom border-gray-200 pb-4 mb-4 row">
-
-                                                <p>
-                                                    sAnim pariatur cliche reprehenderit, enim eiusmod high life
-                                                    accusamus terry richardson ad squid. 3 wolf moon officia
-                                                    aute,
-                                                    non
-                                                    cupidatat skateboard dolor brunch. Food truck quinoa
-                                                    nesciunt
-                                                    laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put
-                                                    a
-                                                    bird
-                                                    on it squid single-origin coffee nulla assumenda shoreditch
-                                                    et.
-                                                    Nihil anim keffiyeh helvetica, craft beer labore wes
-                                                    anderson
-                                                    cred
-                                                    nesciunt sapiente ea proident. Ad vegan excepteur butcher
-                                                    vice
-                                                    lomo.
-                                                    Leggings occaecat craft beer farm-to-table, raw denim
-                                                    aesthetic
-                                                    synth nesciunt you probably haven't heard of them accusamus
-                                                    labore
-                                                    sustainable VHS.
-                                                </p>
-
-                                                <a href="~/assets/pdf/screen-1.pdf" target="_blank">
-                                                    Download
-                                                    File
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="v-pills-messages" role="tabpanel"
-                                     aria-labelledby="v-pills-messages-tab" tabindex="0">
-                                    <div id="collapseThree">
-                                        <div class="card-body">
-                                            <div class="d-flex align-items-center border-bottom border-gray-200 pb-4 mb-4">
-                                                ...
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="v-pills-settings" role="tabpanel"
-                                     aria-labelledby="v-pills-settings-tab" tabindex="0">
-
-                                    <div id="collapseThree">
-                                        <div class="card-body">
-                                            <div class="d-flex align-items-center border-bottom border-gray-200 pb-4 mb-4">
-                                                ...
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 @section Scripts{
     <!-- Slid   er image and text -->
@@ -599,3 +317,18 @@
     <script src="~/assets/js/owlCarousel.js"></script>
 }
 
+
+<!-- User Modal -->
+@*@await Html.PartialAsync("_userProfileModalPartial", Model.SettingViewModel)*@
+
+<!-- Modal Project -->
+@*@await Html.PartialAsync("_projectPartial", Model.HomeIndexProjectViewModel)*@
+
+<!-- Modal Project -->
+<!-- Modal  Info MidProject -->
+@*@await Html.PartialAsync("_midProjectPartial", Model.HomeIndexMidProjectViewModel)
+*@
+<!-- Modal News -->
+@*@await Html.PartialAsync("_newsPartial", Model.HomeIndexNewsViewModel)*@
+<!-- Modal New -->
+@*@await Html.PartialAsync("_newPartial", Model.HomeIndexNewViewModel)*@

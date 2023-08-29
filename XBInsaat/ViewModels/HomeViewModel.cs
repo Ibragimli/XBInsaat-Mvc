@@ -19,18 +19,28 @@ namespace XBInsaat.Mvc.ViewModels
         public HomeIndexNewViewModel HomeIndexNewViewModel { get; set; }
         public HomeIndexMidProjectViewModel HomeIndexMidProjectViewModel { get; set; }
         public LoginViewModel LoginViewModel { get; set; }
+        public SettingViewModel SettingViewModel { get; set; }
     }
     public class HomeIndexProjectsViewModel
     {
         public IEnumerable<HighProject> HighProjects { get; set; }
         public IEnumerable<Setting> Settings { get; set; }
+        public IEnumerable<Localization> Localizations { get; set; }
 
     }
-  
+    public class SettingViewModel
+    {
+        public IEnumerable<Localization> Localizations { get; set; }
+        public IEnumerable<Setting> Settings { get; set; }
+
+    }
+
     public class HomeIndexNewsViewModel
     {
         public IEnumerable<News> News { get; set; }
         public IEnumerable<Setting> Settings { get; set; }
+        public IEnumerable<Localization> Localizations { get; set; }
+
     }
     public class HomeIndexNewViewModel
     {
@@ -38,6 +48,8 @@ namespace XBInsaat.Mvc.ViewModels
         public News New { get; set; }
         public IEnumerable<Setting> Settings { get; set; }
         public IEnumerable<NewsImage> NewsImages { get; set; }
+        public IEnumerable<Localization> Localizations { get; set; }
+
 
     }
     public class HomeIndexMidProjectViewModel
@@ -45,6 +57,8 @@ namespace XBInsaat.Mvc.ViewModels
         public IEnumerable<MidProject> MidProjects { get; set; }
         public IEnumerable<Setting> Settings { get; set; }
         public IEnumerable<MidProjectImage> MidProjectImages { get; set; }
+        public IEnumerable<Localization> Localizations { get; set; }
+
     }
     public class HomeIndexProjectViewModel
     {
@@ -53,6 +67,8 @@ namespace XBInsaat.Mvc.ViewModels
         public IEnumerable<Setting> Settings { get; set; }
         public IEnumerable<HighProjectImage> HighProjectImages { get; set; }
         public IEnumerable<MidProjectImage> MidProjectImages { get; set; }
+        public IEnumerable<Localization> Localizations { get; set; }
+
     }
-    
+
 }

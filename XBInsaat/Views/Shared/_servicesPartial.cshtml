@@ -1,0 +1,56 @@
+﻿@model SettingViewModel
+@{
+    var language = _localization.Getkey("Language").Value;
+
+}
+<div class="modal fade" id="servicesModalScrollable" tabindex="-1" aria-labelledby="servicesModalScrollable"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg  modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title" id="servicesModalScrollableLabel">
+                    @Html.Raw(Model.Localizations.FirstOrDefault(x => x.Key == "BoxServicesTitle" + language)?.Value)
+                </h1>
+                <button type="button" class="" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row justify-content-center">
+                    <!-- <div class="col-lg-4 col-md-11 servicesBox rightP ">
+                        <h2>Memarlıq</h2>
+                    <p>
+                    @*@Html.Raw(_localization.Getkey("GeneralText").Value)*@
+                    </p>
+                        <div class="servicesModalImage">
+                            <img style="width: 32px; height: 66px;" src="~/assets/Images/icon1.png" alt="">
+                        </div>
+                    </div> -->
+                    <div class="col-lg-6  col-md-11 servicesBox boxPadding iceri">
+                        <h2>
+                            @Html.Raw(_localization.Getkey("Services-Title-Projecting").Value)
+
+                        </h2>
+                        <p style="text-align:justify;">
+                            @Html.Raw(_localization.Getkey("Services-Projecting").Value)
+                        </p>
+                        @*  <div class="servicesModalImage">
+                        <img class="mt-2" style="width: 53px; height: 46px;" src="~/assets/Images/icon2.png" alt="">
+                        </div>*@
+                    </div>
+                    <div class="col-lg-6  col-md-11 servicesBox leftP ">
+                        <h2>
+                            @Html.Raw(_localization.Getkey("Services-Title-Construction").Value)
+                        </h2>
+                        <p style="text-align:justify;">
+                            @Html.Raw(_localization.Getkey("Services-Construction").Value)
+                        </p>
+                        @* <div class="servicesModalImage ">
+                        <img class="mt-2" style="width: 70px; height: 35px;" src="~/assets/Images/icon3.png" alt="">
+                        </div>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

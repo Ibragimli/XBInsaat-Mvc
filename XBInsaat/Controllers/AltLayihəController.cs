@@ -18,20 +18,19 @@ namespace XBInsaat.Mvc.Controllers
         public async Task<IActionResult> Index(int id)
         {
             MidProjectViewModel midProjectViewModel = new MidProjectViewModel();
-            ContactUsCreateDto contactUsCreateDto = new ContactUsCreateDto();
-          
 
             try
             {
                 HomeIndexContactUsViewModel homeIndexContactUsViewModel = new HomeIndexContactUsViewModel
                 {
-                    ContactUsCreateDto = contactUsCreateDto,
-                    Settings = await _homeIndexServices.GetSettings(),
-
+                    ContactUsCreateDto = new ContactUsCreateDto(),
+                Settings = await _homeIndexServices.GetSettings(),
+                    Localizations = await _homeIndexServices.GetLocalizations(),
                 };
                 LoginViewModel loginVM = new LoginViewModel
                 {
                     LoginPostDto = new LoginPostDto(),
+                    Localizations = await _homeIndexServices.GetLocalizations(),
                     Settings = await _homeIndexServices.GetSettings(),
 
                 };
@@ -41,6 +40,8 @@ namespace XBInsaat.Mvc.Controllers
                     Settings = await _homeIndexServices.GetSettings(),
                     HomeIndexContactUsViewModel = homeIndexContactUsViewModel,
                     LoginViewModel = loginVM,
+                    Localizations = await _homeIndexServices.GetLocalizations(),
+
                 };
             }
             catch (ItemNotFoundException ex)

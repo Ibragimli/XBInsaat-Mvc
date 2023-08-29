@@ -9,7 +9,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable " role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title" id="contactUsModalLabel">@Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "BoxContactUsTitle" + language)?.Value)</h1>
+                <h1 class="modal-title" id="contactUsModalLabel">@Html.Raw(Model.Localizations.FirstOrDefault(x => x.Key == "BoxContactUsTitle" + language)?.Value)</h1>
                 <button type="button" id="close-first" class="" data-bs-dismiss="modal" aria-label="Close">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
@@ -26,7 +26,7 @@
                     <!-- AdSoyad -->
                     <div class="contactUsInputsBox col-lg-6  col-md-8 col-sm-9">
                         <label asp-for="ContactUsCreateDto.Fullname" class="quform-label-text" for="contactNameInput">
-                            @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalContactUsInputFullname" + language)?.Value)
+                            @Html.Raw(Model.Localizations.FirstOrDefault(x => x.Key == "ModalContactUsInputFullname" + language)?.Value)
 
                             <span class="contactRequired">*</span>
                         </label>
@@ -37,7 +37,7 @@
                     <!-- Nomre -->
                     <div class="contactUsInputsBox col-lg-6 col-md-8 col-sm-9">
                         <label asp-for="ContactUsCreateDto.PhoneNumber" class="quform-label-text" for="contactNumberInput">
-                            @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalContactUsInputNumber" + language)?.Value)
+                            @Html.Raw(Model.Localizations.FirstOrDefault(x => x.Key == "ModalContactUsInputNumber" + language)?.Value)
 
                             <span class="contactRequired">*</span>
                         </label>
@@ -49,7 +49,7 @@
                     <!-- Email -->
                     <div class="contactUsInputsBox col-lg-6 col-md-8 col-sm-9">
                         <label asp-for="ContactUsCreateDto.Email" class=" quform-label-text" for="contactEmailInput">
-                            @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalContactUsInputEmail" + language)?.Value)
+                            @Html.Raw(Model.Localizations.FirstOrDefault(x => x.Key == "ModalContactUsInputEmail" + language)?.Value)
 
                             <span class="contactRequired">*</span>
                         </label>
@@ -62,7 +62,7 @@
                     <!-- Desc -->
                     <div class="contactUsInputsBox col-lg-6 col-md-8 col-sm-9">
                         <label asp-for="ContactUsCreateDto.Message" class="quform-label-text" for="contactDescInput">
-                            @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalContactUsInputMessage" + language)?.Value)
+                            @Html.Raw(Model.Localizations.FirstOrDefault(x => x.Key == "ModalContactUsInputMessage" + language)?.Value)
 
                             <span class="contactRequired">*</span>
                         </label>
@@ -75,7 +75,7 @@
                     <div class="col-lg-6 col-md-8 col-sm-9 contactButton">
                         <button type="submit" class="btn">
                             <span class="spanText quform-button-text quform-button-submit-text">
-                                @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalContactUsInputBtn" + language)?.Value)
+                                @Html.Raw(Model.Localizations.FirstOrDefault(x => x.Key == "ModalContactUsInputBtn" + language)?.Value)
                             </span>
                             <span class="quform-button-icon quform-button-submit-icon">
                                 <i class="fa fa-chevron-right"></i>

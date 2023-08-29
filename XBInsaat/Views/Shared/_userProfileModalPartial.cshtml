@@ -1,0 +1,142 @@
+﻿@{
+    var language = _localization.Getkey("Language").Value;
+
+}
+<div class="modal fade" id="userModal" role="dialog" tabindex="-1" aria-labelledby="userModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable " role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title" id="userModalLabel">İstifadəçi kabineti</h1>
+                <button type="button" id="close-first" class="" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <!-- Modal User -->
+            <div class="modal-body">
+                <div class="row" id="accordion">
+                    <div class="d-flex align-items-start row">
+                        <div class="col-lg-3 col-md-12 userInformationBox">
+                            <div class="nav flex-column nav-pills " id="v-pills-tab" role="tablist"
+                                 aria-orientation="vertical">
+                                <h6 class="  mb-3 ms-4">
+                                    İnformation
+                                </h6>
+                                <button class="btn  active" id="v-pills-home-tab" data-bs-toggle="pill"
+                                        data-bs-target="#v-pills-home" type="button" role="tab"
+                                        aria-controls="v-pills-home" aria-selected="true">
+                                    General
+                                </button>
+                                <button class="btn" id="v-pills-profile-tab" data-bs-toggle="pill"
+                                        data-bs-target="#v-pills-profile" type="button" role="tab"
+                                        aria-controls="v-pills-profile" aria-selected="false">
+                                    Contract
+                                </button>
+                                <button class="btn" id="v-pills-messages-tab" data-bs-toggle="pill"
+                                        data-bs-target="#v-pills-messages" type="button" role="tab"
+                                        aria-controls="v-pills-messages" aria-selected="false">
+                                    Messages
+                                </button>
+                                <button class="btn" id="v-pills-settings-tab" data-bs-toggle="pill"
+                                        data-bs-target="#v-pills-settings" type="button" role="tab"
+                                        aria-controls="v-pills-settings" aria-selected="false">
+                                    Settings
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-md-12">
+                            <div class="tab-content" id="v-pills-tabContent">
+                                <div class="card-header bg-white py-4">
+                                    <h5 class=" m-0">
+                                        Basic information
+                                    </h5>
+                                </div>
+                                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
+                                     aria-labelledby="v-pills-home-tab" tabindex="0">
+                                    <div id="collapseOne">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center border-bottom border-gray-200 pb-4 mb-4">
+                                                <div class="avatar avatar-lg">
+                                                    <img src="http://2.gravatar.com/avatar/?s=96&d=mm&r=g"
+                                                         class="avatar-image rounded-circle" alt="">
+                                                </div>
+                                                <div class="avatarText flex-1 ml-4 pl-2">
+                                                    <h6 class="text-darkblue">
+                                                        Ibrahimli Ibrahim
+                                                    </h6>
+                                                    <span class="font-size-sm ">
+                                                        Port Baku Residence, Flat 4th, Floor 7
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
+                                     aria-labelledby="v-pills-profile-tab" tabindex="0">
+                                    <div id="collapseTwo">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center border-bottom border-gray-200 pb-4 mb-4 row">
+
+                                                <p>
+                                                    sAnim pariatur cliche reprehenderit, enim eiusmod high life
+                                                    accusamus terry richardson ad squid. 3 wolf moon officia
+                                                    aute,
+                                                    non
+                                                    cupidatat skateboard dolor brunch. Food truck quinoa
+                                                    nesciunt
+                                                    laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put
+                                                    a
+                                                    bird
+                                                    on it squid single-origin coffee nulla assumenda shoreditch
+                                                    et.
+                                                    Nihil anim keffiyeh helvetica, craft beer labore wes
+                                                    anderson
+                                                    cred
+                                                    nesciunt sapiente ea proident. Ad vegan excepteur butcher
+                                                    vice
+                                                    lomo.
+                                                    Leggings occaecat craft beer farm-to-table, raw denim
+                                                    aesthetic
+                                                    synth nesciunt you probably haven't heard of them accusamus
+                                                    labore
+                                                    sustainable VHS.
+                                                </p>
+
+                                                <a href="~/assets/pdf/screen-1.pdf" target="_blank">
+                                                    Download
+                                                    File
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="v-pills-messages" role="tabpanel"
+                                     aria-labelledby="v-pills-messages-tab" tabindex="0">
+                                    <div id="collapseThree">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center border-bottom border-gray-200 pb-4 mb-4">
+                                                ...
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="v-pills-settings" role="tabpanel"
+                                     aria-labelledby="v-pills-settings-tab" tabindex="0">
+
+                                    <div id="collapseThree">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center border-bottom border-gray-200 pb-4 mb-4">
+                                                ...
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

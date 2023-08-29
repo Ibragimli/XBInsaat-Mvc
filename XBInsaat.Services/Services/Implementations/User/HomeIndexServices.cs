@@ -98,7 +98,7 @@ namespace XBInsaat.Services.Services.Implementations.User
             return item;
         }
 
-        public async Task<List<News>> GetNewsData(int page,int pageSize)
+        public async Task<List<News>> GetNewsData(int page, int pageSize)
         {
             //var news = await _unitOfWork.NewsRepository.GetAllPagenatedAsync(x => !x.IsDelete, page, pageSize, "NewsImages").ToList();
             //return news;
@@ -113,6 +113,12 @@ namespace XBInsaat.Services.Services.Implementations.User
             // Haber listesini kullanarak istediğiniz işlemleri yapabilirsiniz.
             // Örneğin, bu listeyi bir View'e gönderebilirsiniz:
             return newsListAsList;
+        }
+
+        public async Task<IEnumerable<Localization>> GetLocalizations()
+        {
+            return await _unitOfWork.LocalizationRepository.GetAllAsync(x => !x.IsDelete);
+
         }
     }
 }

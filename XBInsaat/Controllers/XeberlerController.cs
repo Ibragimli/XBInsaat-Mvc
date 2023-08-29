@@ -36,12 +36,13 @@ namespace XBInsaat.Mvc.Controllers
                 {
                     ContactUsCreateDto = contactUsCreateDto,
                     Settings = await _homeIndexServices.GetSettings(),
-
+                    Localizations = await _homeIndexServices.GetLocalizations(),
                 };
                 LoginViewModel loginVM = new LoginViewModel
                 {
                     LoginPostDto = new LoginPostDto(),
                     Settings = await _homeIndexServices.GetSettings(),
+                    Localizations = await _homeIndexServices.GetLocalizations(),
 
                 };
                 newsViewModel = new NewsViewModel()
@@ -50,6 +51,7 @@ namespace XBInsaat.Mvc.Controllers
                     Settings = await _homeIndexServices.GetSettings(),
                     HomeIndexContactUsViewModel = homeIndexContactUsViewModel,
                     LoginViewModel = loginVM,
+                    Localizations = await _homeIndexServices.GetLocalizations(),
                 };
 
             }

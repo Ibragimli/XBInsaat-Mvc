@@ -30,6 +30,7 @@ namespace XBInsaat.Data.UnitOfWork
         private IRevolutionSliderRepository _revolutionSliderRepository;
         private IContactUsRepository _contactUsRepository;
         private ILoggerRepository _loggerRepository;
+        private ILocalizationRepository _localizationRepository;
 
 
         public UnitOfWork(DataContext context)
@@ -64,7 +65,8 @@ namespace XBInsaat.Data.UnitOfWork
         public ILoggerRepository LoggerRepository => _loggerRepository = _loggerRepository ?? new LoggerRepository(_context);
 
         public ICareerRepository CareerRepository => _careerRepository = _careerRepository ?? new CareerRepository(_context);
-
+        public ILocalizationRepository LocalizationRepository => _localizationRepository = _localizationRepository ?? new LocalizationRepository(_context);
+        
         public async Task<int> CommitAsync()
         {
             return await _context.SaveChangesAsync();

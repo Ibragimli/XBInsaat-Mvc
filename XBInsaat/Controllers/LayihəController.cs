@@ -20,18 +20,19 @@ namespace XBInsaat.Mvc.Controllers
             ProjectViewModel projectViewModel = new ProjectViewModel();
             ContactUsCreateDto contactUsCreateDto = new ContactUsCreateDto();
          
-         
             try
             {
                 HomeIndexContactUsViewModel homeIndexContactUsViewModel = new HomeIndexContactUsViewModel
                 {
                     ContactUsCreateDto = contactUsCreateDto,
                     Settings = await _homeIndexServices.GetSettings(),
+                    Localizations = await _homeIndexServices.GetLocalizations(),
                 };
                 LoginViewModel loginVM = new LoginViewModel
                 {
                     LoginPostDto = new LoginPostDto(),
                     Settings = await _homeIndexServices.GetSettings(),
+                    Localizations = await _homeIndexServices.GetLocalizations(),
 
                 };
                 projectViewModel = new ProjectViewModel
@@ -41,12 +42,13 @@ namespace XBInsaat.Mvc.Controllers
                     Settings = await _homeIndexServices.GetSettings(),
                     HomeIndexContactUsViewModel = homeIndexContactUsViewModel,
                     LoginViewModel = loginVM,
+                    Localizations = await _homeIndexServices.GetLocalizations(),
                 };
             }
             catch (ItemNotFoundException ex)
             {
                 TempData["Error"] = (ex.Message);
-                return RedirectToAction("index", "home", projectViewModel);
+                return RedirectToAction("index", "notfound");
             }
             catch (Exception ex)
             {

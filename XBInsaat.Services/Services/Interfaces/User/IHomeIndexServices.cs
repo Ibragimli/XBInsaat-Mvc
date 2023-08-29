@@ -10,6 +10,7 @@ namespace XBInsaat.Services.Services.Interfaces.User
     public interface IHomeIndexServices
     {
         public Task<IEnumerable<Setting>> GetSettings();
+        public Task<IEnumerable<Localization>> GetLocalizations();
         public Task<IEnumerable<HighProject>> GetHighProjects();
         public Task<HighProject> GetHighProject(int id);
         public Task<MidProject> GetMidProject(int id);

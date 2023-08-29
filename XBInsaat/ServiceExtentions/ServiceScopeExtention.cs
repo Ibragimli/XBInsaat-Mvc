@@ -27,6 +27,9 @@ using XBInsaat.Services.Services.Interfaces.Area.Dashboard;
 using XBInsaat.Services.Services.Implementations.Area.Dashboard;
 using XBInsaat.Services.Services.Interfaces.Area.Careers;
 using XBInsaat.Services.Services.Implementations.Area.Careers;
+using XBInsaat.Services.Services.Implementations.Area.Localizations;
+using Aztamlider.Services.Services.Implementations.Area.Localizations;
+using XBInsaat.Services.Services.Interfaces.Area.Localizations;
 
 namespace XBInsaat.Mvc.ServiceExtentions
 {
@@ -99,6 +102,11 @@ namespace XBInsaat.Mvc.ServiceExtentions
             services.AddScoped<IAdminCareerIndexServices, AdminCareerIndexServices>();
 
 
+
+            services.AddScoped<ILocalizationRepository, LocalizationRepository>();
+            services.AddScoped<ILocalizationIndexServices, LocalizationIndexServices>();
+            services.AddScoped<ILocalizationCreateServices, LocalizationCreateServices>();
+            services.AddScoped<ILocalizationEditServices, LocalizationEditServices>();
 
             services.AddScoped<IAdminLoggerIndexServices, AdminLoggerIndexServices>();
             services.AddScoped<ILoggerServices, LoggerServices>();

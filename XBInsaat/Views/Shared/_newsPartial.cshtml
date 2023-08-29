@@ -1,4 +1,4 @@
-﻿@model HomeIndexNewsViewModel
+﻿@*@model HomeIndexNewsViewModel
 @{
     var language = _localization.Getkey("Language").Value;
 
@@ -12,7 +12,7 @@
             <div class="modal-header">
                 <h1 style="color:#00a7c6;" class="modal-title" id="newsModalScrollableTitle">
 
-                    @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalNewsTitle" + language)?.Value)
+                    @Html.Raw(Model.Localizations.FirstOrDefault(x => x.Key == "ModalNewsTitle" + language)?.Value)
 
                 </h1>
                 <button type="button" id="close-first" class="" data-bs-dismiss="modal" aria-label="Close">
@@ -41,7 +41,7 @@
 
                                     <!-- Read more -->
                                     <a asp-action="index" asp-controller="xəbər" asp-route-id="@newItem.Id"  class=" postReadText d-inline-block border-bottom border-primary text-decoration-none mt-2 pb-1">
-                                        @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ReadPostText" + language)?.Value)
+                                        @Html.Raw(Model.Localizations.FirstOrDefault(x => x.Key == "ReadPostText" + language)?.Value)
 
                                     </a>
                                 </div>
@@ -52,7 +52,7 @@
                         <a href="#" type="button" data-bs-dismiss="modal" aria-label="Close"
                            class="newsBackBtn btn btn-pastel-primary hover-lift-light text-uppercase-bold-sm mt-4">
                             <i class="fas fa-chevron-left fa-sm mr-2"></i>
-                            @Html.Raw(Model.Settings.FirstOrDefault(x => x.Key == "ModalHomeBackBtnText" + language)?.Value)
+                            @Html.Raw(Model.Localizations.FirstOrDefault(x => x.Key == "ModalHomeBackBtnText" + language)?.Value)
                         </a>
                     </div>
                 </section>
@@ -62,3 +62,4 @@
 
 </div>
 
+*@

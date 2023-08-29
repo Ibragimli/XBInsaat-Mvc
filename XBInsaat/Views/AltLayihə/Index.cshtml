@@ -5,7 +5,7 @@
     List<string> numbers = new List<string>();
     if (Model.MidProject.ContactInfo != null)
     {
-        if (Model.MidProject.ContactInfo.Length > 11)
+        if (Model.MidProject.ContactInfo.Contains('-'))
         {
             numbers.Add(@Model.MidProject.ContactInfo.Substring(0, Model.MidProject.ContactInfo.IndexOf("-")));
             numbers.Add(@Model.MidProject.ContactInfo.Substring(Model.MidProject.ContactInfo.LastIndexOf("-") + 1));

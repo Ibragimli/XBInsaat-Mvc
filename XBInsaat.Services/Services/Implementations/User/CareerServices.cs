@@ -89,7 +89,7 @@ namespace XBInsaat.Services.Services.Implementations.User
             }
 
 
-            await _emailServices.Send("elnur204@gmail.com", "XBInsaat MMC Career", bodyBuilder);
+            await _emailServices.Send((await _unitOfWork.SettingRepository.GetAsync(x => x.Key == "CareerEmailSend")).Value, "XBInsaat MMC Career", bodyBuilder);
             await CreateCareer(careerPostDto);
         }
         private async Task CreateCareer(CareerPostDto careerPostDto)
