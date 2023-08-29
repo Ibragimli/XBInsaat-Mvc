@@ -22,7 +22,7 @@ namespace XBInsaat.Services.Services.Implementations.Area.Loggers
         {
             var poster = _unitOfWork.LoggerRepository.asQueryable();
             poster = poster.Where(x => !x.IsDelete);
-
+            poster = poster.OrderByDescending(x=>x.Id);
             if (name != null)
                 poster = poster.Where(i => EF.Functions.Like(i.Name, $"%{name}%"));
 

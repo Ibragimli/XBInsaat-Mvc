@@ -1,4 +1,4 @@
-﻿@model SettingViewModel
+﻿@model HomeIndexServicesViewModel
 @{
     var language = _localization.Getkey("Language").Value;
 
@@ -27,23 +27,28 @@
                         </div>
                     </div> -->
                     <div class="col-lg-6  col-md-11 servicesBox boxPadding iceri">
+
                         <h2>
-                            @Html.Raw(_localization.Getkey("Services-Title-Projecting").Value)
+                            @Html.Raw(Model.Localizations.FirstOrDefault(x => x.Key == "XBServicesName1" + language)?.Value)
 
                         </h2>
                         <p style="text-align:justify;">
-                            @Html.Raw(_localization.Getkey("Services-Projecting").Value)
+                            @Html.Raw(Model.Localizations.FirstOrDefault(x => x.Key == "XBServicesDesc1" + language)?.Value)
+
                         </p>
                         @*  <div class="servicesModalImage">
                         <img class="mt-2" style="width: 53px; height: 46px;" src="~/assets/Images/icon2.png" alt="">
                         </div>*@
+
                     </div>
                     <div class="col-lg-6  col-md-11 servicesBox leftP ">
                         <h2>
-                            @Html.Raw(_localization.Getkey("Services-Title-Construction").Value)
+                            @Html.Raw(Model.Localizations.FirstOrDefault(x => x.Key == "XBServicesName2" + language)?.Value)
+
                         </h2>
                         <p style="text-align:justify;">
-                            @Html.Raw(_localization.Getkey("Services-Construction").Value)
+                            @Html.Raw(Model.Localizations.FirstOrDefault(x => x.Key == "XBServicesDesc2" + language)?.Value)
+
                         </p>
                         @* <div class="servicesModalImage ">
                         <img class="mt-2" style="width: 70px; height: 35px;" src="~/assets/Images/icon3.png" alt="">

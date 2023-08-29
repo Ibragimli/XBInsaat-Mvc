@@ -52,6 +52,8 @@ namespace XBInsaat.Controllers
             HomeViewModel homeViewModel = new HomeViewModel();
             LoginViewModel loginVM = new LoginViewModel();
             SettingViewModel settingViewModel = new SettingViewModel();
+            HomeIndexServicesViewModel homeIndexServicesVM = new HomeIndexServicesViewModel();
+
 
             try
             {
@@ -78,7 +80,13 @@ namespace XBInsaat.Controllers
                     Settings = await _homeIndexServices.GetSettings(),
                     Localizations = await _homeIndexServices.GetLocalizations(),
                 };
-          
+                homeIndexServicesVM = new HomeIndexServicesViewModel
+                {
+                    XBServices = await _homeIndexServices.GetXBServices(),
+                    Settings = await _homeIndexServices.GetSettings(),
+                    Localizations = await _homeIndexServices.GetLocalizations(),
+                };
+
                 homeIndexContactUsViewModel = new HomeIndexContactUsViewModel
                 {
                     ContactUsCreateDto = new ContactUsCreateDto(),
@@ -86,6 +94,7 @@ namespace XBInsaat.Controllers
                     Localizations = await _homeIndexServices.GetLocalizations(),
 
                 };
+
                 //homeIndexMidProjectViewModel = new HomeIndexMidProjectViewModel
                 //{
                 //    Settings = await _homeIndexServices.GetSettings(),
@@ -133,6 +142,7 @@ namespace XBInsaat.Controllers
                     RevolutionSliders = await _homeIndexServices.GetRevolutionSliders(),
                     LoginViewModel = loginVM,
                     SettingViewModel = settingViewModel,
+                    HomeIndexServicesViewModel = homeIndexServicesVM,
                     //HomeIndexProjectViewModel = homeIndexProjectViewModel,
                     //HomeIndexMidProjectViewModel = homeIndexMidProjectViewModel,
                     //HomeIndexNewsViewModel = homeIndexNewsViewModel,
@@ -211,6 +221,10 @@ namespace XBInsaat.Controllers
                 });
             return Redirect(Request.Headers["Referer"].ToString());
         }
+       
+        
+        
+        
         //private ActionResult GetNewsJsonData(int newItemId = 2, string language = "Az")
         //{
         //    News data = _dataContext.News.Include(x => x.NewsImages).FirstOrDefault(x => x.Id == newItemId);

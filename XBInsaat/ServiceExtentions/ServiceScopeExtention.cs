@@ -108,6 +108,9 @@ namespace XBInsaat.Mvc.ServiceExtentions
             services.AddScoped<ILocalizationCreateServices, LocalizationCreateServices>();
             services.AddScoped<ILocalizationEditServices, LocalizationEditServices>();
 
+            services.AddScoped<ISettingCreateServices, SettingCreateServices>();
+
+
             services.AddScoped<IAdminLoggerIndexServices, AdminLoggerIndexServices>();
             services.AddScoped<ILoggerServices, LoggerServices>();
 

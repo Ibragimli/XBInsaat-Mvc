@@ -20,15 +20,15 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
     {
         private readonly ILoggerServices _loggerServices;
         private readonly UserManager<AppUser> _userManager;
-        private readonly DataContext _context;
+        private readonly ISettingCreateServices _settingCreateServices;
         private readonly ISettingEditServices _SettingEditServices;
         private readonly ISettingIndexServices _SettingIndexServices;
 
-        public SettingController(ILoggerServices loggerServices, UserManager<AppUser> userManager, DataContext context, ISettingEditServices SettingEditServices, ISettingIndexServices SettingIndexServices)
+        public SettingController(ILoggerServices loggerServices, UserManager<AppUser> userManager, ISettingCreateServices settingCreateServices, ISettingEditServices SettingEditServices, ISettingIndexServices SettingIndexServices)
         {
             _loggerServices = loggerServices;
             _userManager = userManager;
-            _context = context;
+            _settingCreateServices = settingCreateServices;
             _SettingEditServices = SettingEditServices;
             _SettingIndexServices = SettingIndexServices;
         }
@@ -45,6 +45,49 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
             };
 
             return View(SettingIndexVM);
+        }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(SettingCreateDto settingCreateDto)
+        {
+            try
+            {
+                await _settingCreateServices.SettingCreate(settingCreateDto);
+                AppUser user = User.Identity.IsAuthenticated ? _userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name && x.IsAdmin) : null;
+                if (user == null)
+                    throw new UserNotFoundException("Error bas verdi!");
+                await _loggerServices.LoggerCreate("Setting", "Edit", user.FullName, user.UserName, settingCreateDto.Key);
+            }
+            catch (ValueFormatExpception ex)
+            {
+
+                ModelState.AddModelError("", ex.Message);
+                return View(settingCreateDto);
+            }
+            catch (ItemNotFoundException ex)
+            {
+
+                ModelState.AddModelError("", ex.Message);
+                return View(settingCreateDto);
+            }
+            catch (UserNotFoundException)
+            {
+                return RedirectToAction("index", "notfound");
+            }
+            catch (Exception ex)
+            {
+
+                ModelState.AddModelError("", ex.Message);
+                return View(settingCreateDto);
+            }
+            TempData["Success"] = ("Proses uğurlu oldu!");
+            return RedirectToAction("index", "Setting");
         }
 
         public async Task<IActionResult> Edit(int id)

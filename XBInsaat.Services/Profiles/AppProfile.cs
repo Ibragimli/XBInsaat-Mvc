@@ -21,8 +21,8 @@ namespace XBInsaat.Services.Profiles
             CreateMap<ContactUsCreateDto, ContactUs>();
             CreateMap<LoggerPostDto, Logger>();
             CreateMap<CareerPostDto, Career>();
-            CreateMap<CareerPostDto, Career>();
             CreateMap<LocalizationCreateDto, Localization>();
+            CreateMap<SettingCreateDto, Setting>();
 
 
         }

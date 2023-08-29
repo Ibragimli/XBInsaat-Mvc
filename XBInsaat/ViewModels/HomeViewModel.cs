@@ -20,6 +20,8 @@ namespace XBInsaat.Mvc.ViewModels
         public HomeIndexMidProjectViewModel HomeIndexMidProjectViewModel { get; set; }
         public LoginViewModel LoginViewModel { get; set; }
         public SettingViewModel SettingViewModel { get; set; }
+        public HomeIndexServicesViewModel HomeIndexServicesViewModel { get; set; }
+        
     }
     public class HomeIndexProjectsViewModel
     {
@@ -34,7 +36,13 @@ namespace XBInsaat.Mvc.ViewModels
         public IEnumerable<Setting> Settings { get; set; }
 
     }
+    public class HomeIndexServicesViewModel
+    {
+        public IEnumerable<XBService> XBServices { get; set; }
+        public IEnumerable<Setting> Settings { get; set; }
+        public IEnumerable<Localization> Localizations { get; set; }
 
+    }
     public class HomeIndexNewsViewModel
     {
         public IEnumerable<News> News { get; set; }
