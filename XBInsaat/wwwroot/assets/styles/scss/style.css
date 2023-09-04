@@ -750,7 +750,7 @@ body {
       font-weight: 400;
       line-height: 1.5;
       color: #212529;
-      text-align: left; }
+      text-align: justify; }
     .modal .modal-dialog .modal-content .modal-footer,
     .fade .modal-dialog .modal-content .modal-footer {
       padding: 1rem 2rem 2rem 2rem !important; }
@@ -1423,7 +1423,8 @@ body {
   left: calc((100vw - 100vw * 0.825));
   transition: all 0.4s; }
   #boxDesctipions .row .boxDesc {
-    width: 200px !important;
+    width: 100%;
+    max-width: 335px !important;
     display: none; }
     #boxDesctipions .row .boxDesc h1 {
       z-index: 5;
@@ -1434,14 +1435,13 @@ body {
       font-weight: 550;
       font-size: 65px; }
     #boxDesctipions .row .boxDesc p {
+      text-align: justify;
       z-index: 6;
       text-decoration: none;
-      white-space: nowrap;
       line-height: 21px;
-      letter-spacing: 0px;
-      font-weight: 400;
       font-size: 17px;
-      transform: translate(0px, 0px); }
+      width: 100%;
+      padding: 0px 5px; }
     #boxDesctipions .row .boxDesc .boxDescButton {
       z-index: 7;
       margin-top: 30px; }

@@ -28,7 +28,7 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
         }
         public async Task<IActionResult> Login()
         {
-            AppUser user = User.Identity.IsAuthenticated ? await _userManager.FindByNameAsync(User.Identity.Name) : null;
+            AppUser user =  User.Identity.IsAuthenticated ? await _userManager.FindByNameAsync(User.Identity.Name) : null;
 
             if (user != null && user.IsAdmin == true)
             {
@@ -45,11 +45,16 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
             {
                 await _adminLoginServices.Login(adminLoginPostDto);
 
-
                 //Logger
                 AppUser user = await _userManager.FindByNameAsync(adminLoginPostDto.Username);
 
-                await _loggerServices.LoggerCreate("Account", "Login", adminLoginPostDto.Username, user.RoleName, adminLoginPostDto.Username);
+                await _loggerServices.LoggerCreate("Account-Login", "Hesaba giriş edildi", adminLoginPostDto.Username, user.RoleName, adminLoginPostDto.Username);
+            }
+            catch (ItemNullException ex)
+            {
+                TempData["Error"] = (ex.Message);
+                ModelState.AddModelError("", ex.Message);
+                return View();
             }
             catch (UserLoginAttempCountException ex)
             {

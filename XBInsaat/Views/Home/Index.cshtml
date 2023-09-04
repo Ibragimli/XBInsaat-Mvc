@@ -1,6 +1,6 @@
 ﻿@model HomeViewModel
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Ana səhifə";
     var language = _localization.Getkey("Language").Value;
     var count = 0;
 }
@@ -16,15 +16,24 @@
     <!-- owlCarousel -->
     <link rel="stylesheet" href="~/assets/styles/css/owl.carousel.min.css">
     <link rel="stylesheet" href="~/assets/styles/css/owl.theme.default.min.css">
-   
+
     <link href="https://xbinsaat.az/" rel="canonical">
     <meta property="og:url" content="https://xbinsaat.az/">
-    <meta property="og:title" content="XEBERLER | XBINSAAT MMC">
+    <meta property="og:title" content="XARI BÜLBÜL İNŞAAT MMC">
+
+
+    <meta itemprop="name" content="XARI BÜLBÜL İNŞAAT MMC" />
+    <meta name="keywords" content="Xarıbülbül,XARIBÜLBÜL,XARI BÜLBÜL,XARI BÜLBÜL İNŞAAT,inşaat az,inşaat,xbinşaat,XARI BÜLBÜL İNŞAAT,XARI BÜLBÜL İNŞAAT MMC,xb inşaat,Xarıbülbül XEBERLER, XBİnşaat,Xbinsaat Xəbərlər,Xarıbülbül Xəbərlər,Xarıbülbül Karyera,Xarıbülbül Layihə,Layihə,Haqqımızda,Xidmətlər,Xarıbülbül Xidmətlər, Xarıbülbül Əlaqə, Xarıbülbül Elaqe,Elaqe,Əlaqə,İnşaat,Layihələndirmə,@(Model.Settings.FirstOrDefault(x=>x.Key == "ContactNumber")),@(Model.Settings.FirstOrDefault(x=>x.Key == "ContactEmail")), @foreach (var highProject in Model.HighProjects){
+                            @(highProject.Name + ",")
+}" />
+    <meta name="description" content="@Model.Settings.FirstOrDefault(x => x.Key == "SeoDescription")?.Value">
+    <meta property="og:description" content="@Model.Settings.FirstOrDefault(x => x.Key == "SeoDescription")?.Value">
 }
 
 <!-- Contact Us Button -->
 <div class="contactUsBtnBox " id="hereket">
     <a href="#" data-bs-toggle="modal" data-bs-target="#contactUsModal" id="ctnBtn">
+
         <i class="fa-solid fa-phone-volume "></i>
     </a>
 </div>

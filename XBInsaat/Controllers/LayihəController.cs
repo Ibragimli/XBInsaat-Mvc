@@ -19,7 +19,7 @@ namespace XBInsaat.Mvc.Controllers
         {
             ProjectViewModel projectViewModel = new ProjectViewModel();
             ContactUsCreateDto contactUsCreateDto = new ContactUsCreateDto();
-         
+
             try
             {
                 HomeIndexContactUsViewModel homeIndexContactUsViewModel = new HomeIndexContactUsViewModel
@@ -35,10 +35,11 @@ namespace XBInsaat.Mvc.Controllers
                     Localizations = await _homeIndexServices.GetLocalizations(),
 
                 };
+
                 projectViewModel = new ProjectViewModel
                 {
                     HighProject = await _homeIndexServices.GetHighProject(id),
-                    MidProjects = await _homeIndexServices.GetRowMidProjects(),
+                    MidProjects = await _homeIndexServices.GetRowMidProjects(id),
                     Settings = await _homeIndexServices.GetSettings(),
                     HomeIndexContactUsViewModel = homeIndexContactUsViewModel,
                     LoginViewModel = loginVM,

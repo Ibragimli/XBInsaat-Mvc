@@ -151,12 +151,13 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
 
             try
             {
+                var midProject = await _adminMidProjectEditServices.GetMidProject(id);
                 MidProjectEditVM = new MidProjectEditViewModel()
                 {
-                    MidProject = await _adminMidProjectEditServices.GetMidProject(id),
+                    MidProject = midProject,
                     MidProjectImages = await _adminMidProjectEditServices.GetImages(id),
                     HighProjects = await _adminMidProjectCreateServices.GetAllHighProjects(),
-                    maxRow =  _adminMidProjectEditServices.GetMaxRow(),
+                    maxRow = _adminMidProjectEditServices.GetMaxRow(midProject.HighProjectId),
                 };
 
             }
@@ -194,7 +195,7 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
                     MidProject = await _adminMidProjectEditServices.GetMidProject(MidProject.Id),
                     MidProjectImages = await _adminMidProjectEditServices.GetImages(MidProject.Id),
                     HighProjects = await _adminMidProjectCreateServices.GetAllHighProjects(),
-                    maxRow = _adminMidProjectEditServices.GetMaxRow(),
+                    maxRow = _adminMidProjectEditServices.GetMaxRow(MidProject.HighProjectId),
                 };
 
 

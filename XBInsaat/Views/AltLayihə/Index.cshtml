@@ -22,6 +22,14 @@
     <link href="https://xbinsaat.az/altlayih%C9%99/index/@Model.MidProject.Id" rel="canonical">
     <meta property="og:url" content="https://xbinsaat.az/altlayih%C9%99/index/@Model.MidProject.Id">
     <meta property="og:title" content="@Model.MidProject.Name | XBINSAAT MMC">
+
+    <meta itemprop="name" content="@Model.MidProject.Name | XBINSAAT MMC" />
+    <meta name="keywords" content="@Model.MidProject.Name,XBINSAAT @Model.MidProject.Name,Xaribulbul @Model.MidProject.Name,Xarıbülbül @Model.MidProject.Name, @Model.MidProject.HighProject.Name,
+        @foreach (var number in numbers){
+            @(number +",")
+}" />
+    <meta name="description" content="@Model.MidProject.DescribeAz">
+    <meta property="og:description" content="@Model.MidProject.DescribeAz">
 }
 
 @model MidProjectViewModel
@@ -31,6 +39,7 @@
 <div class="contactUsBtnBox " id="hereket">
     <a href="#" data-bs-toggle="modal" data-bs-target="#contactUsModal" id="ctnBtn">
         <i class="fa-solid fa-phone-volume "></i>
+
     </a>
 </div>
 

@@ -9,7 +9,7 @@ namespace XBInsaat.Core.Repositories
 {
     public interface IMidProjectRepository : IRepository<MidProject>
     {
-        MidProject MaxRow();
-        Task<List<MidProject>> GetAllRowMid();
+        MidProject MaxRow(int highProjectId);
+    
     }
 }

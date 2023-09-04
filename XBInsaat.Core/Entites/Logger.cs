@@ -10,6 +10,7 @@ namespace XBInsaat.Core.Entites
     {
         public string Name { get; set; }
         public string Role { get; set; }
+        public string? Username { get; set; }
         public string Controller { get; set; }
         public string Action { get; set; }
         public string? Product { get; set; }

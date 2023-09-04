@@ -80,12 +80,14 @@ namespace XBInsaat.Mvc.Controllers
                 {
                     ContactUsCreateDto = new ContactUsCreateDto(),
                     Settings = await _homeIndexServices.GetSettings(),
+                    Localizations = await _homeIndexServices.GetLocalizations(),
 
                 };
                 LoginViewModel loginVM = new LoginViewModel
                 {
                     LoginPostDto = new LoginPostDto(),
                     Settings = await _homeIndexServices.GetSettings(),
+                    Localizations = await _homeIndexServices.GetLocalizations(),
 
                 };
                 careerVM = new CareerViewModel()
@@ -94,6 +96,8 @@ namespace XBInsaat.Mvc.Controllers
                     Settings = await _homeIndexServices.GetSettings(),
                     HomeIndexContactUsViewModel = homeIndexContactUsViewModel,
                     LoginViewModel = loginVM,
+                    Localizations = await _homeIndexServices.GetLocalizations(),
+
                 };
                 _careerServices.CheckValue(CareerPostDto);
                 await _careerServices.SendCV(CareerPostDto);

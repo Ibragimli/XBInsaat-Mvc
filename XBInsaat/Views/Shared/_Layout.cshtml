@@ -64,18 +64,28 @@
         ga('send', 'pageview');
     </script>
     <!-- End Google Analytics -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-02Q4LQBD1T"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-02Q4LQBD1T');
+    </script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <meta name="keywords" content="@settings.FirstOrDefault(x => x.Key == "SeoKeywords")?.Value" />
-    <meta name="description" content="@settings.FirstOrDefault(x => x.Key == "SeoDescription")?.Value" />
+    @*<meta name="keywords" content="@settings.FirstOrDefault(x => x.Key == "SeoKeywords")?.Value" />*@
+    @*<meta name="description" content="@settings.FirstOrDefault(x => x.Key == "SeoDescription")?.Value" />*@
     <meta property="og:site_name" content="xbinsaat.az">
-    <meta property="og:url" content="https://xbinsaat.az/">
+    @*<meta property="og:url" content="https://xbinsaat.az/">*@
+    @*<meta property="og:description" content="@settings.FirstOrDefault(x => x.Key == "SeoDescription")?.Value">*@
+
     <meta property="og:type" content="website">
-    <meta property="og:description" content="@settings.FirstOrDefault(x => x.Key == "SeoDescription")?.Value">
     <meta name="MobileOptimized" content="width">
     <meta name="HandheldFriendly" content="true">
     <meta content="XARIBULBUL INSAAT MMC. Copyright (c) @nowYear" name="copyright">

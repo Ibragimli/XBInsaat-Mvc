@@ -8,6 +8,12 @@
     <link href="https://xbinsaat.az/career" rel="canonical">
     <meta property="og:url" content="https://xbinsaat.az/career">
     <meta property="og:title" content="KARYERA | XBINSAAT MMC">
+
+    <meta itemprop="name" content="KARYERA | XBINSAAT MMC" />
+    <meta name="keywords" content="KARYERA,Xarıbülbül KARYERA, XBİnşaat,Komanda,Xbinsaat Karyera,Xarıbülbül İnsan Resurslarını, @Html.Raw(Model.Localizations.FirstOrDefault(x => x.Key == "Career" + language)?.Value)" />
+
+    <meta name="description" content="@Html.Raw(Model.Localizations.FirstOrDefault(x => x.Key == "CareerText" + language)?.Value)">
+    <meta property="og:description" content="@Html.Raw(Model.Localizations.FirstOrDefault(x => x.Key == "CareerText" + language)?.Value)">
 }
 
 @model CareerViewModel

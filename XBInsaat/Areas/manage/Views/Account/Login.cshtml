@@ -105,15 +105,13 @@
 
                             </div>
                             <div class="mb-3 form-password-toggle">
-                                <div class="d-flex justify-content-between">
-                                    <label class="form-label" for="password">Password</label>
-
-                                </div>
-                                <div class="input-group input-group-merge">
+                                <label class="form-label" for="password">Password</label>
+                                <div class="input-group ">
                                     <input type="password" asp-for="Password" class="form-control" placeholder="············" aria-describedby="password">
-                                    <span asp-validation-for="Password" class="text-danger"></span>
-                                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                                    <span class="input-group-text cursor-pointer d-n"><i class="bx bx-hide"></i></span>
                                 </div>
+                                <span asp-validation-for="Password" class="text-danger"></span>
+
                             </div>
 
                             <div class="mb-3">

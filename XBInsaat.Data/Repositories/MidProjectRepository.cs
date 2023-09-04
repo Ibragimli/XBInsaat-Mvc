@@ -20,14 +20,9 @@ namespace XBInsaat.Data.Repositories
             _context = context;
         }
 
-        public async Task<List<MidProject>> GetAllRowMid()
+        public MidProject MaxRow(int highProjectId)
         {
-           return await  _context.MidProjects.Include("MidProjectImages").OrderBy(e => e.Row).ToListAsync();
-        }
-
-        public  MidProject MaxRow()
-        {
-            var entityWithMaxRow = _context.MidProjects.OrderByDescending(e => e.Row).FirstOrDefault();
+            var entityWithMaxRow = _context.MidProjects.Where(x => x.HighProjectId == highProjectId).OrderByDescending(e => e.Row).FirstOrDefault();
             return entityWithMaxRow;
 
 

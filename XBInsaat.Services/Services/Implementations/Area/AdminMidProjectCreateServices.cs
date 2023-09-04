@@ -30,8 +30,12 @@ namespace XBInsaat.Services.Services.Implementations.Area
 
         public async Task<MidProject> CreateProject(MidProjectCreateDto MidProjectCreateDto)
         {
-            var midExist =  _unitOfWork.MidProjectRepository.MaxRow();
-            var rowMax = midExist.Row;
+            var rowMax = 0;
+
+            var midExist = _unitOfWork.MidProjectRepository.MaxRow(MidProjectCreateDto.HighProjectId);
+            if (midExist != null)
+                rowMax = midExist.Row;
+
 
             var midProject = _mapper.Map<MidProject>(MidProjectCreateDto);
             midProject.Row = rowMax + 1;

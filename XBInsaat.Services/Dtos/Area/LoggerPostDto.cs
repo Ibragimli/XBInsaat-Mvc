@@ -15,6 +15,7 @@ namespace XBInsaat.Services.Dtos.User
         public string Controller { get; set; }
         public string Action { get; set; }
         public string? Product { get; set; }
+        public string? Username { get; set; }
     }
     public class LoggerPostDtoValidator : AbstractValidator<LoggerPostDto>
     {

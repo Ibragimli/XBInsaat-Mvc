@@ -11,7 +11,7 @@ namespace XBInsaat.Services.Services.Interfaces.Area
     {
         public Task<MidProject> GetMidProject(int id);
         public Task EditMidProject(MidProject MidProject);
-        public int GetMaxRow();
+        public int GetMaxRow(int highProjectId);
         public Task<IEnumerable<MidProjectImage>> GetImages(int id);
 
     }

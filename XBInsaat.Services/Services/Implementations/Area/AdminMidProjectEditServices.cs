@@ -61,13 +61,16 @@ namespace XBInsaat.Services.Services.Implementations.Area
 
             if (oldMidProject?.Row != MidProject?.Row)
             {
-                var oldRowProject = await _unitOfWork.MidProjectRepository.GetAsync(x => x.Row == MidProject.Row);
+                var oldRowProject = await _unitOfWork.MidProjectRepository.GetAsync(x => x.Row == MidProject.Row && x.HighProjectId == MidProject.HighProjectId);
                 if (oldRowProject != null && oldRowProject.Row > 0)
                 {
                     oldRowProject.Row = oldMidProject.Row;
                     oldMidProject.Row = MidProject.Row;
-                    checkBool = true;
                 }
+                else
+                    oldMidProject.Row = MidProject.Row;
+                checkBool = true;
+
             }
             if (oldMidProject.HighProjectId != MidProject.HighProjectId)
             {
@@ -220,15 +223,14 @@ namespace XBInsaat.Services.Services.Implementations.Area
         private void Check(MidProject MidProject)
         {
 
-            var maxRow = _unitOfWork.MidProjectRepository.MaxRow();
-            maxRow.Row = maxRow.Row + 1;
+            var maxRow = _unitOfWork.MidProjectRepository.MaxRow(MidProject.HighProjectId);
             if (MidProject?.Row < 1)
             {
                 throw new ValueFormatExpception("Sıra nömrəsi 0-ola bilməz!!");
             }
-            if (MidProject?.Row > maxRow.Row)
+            if (MidProject?.Row > maxRow.Row + 1)
             {
-                throw new ValueFormatExpception("Sonuncu sıra nömrəsi maksimum " + maxRow.Row + " ola bilər");
+                throw new ValueFormatExpception("Sonuncu sıra nömrəsi maksimum " + maxRow.Row+1 + " ola bilər");
             }
 
 
@@ -266,9 +268,9 @@ namespace XBInsaat.Services.Services.Implementations.Area
             }
         }
 
-        public int GetMaxRow()
+        public int GetMaxRow(int highProjectId)
         {
-            var project = _unitOfWork.MidProjectRepository.MaxRow();
+            var project = _unitOfWork.MidProjectRepository.MaxRow(highProjectId);
             return project.Row;
         }
     }

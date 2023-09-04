@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +27,7 @@ namespace XBInsaat.Services.Services.Implementations.User
 
         public async Task<IEnumerable<HighProject>> GetHighProjects()
         {
-            return await _unitOfWork.HighProjectRepository.GetAllAsync(x => !x.IsDelete, "HighProjectImages");
+            return await _unitOfWork.HighProjectRepository.GetAllAsync(x => !x.IsDelete, "HighProjectImages", "MidProjects");
         }
 
         public async Task<IEnumerable<MidProjectImage>> GetMidProjectImages()
@@ -36,17 +37,19 @@ namespace XBInsaat.Services.Services.Implementations.User
 
         public async Task<IEnumerable<MidProject>> GetMidProjects()
         {
-            return await _unitOfWork.MidProjectRepository.GetAllAsync(x => !x.IsDelete, "MidProjectImages");
+            return await _unitOfWork.MidProjectRepository.GetAllAsync(x => !x.IsDelete, "MidProjectImages", "HighProject");
         }
-        public async Task<List<MidProject>> GetRowMidProjects()
+        public async Task<IEnumerable<MidProject>> GetRowMidProjects(int highProjectId)
         {
-            return await _unitOfWork.MidProjectRepository.GetAllRowMid();
+            var midProjects = await _unitOfWork.MidProjectRepository.GetAllAsync(x => x.HighProjectId == highProjectId, "MidProjectImages", "HighProject");
+            midProjects = midProjects.OrderBy(x => x.Row);
+
+            return midProjects;
         }
 
         public async Task<News> GetNew(int id)
         {
             var item = await _unitOfWork.NewsRepository.GetAsync(x => !x.IsDelete && x.Id == id, "NewsImages");
-
             if (item == null)
                 throw new ItemNotFoundException("Xəbər tapılmadı!");
             return item;
@@ -64,7 +67,9 @@ namespace XBInsaat.Services.Services.Implementations.User
 
         public async Task<IEnumerable<News>> GetNews()
         {
-            return await _unitOfWork.NewsRepository.GetAllAsync(x => !x.IsDelete, "NewsImages");
+            var news = await _unitOfWork.NewsRepository.GetAllAsync(x => !x.IsDelete, "NewsImages");
+            news = news.OrderByDescending(x => x.Id);
+            return news;
         }
 
         public async Task<IEnumerable<NewsImage>> GetNewsImages()
@@ -91,7 +96,7 @@ namespace XBInsaat.Services.Services.Implementations.User
 
         public async Task<MidProject> GetMidProject(int id)
         {
-            var item = await _unitOfWork.MidProjectRepository.GetAsync(x => !x.IsDelete && x.Id == id, "MidProjectImages");
+            var item = await _unitOfWork.MidProjectRepository.GetAsync(x => !x.IsDelete && x.Id == id, "MidProjectImages", "HighProject");
 
             if (item == null)
                 throw new ItemNotFoundException("Layihə tapılmadı!");
@@ -102,16 +107,13 @@ namespace XBInsaat.Services.Services.Implementations.User
         {
             //var news = await _unitOfWork.NewsRepository.GetAllPagenatedAsync(x => !x.IsDelete, page, pageSize, "NewsImages").ToList();
             //return news;
-            var newsAsync = _unitOfWork.NewsRepository.GetAllPagenatedAsync(x => !x.IsDelete, page, pageSize, "NewsImages");
 
-            // Task'i tamamlayın ve sonuçları alın
-            var newsList = await newsAsync;
+            var newsList = await _unitOfWork.NewsRepository.GetAllPagenatedAsync(x => !x.IsDelete, page, pageSize, "NewsImages"); ;
 
-            // News nesnelerini bir liste olarak alın
-            var newsListAsList = newsList.ToList();
 
-            // Haber listesini kullanarak istediğiniz işlemleri yapabilirsiniz.
-            // Örneğin, bu listeyi bir View'e gönderebilirsiniz:
+            var newsListAsList = newsList.OrderByDescending(x => x.Id).ToList();
+
+
             return newsListAsList;
         }
 

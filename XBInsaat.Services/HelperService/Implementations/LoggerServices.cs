@@ -22,7 +22,7 @@ namespace XBInsaat.Services.HelperService.Implementations
             _mapper = mapper;
         }
 
-        public async Task LoggerCreate(string controller, string action,  string name, string role, string? product = "salam")
+        public async Task LoggerCreate(string controller, string action,  string name, string role, string? product = "-", string? username = "-")
         {
             LoggerPostDto newDto = new LoggerPostDto()
             {
@@ -31,6 +31,7 @@ namespace XBInsaat.Services.HelperService.Implementations
                 Name = name,
                 Role = role,
                 Product = product,
+                Username = username,
             };
 
             await LoggerCreater(newDto);
@@ -41,7 +42,5 @@ namespace XBInsaat.Services.HelperService.Implementations
             await _unitOfWork.LoggerRepository.InsertAsync(logger);
             await _unitOfWork.CommitAsync();
         }
-
-
     }
 }

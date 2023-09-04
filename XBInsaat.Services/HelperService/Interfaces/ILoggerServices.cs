@@ -9,7 +9,8 @@ namespace XBInsaat.Services.HelperService.Interfaces
 {
     public interface ILoggerServices
     {
-        Task LoggerCreate(string controller, string action, string name, string role, string? product = "salam");
+        public  Task LoggerCreate(string controller, string action, string name, string role, string? product = "-", string? username = "-");
+
 
     }
 }
