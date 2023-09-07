@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using XBInsaat.Data.Datacontext;
 
@@ -11,9 +12,10 @@ using XBInsaat.Data.Datacontext;
 namespace XBInsaat.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20230906075232_RolePageTableCreate")]
+    partial class RolePageTableCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -677,42 +679,13 @@ namespace XBInsaat.Data.Migrations
                     b.Property<DateTime>("ModifiedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Value")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("RolePages");
-                });
-
-            modelBuilder.Entity("XBInsaat.Core.Entites.RolePageIdentityRoleId", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("IdentityRoleId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<bool>("IsDelete")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("RolePageId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("IdentityRoleId");
-
-                    b.HasIndex("RolePageId");
-
-                    b.ToTable("RolePageIdentityRoles");
                 });
 
             modelBuilder.Entity("XBInsaat.Core.Entites.Setting", b =>
@@ -1016,25 +989,6 @@ namespace XBInsaat.Data.Migrations
                     b.Navigation("News");
                 });
 
-            modelBuilder.Entity("XBInsaat.Core.Entites.RolePageIdentityRoleId", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", "IdentityRole")
-                        .WithMany()
-                        .HasForeignKey("IdentityRoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("XBInsaat.Core.Entites.RolePage", "RolePage")
-                        .WithMany("RolePageIdentityRoles")
-                        .HasForeignKey("RolePageId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("IdentityRole");
-
-                    b.Navigation("RolePage");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -1101,11 +1055,6 @@ namespace XBInsaat.Data.Migrations
             modelBuilder.Entity("XBInsaat.Core.Entites.News", b =>
                 {
                     b.Navigation("NewsImages");
-                });
-
-            modelBuilder.Entity("XBInsaat.Core.Entites.RolePage", b =>
-                {
-                    b.Navigation("RolePageIdentityRoles");
                 });
 #pragma warning restore 612, 618
         }

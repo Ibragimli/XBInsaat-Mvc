@@ -118,6 +118,11 @@ namespace XBInsaat.Mvc.ServiceExtentions
 
             services.AddScoped<ILayoutServices, LayoutServices>();
             services.AddScoped<ICareerServices, CareerServices>();
+            
+
+            services.AddScoped<IRolePageIndexServices, RolePageIndexServices>();
+            services.AddScoped<IRolePageEditServices, RolePageEditServices>();
+            services.AddScoped<IRolePageServices, RolePageServices>();
         }
     }
 }

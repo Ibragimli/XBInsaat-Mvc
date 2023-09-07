@@ -15,7 +15,7 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
 {
 
     [Area("manage")]
-    [Authorize(Roles = "SuperAdmin")]
+    [Authorize(Roles = "SuperAdmin,Admin")]
     public class ImageSettingController : Controller
     {
         private readonly ILoggerServices _loggerServices;

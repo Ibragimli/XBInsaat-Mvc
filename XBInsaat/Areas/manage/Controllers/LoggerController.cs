@@ -37,7 +37,7 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
                 var Logger = _adminLoggerIndexServices.GetLogger(name);
                 LoggerIndexVM = new LoggerIndexViewModel
                 {
-                    Loggers = PagenetedList<Logger>.Create(Logger, page, 5),
+                    Loggers = PagenetedList<Logger>.Create(Logger, page, 10),
                 };
                 //Logger
                 AppUser user = User.Identity.IsAuthenticated ? _userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name && x.IsAdmin) : null;

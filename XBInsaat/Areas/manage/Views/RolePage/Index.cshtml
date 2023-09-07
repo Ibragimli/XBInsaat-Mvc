@@ -1,9 +1,9 @@
-﻿@model ImageSettingIndexViewModel
+﻿@model RolePageIndexViewModel
 <div class="content-wrapper">
     <!-- Content -->
 
     <div class="container-xxl flex-grow-1 container-p-y">
-        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">ImageSettings /</span> Index</h4>
+        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">RolePages /</span> Index</h4>
 
 
         <!-- Bordered Table -->
@@ -12,7 +12,7 @@
                 @* Pagination *@
                 <div class="row">
                     <div class="d-flex align-items-center col-5">
-                        <form asp-action="index" asp-controller="ImageSetting" asp-route-page="@ViewBag.Page" class="d-flex">
+                        <form asp-action="index" asp-controller="RolePage" asp-route-page="@ViewBag.Page" class="d-flex">
                             <input name="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                             <button class="btn btn-outline-primary" type="submit">Search</button>
                         </form>
@@ -24,7 +24,7 @@
                                 {
 
                                     <li class="page-item">
-                                        <a asp-action="index" asp-controller="ImageSetting" asp-route-page="@(Model.PagenatedItems.PageIndex-1)" class="page-link" aria-label="Previous">
+                                        <a asp-action="index" asp-controller="RolePage" asp-route-page="@(Model.PagenatedItems.PageIndex-1)" class="page-link" aria-label="Previous">
                                             <span aria-hidden="true">&laquo;</span>
                                         </a>
                                     </li>
@@ -32,13 +32,13 @@
                                 @for (int i = 1; i <= Model.PagenatedItems.TotalPages; i++)
                                 {
                                     <li aria-current="page" class="page-item" @(Model.PagenatedItems.PageIndex == i ? "active" : "")>
-                                        <a asp-action="index" asp-controller="ImageSetting" asp-route-page="@i" class="page-link">@i</a>
+                                        <a asp-action="index" asp-controller="RolePage" asp-route-page="@i" class="page-link">@i</a>
                                     </li>
                                 }
                                 @if (Model.PagenatedItems.HasNext)
                                 {
                                     <li class="page-item">
-                                        <a asp-action="index" asp-controller="ImageSetting" asp-route-page="@(Model.PagenatedItems.PageIndex+1)" class="page-link" aria-label="Next">
+                                        <a asp-action="index" asp-controller="RolePage" asp-route-page="@(Model.PagenatedItems.PageIndex+1)" class="page-link" aria-label="Next">
                                             <span aria-hidden="true">&raquo;</span>
                                         </a>
 
@@ -57,28 +57,31 @@
                         <thead>
                             <tr>
                                 <th>Açar</th>
-                                <th>Dəyər</th>
+                                <th>Role</th>
                                 <th>Dəyişdirilmə tarixi</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (var ImageSetting in Model.PagenatedItems)
+                            @foreach (var RolePage in Model.PagenatedItems)
                             {
                                 <tr>
-                                    <td>@ImageSetting.Key</td>
+                                    <td>@RolePage.Key</td>
+
                                     <td>
-                                        @(ImageSetting.Value?.Length < 50 ? ImageSetting.Value : ImageSetting.Value?.Substring(0, 50) + "...")
-                                        @(ImageSetting.Key == "ImageSize" ? "MB" : " ")
+                                        @foreach (var item in Model.RolePageIdentityRoles.Where(x=>x.RolePageId == RolePage.Id))
+                                        {
+                                            @(item.IdentityRole.Name + ", ")
+                                        }
                                     </td>
 
                                     <td>
-                                        @ImageSetting.ModifiedDate
+                                        @RolePage.ModifiedDate
                                     </td>
 
                                     <td>
                                         <div class="d-flex justify-content-sm-around">
-                                            <a asp-route-id="@ImageSetting.Id" asp-action="edit" asp-controller="ImageSetting"><i style="font-size: 26px !important;" class="bx bx-edit-alt me-1"></i> </a>
+                                            <a asp-route-id="@RolePage.Id" asp-action="edit" asp-controller="RolePage"><i style="font-size: 26px !important;" class="bx bx-edit-alt me-1"></i> </a>
                                         </div>
                                     </td>
                                 </tr>

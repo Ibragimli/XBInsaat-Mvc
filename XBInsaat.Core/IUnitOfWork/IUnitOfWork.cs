@@ -27,6 +27,10 @@ namespace XBInsaat.Core.IUnitOfWork
         ILoggerRepository LoggerRepository { get; }
         ICareerRepository CareerRepository { get; }
         ILocalizationRepository LocalizationRepository { get; }
+        IRolePageRepository RolePageRepository { get; }
+        IRolePageIdentityRoleIdRepository RolePageIdentityRoleIdRepository { get; }
+        IIdentityRoleRepository IdentityRoleRepository { get; }
+
         Task<int> CommitAsync();
 
     }

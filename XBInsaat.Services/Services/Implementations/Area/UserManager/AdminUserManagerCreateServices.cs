@@ -37,7 +37,11 @@ namespace XBInsaat.Services.Services.Implementations.Area.UserManagers
             var role = _roleManager.Roles.FirstOrDefault(x => x.Id == userManagerCreateDto.RoleId);
             AppUser newAdmin = new AppUser { LoginAttemptCount = 5, FullName = userManagerCreateDto.Fullname, IsAdmin = userManagerCreateDto.IsAdmin, UserName = userManagerCreateDto.Username, RoleName = role.Name };
             var admin = await _userManager.CreateAsync(newAdmin, userManagerCreateDto.Password);
+            if (!admin.Succeeded)
+                throw new ValueFormatExpception(admin.Errors.FirstOrDefault().Description);
             var resultRole = await _userManager.AddToRoleAsync(newAdmin, role.Name);
+            if (!resultRole.Succeeded)
+                throw new ValueFormatExpception(resultRole.Errors.FirstOrDefault().Description);
             await _unitOfWork.CommitAsync();
         }
 

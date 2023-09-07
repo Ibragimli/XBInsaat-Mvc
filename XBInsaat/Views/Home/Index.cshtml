@@ -23,7 +23,7 @@
 
 
     <meta itemprop="name" content="XARI BÜLBÜL İNŞAAT MMC" />
-    <meta name="keywords" content="Xarıbülbül,XARIBÜLBÜL,XARI BÜLBÜL,XARI BÜLBÜL İNŞAAT,inşaat az,inşaat,xbinşaat,XARI BÜLBÜL İNŞAAT,XARI BÜLBÜL İNŞAAT MMC,xb inşaat,Xarıbülbül XEBERLER, XBİnşaat,Xbinsaat Xəbərlər,Xarıbülbül Xəbərlər,Xarıbülbül Karyera,Xarıbülbül Layihə,Layihə,Haqqımızda,Xidmətlər,Xarıbülbül Xidmətlər, Xarıbülbül Əlaqə, Xarıbülbül Elaqe,Elaqe,Əlaqə,İnşaat,Layihələndirmə,@(Model.Settings.FirstOrDefault(x=>x.Key == "ContactNumber")),@(Model.Settings.FirstOrDefault(x=>x.Key == "ContactEmail")), @foreach (var highProject in Model.HighProjects){
+    <meta name="keywords" content="@(Model.Settings.FirstOrDefault(x=>x.Key == "SeoKeywords").Value),  @(Model.Settings.FirstOrDefault(x=>x.Key == "ContactNumber").Value) ,@(Model.Settings.FirstOrDefault(x=>x.Key == "ContactEmail").Value), @foreach (var highProject in Model.HighProjects){
                             @(highProject.Name + ",")
 }" />
     <meta name="description" content="@Model.Settings.FirstOrDefault(x => x.Key == "SeoDescription")?.Value">

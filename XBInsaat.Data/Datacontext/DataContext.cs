@@ -32,6 +32,8 @@ namespace XBInsaat.Data.Datacontext
         public DbSet<Career> Careers { get; set; }
         public DbSet<RevolutionSlider> RevolutionSliders { get; set; }
         public DbSet<Localization> Localizations { get; set; }
+        public DbSet<RolePage> RolePages { get; set; }
+        public DbSet<RolePageIdentityRoleId> RolePageIdentityRoles { get; set; }
 
 
 

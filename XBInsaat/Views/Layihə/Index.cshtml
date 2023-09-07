@@ -26,13 +26,9 @@
     <meta property="og:url" content="https://xbinsaat.az/layih%C9%99/index/@Model.HighProject.Id">
     <meta property="og:title" content="@Model.HighProject.Name | XBINSAAT MMC">
 
-    <meta itemprop="name" content="@Model.HighProject.Name | XBINSAAT MMC" />
+    <meta itemprop="name" content=" @Model.HighProject.Name | XBINSAAT MMC" />
 
-    <meta name="keywords" content="@Model.HighProject.Name,@Model.HighProject.ContactInfo,@foreach (var number in numbers){
-                    @(number)
-}),@foreach (var midProject in Model.MidProjects){
-                    @(midProject.Name)
-})" />
+    <meta name="keywords" content="@Model.HighProject.Name, @(Model.Settings.FirstOrDefault(x=>x.Key == "SeoKeywords").Value), @Model.HighProject.ContactInfo,@foreach (var number in numbers){@(number)}),@foreach (var midProject in Model.MidProjects){@(midProject.Name+", ")})" />
     <meta name="description" content="@Model.HighProject.DescribeAz">
     <meta property="og:description" content="@Model.HighProject.DescribeAz">
 }

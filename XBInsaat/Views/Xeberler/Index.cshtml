@@ -11,7 +11,9 @@
     <meta property="og:title" content="XEBERLER | XBINSAAT MMC">
 
     <meta itemprop="name" content="XEBERLER | XBINSAAT MMC" />
-    <meta name="keywords" content="Xəbərlər,XEBERLER,Xbinsaat Xəbərlər, Xarıbülbül XEBERLER, XBİnşaat,Xbinsaat Xəbərlər,Xarıbülbül Xəbərlər,(@foreach (var news in Model.News){@(news.TitleAz + "," + news.TitleEn + "," + news.TitleRu +"," )})"/>
+    <meta name="keywords" content="Xəbərlər,@(Model.Settings.FirstOrDefault(x=>x.Key == "SeoKeywords").Value), XEBERLER,Xbinsaat Xəbərlər, Xarıbülbül XEBERLER, XBİnşaat,Xbinsaat Xəbərlər,Xarıbülbül Xəbərlər,(@foreach (var news in Model.News){
+            @(news.TitleAz + "," + news.TitleEn + "," + news.TitleRu +"," )
+})" />
     <meta name="description" content="@Model.News.FirstOrDefault(x=>!x.IsDelete)?.TextAz ">
     <meta property="og:description" content="@Model.News.FirstOrDefault(x=>!x.IsDelete)?.TextAz ">
 }

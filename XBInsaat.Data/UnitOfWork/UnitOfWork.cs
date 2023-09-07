@@ -31,6 +31,10 @@ namespace XBInsaat.Data.UnitOfWork
         private IContactUsRepository _contactUsRepository;
         private ILoggerRepository _loggerRepository;
         private ILocalizationRepository _localizationRepository;
+        private IRolePageRepository _rolePageRepository;
+        private IRolePageIdentityRoleIdRepository _rolePageIdentityRoleIdRepository;
+        private IIdentityRoleRepository _identityRoleRepository;
+
 
 
         public UnitOfWork(DataContext context)
@@ -66,7 +70,10 @@ namespace XBInsaat.Data.UnitOfWork
 
         public ICareerRepository CareerRepository => _careerRepository = _careerRepository ?? new CareerRepository(_context);
         public ILocalizationRepository LocalizationRepository => _localizationRepository = _localizationRepository ?? new LocalizationRepository(_context);
-        
+        public IRolePageRepository RolePageRepository => _rolePageRepository = _rolePageRepository ?? new RolePageRepository(_context);
+
+        public IRolePageIdentityRoleIdRepository RolePageIdentityRoleIdRepository => _rolePageIdentityRoleIdRepository = _rolePageIdentityRoleIdRepository ?? new RolePageIdentityRoleIdRepository(_context);
+        public IIdentityRoleRepository IdentityRoleRepository => _identityRoleRepository = _identityRoleRepository ?? new IdentityRoleRepository(_context);
         public async Task<int> CommitAsync()
         {
             return await _context.SaveChangesAsync();

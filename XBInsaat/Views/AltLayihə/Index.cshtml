@@ -24,7 +24,7 @@
     <meta property="og:title" content="@Model.MidProject.Name | XBINSAAT MMC">
 
     <meta itemprop="name" content="@Model.MidProject.Name | XBINSAAT MMC" />
-    <meta name="keywords" content="@Model.MidProject.Name,XBINSAAT @Model.MidProject.Name,Xaribulbul @Model.MidProject.Name,Xarıbülbül @Model.MidProject.Name, @Model.MidProject.HighProject.Name,
+    <meta name="keywords" content="@Model.MidProject.Name, @(Model.Settings.FirstOrDefault(x=>x.Key == "SeoKeywords").Value), XBINSAAT @Model.MidProject.Name,Xaribulbul @Model.MidProject.Name,Xarıbülbül @Model.MidProject.Name, @Model.MidProject.HighProject.Name,
         @foreach (var number in numbers){
             @(number +",")
 }" />
