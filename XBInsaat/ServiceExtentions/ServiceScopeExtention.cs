@@ -30,6 +30,7 @@ using XBInsaat.Services.Services.Implementations.Area.Careers;
 using XBInsaat.Services.Services.Implementations.Area.Localizations;
 using Aztamlider.Services.Services.Implementations.Area.Localizations;
 using XBInsaat.Services.Services.Interfaces.Area.Localizations;
+using XBInsaat.Services.Helper;
 
 namespace XBInsaat.Mvc.ServiceExtentions
 {
@@ -123,6 +124,10 @@ namespace XBInsaat.Mvc.ServiceExtentions
             services.AddScoped<IRolePageIndexServices, RolePageIndexServices>();
             services.AddScoped<IRolePageEditServices, RolePageEditServices>();
             services.AddScoped<IRolePageServices, RolePageServices>();
+
+            //services.AddScoped<DynamicRoleFilter>();
+
+          
         }
     }
 }

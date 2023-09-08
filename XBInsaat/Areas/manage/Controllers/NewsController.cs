@@ -15,7 +15,7 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
 {
 
     [Area("manage")]
-    [Authorize(Roles = "SuperAdmin,Admin,Editor,Viewer")]
+    //[Authorize(Roles = "SuperAdmin,Admin,Editor,Viewer")]
     public class NewsController : Controller
     {
         private readonly ILoggerServices _loggerServices;

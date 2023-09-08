@@ -14,7 +14,7 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
 {
 
     [Area("manage")]
-    [Authorize(Roles = "SuperAdmin,Admin,Editor")]
+    //[Authorize(Roles = "SuperAdmin,Admin,Editor")]
 
     public class LocalizationController : Controller
     {

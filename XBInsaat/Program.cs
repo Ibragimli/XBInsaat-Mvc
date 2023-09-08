@@ -10,6 +10,7 @@ using System.Reflection;
 using Microsoft.Extensions.Options;
 using XBInsaat.Service.Helper;
 using XBInsaat.Services.Dtos.Area;
+using XBInsaat.Services.Helper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -41,7 +42,10 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
 #endregion
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews(options =>
+{
+    options.Filters.Add(typeof(DynamicRoleFilter));
+});
 
 builder.Services.AddControllers().AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<HighProjectCreateDto>());
 

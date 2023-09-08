@@ -14,7 +14,7 @@ using Microsoft.AspNetCore.Identity;
 namespace XBInsaat.Mvc.Areas.manage.Controllers
 {
     [Area("manage")]
-    [Authorize(Roles = "SuperAdmin,Admin")]
+    //[Authorize(Roles = "SuperAdmin,Admin")]
 
     public class SettingController : Controller
     {

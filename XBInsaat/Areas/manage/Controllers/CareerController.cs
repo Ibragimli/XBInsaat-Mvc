@@ -9,7 +9,7 @@ using System.Data;
 namespace XBInsaat.Mvc.Areas.manage.Controllers
 {
     [Area("manage")]
-    [Authorize(Roles = "SuperAdmin,Admin,Editor,Viewer")]
+    //[Authorize(Roles = "SuperAdmin,Admin,Editor,Viewer")]
 
     public class CareerController : Controller
     {

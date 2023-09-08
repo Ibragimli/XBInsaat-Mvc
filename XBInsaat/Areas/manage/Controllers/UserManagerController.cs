@@ -15,7 +15,7 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
 {
 
     [Area("manage")]
-    [Authorize(Roles = "SuperAdmin")]
+    //[Authorize(Roles = "SuperAdmin")]
     public class UserManagerController : Controller
     {
         private readonly ILoggerServices _loggerServices;
@@ -300,12 +300,14 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
         {
             try
             {
-                await _adminUserManagerDeleteServices.DeleteUserManager(id);
-
                 //Logger
                 var product = await _adminUserManagerEditServices.GetUserManager(id);
                 AppUser user = await _userManager.Users.FirstOrDefaultAsync(x => x.UserName == User.Identity.Name && x.IsAdmin);
                 await _loggerServices.LoggerCreate("UserManager", "Delete", user.FullName, user.UserName, product.UserName);
+              
+                await _adminUserManagerDeleteServices.DeleteUserManager(id);
+
+               
             }
             catch (ItemNotFoundException ex)
             {

@@ -5,7 +5,7 @@ namespace XBInsaat.Mvc.Areas.manage.Controllers
 {
 
     [Area("manage")]
-    [Authorize(Roles = "SuperAdmin")]
+    //[Authorize(Roles = "SuperAdmin")]
     public class CameraController : Controller
     {
         public IActionResult Index()

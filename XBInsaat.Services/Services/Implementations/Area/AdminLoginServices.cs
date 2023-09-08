@@ -36,10 +36,10 @@ namespace XBInsaat.Services.Services.Implementations.Area
         {
             CheckValues(adminLoginPostDto);
             AppUser adminExist = await _unitOfWork.AppUserRepository.GetAsync(x => x.UserName == adminLoginPostDto.Username);
-            var logger = await _context.Loggers.Where(x => x.Username == adminExist.UserName).OrderByDescending(x => x.Id).FirstOrDefaultAsync();
 
             if (adminExist != null && adminExist.IsAdmin == true && adminExist.LoginAttemptCount != 0)
             {
+                var logger = await _context.Loggers.Where(x => x.Username == adminExist.UserName).OrderByDescending(x => x.Id).FirstOrDefaultAsync();
                 var result = await _signInManager.PasswordSignInAsync(adminExist, adminLoginPostDto.Password, false, false);
 
                 if (!result.Succeeded)

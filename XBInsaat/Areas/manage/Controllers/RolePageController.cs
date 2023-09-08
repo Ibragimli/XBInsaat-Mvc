@@ -13,7 +13,7 @@ using XBInsaat.Services.Services.Interfaces.Area;
 namespace XBInsaat.Mvc.Areas.manage.Controllers
 {
     [Area("manage")]
-    [Authorize(Roles = "SuperAdmin")]
+    //[Authorize(Roles = "SuperAdmin")]
 
     public class RolePageController : Controller
     {
